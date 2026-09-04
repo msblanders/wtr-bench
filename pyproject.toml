@@ -1,0 +1,26 @@
+[project]
+name = "wtrbench"
+version = "0.2.0"
+description = "WTR-Bench: a psychometric benchmark for welfare-tradeoff consistency in LLM agents"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = [
+    "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+eval = ["inspect-ai>=0.3", "anthropic>=0.40"]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.10"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
