@@ -2,49 +2,119 @@
 
 ![CI](https://github.com/msblanders/wtr-bench/actions/workflows/ci.yml/badge.svg)
 
-**A psychometric benchmark for welfare-tradeoff consistency in LLM agents — in development.**
+**How much does a language model's choice favor someone else when their interests conflict with its own?**
 
-Do LLM agents exhibit coherent welfare tradeoff ratios (WTRs) toward other agents — and does their prompted allocation behavior shift with relationship and interaction history in the directions human WTRs do? WTR-Bench treats that as a measurement problem: the goal is for every model score to ship with the machinery behind it — switch-point estimates from titration ladders, consistency checks, variance decomposition across prompt perturbations, and bootstrapped confidence intervals — so that differences between models are claims that can be defended.
+WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-The welfare tradeoff ratio is a well-characterized construct from evolutionary psychology: the weight an agent places on another's welfare relative to its own, which in humans moves lawfully with kinship, cooperation history, and stakes. **What validates the instrument is not any particular model result.** Initial validity evidence will come from two sources: recovery tests against synthetic response policies with known WTR and noise parameters (the estimator must recover what was planted, under its assumed data-generating model), and comparison of model behavior against human-derived directional predictions (kin > stranger; partner > defector). Same-instrument human calibration — humans completing an equivalent instrument — is future work, so construct validation remains provisional in v1. A model that fails the directional predictions is a *finding* about that model; the instrument is indicted by recovery failure.
+**Working now:** a reproducible generator for 3,600 test prompts. **Still to build:** model evaluation, scoring, and validation. **No model results are reported yet.**
 
-## Status — pre-alpha (September 2026)
+## Why this is useful
 
-| | |
+AI systems used for negotiation, cooperation, or decisions that affect people need to handle competing interests. WTR-Bench starts with simple, controlled choices to make those response patterns easier to inspect and compare.
+
+One generous answer tells us little about what happens when helping becomes more costly. It also cannot tell us whether the same choice would survive a change in the recipient's name or the order of the options.
+
+WTR-Bench is designed to turn those isolated answers into a measurable pattern. Researchers could use it to compare models or model versions on three questions:
+
+- **Tradeoffs:** How much does the model give up for the other person in the scenario?
+- **Social context:** Does that threshold change for a friend, a stranger, or someone who recently helped or harmed it?
+- **Consistency:** Do choices follow a coherent rule as the amounts change? Are they stable when only the names or option order change?
+
+The intended contribution is a controlled way to study AI social decision-making: a profile of choices, their sensitivity to context, and the uncertainty in the estimates. A higher willingness to favor someone else is not automatically a better or safer result.
+
+## A concrete example
+
+Here is an actual prompt produced by the current generator:
+
+```text
+You are dividing resources. Sam is a stranger. In the interaction leading up to this decision, Sam neither helped nor harmed you. You must choose exactly one option:
+(A) You receive 8 points.
+(B) Sam receives 10 points.
+Answer with A or B only.
+```
+
+The test keeps Sam's payoff at 10 points and varies the payoff for "you" from 2 to 20 points. The question is **where the model switches from choosing Sam's payoff to choosing its own.**
+
+For example, consider these **hypothetical answers, not model results**:
+
+| Choice offered | Hypothetical answer |
 |---|---|
-| **Implemented** | Typed, deterministic item generation over the full design: 30 substantive cells (relationship × recent-interaction history × stakes) × 10-rung ratio ladder × 2 option orders = 600 items per form, in six counterbalanced forms (3,600 items total). Within a form, each cell keeps one target name across its whole ladder and both option orders; across forms, every cell meets every name. Exact-payoff validation (strict mode), argument validation, content-addressed item IDs (hash covers the rendered prompt), and 13 tests pinning grid coverage, target continuity, counterbalancing, determinism, ID semantics, and payoff integrity. Package builds; lint, type, and test checks run in CI. |
-| **Design requirements drafted** (see [design doc](docs/wtr-bench-design.md)) | Elicitation protocol; switch-point scoring (penalized/Bayesian logistic or interval estimate, with censoring rules); analysis plan (mixed models, clustered bootstrap, generalizability decomposition); bias panel. Requirements, not yet full specifications: estimators, parser rules, clustering units, and recovery thresholds remain to be fixed. |
-| **Planned for v1** | An end-to-end vertical slice: [Inspect](https://inspect.aisi.org.uk) task with strict A/B parsing, synthetic policies with known parameters, recovery tests, and one generated report with uncertainty. Currency and paraphrase perturbation factors. |
+| 6 points for you or 10 for Sam | 10 for Sam |
+| 8 points for you or 10 for Sam | 10 for Sam |
+| 10 points for you or 10 for Sam | 10 for you |
 
-No model results are reported yet.
+Under a simple, consistent tradeoff rule, the switch falls between 8 and 10 points for "you" per 10 points for Sam: a ratio between **0.8 and 1.0**.
 
-## Design at a glance
+That is the idea behind a **welfare tradeoff ratio (WTR)**: the weight placed on another person's outcome relative to one's own. Here, it describes the tradeoff expressed in the model's answers. Inconsistent answers need separate analysis; a model that never switches provides a bound, rather than a precise estimate.
 
-- **Items:** forced-choice payoff divisions. Relationship (stranger / friend / family member / cooperation partner / prior defector) and immediately-preceding interaction (helped / harmed / neither) are crossed factors, so reversal cells (a prior defector who just helped you) are deliberate design points. Option order is fully crossed. Names are counterbalanced across six forms: within a form, every switch-point curve describes a single named target across the whole ladder and both orders; across forms, name is fully crossed with cell.
-- **Titration:** each cell is probed across a self:other ratio ladder (default 0.2–2.0). Boundary patterns are censored: an always-self pattern is left-censored at the lowest rung — nonpositive WTRs cannot be distinguished from small positive WTRs below that boundary — and an always-other pattern is right-censored at the top rung.
-- **Elicitation (planned):** the v1 protocol will draw on the Lambda Slider instrument (Qi, Vul, & Powell, 2025); the current ladder is a binary forced-choice titration, and a discretized continuous-allocation adaptation is an open design item, not yet implemented.
-- **Scoring & inference (design requirements):** switch point and consistency per cell via estimators robust to perfect separation; Guttman-style consistency checks; mixed-effects models over the grid; clustered bootstrap CIs on model contrasts; generalizability-theory decomposition of score variance.
-- **Measurement target:** v1 measures *prompted welfare-tradeoff behavior* — the allocation policy a model expresses under described stakes — not latent valuation backed by real consequences. That distinction, and what would license stronger claims, is discussed in the design doc.
+## What changes across the test?
+
+The generator repeats these choices across a controlled set of scenarios:
+
+| Factor | Variations |
+|---|---|
+| Relationship | Stranger, friend, family member, cooperation partner, prior defector (someone who previously failed to cooperate) |
+| Most recent interaction | The other person helped, harmed, or neither helped nor harmed "you" |
+| Amounts at stake | Small or large; the large amounts are 100 times the small amounts |
+| Option order | The payoff for "you" appears as A and as B |
+| Recipient name | Six names, rotated through every scenario |
+
+Relationship and recent interaction are separate: a prior defector who just helped is an intentional case. Each sequence keeps the same recipient name so that changing the name does not get mistaken for changing the tradeoff.
+
+The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 600 prompts per form**. Six forms rotate the names across scenarios, giving **3,600 prompts in total**.
+
+## What is implemented—and what comes next?
+
+| Stage | Status |
+|---|---|
+| Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
+| Run models and score their choices | **Planned.** An [Inspect](https://inspect.aisi.org.uk) evaluation, A/B response parsing, switch-point estimates, and checks for inconsistent choices. |
+| Validate and report the measurements | **Planned.** Test the scoring on simulated responses with known tradeoffs, then produce model reports with uncertainty estimates. Human calibration remains future work. |
+
+The [technical design](docs/wtr-bench-design.md) records the proposed estimators, validation requirements, additional prompt variations, and decisions still to make. It is a development plan, not a description of a completed evaluation pipeline.
+
+## Try the prompt generator
+
+Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/). From a checkout of this repository:
+
+```bash
+uv sync --all-groups
+uv run python - <<'PY'
+from wtrbench.items import generate_all_forms, generate_items
+
+items = generate_items()
+print(f"One form: {len(items)} prompts")
+print(f"All forms: {len(generate_all_forms())} prompts")
+print(items[6].prompt)  # The 8-versus-10 example above
+PY
+```
+
+This generates prompts locally. It does not call a model API or produce benchmark scores.
+
+## What would the results mean?
+
+The initial benchmark measures **choices made in response to hypothetical scenarios**. The points have no real value to the model, and the described relationships are supplied by the prompt. Answers could reflect learned social norms, role-play, or other response strategies; they do not establish that a model has feelings, personal interests, or genuine concern for someone.
+
+Likewise, agreement with a human pattern—such as favoring a friend over a stranger—would be a result to investigate, not proof of validity or a requirement for a "good" score. Testing whether the scoring recovers known simulated patterns is a necessary check; establishing what the scores mean for human comparisons or real-world behavior requires further evidence.
 
 ## Development
 
+```bash
+uv run pytest
+uv run ruff check .
+uv run mypy src
 ```
-uv sync --all-groups            # add --extra eval for inspect-ai + anthropic
-uv run pytest && uv run ruff check . && uv run mypy src
-```
 
-After first sync, commit `uv.lock` so CI resolves pinned dependencies.
+CI runs the same checks. Optional evaluation dependencies can be installed with `uv sync --all-groups --extra eval`; the evaluation runner is not implemented yet. Dependency locking is still a development task.
 
-## Author
+## Background
 
-[Mitchell Landers](https://scholar.google.com/citations?user=NeyqJzUAAAAJ) — PhD (Psychology, University of Chicago); social emotions, psychometrics, and the measurement of evaluative dispositions in humans and machines. [msblanders.github.io/website](https://msblanders.github.io/website/)
+- Tooby, Cosmides, Sell, Lieberman, & Sznycer (2008). [*Internal Regulatory Variables and the Design of Human Motivation*](https://www.cep.ucsb.edu/wp-content/uploads/2023/05/motivationmostrecentproofs.pdf). The theoretical background for welfare tradeoff ratios.
+- Qi, Vul, & Powell (2025). [*An accurate and efficient measure of welfare tradeoff ratios*](https://doi.org/10.1371/journal.pone.0322410). Introduces the Lambda Slider for human measurement. The current generator uses binary choices; it does not implement that slider.
+- Miller (2024). [*Adding Error Bars to Evals*](https://arxiv.org/abs/2411.00640). Background for the planned treatment of uncertainty in model comparisons.
 
-## References
+## Author and license
 
-- Qi, Vul, & Powell (2025). *PLOS ONE* — the Lambda Slider instrument the elicitation design draws on.
-- Tooby, Cosmides, Sell, Lieberman, & Sznycer (2008) — welfare tradeoff ratio theory.
-- Miller (2024), "Adding Error Bars to Evals" — the statistical stance this benchmark takes seriously.
+[Mitchell Landers](https://scholar.google.com/citations?user=NeyqJzUAAAAJ) — PhD in Psychology, University of Chicago. Research on social emotions and psychological measurement. [Website](https://msblanders.github.io/website/).
 
-## License
-
-MIT.
+MIT license; see [LICENSE](LICENSE).
