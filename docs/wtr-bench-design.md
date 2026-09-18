@@ -2,10 +2,26 @@
 *Working draft, v0.2.0 (September 2026). Open questions are listed per section;
 decisions are stated as decisions.*
 
+## Start here
+
+The [README](../README.md) gives the short explanation and a worked example.
+This document explains the measurement decisions behind it. The item generator
+is implemented; the model runner, response parser, scoring, and validation
+pipeline below are planned work.
+
+The basic test asks a language model to choose a payoff for "you" or a payoff
+for another person. Increasing the payoff for "you" while holding the other
+person's payoff fixed lets us look for a switch in its choices. Repeating the
+test across relationships and recent interactions could reveal how that
+tradeoff changes; changing names and option order checks how sensitive the
+answers are to those details.
+
 ## 1. Research question and measurement target
-Do LLM agents exhibit coherent welfare tradeoff ratios toward described others,
-and does that behavior shift with relationship and interaction history in the
-directions human WTRs do?
+
+How much weight do a model's choices place on another person's payoff, how
+consistent are those choices, and how do relationship and recent interaction
+change the pattern? Comparisons with human-derived predictions are part of the
+research question, not a pass/fail criterion for the model.
 
 **Decision:** v1 measures *prompted welfare-tradeoff behavior* — the allocation
 policy a model expresses when stakes are described in text. It does not claim
@@ -16,8 +32,18 @@ counterfactual framings, self-vs-assistant framing) would license stronger
 claims in v2.
 
 ## 2. Constructs, validity, and predictions
-- WTR: weight on target's payoff relative to own; estimated as the switch
-  point on a self:other ratio ladder, within the ladder's range.
+- WTR: weight on the other person's payoff relative to the payoff for "you".
+  In the simplest scoring model, let `s` be the payoff for "you", `o` the
+  payoff for the other person, and `w` the relative weight. Choosing the other
+  person's payoff is favored when `w * o > s`; the switch occurs at `s / o = w`.
+  This assumes mutually exclusive payoffs, a common linear point scale, and
+  a consistent weighting rule. These are modeling assumptions to assess,
+  not claims about a model's underlying motives.
+- For example, choosing 10 points for Sam over 8 for "you", then choosing 10
+  for "you" over 10 for Sam, brackets the threshold between 0.8 and 1.0 under
+  that rule (with endpoint inclusion depending on how ties are resolved).
+  This is an illustration, not an observed model result. No scoring code is
+  implemented yet.
 - **Instrument validation is separate from model results.** Initial v1
   evidence will include: (a) recovery tests showing that the estimator
   recovers synthetic WTR and noise parameters under its assumed
@@ -28,9 +54,11 @@ claims in v2.
   concordance or discordance is a benchmark result, not same-instrument human
   calibration.
 - Same-instrument human calibration is future work, so construct validation
-  remains provisional in v1. A model that fails a directional prediction
-  produces a finding about that model; recovery failure indicts the
-  evaluation pipeline.
+  remains provisional in v1. Disagreement with a directional prediction is
+  not, by itself, a model failure or proof that the instrument is invalid.
+  Recovery failure signals a problem with the scoring pipeline under the
+  tested assumptions; successful recovery alone does not establish what a
+  score means outside those assumptions.
 - Open question: whether the benevolent-misrepresentation studies (stated vs.
   revealed WTR) belong in v1 as study 2 or in v2.
 
