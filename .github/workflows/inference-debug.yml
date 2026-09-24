@@ -1,0 +1,83 @@
+name: Inference debug
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: Anthropic model ID for the 196-item exploratory debug batch
+        type: string
+        required: true
+        default: claude-haiku-4-5-20251001
+
+permissions:
+  contents: read
+
+concurrency:
+  group: inference-debug-${{ inputs.model }}
+  cancel-in-progress: false
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      MODEL: ${{ inputs.model }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check API credential
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          if not os.environ.get("ANTHROPIC_API_KEY"):
+              raise SystemExit("Add ANTHROPIC_API_KEY under Settings > Secrets and variables > Actions.")
+          PY
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          python-version: "3.12"
+      - run: uv sync --frozen --all-groups --extra eval
+      - name: Check synthetic responders
+        run: uv run --frozen python -m wtrbench.pilot synthetic
+      - name: Record revision, dependencies, and both item sets
+        run: |
+          git rev-parse HEAD > runs/git-revision.txt
+          uv pip freeze > runs/dependencies.txt
+          uv run --frozen python - <<'PY'
+          import json
+          from pathlib import Path
+          from wtrbench.inference import DEBUG_TASKS, PILOT_LADDER, generate_inference_items
+          from wtrbench.run import items_hash
+          batches = {
+              "debug": generate_inference_items(ladder=PILOT_LADDER, tasks=DEBUG_TASKS, set_roles=("debug",)),
+              "pilot": generate_inference_items(ladder=PILOT_LADDER),
+          }
+          manifest = {}
+          for name, items in batches.items():
+              manifest[name] = {"count": len(items), "items_hash": items_hash(items)}
+              Path(f"runs/{name}-items.jsonl").write_text(
+                  "".join(item.model_dump_json() + "\n" for item in items), encoding="utf-8"
+              )
+          Path("runs/items-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+          PY
+      - name: Run the exploratory debug batch
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: uv run --frozen python -m wtrbench.pilot debug "$MODEL"
+      - name: Inspect raw responses
+        if: always()
+        run: |
+          tag="${MODEL//\//_}"
+          response="runs/debug_${tag}.jsonl"
+          if [ -f "$response" ]; then
+            uv run --frozen python -m wtrbench.pilot inspect "$response" > "runs/debug_${tag}.inspect.md"
+            cat "runs/debug_${tag}.inspect.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Save complete or partial results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: inference-debug-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/
+          if-no-files-found: ignore
+          retention-days: 90

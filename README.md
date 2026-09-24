@@ -6,7 +6,7 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**Working now:** a reproducible generator for 3,600 test prompts. **Still to build:** model evaluation, scoring, and validation. **No model results are reported yet.**
+**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. The inference module asks models to predict a partner's choices and ability. Its initial design has **196 debug items and 888 pilot items**. **No real-model results are reported yet.**
 
 ## Why this is useful
 
@@ -68,10 +68,11 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Stage | Status |
 |---|---|
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
-| Run models and score their choices | **Planned.** An [Inspect](https://inspect.aisi.org.uk) evaluation, A/B response parsing, switch-point estimates, and checks for inconsistent choices. |
-| Validate and report the measurements | **Planned.** Test the scoring on simulated responses with known tradeoffs, then produce model reports with uncertainty estimates. Human calibration remains future work. |
+| Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
+| Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
+| Validate and report the measurements | **Synthetic recovery checks implemented for the inference module.** Real-model evaluation and human calibration remain future work. |
 
-The [technical design](docs/wtr-bench-design.md) records the proposed estimators, validation requirements, additional prompt variations, and decisions still to make. It is a development plan, not a description of a completed evaluation pipeline.
+The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
 ## Try the prompt generator
 
@@ -91,6 +92,33 @@ PY
 
 This generates prompts locally. It does not call a model API or produce benchmark scores.
 
+## Run the inference module
+
+Install the optional API dependencies and run the synthetic checks locally:
+
+```bash
+uv sync --frozen --all-groups --extra eval
+uv run python -m wtrbench.pilot synthetic
+```
+
+To run the exploratory batch in GitHub, add a repository Actions secret named
+`ANTHROPIC_API_KEY`, then open **Actions → Inference debug → Run workflow**.
+The workflow saves raw responses, scored and inspection reports, dependency
+versions, the source revision, and manifests for both item sets as an artifact.
+It calls only the 196 debug items. API calls are billed to the supplied key.
+
+To run locally with the key already set in the environment:
+
+```bash
+uv run python -m wtrbench.pilot debug claude-haiku-4-5-20251001
+uv run python -m wtrbench.pilot inspect runs/debug_claude-haiku-4-5-20251001.jsonl
+```
+
+Read the debug responses before freezing and running the 888-item pilot.
+Use the **pilot** item hash for preregistration. See the
+[runbook](docs/inference-runbook.md) for freeze, resume, and pilot commands.
+Generated runs are excluded from version control; retain the downloaded artifacts.
+
 ## What would the results mean?
 
 The initial benchmark measures **choices made in response to hypothetical scenarios**. The points have no real value to the model, and the described relationships are supplied by the prompt. Answers could reflect learned social norms, role-play, or other response strategies; they do not establish that a model has feelings, personal interests, or genuine concern for someone.
@@ -105,7 +133,9 @@ uv run ruff check .
 uv run mypy src
 ```
 
-CI runs the same checks. Optional evaluation dependencies can be installed with `uv sync --all-groups --extra eval`; the evaluation runner is not implemented yet. Dependency locking is still a development task.
+CI runs the same checks and the inference module's synthetic responders. The
+committed `uv.lock` fixes dependency versions; use `uv sync --frozen --all-groups
+--extra eval` to install the tested environment.
 
 ## Background
 
