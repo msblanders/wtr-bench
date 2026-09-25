@@ -1,12 +1,82 @@
 # Inference diagnostic runbook
 
-**Run 36111049496 is complete and audited. Both social pilots remain paused.**
+**The payoff presentation diagnostic is ready for one manual run. Both social
+pilots remain paused.** The [prospective plan](payoff-presentation-v1.md) freezes
+288 requests: all 144 original history questions and their 144 matched
+complete-payoff versions, including both passes. Review the
+[prompt examples](payoff-presentation-examples.md).
+
+## Run the next diagnostic in GitHub
+
+1. Open **Actions → [Inference payoff presentation diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-payoff-presentation.yml)**.
+2. Click **Run workflow**, select **`main`**, and run **once**. There are no
+   model, format or budget inputs. The existing `ANTHROPIC_API_KEY` secret
+   is used and its account is billed for API usage.
+3. Let the job collect **all 288 requests**: both presentations, both option
+   orders, both history orders and two passes. Do not launch another job for
+   pass 2. The model remains `claude-sonnet-4-5-20250929`, temperature 0,
+   256 output tokens. The timeout is 60 minutes; progress logs every 12 replies.
+4. Retain the artifact `inference-payoff-presentation-RUN_ID-ATTEMPT` and send
+   the run link for review. It contains paired gains **and regressions**, all
+   interval fits, order/repeat comparisons and the pending explanation packet.
+
+This is a matched comparison with newly collected original requests; it does
+not reuse old responses as its comparator or select previously failed items.
+It makes 288 calls, versus 216 in the previous diagnostic, and table inputs
+are longer. Output allocation is at most 73,728 tokens plus input usage;
+this is not a dollar quote or a check of the account's remaining balance.
+Preparation and verification make no model requests.
+
+No SDK retries, fallback model, correctness-triggered stopping, extra batch or
+pilot dispatch. Wrong and unusable responses remain in the data. A clear pass
+on constructed controls alone does not release the original social pilot.
+
+### Artifacts, labels and interruptions for this comparison
+
+Items, plan, source revision, dependencies, freeze, raw request/API bodies,
+reports, 72 overlapping fits, 576 pair records and review material are saved.
+The programmed-oracle file is software verification, not model evidence.
+Review all 288 explanations separately; correct choices can have faulty bases.
+Copy the template to a separate labels file, retaining IDs and digests:
+
+```bash
+uv run --frozen python -m wtrbench.payoff_presentation inspect runs/payoff-presentation/responses.jsonl --labels explanation-labels.jsonl
+```
+
+Disclose the reviewer; assistant labels are not independent human coding.
+Uncoded rows remain pending, and stale/duplicate/invalid labels are rejected.
+Accepted labels are archived without overwriting the reviewer's file.
+
+If a job fails, preserve its artifact and inspect the partial data first.
+**Re-run jobs starts a new collection**, not a resume. An exact local resume
+requires the original source, plan, response JSONL and `.jsonl.config.json`;
+it skips saved responses including unusable ones. An unrecorded request may
+have completed on the server and been billed before a transport failure.
+
+```bash
+uv run --frozen python -m wtrbench.payoff_presentation run --resume --out runs/payoff-presentation/responses.jsonl
+```
+
+Offline generation and targeted verification:
+
+```bash
+uv run --frozen python -m wtrbench.payoff_presentation generate
+uv run --frozen pytest -q tests/test_payoff_presentation.py tests/test_recovery_run.py
+```
+
+`protocols/payoff-presentation-v1.json` binds exact prompts, bodies, plan and
+source implementation. Do not edit frozen material after collection; record
+findings in a separate audit. Do not rerun until a preferred result appears.
+
+## Completed known-partner recovery diagnostic
+
+**Run 36111049496 is complete and audited.**
 Explicit weight: 72/72 correct, 18/18 recovered fits, all explanations
 consistent. Choice history: 137/144 correct, six wrong, one truncated;
 24/36 recovered fits. All 216 explanations were reviewed separately.
 See the [audit, preserved evidence and next-step rationale](recovery-36111049496-review.md).
-The frozen clear-pass rule was not met. Do not repeat the batch to seek a
-preferred result. No new collection is configured by this review.
+The frozen clear-pass rule was not met. Do not repeat that batch to seek a
+preferred result. The newly authorized matched display test is described above.
 
 ## Completed diagnostic: retained collection instructions
 

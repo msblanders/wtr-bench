@@ -1,0 +1,58 @@
+name: Inference payoff presentation diagnostic
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: inference-payoff-presentation-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          python-version: "3.12"
+      - run: uv sync --frozen --all-groups --extra eval
+      - name: Verify payoff equivalence, comparison scoring and collection offline
+        run: uv run --frozen pytest -q tests/test_payoff_presentation.py tests/test_recovery_run.py
+      - name: Check API credential
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          if not os.environ.get("ANTHROPIC_API_KEY"):
+              raise SystemExit("ANTHROPIC_API_KEY repository secret is required.")
+          PY
+      - name: Save frozen matched prompts, plan and provenance
+        run: |
+          uv run --frozen python -m wtrbench.payoff_presentation generate
+          git rev-parse HEAD > runs/payoff-presentation/git-revision.txt
+          uv pip freeze > runs/payoff-presentation/dependencies.txt
+      - name: Run all 288 requests once, including both presentations and passes
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: uv run --frozen python -m wtrbench.payoff_presentation run
+      - name: Inspect complete or partial responses
+        if: always()
+        run: |
+          response="runs/payoff-presentation/responses.jsonl"
+          if [ -f "$response" ]; then
+            uv run --frozen python -m wtrbench.payoff_presentation inspect "$response" > runs/payoff-presentation/responses.inspect.md
+            cat runs/payoff-presentation/responses.inspect.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve original and revised responses, including partial data
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: inference-payoff-presentation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/payoff-presentation/
+          retention-days: 90
+          if-no-files-found: ignore

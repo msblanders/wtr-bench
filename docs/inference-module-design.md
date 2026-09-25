@@ -24,6 +24,12 @@ remain unchanged. References to preregistration describe an intention;
 no external registration has occurred. The [runbook](inference-runbook.md)
 records the completed diagnostic, the pilot pause and historical procedures.
 
+**Next authorized collection:** the fixed [payoff presentation comparison](payoff-presentation-v1.md)
+is ready. It uses 288 new history requests to compare the original display
+with complete-payoff tables, retaining all profiles, rungs, reversals and two
+passes. It tests a candidate response to the observed mapping errors; it does
+not impose a known weight on natural stories or release either pilot.
+
 ## 0. What this module adds, and what it does not
 
 Module A (`items.py`) measures the model's **own** welfare-tradeoff behavior.

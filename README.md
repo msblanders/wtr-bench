@@ -6,7 +6,9 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**The 216-request [known-partner recovery diagnostic has been audited](docs/recovery-36111049496-review.md).** Explicit-weight questions scored 72/72 with 18/18 recovered intervals and consistent explanations. History questions scored 137/144, with six wrong answers, one truncated response and 24/36 recovered fits. Some correct choices also contained explanation errors. This diagnostic concerns the weight attributed to a described partner; it does not measure the model's own preferences. Both social pilots remain paused under the [validation plan](docs/validation-before-pilot.md).
+**The next step is the fixed [payoff presentation diagnostic](docs/payoff-presentation-v1.md), ready for one manual run.** Its 288 requests compare all 144 original history questions with matched versions showing both recipients' payoffs, including zeros, in the same collection. Model, evidence, option/history reversals and two passes are preserved. See the [matched prompt examples](docs/payoff-presentation-examples.md). Both social pilots remain paused.
+
+The [216-request recovery diagnostic has been audited](docs/recovery-36111049496-review.md): explicit-weight questions scored 72/72 with 18/18 recovered intervals and consistent explanations. History questions scored 137/144, with six wrong answers, one truncated response and 24/36 recovered fits. Some correct choices also contained explanation errors. These diagnostics concern the weight attributed to a described partner; they do not measure the model's own preferences. The [validation plan](docs/validation-before-pilot.md) retains the original research question.
 
 The 816-request robustness workflow and its CLI collection command are disabled. Its [frozen proposal](docs/response-robustness-pilot-v1.md) remains in the record; it does not replace the original research objective. The original 888-item inference pilot remains unrun. Four debug runs, five calibration batches and three diagnostics are archived. The original social WTR measure has not been validated; controlled recovery is now documented separately from that broader claim.
 
@@ -72,7 +74,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Validation before any pilot.** The fixed recovery diagnostic passed in the explicit-weight condition and was mixed in the history condition. All 216 explanations were audited separately. Order-sensitive errors can shift apparently coherent intervals. Both social pilots remain paused; the original theory-focused aim is retained. |
+| Validate and report the measurements | **Validation before any pilot.** Explicit-weight recovery passed; history recovery was mixed. All 216 explanations were audited. A fixed 288-request matched payoff-display comparison is ready to test a candidate revision. Both social pilots remain paused; the original theory-focused aim is retained. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -96,14 +98,14 @@ This generates prompts locally. It does not call a model API or produce benchmar
 
 ## Run the inference module
 
-The one planned recovery collection is complete: [run 36111049496](https://github.com/msblanders/wtr-bench/actions/runs/36111049496). **Do not rerun it to obtain a passing result or launch either social pilot.** Read the [audit and next-step rationale](docs/recovery-36111049496-review.md). No follow-up collection is configured by this review.
+Run **[Actions → Inference payoff presentation diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-payoff-presentation.yml) → Run workflow → `main`**, once. One job makes **288 requests total**, including both presentations and both passes. It uses the existing `ANTHROPIC_API_KEY` and pinned Sonnet 4.5; API usage is billed to that key. No model, format or budget inputs need changing.
 
-The [frozen collection plan](docs/known-partner-recovery-v1.md) and original artifacts are unchanged. The [runbook](docs/inference-runbook.md) records the completed audit and retains historical collection instructions. Choice accuracy and explanation quality remain separate outcomes; neither alone establishes full social construct validity.
+The [prospective presentation plan](docs/payoff-presentation-v1.md) freezes the sample, paired gains/regressions, interval recovery, consistency and separate explanation audit. The [runbook](docs/inference-runbook.md) explains artifacts and interruptions. Do not launch a separate pass or the old recovery workflow. The earlier [run and audit](docs/recovery-36111049496-review.md), its frozen plan and raw data are unchanged; neither pilot launches automatically.
 
 To generate and verify the frozen prompts without model calls:
 
 ```bash
-uv run --frozen python -m wtrbench.validation_recovery generate
+uv run --frozen python -m wtrbench.payoff_presentation generate
 ```
 
 The [measurement diagnostic](docs/inference-measurement-diagnostic.md), [full-debug audit](docs/debug-36095971330-review.md), [calibration audit](docs/calibration-explanation-repeats-review.md) and [calculation diagnostic](docs/calculation-36087344540-review.md) retain the development record.

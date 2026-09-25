@@ -149,6 +149,23 @@ specified separately. There is no automatic second batch or pilot dispatch.
 If the basic task remains unreliable, acknowledge that outcome rather than
 guaranteeing that additional calibration will eventually validate it.
 
+## Authorized follow-up: matched payoff presentation
+
+Following the recovery audit, the researcher authorized a targeted display
+comparison. The [prospective payoff presentation plan](payoff-presentation-v1.md)
+is implemented and ready for one manual collection: **288 requests**, comparing
+all 144 original history requests with matched complete-payoff versions in the
+same run. Each alternative displays both recipients' payoffs, including zeros.
+All profiles, rungs, option/history reversals and two passes are retained.
+The model, fixed-rule evidence and answer protocol remain unchanged.
+
+This candidate addresses observed payoff-mapping errors; false comparisons
+may persist. Paired improvements, regressions, interval recovery and all
+explanations will be reported separately. The earlier run and pass criterion
+are unchanged, and no result automatically releases either social pilot.
+See the [runbook](inference-runbook.md) for the new workflow, cost exposure and
+partial-run handling. Do not rerun the old recovery workflow.
+
 ## Remaining bridge to the original social pilot
 
 Known-partner recovery is necessary evidence for the proposed interpretation,
