@@ -6,7 +6,7 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. The inference module asks models to predict a partner's choices and ability. Its initial design has **196 debug items and 888 pilot items**. **No real-model results are reported yet.**
+**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. The inference module asks models to predict a partner's choices and ability. Its initial design has **196 debug items and 888 pilot items**. A first Haiku debug run completed, but exposed response-format problems and option-order sensitivity. [Read the audit](docs/debug-36074815150-review.md). **The 888-item pilot has not been run or frozen.**
 
 ## Why this is useful
 
@@ -70,7 +70,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Synthetic recovery checks implemented for the inference module.** Real-model evaluation and human calibration remain future work. |
+| Validate and report the measurements | **Synthetic recovery checks and one exploratory Haiku debug run completed.** The debug audit calls for another measurement check. Confirmatory evaluation and human calibration remain future work. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -118,6 +118,7 @@ Read the debug responses before freezing and running the 888-item pilot.
 Use the **pilot** item hash for preregistration. See the
 [runbook](docs/inference-runbook.md) for freeze, resume, and pilot commands.
 Generated runs are excluded from version control; retain the downloaded artifacts.
+Selected original debug records are preserved under `results/debug/` with an audit.
 
 ## What would the results mean?
 

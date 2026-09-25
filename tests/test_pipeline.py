@@ -197,7 +197,8 @@ def test_inspect_run_reads_a_finished_file(items, tmp_path, monkeypatch) -> None
                 "generator": {"ladder": list(PILOT_LADDER), "tasks": ["boxes"],
                               "set_roles": ["debug"], "form": 0}})
     text = inspect_run(out)
-    assert "Unparsed / refused: 0" in text and "boxes / unwilling" in text
+    assert "Unparsed responses: 0" in text and "boxes / unwilling" in text
+    assert "not recorded=" in text  # Legacy/string-only responders have no API metadata.
     assert "0.1-0.2 (viol 0)" in text  # theory's refusal threshold lands in the lowest gap
 
 
@@ -259,21 +260,27 @@ def test_binaries_have_two_items_per_cell(items) -> None:
     assert all(c.cause in Cause for c in rep.attribution)
 
 
-def test_anthropic_request_with_installed_sdk(items, monkeypatch) -> None:
+@pytest.mark.parametrize("raw, stop, tokens, expected", [
+    ("A", "end_turn", 1, "A"),
+    ("I need to analyze", "max_tokens", 64, None),
+])
+def test_anthropic_request_with_installed_sdk(
+    items, monkeypatch, tmp_path, raw, stop, tokens, expected
+) -> None:
     anthropic = pytest.importorskip("anthropic")
     httpx2 = pytest.importorskip("httpx2")
-    from wtrbench.run import AnthropicResponder
+    from wtrbench.run import FORMAT_SYSTEM, AnthropicResponder
 
     requests = []
     model = "claude-haiku-4-5-20251001"
 
     def respond(request):
         requests.append(json.loads(request.content))
-        return httpx2.Response(200, json={
+        return httpx2.Response(200, headers={"request-id": "req_offline_test"}, json={
             "id": "msg_offline_test", "type": "message", "role": "assistant",
-            "model": model, "content": [{"type": "text", "text": "A"}],
-            "stop_reason": "end_turn", "stop_sequence": None,
-            "usage": {"input_tokens": 10, "output_tokens": 1},
+            "model": model, "content": [{"type": "text", "text": raw}],
+            "stop_reason": stop, "stop_sequence": None,
+            "usage": {"input_tokens": 10, "output_tokens": tokens},
         })
 
     with anthropic.Anthropic(
@@ -282,10 +289,53 @@ def test_anthropic_request_with_installed_sdk(items, monkeypatch) -> None:
     ) as client:
         monkeypatch.setattr(anthropic, "Anthropic", lambda: client)
         responder = AnthropicResponder(model)
-        assert responder(items[0]) == "A"
+        path = tmp_path / "api.jsonl"
+        run(items[:1], responder, responder.name, path,
+            config={"request": responder.request_config})
 
+    saved = load_responses(path)[0]
+    assert saved.raw == raw and saved.choice == expected
+    assert saved.stop_reason == stop and saved.returned_model == model
+    assert saved.request_id == "req_offline_test"
+    assert saved.usage["input_tokens"] == 10 and saved.usage["output_tokens"] == tokens
+    config = json.loads(path.with_suffix(".jsonl.config.json").read_text())
+    assert config["request"]["system"] == FORMAT_SYSTEM
     assert len(requests) == 1
     assert requests[0]["model"] == model
     assert requests[0]["temperature"] == 0
-    assert requests[0]["max_tokens"] == 4
+    assert requests[0]["max_tokens"] == 64
+    assert requests[0]["system"] == FORMAT_SYSTEM
     assert requests[0]["messages"] == [{"role": "user", "content": items[0].prompt}]
+
+
+def test_resume_rejects_changed_response_protocol(items, tmp_path) -> None:
+    path = tmp_path / "r.jsonl"
+    original = {"request": {"temperature": 0, "max_tokens": 4}}
+    run(items[:2], lambda item: "A", "x", path, config=original)
+    changed = {"request": {"temperature": 0, "max_tokens": 64, "system": "A or B only"}}
+    with pytest.raises(ValueError, match="request"):
+        run(items[:2], lambda item: "B", "x", path, resume=True, config=changed)
+    assert all(r.raw == "A" for r in load_responses(path))
+
+
+def test_inspect_uses_only_complete_option_pairs(tmp_path) -> None:
+    from wtrbench.pilot import inspect_run
+
+    items = generate_inference_items(ladder=PILOT_LADDER, tasks=DEBUG_TASKS, set_roles=("debug",))
+    selected = [i for i in items if i.family == "aggregate" and not i.choices_swapped
+                and i.diagnostic.value == "low" and i.totals.value == "t1"
+                and i.realized_ratio in (0.1, 0.2)]
+    assert len(selected) == 4
+
+    def partial_order_follower(item):
+        return "I need to analyze" if item.item_id == selected[0].item_id else "B"
+
+    path = tmp_path / "debug_x.jsonl"
+    run(selected, partial_order_follower, "x", path,
+        config={"model": "x", "generator": {"tasks": ["boxes"], "ladder": PILOT_LADDER}})
+    text = inspect_run(path)
+    row = next(line for line in text.splitlines()
+               if line.startswith("| aggregate / debug / low/t1 / original |"))
+    assert " | 1/1 | " in row
+    assert "| aggregate | 4 | 0 | 3 | 1 |" in text
+    assert "not recorded=4" in text

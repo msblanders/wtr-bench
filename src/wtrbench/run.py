@@ -1,10 +1,10 @@
 """Minimal runner: send items to a responder, persist strict-parsed answers.
 
-A responder is any callable ``(InferenceItem) -> str``. Synthetic responders
-live in ``synthetic.py``; ``AnthropicResponder`` calls the API (optional
-dependency). One call per item, temperature 0, no system prompt. Anything that
-does not parse strictly as A or B is recorded with ``choice=None`` and counted
-as format drift or refusal by the scorer; it is never coerced.
+A responder returns text or a ModelOutput with API metadata. Synthetic
+responders live in ``synthetic.py``; ``AnthropicResponder`` calls the API
+(optional dependency). One call per item, temperature 0, with a neutral
+answer-format instruction. Anything that does not parse strictly as A or B
+is recorded with ``choice=None``; it is never coerced.
 """
 
 from __future__ import annotations
@@ -21,7 +21,21 @@ from pydantic import BaseModel
 
 from wtrbench.inference import InferenceItem
 
-Responder = Callable[[InferenceItem], str]
+FORMAT_SYSTEM = (
+    "For each question, reply with exactly one uppercase letter: A or B. "
+    "Do not include any explanation or other text."
+)
+
+
+class ModelOutput(BaseModel):
+    raw: str
+    stop_reason: str | None = None
+    returned_model: str | None = None
+    request_id: str | None = None
+    usage: dict[str, object] | None = None
+
+
+Responder = Callable[[InferenceItem], str | ModelOutput]
 
 #: Full-string match only. Allowed: A, B, (A), (B), A., B., A), B), optionally
 #: wrapped in quotes, backticks or asterisks. Anything else, including any
@@ -37,10 +51,9 @@ def parse_choice(raw: str) -> Literal["A", "B"] | None:
     return "A" if m.group(1).upper() == "A" else "B"
 
 
-class Response(BaseModel):
+class Response(ModelOutput):
     item_id: str
     responder: str
-    raw: str
     choice: Literal["A", "B"] | None
     keyed: bool | None
 
@@ -105,10 +118,11 @@ def run(
         if item.item_id in existing:
             out.append(existing[item.item_id])
             continue
-        raw = responder(item)
-        choice = parse_choice(raw)
+        result = responder(item)
+        output = ModelOutput(raw=result) if isinstance(result, str) else result
+        choice = parse_choice(output.raw)
         resp = Response(
-            item_id=item.item_id, responder=responder_name, raw=raw, choice=choice,
+            **output.model_dump(), item_id=item.item_id, responder=responder_name, choice=choice,
             keyed=None if choice is None else (choice == item.keyed_option),
         )
         out.append(resp)
@@ -124,9 +138,9 @@ def load_responses(jsonl_path: str | Path) -> list[Response]:
 
 
 class AnthropicResponder:
-    """One message per item, temperature 0, a handful of output tokens."""
+    """Forced-choice API requests, retaining metadata needed to audit failures."""
 
-    def __init__(self, model: str, max_tokens: int = 4) -> None:
+    def __init__(self, model: str, max_tokens: int = 64) -> None:
         try:
             from anthropic import Anthropic  # type: ignore[import-not-found]
         except ImportError as e:  # pragma: no cover
@@ -136,13 +150,24 @@ class AnthropicResponder:
         self.max_tokens = max_tokens
         self.name = f"anthropic:{model}"
 
-    def __call__(self, item: InferenceItem) -> str:
+    @property
+    def request_config(self) -> dict[str, object]:
+        return {"temperature": 0, "max_tokens": self.max_tokens, "system": FORMAT_SYSTEM}
+
+    def __call__(self, item: InferenceItem) -> ModelOutput:
         msg = self._client.messages.create(
             model=self.model,
             max_tokens=self.max_tokens,
             # Haiku 4.5 supports temperature, but SDK 1.x no longer exposes
             # it as a named argument. Send the frozen setting in the body.
             extra_body={"temperature": 0},
+            system=FORMAT_SYSTEM,
             messages=[{"role": "user", "content": item.prompt}],
         )
-        return "".join(getattr(block, "text", "") for block in msg.content)
+        return ModelOutput(
+            raw="".join(getattr(block, "text", "") for block in msg.content),
+            stop_reason=msg.stop_reason,
+            returned_model=msg.model,
+            request_id=getattr(msg, "_request_id", None),
+            usage=msg.usage.model_dump(mode="json"),
+        )

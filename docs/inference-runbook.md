@@ -1,8 +1,9 @@
 # Running the inference pilot
 
-The code is ready for an exploratory API debug batch. Synthetic outputs are
-programmed checks, not observations of an LLM. The study has not been
-preregistered and no real-model results accompany this installation.
+The first exploratory API debug batch completed, but it did not establish
+readiness for the pilot: [audit and next step](debug-36074815150-review.md).
+The study has not been preregistered and the 888-item pilot has not been run.
+Synthetic outputs remain programmed checks, not observations of an LLM.
 
 ## Verify the installation
 
@@ -16,13 +17,15 @@ uv run mypy src
 uv run python -m wtrbench.pilot synthetic
 ```
 
-This installation includes v0.4.1 plus three integration fixes: JSON-normalized
-resume settings and separate inspection rows for both aggregate evidence
-orders, plus compatibility with the installed Anthropic SDK. Haiku 4.5's
-temperature setting is sent through the SDK's `extra_body` parameter.
-Request settings are saved in each run configuration. The additional
-regression tests cover those integration fixes, including an offline HTTP
-request through the real SDK.
+Version 0.4.2 keeps the v0.4.1 items and scoring. Following the first API debug,
+requests now include a neutral A/B-only system instruction and a 64-token
+output allowance instead of 4. These changes do not establish that a model
+will obey the format. Prose remains unparsed even if it contains an answer.
+API records now retain stop reason, returned model, request ID and token usage.
+Inspection reports show answer-letter counts and use only complete pairs in
+option-order disagreement denominators. Older records remain readable; absent
+metadata is labeled as unrecorded. The tests include offline requests through
+the installed SDK and protect against mixing response protocols on resume.
 
 ## Run the 196-item debug batch in GitHub
 
@@ -34,6 +37,13 @@ request through the real SDK.
 4. Download the `inference-debug-…` artifact. It includes raw responses, the
    report, inspection output, item sets and hashes, the git revision, and
    dependency versions. Partial results are uploaded if the API run fails.
+
+For the second debug, launch a **new workflow on main**, using the same Haiku
+model. GitHub's **Re-run jobs** on the old run would use the old code revision.
+The existing API secret is sufficient; do not replace it just to run again.
+The second debug intentionally repeats the 196 throwaway items under the new
+response protocol. Keep it separate from the first run; do not resume the old
+JSONL with new request settings. Review this batch before any pilot freeze.
 
 The manual workflow performs only the exploratory debug batch. A new workflow
 execution starts a new run; it does not automatically resume an earlier
@@ -71,6 +81,9 @@ silently retried until a preferred answer is obtained.
 Read the inspection output and underlying responses. Check missing or unparsed
 answers, agreement between option orders, agreement between evidence orders,
 threshold violations, and whether the ladder supplies useful bounds.
+Check API stop reasons for `max_tokens`, and check missingness separately by
+family and option order. A threshold fit based on the surviving answers can
+be misleading when format failures selectively remove one option order.
 
 Unexpected psychological orderings are findings. Changes to the prompts,
 range, or measurement should address a specified measurement problem, not
@@ -101,6 +114,10 @@ for name, items in (("debug", debug), ("pilot", pilot)):
 PY
 git rev-parse HEAD
 ```
+
+The item hash identifies generated user prompts. The system instruction and
+output allowance are separate request settings, and must also be frozen in
+the recorded source revision and run configuration.
 
 If preregistering, register that specification and pilot hash before examining
 pilot responses. Merely committing a design document is not an OSF

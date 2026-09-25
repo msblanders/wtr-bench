@@ -13,6 +13,7 @@ in which case only unanswered items are called.
 from __future__ import annotations
 
 import sys
+from collections import Counter
 from pathlib import Path
 
 from wtrbench.inference import (
@@ -45,12 +46,28 @@ def inspect_run(path: Path) -> str:
     items = {i.item_id: i for i in _items_for(cfg)}
     resp = load_responses(path)
     lines = [f"# {path.name}  ({len(resp)} responses; model={cfg.get('model')})", ""]
+    stops = Counter(r.stop_reason or "not recorded" for r in resp)
+    lines += ["## Response collection", "",
+              "Stop reasons: " + ", ".join(f"{k}={v}" for k, v in sorted(stops.items())), ""]
+    usages = [r.usage for r in resp if r.usage is not None]
+    if usages:
+        for usage_key in ("input_tokens", "output_tokens", "cache_creation_input_tokens",
+                          "cache_read_input_tokens"):
+            total = sum(v for u in usages if isinstance(v := u.get(usage_key), int))
+            lines.append(f"- {usage_key}: {total} "
+                         f"(metadata available for {len(usages)}/{len(resp)} responses)")
+        lines.append("")
+    lines += ["| family | recorded | A | B | unparsed |", "|---|---|---|---|---|"]
+    for family in ("attribution", "aggregate"):
+        subset = [r for r in resp if r.item_id in items and items[r.item_id].family == family]
+        counts = Counter(r.choice for r in subset)
+        lines.append(f"| {family} | {len(subset)} | {counts['A']} | {counts['B']} | {counts[None]} |")
     unparsed = [r for r in resp if r.choice is None]
-    lines += [f"## Unparsed / refused: {len(unparsed)}", ""]
-    for r in unparsed[:40]:
+    lines += ["", f"## Unparsed responses: {len(unparsed)}", ""]
+    for r in unparsed:
         it = items.get(r.item_id)
-        tag = f"{it.probe.value} {it.cause.value if it and it.cause else ''}" if it else "?"
-        lines.append(f"- [{tag}] {r.raw!r}")
+        tag = f"{it.family} / {it.probe.value} / {it.cause.value if it.cause else ''}" if it else "?"
+        lines.append(f"- [{r.item_id}; {tag}; stop={r.stop_reason or 'not recorded'}] {r.raw!r}")
     cells: dict[tuple, list] = {}
     for r in resp:
         it = items.get(r.item_id)
@@ -65,7 +82,7 @@ def inspect_run(path: Path) -> str:
         cells.setdefault(key, []).append((it.realized_ratio, it.keyed_option, r.keyed))
     head = ("## Inferred-WTR ladders (K = partner keeps own payoff, . = gives; "
             "shown as keyed-A then keyed-B at each rung)")
-    cols = "| cell | pattern by rung | order disagreements | fit |"
+    cols = "| cell | pattern by rung | order disagreements / complete pairs | fit |"
     lines += ["", head, "", cols, "|---|---|---|---|"]
     for key, pts in sorted(cells.items()):
         by_r: dict[float, dict[str, bool | None]] = {}
@@ -74,12 +91,17 @@ def inspect_run(path: Path) -> str:
         pat = " ".join(
             f"{r:g}:{_sym(v.get('A'))}{_sym(v.get('B'))}" for r, v in sorted(by_r.items())
         )
-        dis = sum(1 for v in by_r.values() if v.get("A") is not None and v.get("B") is not None
-                  and v["A"] != v["B"])
+        complete = [v for v in by_r.values() if v.get("A") is not None and v.get("B") is not None]
+        dis = sum(v["A"] != v["B"] for v in complete)
+        pair_count = f"{dis}/{len(complete)}" if complete else "— (0 complete)"
         est = ladder_estimate([(r, k) for r, _, k in pts])
         fit = (est.censored if est.censored != "none"
                else f"{est.lower:g}-{est.upper:g}" if est.identified else "unidentified")
-        lines.append(f"| {' / '.join(key)} | {pat} | {dis}/{len(by_r)} | {fit} (viol {est.violations}) |")
+        lines.append(f"| {' / '.join(key)} | {pat} | {pair_count} | {fit} (viol {est.violations}) |")
+    lines += ["", ("Only rungs with two parsed answers enter the option-order denominator. "
+              "Missing responses can make a threshold fit look more precise by removing "
+              "conflicting answers; inspect coverage, order effects and violations before "
+              "interpreting any fitted bound.")]
     return "\n".join(lines)
 
 
@@ -130,7 +152,7 @@ def main(argv: list[str]) -> int:
     try:
         responses = run(items, responder, responder.name, out / f"{tag}.jsonl", resume=resume,
                         config={"mode": mode, "model": model, "generator": gen,
-                                "request": {"temperature": 0, "max_tokens": responder.max_tokens}})
+                                "request": responder.request_config})
     except RunExists as e:
         print(f"{e}\nRe-run with --resume to finish it, or move the file aside.")
         return 1
