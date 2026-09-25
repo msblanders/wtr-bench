@@ -21,8 +21,9 @@ meet the requirements or recover the proposed theoretical pattern.
 2. The actual LLM, using the same answer interface and ladder, recovers known
    partner preferences in controlled cases where the answers are determined.
    A few arithmetic choices on each side of an explicit weight do not fully
-   test this. Choice-history inference with known answers has not been tested
-   end to end in the recorded development sequence.
+   test this. The [completed recovery diagnostic](recovery-36111049496-review.md)
+   now supplies that end-to-end test: explicit weights passed; history
+   recovery was mixed, including wrong intervals and presentation sensitivity.
 3. The original social prompts convey the intended evidence and future
    conditions, without a clear alternative explanation introduced by wording.
    This requires prompt-level review and condition comprehension checks,
@@ -62,11 +63,16 @@ those are separate problems from underidentified history evidence.
 
 ## The missing experiment: known-partner recovery
 
-**Status: implemented, frozen and ready for one diagnostic collection.**
-The researcher authorized building this next step after reviewing the draft.
-The [frozen collection plan](known-partner-recovery-v1.md) preserves the exact
-draft prompts and order. Use **Inference recovery diagnostic** once; both
-social pilots remain on hold. The generator is `src/wtrbench/validation_recovery.py`.
+**Status: collected once and audited, run 36111049496.**
+The [review](recovery-36111049496-review.md) records 72/72 correct explicit
+choices and 18/18 recovered fits, versus 137/144 history choices and 24/36
+recovered fits. Five of six wrong answers state the correct history interval
+before failing the current comparison or payoff mapping. The frozen clear-pass
+rule was not met; these defects can change the inferred interval. All 216
+explanations are separately reviewed. Do not rerun to seek a preferred result.
+Both social pilots remain on hold. The [frozen collection plan](known-partner-recovery-v1.md)
+and exact original prompts are unchanged. The generator is
+`src/wtrbench/validation_recovery.py`; the design below records the completed test.
 
 Use the same Sonnet snapshot, temperature 0, 256-token limit, fresh contexts,
 brief explanation then structured A/B answer. Retain the original six ratios:
@@ -137,7 +143,7 @@ Report which arm/profile/order failed and whether the interval conclusion
 changes; do not silently relax the clear-pass rule. Do not choose the best
 repeat, discard a profile or replace errors with the expected answer.
 
-The diagnostic runs once through its manual collection workflow.
+The diagnostic ran once through its manual collection workflow.
 Any follow-up must target a specific failure demonstrated in that run and be
 specified separately. There is no automatic second batch or pilot dispatch.
 If the basic task remains unreliable, acknowledge that outcome rather than

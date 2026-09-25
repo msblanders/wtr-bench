@@ -1,0 +1,650 @@
+{
+  "data_origin": "recorded_API_responses",
+  "protocol": "known-partner-recovery-v1",
+  "model": "claude-sonnet-4-5-20250929",
+  "items_hash": "88551d8c5c48cf5c",
+  "collection": {
+    "planned": 216,
+    "recorded": 216,
+    "usable": 215,
+    "correct": 209,
+    "incorrect_usable": 6,
+    "missing": 0,
+    "unusable": 1,
+    "accuracy_among_usable": 0.9720930232558139,
+    "correct_fraction_planned": 0.9675925925925926
+  },
+  "by_arm": {
+    "explicit_weight": {
+      "planned": 72,
+      "recorded": 72,
+      "usable": 72,
+      "correct": 72,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0,
+      "planned_fits": 18,
+      "recovered_fits": 18,
+      "choice_clear_pass": true
+    },
+    "choice_history": {
+      "planned": 144,
+      "recorded": 144,
+      "usable": 143,
+      "correct": 137,
+      "incorrect_usable": 6,
+      "missing": 0,
+      "unusable": 1,
+      "accuracy_among_usable": 0.958041958041958,
+      "correct_fraction_planned": 0.9513888888888888,
+      "planned_fits": 36,
+      "recovered_fits": 24,
+      "choice_clear_pass": false
+    }
+  },
+  "by_cell": {
+    "choice_history/high/history-False/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/high/history-False/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/high/history-False/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "choice_history/high/history-False/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/high/history-True/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/high/history-True/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/high/history-True/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/high/history-True/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/low/history-False/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "choice_history/low/history-False/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/low/history-False/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/low/history-False/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/low/history-True/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 4,
+      "incorrect_usable": 2,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.6666666666666666,
+      "correct_fraction_planned": 0.6666666666666666
+    },
+    "choice_history/low/history-True/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/low/history-True/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/low/history-True/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 5,
+      "correct": 5,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 1,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "choice_history/middle/history-False/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "choice_history/middle/history-False/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/middle/history-False/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "choice_history/middle/history-False/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/middle/history-True/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/middle/history-True/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/middle/history-True/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "choice_history/middle/history-True/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/high/history-None/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/high/history-None/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/high/history-None/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/high/history-None/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/low/history-None/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/low/history-None/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/low/history-None/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/low/history-None/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/middle/history-None/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/middle/history-None/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/middle/history-None/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_weight/middle/history-None/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    }
+  },
+  "known_task_choice_gate": false,
+  "choice_status": "mixed_or_failed",
+  "planned_fits": 54,
+  "recovered_fits": 42,
+  "explanation_review": {
+    "planned": 216,
+    "reviewed": 0,
+    "pending": 216,
+    "labels": {
+      "consistent": 0,
+      "incorrect_calculation_or_mapping": 0,
+      "unclear_or_no_checkable_basis": 0,
+      "unsupported_inference": 0,
+      "unusable_or_missing": 0
+    },
+    "status": "pending_review",
+    "by_arm": {
+      "explicit_weight": {
+        "planned": 72,
+        "reviewed": 0,
+        "pending": 72,
+        "labels": {
+          "consistent": 0,
+          "incorrect_calculation_or_mapping": 0,
+          "unclear_or_no_checkable_basis": 0,
+          "unsupported_inference": 0,
+          "unusable_or_missing": 0
+        }
+      },
+      "choice_history": {
+        "planned": 144,
+        "reviewed": 0,
+        "pending": 144,
+        "labels": {
+          "consistent": 0,
+          "incorrect_calculation_or_mapping": 0,
+          "unclear_or_no_checkable_basis": 0,
+          "unsupported_inference": 0,
+          "unusable_or_missing": 0
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "option_order": {
+      "planned": 108,
+      "complete": 107,
+      "incomplete": 1,
+      "disagree": 6,
+      "rate_among_complete": 0.056074766355140186
+    },
+    "repeat": {
+      "planned": 108,
+      "complete": 107,
+      "incomplete": 1,
+      "disagree": 4,
+      "rate_among_complete": 0.037383177570093455
+    },
+    "history_order": {
+      "planned": 72,
+      "complete": 71,
+      "incomplete": 1,
+      "disagree": 4,
+      "rate_among_complete": 0.056338028169014086
+    }
+  },
+  "comparisons_by_arm_profile": {
+    "explicit_weight/low/option_order": {
+      "planned": 12,
+      "complete": 12,
+      "incomplete": 0,
+      "disagree": 0,
+      "rate_among_complete": 0.0
+    },
+    "explicit_weight/low/repeat": {
+      "planned": 12,
+      "complete": 12,
+      "incomplete": 0,
+      "disagree": 0,
+      "rate_among_complete": 0.0
+    },
+    "explicit_weight/low/history_order": {
+      "planned": 0,
+      "complete": 0,
+      "incomplete": 0,
+      "disagree": 0,
+      "rate_among_complete": null
+    },
+    "explicit_weight/middle/option_order": {
+      "planned": 12,
+      "complete": 12,
+      "incomplete": 0,
+      "disagree": 0,
+      "rate_among_complete": 0.0
+    },
+    "explicit_weight/middle/repeat": {
+      "planned": 12,
+      "complete": 12,
+      "incomplete": 0,
+      "disagree": 0,
+      "rate_among_complete": 0.0
+    },
+    "explicit_weight/middle/history_order": {
+      "planned": 0,
+      "complete": 0,
+      "incomplete": 0,
+      "disagree": 0,
+      "rate_among_complete": null
+    },
+    "explicit_weight/high/option_order": {
+      "planned": 12,
+      "complete": 12,
+      "incomplete": 0,
+      "disagree": 0,
+      "rate_among_complete": 0.0
+    },
+    "explicit_weight/high/repeat": {
+      "planned": 12,
+      "complete": 12,
+      "incomplete": 0,
+      "disagree": 0,
+      "rate_among_complete": 0.0
+    },
+    "explicit_weight/high/history_order": {
+      "planned": 0,
+      "complete": 0,
+      "incomplete": 0,
+      "disagree": 0,
+      "rate_among_complete": null
+    },
+    "choice_history/low/option_order": {
+      "planned": 24,
+      "complete": 23,
+      "incomplete": 1,
+      "disagree": 3,
+      "rate_among_complete": 0.13043478260869565
+    },
+    "choice_history/low/repeat": {
+      "planned": 24,
+      "complete": 23,
+      "incomplete": 1,
+      "disagree": 3,
+      "rate_among_complete": 0.13043478260869565
+    },
+    "choice_history/low/history_order": {
+      "planned": 24,
+      "complete": 23,
+      "incomplete": 1,
+      "disagree": 1,
+      "rate_among_complete": 0.043478260869565216
+    },
+    "choice_history/middle/option_order": {
+      "planned": 24,
+      "complete": 24,
+      "incomplete": 0,
+      "disagree": 2,
+      "rate_among_complete": 0.08333333333333333
+    },
+    "choice_history/middle/repeat": {
+      "planned": 24,
+      "complete": 24,
+      "incomplete": 0,
+      "disagree": 0,
+      "rate_among_complete": 0.0
+    },
+    "choice_history/middle/history_order": {
+      "planned": 24,
+      "complete": 24,
+      "incomplete": 0,
+      "disagree": 2,
+      "rate_among_complete": 0.08333333333333333
+    },
+    "choice_history/high/option_order": {
+      "planned": 24,
+      "complete": 24,
+      "incomplete": 0,
+      "disagree": 1,
+      "rate_among_complete": 0.041666666666666664
+    },
+    "choice_history/high/repeat": {
+      "planned": 24,
+      "complete": 24,
+      "incomplete": 0,
+      "disagree": 1,
+      "rate_among_complete": 0.041666666666666664
+    },
+    "choice_history/high/history_order": {
+      "planned": 24,
+      "complete": 24,
+      "incomplete": 0,
+      "disagree": 1,
+      "rate_among_complete": 0.041666666666666664
+    }
+  },
+  "stop_reasons": {
+    "end_turn": 215,
+    "max_tokens": 1
+  },
+  "tokens": {
+    "input_tokens": 96408,
+    "output_tokens": 26745,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+  },
+  "interpretation": "Constructed-task recovery only. Social pilot remains paused; review explanations."
+}

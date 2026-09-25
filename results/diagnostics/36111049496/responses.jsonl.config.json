@@ -1,0 +1,51 @@
+{
+  "mode": "known-partner-recovery-v1",
+  "model": "claude-sonnet-4-5-20250929",
+  "n_requests": 216,
+  "n_templates": 108,
+  "items_hash": "88551d8c5c48cf5c",
+  "counts_by_arm": {
+    "choice_history": 144,
+    "explicit_weight": 72
+  },
+  "repetitions": [
+    1,
+    2
+  ],
+  "order_seed": "known-partner-recovery-v1-draft",
+  "sequence": "two passes, each in fixed hash order",
+  "request": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "system": "For each question, Return a JSON object with exactly two fields in this order: \"brief_basis\", a brief explanation (one or two sentences) for your answer using the supplied information; then \"answer\", whose value is A or B. Do not include other fields.",
+    "output_config": {
+      "format": {
+        "type": "json_schema",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "brief_basis": {
+              "type": "string"
+            },
+            "answer": {
+              "type": "string",
+              "enum": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          "required": [
+            "brief_basis",
+            "answer"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "transport_max_retries": 0,
+  "analysis_plan_sha256": "131d6d929433e64a09a398d6bfe2b349b9fcb57b305aedeabc151ee0390c5d86",
+  "stopping_rule": "216 scheduled calls once; no answer-accuracy gate during collection",
+  "started": "2026-09-25T08:05:53.201281+00:00"
+}

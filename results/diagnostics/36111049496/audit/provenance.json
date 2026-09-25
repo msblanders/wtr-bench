@@ -1,0 +1,22 @@
+{
+  "run_url": "https://github.com/msblanders/wtr-bench/actions/runs/36111049496",
+  "run_id": 36111049496,
+  "run_attempt": 1,
+  "workflow": "Inference recovery diagnostic",
+  "conclusion": "success",
+  "source_commit": "ef372ef9286c18a86ba78f03bf7107bd132cbccd",
+  "source_tree": "06bccdadce1174d40f2735bdbf1bac8299b07dcf",
+  "created_at": "2026-09-25T08:05:39Z",
+  "updated_at": "2026-09-25T08:18:59Z",
+  "artifact_id": 10853522233,
+  "artifact_name": "inference-recovery-diagnostic-36111049496-1",
+  "artifact_zip_bytes": 98860,
+  "artifact_zip_sha256": "76ee14fac9e467ebafe04e0f80998970658e22e7a4bd656c151ea4be8876321c",
+  "archive_method": "All 16 original files extracted byte-for-byte. SHA256SUMS covers original files only. Post-collection work is confined to audit/ and a separate documentation review; frozen plan and original pending-review reports are unchanged.",
+  "reviewer": "assistant",
+  "review_date_utc": "2026-09-25",
+  "explanation_review": "All 216 scheduled responses read and coded against the frozen rubric, unblinded to prompt, reference values and final choice. No independent human rater or inter-rater reliability estimate.",
+  "verification": "Original freeze, items, config, decoding and all generated automatic reports reproduced using the recorded code. A separate stdlib verifier independently derives truth from literal prompts and verifies thresholds, pairs, raw parsing, original-file hashes and label bindings.",
+  "additional_model_requests": 0,
+  "pilot_status": "Both social pilots remain paused."
+}

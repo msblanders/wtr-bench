@@ -9,8 +9,11 @@ its collection workflow and CLI are disabled; it does not replace the
 original research aim. See [validation before pilot](validation-before-pilot.md).
 
 The [216-request known-partner recovery diagnostic](known-partner-recovery-v1.md)
-is implemented, frozen and ready for one manual run. It uses complete ladders
-with either an explicit weight or informative choice histories. Original histories that only
+is complete and [audited](recovery-36111049496-review.md). Explicit-weight
+recovery passed (72/72 choices; 18/18 fits). History recovery was mixed
+(137/144 choices; 24/36 fits), including option-order-sensitive errors and
+incorrect explanations behind correct answers. These results do not release
+either pilot. Original histories that only
 show keeping impose upper bounds; LOW/HIGH separation is a theoretical
 prediction, not a known-answer validation criterion. Null effects, reversed
 effects and unresolved bounds must remain possible outcomes of an adequately
@@ -19,7 +22,7 @@ measured social test.
 The original design below and all [development findings](measurement-36099597085-review.md)
 remain unchanged. References to preregistration describe an intention;
 no external registration has occurred. The [runbook](inference-runbook.md)
-gives diagnostic run instructions, records the pilot pause and retains historical procedures.
+records the completed diagnostic, the pilot pause and historical procedures.
 
 ## 0. What this module adds, and what it does not
 

@@ -1,10 +1,18 @@
-# Running the inference diagnostic
+# Inference diagnostic runbook
 
-**The known-partner recovery diagnostic is ready. Both social pilots remain
-paused.** This implements the [validation-before-pilot plan](validation-before-pilot.md)
-with [frozen collection and analysis rules](known-partner-recovery-v1.md).
+**Run 36111049496 is complete and audited. Both social pilots remain paused.**
+Explicit weight: 72/72 correct, 18/18 recovered fits, all explanations
+consistent. Choice history: 137/144 correct, six wrong, one truncated;
+24/36 recovered fits. All 216 explanations were reviewed separately.
+See the [audit, preserved evidence and next-step rationale](recovery-36111049496-review.md).
+The frozen clear-pass rule was not met. Do not repeat the batch to seek a
+preferred result. No new collection is configured by this review.
 
-## Run the next diagnostic in GitHub
+## Completed diagnostic: retained collection instructions
+
+These are the historical instructions used for run 36111049496, not a request
+to run it again. The [validation-before-pilot plan](validation-before-pilot.md)
+and [frozen collection rules](known-partner-recovery-v1.md) remain in the record.
 
 1. Open **Actions → [Inference recovery diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-recovery-diagnostic.yml)**.
 2. Click **Run workflow**, select **`main`**, then run **once**. There are no

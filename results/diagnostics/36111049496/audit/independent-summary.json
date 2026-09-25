@@ -1,0 +1,160 @@
+{
+  "checks": "All 16 original hashes; 216 literal-prompt truth keys, strict responses and bound review labels; 54 threshold fits; 288 comparison pairs verified.",
+  "collection": {
+    "planned": 216,
+    "usable": 215,
+    "correct": 209,
+    "incorrect_usable": 6,
+    "unusable": 1
+  },
+  "by_arm_profile": {
+    "explicit_weight/low": {
+      "planned": 24,
+      "usable": 24,
+      "correct": 24,
+      "incorrect_usable": 0,
+      "unusable": 0
+    },
+    "explicit_weight/middle": {
+      "planned": 24,
+      "usable": 24,
+      "correct": 24,
+      "incorrect_usable": 0,
+      "unusable": 0
+    },
+    "explicit_weight/high": {
+      "planned": 24,
+      "usable": 24,
+      "correct": 24,
+      "incorrect_usable": 0,
+      "unusable": 0
+    },
+    "choice_history/low": {
+      "planned": 48,
+      "usable": 47,
+      "correct": 44,
+      "incorrect_usable": 3,
+      "unusable": 1
+    },
+    "choice_history/middle": {
+      "planned": 48,
+      "usable": 48,
+      "correct": 46,
+      "incorrect_usable": 2,
+      "unusable": 0
+    },
+    "choice_history/high": {
+      "planned": 48,
+      "usable": 48,
+      "correct": 47,
+      "incorrect_usable": 1,
+      "unusable": 0
+    }
+  },
+  "history_by_option_order": {
+    "True": {
+      "planned": 72,
+      "usable": 72,
+      "correct": 66,
+      "incorrect_usable": 6,
+      "unusable": 0
+    },
+    "False": {
+      "planned": 72,
+      "usable": 71,
+      "correct": 71,
+      "incorrect_usable": 0,
+      "unusable": 1
+    }
+  },
+  "history_by_pass": {
+    "1": {
+      "planned": 72,
+      "usable": 72,
+      "correct": 68,
+      "incorrect_usable": 4,
+      "unusable": 0
+    },
+    "2": {
+      "planned": 72,
+      "usable": 71,
+      "correct": 69,
+      "incorrect_usable": 2,
+      "unusable": 1
+    }
+  },
+  "recovered_by_arm": {
+    "choice_history": 24,
+    "explicit_weight": 18
+  },
+  "nonrecovered_fit_types_mutually_exclusive": {
+    "tied_fit": 4,
+    "wrong_interval": 3,
+    "censored": 1,
+    "violations": 2,
+    "missing": 2
+  },
+  "comparisons": {
+    "choice_history/history_order": {
+      "planned": 72,
+      "complete": 71,
+      "disagree": 4
+    },
+    "choice_history/option_order": {
+      "planned": 72,
+      "complete": 71,
+      "disagree": 6
+    },
+    "choice_history/repeat": {
+      "planned": 72,
+      "complete": 71,
+      "disagree": 4
+    },
+    "explicit_weight/option_order": {
+      "planned": 36,
+      "complete": 36,
+      "disagree": 0
+    },
+    "explicit_weight/repeat": {
+      "planned": 36,
+      "complete": 36,
+      "disagree": 0
+    },
+    "history_order": {
+      "planned": 72,
+      "complete": 71,
+      "disagree": 4
+    },
+    "option_order": {
+      "planned": 108,
+      "complete": 107,
+      "disagree": 6
+    },
+    "repeat": {
+      "planned": 108,
+      "complete": 107,
+      "disagree": 4
+    }
+  },
+  "assistant_explanation_labels": {
+    "choice_history": {
+      "consistent": 103,
+      "incorrect_calculation_or_mapping": 40,
+      "unusable_or_missing": 1
+    },
+    "explicit_weight": {
+      "consistent": 72
+    },
+    "final_correct_False": {
+      "incorrect_calculation_or_mapping": 6
+    },
+    "final_correct_None": {
+      "unusable_or_missing": 1
+    },
+    "final_correct_True": {
+      "consistent": 175,
+      "incorrect_calculation_or_mapping": 34
+    }
+  },
+  "interpretation": "Observed fixed diagnostic only; overlapping fits and repeated templates are not independent samples. Labels are unblinded assistant judgments, not inferred internal reasoning. No pilot release."
+}

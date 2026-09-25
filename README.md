@@ -6,9 +6,9 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**The 216-request [known-partner recovery diagnostic](docs/known-partner-recovery-v1.md) is ready to run.** It tests full-ladder recovery with explicitly supplied weights and with informative choice histories, including option/history reversals and two passes. The [validation plan](docs/validation-before-pilot.md) explains how this supports the original measurement question. Both social pilots remain paused.
+**The 216-request [known-partner recovery diagnostic has been audited](docs/recovery-36111049496-review.md).** Explicit-weight questions scored 72/72 with 18/18 recovered intervals and consistent explanations. History questions scored 137/144, with six wrong answers, one truncated response and 24/36 recovered fits. Some correct choices also contained explanation errors. This diagnostic concerns the weight attributed to a described partner; it does not measure the model's own preferences. Both social pilots remain paused under the [validation plan](docs/validation-before-pilot.md).
 
-The 816-request robustness workflow and its CLI collection command are disabled. Its [frozen proposal](docs/response-robustness-pilot-v1.md) remains in the record; it does not replace the original research objective. The original 888-item inference pilot remains unrun. Four debug runs, five calibration batches and two diagnostics are archived, including the [latest diagnostic audit](docs/measurement-36099597085-review.md). No scalar WTR measure has been validated.
+The 816-request robustness workflow and its CLI collection command are disabled. Its [frozen proposal](docs/response-robustness-pilot-v1.md) remains in the record; it does not replace the original research objective. The original 888-item inference pilot remains unrun. Four debug runs, five calibration batches and three diagnostics are archived. The original social WTR measure has not been validated; controlled recovery is now documented separately from that broader claim.
 
 ## Why this is useful
 
@@ -72,7 +72,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Validation before any pilot.** The original theory-focused aim is retained. The fixed 216-request known-partner recovery diagnostic is ready, with frozen requests, exact truth keys, interval recovery and separate explanation review. The robustness pilot is paused. Earlier diagnostic failures and bounds remain in the record. |
+| Validate and report the measurements | **Validation before any pilot.** The fixed recovery diagnostic passed in the explicit-weight condition and was mixed in the history condition. All 216 explanations were audited separately. Order-sensitive errors can shift apparently coherent intervals. Both social pilots remain paused; the original theory-focused aim is retained. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -96,9 +96,9 @@ This generates prompts locally. It does not call a model API or produce benchmar
 
 ## Run the inference module
 
-Run **[Actions → Inference recovery diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-recovery-diagnostic.yml) → Run workflow → `main`**, once. The workflow makes **216 total requests**, including both passes: 72 explicit-weight questions and 144 choice-history questions. It uses the existing `ANTHROPIC_API_KEY` repository secret and pinned Sonnet 4.5. API calls are billed to that key.
+The one planned recovery collection is complete: [run 36111049496](https://github.com/msblanders/wtr-bench/actions/runs/36111049496). **Do not rerun it to obtain a passing result or launch either social pilot.** Read the [audit and next-step rationale](docs/recovery-36111049496-review.md). No follow-up collection is configured by this review.
 
-The [frozen collection plan](docs/known-partner-recovery-v1.md) specifies scoring and stopping. The [runbook](docs/inference-runbook.md) explains artifacts, explanation review and partial-run handling. No pilot launches automatically, and no further batch is triggered by errors. Both social pilots remain paused. The conservative choice pass and the explanation audit are reported separately; neither establishes full social construct validity.
+The [frozen collection plan](docs/known-partner-recovery-v1.md) and original artifacts are unchanged. The [runbook](docs/inference-runbook.md) records the completed audit and retains historical collection instructions. Choice accuracy and explanation quality remain separate outcomes; neither alone establishes full social construct validity.
 
 To generate and verify the frozen prompts without model calls:
 

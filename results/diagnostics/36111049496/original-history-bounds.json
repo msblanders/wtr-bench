@@ -1,0 +1,178 @@
+[
+  {
+    "set": "set0",
+    "diagnostic": "low",
+    "totals": "t1",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "0.5",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.3"
+  },
+  {
+    "set": "set0",
+    "diagnostic": "high",
+    "totals": "t1",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "1",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.1"
+  },
+  {
+    "set": "set0",
+    "diagnostic": "low",
+    "totals": "t2",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "0.5",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.3"
+  },
+  {
+    "set": "set0",
+    "diagnostic": "high",
+    "totals": "t2",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "1",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.1"
+  },
+  {
+    "set": "set1",
+    "diagnostic": "low",
+    "totals": "t1",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "0.4",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.3"
+  },
+  {
+    "set": "set1",
+    "diagnostic": "high",
+    "totals": "t1",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "1.25",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.1"
+  },
+  {
+    "set": "set1",
+    "diagnostic": "low",
+    "totals": "t2",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "0.4",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.3"
+  },
+  {
+    "set": "set1",
+    "diagnostic": "high",
+    "totals": "t2",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "1.25",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.1"
+  },
+  {
+    "set": "set0x2",
+    "diagnostic": "low",
+    "totals": "t1",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "0.5",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.3"
+  },
+  {
+    "set": "set0x2",
+    "diagnostic": "high",
+    "totals": "t1",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "1",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.1"
+  },
+  {
+    "set": "set0x2",
+    "diagnostic": "low",
+    "totals": "t2",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "0.5",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.3"
+  },
+  {
+    "set": "set0x2",
+    "diagnostic": "high",
+    "totals": "t2",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "1",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.1"
+  },
+  {
+    "set": "debug",
+    "diagnostic": "low",
+    "totals": "t1",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "0.5",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.3"
+  },
+  {
+    "set": "debug",
+    "diagnostic": "high",
+    "totals": "t1",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "1.5",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.1"
+  },
+  {
+    "set": "debug",
+    "diagnostic": "low",
+    "totals": "t2",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "0.5",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.3"
+  },
+  {
+    "set": "debug",
+    "diagnostic": "high",
+    "totals": "t2",
+    "conditional_model": "nonnegative fixed linear weight; observed choices weakly optimal",
+    "lower": 0,
+    "upper": "1.5",
+    "point_identified": false,
+    "common_weight_0_05_compatible": true,
+    "reversed_order_example_weight": "0.1"
+  }
+]
