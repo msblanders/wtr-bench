@@ -11,9 +11,11 @@ rule calculations. The full battery also reveals 8/98 option-order
 disagreements, no uniquely identified interior ladder estimates, and a
 conditional ability/willingness interpretation issue. The small calibration
 subset's earlier A/B successes and false calculations remain documented.
-The item design and scoring below remain unchanged. A bounded coverage and
-conditional-probe diagnostic is recommended before any pilot decision;
-no follow-up workflow is configured. The 888-item pilot remains paused,
+The item design and scoring below remain unchanged. The separate v0.4.8
+[156-request measurement diagnostic](inference-measurement-diagnostic.md)
+is ready for one manual run, covering wider ratios, decimal notation checks
+and original/clarified conditional probes in selected debug cases. Its
+results are pending; it does not approve or dispatch the pilot. The 888-item pilot remains paused,
 unfrozen and unrun. Statements below about preregistered comparisons describe
 intended registrations; no registration has occurred.
 

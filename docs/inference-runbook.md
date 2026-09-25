@@ -8,11 +8,16 @@ calculations. It also finds 8/98 debug option-order disagreements, no uniquely
 identified interior estimates, and explanations that override a supplied
 future-ability condition.
 
-**Keep the pilot paused. Do not repeat the unchanged full-debug batch as the
-next step.** First specify a bounded ladder-coverage and conditional-probe
-diagnostic with original anchors, both option orders and fixed stopping
-rules. Smaller integer payoff ratios require a representation/stakes decision;
-no new diagnostic workflow is configured yet. See the audit for the rationale.
+**Next: run the [156-request measurement diagnostic](inference-measurement-diagnostic.md) once.**
+Open **Actions → Inference measurement diagnostic → Run workflow → main**
+and click **Run workflow**. It contains 32 controls, 96 range probes, twelve
+same-allocation decimal spelling checks and sixteen original/clarified binary
+probes. It preserves 80 exact prior requests and both option orders. The
+range is 0.01–8 with your offer fixed at 10 points; fractional controls and
+notation comparisons address the representation change. Model/settings and
+explanation/A-B schema are unchanged. This batch is fixed before collection;
+its results are pending. Keep the pilot paused and review this single batch
+before any further calls.
 
 The completed [explanation debug workflow](inference-debug-explanation.md)
 remains available for reproduction. The older **Inference debug** workflow

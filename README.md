@@ -6,7 +6,7 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. Its initial design has **196 debug items and 888 pilot items**. Four exploratory debug runs, five response-calibration batches across three protocols, and a calculation diagnostic are complete. The latest 220-request explanation debug returned 220 usable answers, 24/24 correct control choices and 12/12 correctly stated rule calculations. It also exposed 8/98 debug option-order disagreements, no uniquely identified interior ladder estimates, and a conditional ability/willingness interpretation issue. [Read the full audit](docs/debug-36095971330-review.md). **The social measure remains unvalidated; the 888-item pilot remains unrun, unfrozen and unregistered.** The next recommendation is a bounded coverage and conditional-probe diagnostic, not another identical calibration or full-debug batch.
+**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. Its initial design has **196 debug items and 888 pilot items**. Four exploratory debug runs, five response-calibration batches across three protocols, and a calculation diagnostic are complete. The latest 220-request explanation debug returned 220 usable answers, 24/24 correct control choices and 12/12 correctly stated rule calculations. It also exposed 8/98 debug option-order disagreements, no uniquely identified interior ladder estimates, and a conditional ability/willingness interpretation issue. [Read the full audit](docs/debug-36095971330-review.md). **The social measure remains unvalidated; the 888-item pilot remains unrun, unfrozen and unregistered.** The [156-request range and conditional-question diagnostic](docs/inference-measurement-diagnostic.md) is ready for one manual run; its results are pending.
 
 ## Why this is useful
 
@@ -98,9 +98,15 @@ Current status: **the [220-request explanation debug is complete and audited](do
 All answers were usable; final control choices and the twelve stated rule
 calculations were correct. The full battery exposed eight option-order
 disagreements, unresolved ladder estimates and a conditional ability/willingness
-issue. Keep the 888-item pilot paused. The next diagnostic requires a fixed
-coverage/representation and conditional-probe design; no new workflow is
-configured or recommended to run yet.
+issue. Keep the 888-item pilot paused.
+
+The next batch is ready: **[Inference measurement diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-measurement-diagnostic.yml)
+→ Run workflow → main**, then click **Run workflow once**. It makes 156
+requests: 32 controls, 96 range probes, twelve decimal spelling anchors and
+sixteen original/clarified conditional probes. Ratios span 0.01–8, with the
+recipient's offer fixed at 10 points. The model and explanation/A-B protocol
+are unchanged. [Fixed design, budget and interpretation rules](docs/inference-measurement-diagnostic.md).
+Results are pending; this workflow does not run or approve the pilot.
 
 The [explanation debug protocol](docs/inference-debug-explanation.md),
 [explanation calibration workflow](docs/inference-calibration-explanation.md)

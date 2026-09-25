@@ -1,0 +1,60 @@
+name: Inference measurement diagnostic
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: inference-measurement-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          python-version: "3.12"
+      - run: uv sync --frozen --all-groups --extra eval
+      - name: Verify diagnostic protocol offline
+        run: uv run --frozen pytest -q tests/test_measurement_diagnostic.py tests/test_explanation_debug.py
+      - name: Verify synthetic recovery
+        run: uv run --frozen python -m wtrbench.pilot synthetic
+      - name: Check API credential
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          if not os.environ.get("ANTHROPIC_API_KEY"):
+              raise SystemExit("ANTHROPIC_API_KEY repository secret is required.")
+          PY
+      - name: Save fixed prompts and provenance
+        run: |
+          uv run --frozen python -m wtrbench.measurement_diagnostic generate
+          git rev-parse HEAD > runs/measurement-diagnostic/git-revision.txt
+          uv pip freeze > runs/measurement-diagnostic/dependencies.txt
+      - name: Run the fixed 156-request diagnostic once
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: uv run --frozen python -m wtrbench.measurement_diagnostic run
+      - name: Inspect complete or partial responses
+        if: always()
+        run: |
+          response="runs/measurement-diagnostic/responses.jsonl"
+          if [ -f "$response" ]; then
+            uv run --frozen python -m wtrbench.measurement_diagnostic inspect "$response" > runs/measurement-diagnostic/responses.inspect.md
+            cat runs/measurement-diagnostic/responses.inspect.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Save measurement diagnostic artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: inference-measurement-diagnostic-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/measurement-diagnostic/
+          retention-days: 90
+          if-no-files-found: ignore
