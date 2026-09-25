@@ -6,7 +6,7 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. Its initial design has **196 debug items and 888 pilot items**. Three exploratory debug runs, five response-calibration batches across three protocols, and a calculation diagnostic are complete. In the three-run explanation check, A/B met the final-answer progression criterion in both planned replications; SAM/YOU repeated the same social option-order mismatch in all three runs. A/B also repeated an incorrect stated calculation despite choosing the correct final answer twice. [Read the combined audit](docs/calibration-explanation-repeats-review.md). The next step is a compatible exploratory debug run using A/B with concurrent controls. **The social measure remains unvalidated, and the 888-item pilot has not been run or frozen.**
+**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. Its initial design has **196 debug items and 888 pilot items**. Three exploratory debug runs, five response-calibration batches across three protocols, and a calculation diagnostic are complete. In the three-run explanation check, A/B met the final-answer progression criterion in both planned replications; SAM/YOU repeated the same social option-order mismatch in all three runs. A/B also repeated an incorrect stated calculation despite choosing the correct final answer twice. [Read the combined audit](docs/calibration-explanation-repeats-review.md). The [220-request A/B explanation debug workflow](docs/inference-debug-explanation.md) is now ready for a manual run; its results are pending. **The social measure remains unvalidated, and the 888-item pilot has not been run or frozen.**
 
 ## Why this is useful
 
@@ -70,7 +70,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Synthetic checks, three exploratory debug runs, five calibration batches and a calculation diagnostic completed.** A/B passed final-answer criteria in both fixed replications, with an initial control error and persistent incorrect stated calculation retained. SAM/YOU remained order-sensitive. Compatible full debug is next; confirmatory evaluation and human calibration remain future work. |
+| Validate and report the measurements | **Synthetic checks, three exploratory debug runs, five calibration batches and a calculation diagnostic completed.** A/B passed final-answer criteria in both fixed replications, with an initial control error and persistent incorrect stated calculation retained. SAM/YOU remained order-sensitive. The compatible 220-request debug workflow is ready; confirmatory evaluation and human calibration remain future work. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -100,11 +100,13 @@ SAM/YOU repeated its numerical HIGH order mismatch in every batch. The
 initial A/B error and the false calculation in all three explanations remain
 part of the record. No further identical calibration batches are recommended.
 
-The next recommendation is **196 existing debug items plus 24 A/B controls**,
-using the same brief-explanation-then-answer protocol. This requires a new
-compatible runner/workflow, which is not yet implemented. The existing
-**Inference debug** workflow retains the earlier answer-only protocol.
-Keep the 888-item pilot paused. The
+The next batch is ready: **[Inference debug (explanation)](https://github.com/msblanders/wtr-bench/actions/workflows/inference-debug-explanation.yml)
+→ Run workflow → main**. It makes 220 requests: 24 separate A/B controls,
+then the 196 existing debug questions, using the calibrated explanation-and-answer
+protocol. [Protocol and interpretation plan](docs/inference-debug-explanation.md).
+Reports separate control accuracy and calculation review from debug ladder
+fits, option-order and evidence-order checks. No results from this batch
+have been collected; keep the 888-item pilot paused. The
 [explanation calibration workflow](docs/inference-calibration-explanation.md)
 remains available for reproduction.
 The [calculation protocol](docs/inference-calculation-diagnostic.md) remains

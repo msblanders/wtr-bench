@@ -10,9 +10,10 @@ identifies A/B as the candidate for compatible full debug: it met the
 final-answer criterion in both planned replications, while SAM/YOU repeated
 one social order mismatch in all three batches. An A/B stated-calculation
 error also persisted despite correct final answers in the replications.
-The item design and scoring below remain unchanged. The next recommended
-workflow is the existing 196 debug items plus 24 A/B controls under the
-brief-explanation protocol; it is not yet implemented. The 888-item pilot
+The item design and scoring below remain unchanged. The next
+[workflow](inference-debug-explanation.md) is implemented in v0.4.7: the
+existing 196 debug items plus 24 A/B controls under the brief-explanation
+protocol. Its results are pending. The 888-item pilot
 remains paused and unrun. Statements below about preregistered comparisons
 describe intended registrations; no registration has occurred.
 

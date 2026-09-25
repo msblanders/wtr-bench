@@ -198,11 +198,12 @@ alongside valuation predictions before evaluating the proposed dissociation.
 Report conflicting and unresolved patterns rather than choosing a format
 or ladder to obtain a favored psychological result.
 
-The new 220-request workflow is a recommendation and is **not yet
-implemented or run**. The existing **Inference debug** workflow retains the
-earlier answer-only protocol and does not run this proposed batch. No new
-workflow was dispatched by this audit. Pilot freezing or preregistration
-requires a later, explicit decision based on the compatible debug results.
+Implementation update: the [220-request explanation debug workflow](inference-debug-explanation.md)
+is now available in v0.4.7; its results are pending. The existing **Inference
+debug** workflow retains the earlier answer-only protocol; use the separate
+**Inference debug (explanation)** workflow for this batch. No model calls
+were made during configuration. Pilot freezing or preregistration requires
+a later, explicit decision based on the compatible debug results.
 
 ## Article implications and usage
 

@@ -5,8 +5,9 @@
 A/B met the original final-answer progression criterion in both replications;
 SAM/YOU repeated the same social order mismatch in all three batches.
 The initial A/B error and persistent incorrect stated option value are retained.
-A/B is the candidate for a compatible exploratory full debug workflow with
-concurrent controls; that new workflow is not yet implemented. The pilot
+A/B is the candidate for the now-implemented
+[220-request exploratory debug workflow](inference-debug-explanation.md)
+with concurrent controls. That batch's results are pending. The pilot
 remains paused. No further identical calibration repetitions are recommended.
 The specification below is the original pre-run protocol.
 
