@@ -1,0 +1,59 @@
+{
+  "mode": "debug-explanation-v1",
+  "model": "claude-sonnet-4-5-20250929",
+  "n_items": 220,
+  "n_controls": 24,
+  "n_debug": 196,
+  "items_hash": "bfe1d39e753b7316",
+  "source_debug_hash": "43e45d7065200983",
+  "sequence": "controls then debug, preserving each source sequence",
+  "generator": {
+    "ladder": [
+      0.1,
+      0.2,
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "tasks": [
+      "boxes"
+    ],
+    "set_roles": [
+      "debug"
+    ],
+    "form": 0
+  },
+  "transport_max_retries": 0,
+  "request": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "system": "For each question, Return a JSON object with exactly two fields in this order: \"brief_basis\", a brief explanation (one or two sentences) for your answer using the supplied information; then \"answer\", whose value is A or B. Do not include other fields.",
+    "output_config": {
+      "format": {
+        "type": "json_schema",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "brief_basis": {
+              "type": "string"
+            },
+            "answer": {
+              "type": "string",
+              "enum": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          "required": [
+            "brief_basis",
+            "answer"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "started": "2026-09-25T04:49:19.805701+00:00"
+}

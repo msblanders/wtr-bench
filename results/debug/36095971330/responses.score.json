@@ -1,0 +1,562 @@
+{
+  "responder": "anthropic:claude-sonnet-4-5-20250929",
+  "n_items": 196,
+  "n_missing": 0,
+  "attribution": [
+    {
+      "task": "boxes",
+      "cause": "baseline",
+      "infer": {
+        "identified": true,
+        "estimate": null,
+        "lower": null,
+        "upper": 0.1,
+        "censored": "left",
+        "violations": 0,
+        "n": 12,
+        "n_missing": 0
+      },
+      "will_same": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "will_diff": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "able_same": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "able_diff": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      }
+    },
+    {
+      "task": "boxes",
+      "cause": "constrained",
+      "infer": {
+        "identified": false,
+        "estimate": null,
+        "lower": 1.5,
+        "upper": null,
+        "censored": "none",
+        "violations": 1,
+        "n": 12,
+        "n_missing": 0
+      },
+      "will_same": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "will_diff": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "able_same": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "able_diff": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      }
+    },
+    {
+      "task": "boxes",
+      "cause": "helped",
+      "infer": {
+        "identified": false,
+        "estimate": null,
+        "lower": 0.5,
+        "upper": 2.0,
+        "censored": "none",
+        "violations": 2,
+        "n": 12,
+        "n_missing": 0
+      },
+      "will_same": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "will_diff": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "able_same": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "able_diff": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      }
+    },
+    {
+      "task": "boxes",
+      "cause": "unable",
+      "infer": {
+        "identified": false,
+        "estimate": null,
+        "lower": 1.0,
+        "upper": null,
+        "censored": "none",
+        "violations": 2,
+        "n": 12,
+        "n_missing": 0
+      },
+      "will_same": {
+        "proportion": 0.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "will_diff": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "able_same": {
+        "proportion": 0.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "able_diff": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      }
+    },
+    {
+      "task": "boxes",
+      "cause": "unwilling",
+      "infer": {
+        "identified": true,
+        "estimate": null,
+        "lower": null,
+        "upper": 0.1,
+        "censored": "left",
+        "violations": 0,
+        "n": 12,
+        "n_missing": 0
+      },
+      "will_same": {
+        "proportion": 0.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "will_diff": {
+        "proportion": 0.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "able_same": {
+        "proportion": 1.0,
+        "n": 2,
+        "n_missing": 0
+      },
+      "able_diff": {
+        "proportion": 0.5,
+        "n": 2,
+        "n_missing": 0
+      }
+    }
+  ],
+  "aggregate": [
+    {
+      "agg_set": 3,
+      "set_name": "debug",
+      "role": "debug",
+      "diagnostic": "high",
+      "totals": "t1",
+      "infer": {
+        "identified": true,
+        "estimate": null,
+        "lower": null,
+        "upper": 0.1,
+        "censored": "left",
+        "violations": 0,
+        "n": 24,
+        "n_missing": 0
+      },
+      "infer_by_order": {
+        "original": {
+          "identified": true,
+          "estimate": null,
+          "lower": null,
+          "upper": 0.1,
+          "censored": "left",
+          "violations": 0,
+          "n": 12,
+          "n_missing": 0
+        },
+        "swapped": {
+          "identified": true,
+          "estimate": null,
+          "lower": null,
+          "upper": 0.1,
+          "censored": "left",
+          "violations": 0,
+          "n": 12,
+          "n_missing": 0
+        }
+      }
+    },
+    {
+      "agg_set": 3,
+      "set_name": "debug",
+      "role": "debug",
+      "diagnostic": "high",
+      "totals": "t2",
+      "infer": {
+        "identified": true,
+        "estimate": null,
+        "lower": null,
+        "upper": 0.1,
+        "censored": "left",
+        "violations": 0,
+        "n": 24,
+        "n_missing": 0
+      },
+      "infer_by_order": {
+        "original": {
+          "identified": true,
+          "estimate": null,
+          "lower": null,
+          "upper": 0.1,
+          "censored": "left",
+          "violations": 0,
+          "n": 12,
+          "n_missing": 0
+        },
+        "swapped": {
+          "identified": true,
+          "estimate": null,
+          "lower": null,
+          "upper": 0.1,
+          "censored": "left",
+          "violations": 0,
+          "n": 12,
+          "n_missing": 0
+        }
+      }
+    },
+    {
+      "agg_set": 3,
+      "set_name": "debug",
+      "role": "debug",
+      "diagnostic": "low",
+      "totals": "t1",
+      "infer": {
+        "identified": true,
+        "estimate": null,
+        "lower": null,
+        "upper": 0.1,
+        "censored": "left",
+        "violations": 0,
+        "n": 24,
+        "n_missing": 0
+      },
+      "infer_by_order": {
+        "original": {
+          "identified": true,
+          "estimate": null,
+          "lower": null,
+          "upper": 0.1,
+          "censored": "left",
+          "violations": 0,
+          "n": 12,
+          "n_missing": 0
+        },
+        "swapped": {
+          "identified": true,
+          "estimate": null,
+          "lower": null,
+          "upper": 0.1,
+          "censored": "left",
+          "violations": 0,
+          "n": 12,
+          "n_missing": 0
+        }
+      }
+    },
+    {
+      "agg_set": 3,
+      "set_name": "debug",
+      "role": "debug",
+      "diagnostic": "low",
+      "totals": "t2",
+      "infer": {
+        "identified": true,
+        "estimate": null,
+        "lower": null,
+        "upper": 0.1,
+        "censored": "left",
+        "violations": 2,
+        "n": 24,
+        "n_missing": 0
+      },
+      "infer_by_order": {
+        "original": {
+          "identified": true,
+          "estimate": null,
+          "lower": null,
+          "upper": 0.1,
+          "censored": "left",
+          "violations": 0,
+          "n": 12,
+          "n_missing": 0
+        },
+        "swapped": {
+          "identified": false,
+          "estimate": null,
+          "lower": null,
+          "upper": 0.5,
+          "censored": "none",
+          "violations": 2,
+          "n": 12,
+          "n_missing": 0
+        }
+      }
+    }
+  ],
+  "required_valuation": {
+    "label": "infer: unable - unwilling",
+    "predicted_sign": "+",
+    "values": [
+      {
+        "unit": "boxes",
+        "sign": "+",
+        "min_abs": 0.9,
+        "point": null,
+        "note": "b:left a:unidentified"
+      }
+    ],
+    "n_units": 1,
+    "n_consistent": 1,
+    "n_undetermined": 0,
+    "median_point": null,
+    "boot_lower": null,
+    "boot_upper": null
+  },
+  "required_ability": {
+    "label": "able_same: unwilling - unable",
+    "predicted_sign": "+",
+    "values": [
+      {
+        "unit": "boxes",
+        "sign": "+",
+        "min_abs": 1.0,
+        "point": 1.0,
+        "note": ""
+      }
+    ],
+    "n_units": 1,
+    "n_consistent": 1,
+    "n_undetermined": 0,
+    "median_point": 1.0,
+    "boot_lower": null,
+    "boot_upper": null
+  },
+  "diagnostic_by_set": [
+    {
+      "label": "debug (debug): w[LOW] - w[HIGH]",
+      "predicted_sign": "-",
+      "values": [
+        {
+          "unit": "t1",
+          "sign": "undetermined",
+          "min_abs": null,
+          "point": null,
+          "note": "a:left b:left intervals overlap"
+        },
+        {
+          "unit": "t2",
+          "sign": "undetermined",
+          "min_abs": null,
+          "point": null,
+          "note": "a:left b:left intervals overlap"
+        }
+      ],
+      "n_units": 2,
+      "n_consistent": 0,
+      "n_undetermined": 2,
+      "median_point": null,
+      "boot_lower": null,
+      "boot_upper": null
+    }
+  ],
+  "descriptive": {
+    "debug: w[T1] - w[T2] (totals, descriptive)": {
+      "label": "debug: w[T1] - w[T2] (totals, descriptive)",
+      "predicted_sign": null,
+      "values": [
+        {
+          "unit": "low",
+          "sign": "undetermined",
+          "min_abs": null,
+          "point": null,
+          "note": "a:left b:left intervals overlap"
+        },
+        {
+          "unit": "high",
+          "sign": "undetermined",
+          "min_abs": null,
+          "point": null,
+          "note": "a:left b:left intervals overlap"
+        }
+      ],
+      "n_units": 2,
+      "n_consistent": null,
+      "n_undetermined": 2,
+      "median_point": null,
+      "boot_lower": null,
+      "boot_upper": null
+    },
+    "infer: unwilling - baseline": {
+      "label": "infer: unwilling - baseline",
+      "predicted_sign": null,
+      "values": [
+        {
+          "unit": "boxes",
+          "sign": "undetermined",
+          "min_abs": null,
+          "point": null,
+          "note": "a:left b:left intervals overlap"
+        }
+      ],
+      "n_units": 1,
+      "n_consistent": null,
+      "n_undetermined": 1,
+      "median_point": null,
+      "boot_lower": null,
+      "boot_upper": null
+    },
+    "infer: unable - baseline": {
+      "label": "infer: unable - baseline",
+      "predicted_sign": null,
+      "values": [
+        {
+          "unit": "boxes",
+          "sign": "+",
+          "min_abs": 0.9,
+          "point": null,
+          "note": "b:left a:unidentified"
+        }
+      ],
+      "n_units": 1,
+      "n_consistent": null,
+      "n_undetermined": 0,
+      "median_point": null,
+      "boot_lower": null,
+      "boot_upper": null
+    },
+    "infer: constrained - baseline": {
+      "label": "infer: constrained - baseline",
+      "predicted_sign": null,
+      "values": [
+        {
+          "unit": "boxes",
+          "sign": "+",
+          "min_abs": 1.4,
+          "point": null,
+          "note": "b:left a:unidentified"
+        }
+      ],
+      "n_units": 1,
+      "n_consistent": null,
+      "n_undetermined": 0,
+      "median_point": null,
+      "boot_lower": null,
+      "boot_upper": null
+    },
+    "infer: helped - baseline": {
+      "label": "infer: helped - baseline",
+      "predicted_sign": null,
+      "values": [
+        {
+          "unit": "boxes",
+          "sign": "+",
+          "min_abs": 0.4,
+          "point": null,
+          "note": "b:left a:unidentified"
+        }
+      ],
+      "n_units": 1,
+      "n_consistent": null,
+      "n_undetermined": 0,
+      "median_point": null,
+      "boot_lower": null,
+      "boot_upper": null
+    },
+    "will_same: unable - unwilling": {
+      "label": "will_same: unable - unwilling",
+      "predicted_sign": null,
+      "values": [
+        {
+          "unit": "boxes",
+          "sign": "0",
+          "min_abs": 0.0,
+          "point": 0.0,
+          "note": ""
+        }
+      ],
+      "n_units": 1,
+      "n_consistent": null,
+      "n_undetermined": 0,
+      "median_point": 0.0,
+      "boot_lower": null,
+      "boot_upper": null
+    },
+    "will_diff: unable - unwilling": {
+      "label": "will_diff: unable - unwilling",
+      "predicted_sign": null,
+      "values": [
+        {
+          "unit": "boxes",
+          "sign": "+",
+          "min_abs": 1.0,
+          "point": 1.0,
+          "note": ""
+        }
+      ],
+      "n_units": 1,
+      "n_consistent": null,
+      "n_undetermined": 0,
+      "median_point": 1.0,
+      "boot_lower": null,
+      "boot_upper": null
+    },
+    "able_diff: unwilling - unable (transfer control)": {
+      "label": "able_diff: unwilling - unable (transfer control)",
+      "predicted_sign": null,
+      "values": [
+        {
+          "unit": "boxes",
+          "sign": "-",
+          "min_abs": 0.5,
+          "point": -0.5,
+          "note": ""
+        }
+      ],
+      "n_units": 1,
+      "n_consistent": null,
+      "n_undetermined": 0,
+      "median_point": -0.5,
+      "boot_lower": null,
+      "boot_upper": null
+    }
+  }
+}

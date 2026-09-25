@@ -198,12 +198,15 @@ alongside valuation predictions before evaluating the proposed dissociation.
 Report conflicting and unresolved patterns rather than choosing a format
 or ladder to obtain a favored psychological result.
 
-Implementation update: the [220-request explanation debug workflow](inference-debug-explanation.md)
-is now available in v0.4.7; its results are pending. The existing **Inference
-debug** workflow retains the earlier answer-only protocol; use the separate
-**Inference debug (explanation)** workflow for this batch. No model calls
-were made during configuration. Pilot freezing or preregistration requires
-a later, explicit decision based on the compatible debug results.
+Subsequent execution update: the v0.4.7 [220-request explanation debug
+is complete and audited](debug-36095971330-review.md). Its controls and all
+twelve rule calculations were correct, including the previously faulty case.
+Its broader battery exposed eight option-order disagreements, unresolved
+ladder estimates and a conditional ability/willingness issue. The pilot
+remains paused. The recommendation above records the decision made before
+that run; the new audit records the next measurement-development decision.
+The existing **Inference debug** workflow retains the earlier answer-only
+protocol; **Inference debug (explanation)** reproduces this completed batch.
 
 ## Article implications and usage
 

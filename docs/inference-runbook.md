@@ -1,22 +1,25 @@
 # Running the inference pilot
 
-Three debug batches, five response-calibration batches across three protocols,
-and a calculation diagnostic are complete. The
-[three-run explanation audit](calibration-explanation-repeats-review.md)
-finds that A/B met the final-answer progression criterion in both fixed
-replications, while SAM/YOU repeated its social order mismatch in all three
-runs. A/B's original control error remains recorded, and its incorrect
-stated option value persisted even when the final answer was correct.
+Four exploratory debug batches, five response-calibration batches across
+three protocols, and a calculation diagnostic are complete. The latest
+[220-request explanation debug audit](debug-36095971330-review.md) finds
+220 usable answers, 24/24 correct controls and twelve correct returned rule
+calculations. It also finds 8/98 debug option-order disagreements, no uniquely
+identified interior estimates, and explanations that override a supplied
+future-ability condition.
 
-**Next: run the [220-request explanation debug workflow](inference-debug-explanation.md).**
-Open **Actions → Inference debug (explanation) → Run workflow → main**.
-It is implemented in v0.4.7; its results are pending. The batch contains
-24 separate A/B controls followed by the existing 196 debug items, with the
-calibrated model/settings and explanation-then-answer schema. The older
-**Inference debug** workflow retains the answer-only protocol. The bounded
-calibration replication check is finished. Keep the pilot paused.
-The study has not been preregistered and the 888-item pilot has not been run.
-Synthetic outputs remain programmed checks, not observations of an LLM.
+**Keep the pilot paused. Do not repeat the unchanged full-debug batch as the
+next step.** First specify a bounded ladder-coverage and conditional-probe
+diagnostic with original anchors, both option orders and fixed stopping
+rules. Smaller integer payoff ratios require a representation/stakes decision;
+no new diagnostic workflow is configured yet. See the audit for the rationale.
+
+The completed [explanation debug workflow](inference-debug-explanation.md)
+remains available for reproduction. The older **Inference debug** workflow
+retains its answer-only protocol. The bounded calibration replication check
+is finished. The study has not been preregistered, and the 888-item pilot
+has not been frozen or run. Synthetic outputs remain programmed checks,
+not observations of an LLM.
 
 ## Verify the installation
 

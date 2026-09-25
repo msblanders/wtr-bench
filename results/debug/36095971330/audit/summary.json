@@ -1,0 +1,227 @@
+{
+  "run": "36095971330",
+  "recorded": 220,
+  "controls_correct": {
+    "recipient_lookup": 8,
+    "quantity": 4,
+    "explicit_rule": 12
+  },
+  "rule_explanations_manually_reviewed": 12,
+  "option_pairs": {
+    "attribution/p_infer": {
+      "complete": 30,
+      "disagree": 5
+    },
+    "attribution/p_will_same": {
+      "complete": 5,
+      "disagree": 0
+    },
+    "attribution/p_will_diff": {
+      "complete": 5,
+      "disagree": 0
+    },
+    "attribution/p_able_same": {
+      "complete": 5,
+      "disagree": 0
+    },
+    "attribution/p_able_diff": {
+      "complete": 5,
+      "disagree": 1
+    },
+    "aggregate/p_infer": {
+      "complete": 48,
+      "disagree": 2
+    }
+  },
+  "ladders_by_evidence_order": {
+    "boxes/baseline": {
+      "status": "left",
+      "violations": 0,
+      "n": 12,
+      "lower": null,
+      "upper": 0.1,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "boxes/constrained": {
+      "status": "unidentified",
+      "violations": 1,
+      "n": 12,
+      "lower": 1.5,
+      "upper": null,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "boxes/helped": {
+      "status": "unidentified",
+      "violations": 2,
+      "n": 12,
+      "lower": 0.5,
+      "upper": 2.0,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "boxes/unable": {
+      "status": "unidentified",
+      "violations": 2,
+      "n": 12,
+      "lower": 1.0,
+      "upper": null,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "boxes/unwilling": {
+      "status": "left",
+      "violations": 0,
+      "n": 12,
+      "lower": null,
+      "upper": 0.1,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "debug/high/t1/original": {
+      "status": "left",
+      "violations": 0,
+      "n": 12,
+      "lower": null,
+      "upper": 0.1,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "debug/high/t1/swapped": {
+      "status": "left",
+      "violations": 0,
+      "n": 12,
+      "lower": null,
+      "upper": 0.1,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "debug/high/t2/original": {
+      "status": "left",
+      "violations": 0,
+      "n": 12,
+      "lower": null,
+      "upper": 0.1,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "debug/high/t2/swapped": {
+      "status": "left",
+      "violations": 0,
+      "n": 12,
+      "lower": null,
+      "upper": 0.1,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "debug/low/t1/original": {
+      "status": "left",
+      "violations": 0,
+      "n": 12,
+      "lower": null,
+      "upper": 0.1,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "debug/low/t1/swapped": {
+      "status": "left",
+      "violations": 0,
+      "n": 12,
+      "lower": null,
+      "upper": 0.1,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "debug/low/t2/original": {
+      "status": "left",
+      "violations": 0,
+      "n": 12,
+      "lower": null,
+      "upper": 0.1,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    },
+    "debug/low/t2/swapped": {
+      "status": "unidentified",
+      "violations": 2,
+      "n": 12,
+      "lower": null,
+      "upper": 0.5,
+      "decreases_by_display_order": {
+        "A": 0,
+        "B": 0
+      }
+    }
+  },
+  "ladder_status_counts": {
+    "left": 9,
+    "unidentified": 4
+  },
+  "evidence_pairs": 48,
+  "evidence_disagreements": [
+    [
+      "low",
+      "t2",
+      0.1,
+      "A"
+    ],
+    [
+      "low",
+      "t2",
+      0.2,
+      "A"
+    ]
+  ],
+  "aggregate_keeps": 94,
+  "prior_calibration_bridge": {
+    "36088607405": {
+      "control_matched": 24,
+      "control_same_choice": 23,
+      "social_matched": 12,
+      "social_same_choice": 12
+    },
+    "36090248661": {
+      "control_matched": 24,
+      "control_same_choice": 24,
+      "social_matched": 12,
+      "social_same_choice": 12
+    },
+    "36090756872": {
+      "control_matched": 24,
+      "control_same_choice": 24,
+      "social_matched": 12,
+      "social_same_choice": 12
+    }
+  },
+  "usage": {
+    "input_tokens": 87352,
+    "output_tokens": 15388,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+  }
+}

@@ -2,20 +2,20 @@
 *Working draft, v0.4 (September 2026). Companion to `wtr-bench-design.md`.
 Decisions are stated as decisions; open questions are listed per section.*
 
-**Execution update (2026-09-25):** Two Haiku and one Sonnet exploratory debug
-runs are complete, followed by five response-calibration batches across
-three protocols and a control-only calculation diagnostic. The latest
-[three-run explanation audit](calibration-explanation-repeats-review.md)
-identifies A/B as the candidate for compatible full debug: it met the
-final-answer criterion in both planned replications, while SAM/YOU repeated
-one social order mismatch in all three batches. An A/B stated-calculation
-error also persisted despite correct final answers in the replications.
-The item design and scoring below remain unchanged. The next
-[workflow](inference-debug-explanation.md) is implemented in v0.4.7: the
-existing 196 debug items plus 24 A/B controls under the brief-explanation
-protocol. Its results are pending. The 888-item pilot
-remains paused and unrun. Statements below about preregistered comparisons
-describe intended registrations; no registration has occurred.
+**Execution update (2026-09-25):** Four exploratory debug runs (two Haiku,
+two Sonnet), five response-calibration batches across three protocols, and
+a control-only calculation diagnostic are complete. The latest
+[220-request explanation debug audit](debug-36095971330-review.md) records
+220 usable answers, 24/24 correct control choices and twelve correct returned
+rule calculations. The full battery also reveals 8/98 option-order
+disagreements, no uniquely identified interior ladder estimates, and a
+conditional ability/willingness interpretation issue. The small calibration
+subset's earlier A/B successes and false calculations remain documented.
+The item design and scoring below remain unchanged. A bounded coverage and
+conditional-probe diagnostic is recommended before any pilot decision;
+no follow-up workflow is configured. The 888-item pilot remains paused,
+unfrozen and unrun. Statements below about preregistered comparisons describe
+intended registrations; no registration has occurred.
 
 ## 0. What this module adds, and what it does not
 

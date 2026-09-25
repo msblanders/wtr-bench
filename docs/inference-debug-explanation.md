@@ -1,10 +1,16 @@
 # Exploratory full debug with brief explanations
 
-**Status:** Implemented in v0.4.7, ready for a manual run; no model responses
-collected under this batch protocol yet. Open
+**Status:** Completed in [run 36095971330](https://github.com/msblanders/wtr-bench/actions/runs/36095971330)
+and [audited](debug-36095971330-review.md). All 220 answers were usable, all
+24 controls correct and all twelve returned rule calculations correct.
+The full battery exposed eight option-order disagreements, unresolved
+ladder estimates and a conditional ability/willingness interpretation issue.
+Keep the pilot paused; do not repeat this batch as the default next step.
+The fixed protocol below is retained as specified before collection.
+
+For reproduction only, open
 [Actions → Inference debug (explanation)](https://github.com/msblanders/wtr-bench/actions/workflows/inference-debug-explanation.yml),
-choose **Run workflow → main**, then click the green **Run workflow** button
-once. There are no model or budget settings to choose. The existing
+choose **Run workflow → main**, then click **Run workflow** once. The existing
 `ANTHROPIC_API_KEY` repository secret is used.
 
 This follows the [three-run calibration audit](calibration-explanation-repeats-review.md).
@@ -106,8 +112,10 @@ offline from the recorded rule-case parameters, independently checked against
 the prompt allocations in tests, and never sent to the model. The report
 places them beside the returned explanation.
 
-**Returned calculation accuracy remains `pending_manual_review`.** Before
-claiming that rule performance improved, review the checkable values and
+**The automated report marks calculation accuracy `pending_manual_review`.**
+For the completed run, the [separate audit](debug-36095971330-review.md)
+records the finished twelve-response review without altering that raw report.
+Before claiming that rule performance improved in any run, review the checkable values and
 payoff assignments in all twelve rule explanations, including any wrong
 values attached to a correct final answer. If an explanation supplies no
 calculation, record that it provides no checkable numerical statement;
