@@ -6,7 +6,7 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**Pilot collection is paused while we validate the original measurement task.** The researcher has asked to establish the necessary measurement evidence before any pilot. The [validation plan](docs/validation-before-pilot.md) identifies the missing end-to-end known-partner recovery test and distinguishes inconsistent choices from legitimate WTR bounds. Its 216-request diagnostic draft is generated and checked offline; no model collection is enabled.
+**The 216-request [known-partner recovery diagnostic](docs/known-partner-recovery-v1.md) is ready to run.** It tests full-ladder recovery with explicitly supplied weights and with informative choice histories, including option/history reversals and two passes. The [validation plan](docs/validation-before-pilot.md) explains how this supports the original measurement question. Both social pilots remain paused.
 
 The 816-request robustness workflow and its CLI collection command are disabled. Its [frozen proposal](docs/response-robustness-pilot-v1.md) remains in the record; it does not replace the original research objective. The original 888-item inference pilot remains unrun. Four debug runs, five calibration batches and two diagnostics are archived, including the [latest diagnostic audit](docs/measurement-36099597085-review.md). No scalar WTR measure has been validated.
 
@@ -72,7 +72,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Validation before any pilot.** The original theory-focused aim is retained. A known-partner recovery diagnostic is specified and mathematically checked offline; no new API collection is enabled. The robustness pilot is paused. Earlier diagnostic failures and bounds remain in the record. |
+| Validate and report the measurements | **Validation before any pilot.** The original theory-focused aim is retained. The fixed 216-request known-partner recovery diagnostic is ready, with frozen requests, exact truth keys, interval recovery and separate explanation review. The robustness pilot is paused. Earlier diagnostic failures and bounds remain in the record. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -96,15 +96,17 @@ This generates prompts locally. It does not call a model API or produce benchmar
 
 ## Run the inference module
 
-**Do not run a pilot yet.** The **Inference robustness pilot (paused)** workflow skips its collection job, and its CLI rejects `run` before creating an API client. The earlier 888-item command is retained for historical reproduction and is not authorized as the next collection.
+Run **[Actions → Inference recovery diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-recovery-diagnostic.yml) → Run workflow → `main`**, once. The workflow makes **216 total requests**, including both passes: 72 explicit-weight questions and 144 choice-history questions. It uses the existing `ANTHROPIC_API_KEY` repository secret and pinned Sonnet 4.5. API calls are billed to that key.
 
-The current next step is [measurement validation](docs/validation-before-pilot.md): can the same ladder/interface recover known partner preferences, first with an explicit weight and then from informative choice histories? The offline diagnostic draft contains 216 requests but has no API runner. It does not require the model to exhibit the favored social effect as a pass condition. Generate its review packet without model calls:
+The [frozen collection plan](docs/known-partner-recovery-v1.md) specifies scoring and stopping. The [runbook](docs/inference-runbook.md) explains artifacts, explanation review and partial-run handling. No pilot launches automatically, and no further batch is triggered by errors. Both social pilots remain paused. The conservative choice pass and the explanation audit are reported separately; neither establishes full social construct validity.
+
+To generate and verify the frozen prompts without model calls:
 
 ```bash
-uv run --frozen python -m wtrbench.validation_recovery
+uv run --frozen python -m wtrbench.validation_recovery generate
 ```
 
-The [runbook](docs/inference-runbook.md) retains artifact and review instructions for the suspended robustness proposal. The [measurement diagnostic](docs/inference-measurement-diagnostic.md), [full-debug audit](docs/debug-36095971330-review.md), [calibration audit](docs/calibration-explanation-repeats-review.md) and [calculation diagnostic](docs/calculation-36087344540-review.md) retain the development record.
+The [measurement diagnostic](docs/inference-measurement-diagnostic.md), [full-debug audit](docs/debug-36095971330-review.md), [calibration audit](docs/calibration-explanation-repeats-review.md) and [calculation diagnostic](docs/calculation-36087344540-review.md) retain the development record.
 
 Install the optional API dependencies and run the synthetic checks locally:
 

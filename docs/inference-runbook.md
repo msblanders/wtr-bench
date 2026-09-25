@@ -1,22 +1,79 @@
-# Running the inference pilot
+# Running the inference diagnostic
 
-**Pilot collection is paused at the researcher's request.** Focus first on
-[validating the original measurement task](validation-before-pilot.md).
-The original 888-item pilot is unrun. The 816-request robustness proposal is
-retained but its collection job and CLI `run` command are disabled. No new
-model calls are authorized by these instructions.
+**The known-partner recovery diagnostic is ready. Both social pilots remain
+paused.** This implements the [validation-before-pilot plan](validation-before-pilot.md)
+with [frozen collection and analysis rules](known-partner-recovery-v1.md).
 
-## Current offline validation work
+## Run the next diagnostic in GitHub
+
+1. Open **Actions → [Inference recovery diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-recovery-diagnostic.yml)**.
+2. Click **Run workflow**, select **`main`**, then run **once**. There are no
+   model, budget or format inputs to change. The existing `ANTHROPIC_API_KEY`
+   repository secret is used and its account is billed for API usage.
+3. Let the same job finish both passes: **216 requests total**, comprising
+   72 explicit-weight and 144 choice-history questions. The model is
+   `claude-sonnet-4-5-20250929`, temperature 0, maximum 256 output tokens.
+   The job has a 45-minute operational timeout and logs progress every 12
+   recorded responses. Do not launch another job for the second pass.
+4. Download `inference-recovery-diagnostic-RUN_ID-ATTEMPT` and retain it.
+   Send the run link for analysis. The summary reports final-choice accuracy,
+   interval recovery, and option/history/repeat comparisons. Explanation
+   review remains explicitly pending until the outputs are audited.
+
+The run makes every planned request despite incorrect or unusable answers.
+There are no automatic retries, outcome-driven extra calls or pilot dispatches.
+The 816-request robustness workflow remains disabled, and the original
+888-item social pilot remains on hold. Do not rerun to seek a preferred result.
+
+## Artifacts and explanation review
+
+The artifact contains `items.jsonl`, protocol, plan, freeze manifest, source
+revision, dependencies, raw `responses.jsonl` with exact request/API bodies,
+summary/report, all 54 fits, pair records and an explanation review template.
+`programmed-oracle-check.json` is separately labeled software verification,
+not a model observation. The historical bound audit is also included.
+
+Review all returned bases for calculations, mapping and inference. In the
+explicit-weight condition, the template supplies exact option values. In the
+history condition it supplies feasible intervals; the hidden generating
+weight is not the only compatible inference. Correct final choices and
+correct explanations are separate outcomes. Follow the frozen rubric and
+disclose the reviewer; assistant coding is not independent human coding.
+
+Copy `responses.explanation-review-template.jsonl` to a separate labels file,
+enter allowed labels and notes, and keep review IDs/response digests unchanged:
 
 ```bash
-uv run --frozen python -m wtrbench.validation_recovery
-uv run --frozen pytest -q tests/test_validation_recovery.py
+uv run --frozen python -m wtrbench.validation_recovery inspect runs/validation-recovery/responses.jsonl --labels explanation-labels.jsonl
 ```
 
-This creates a 216-request known-partner diagnostic draft and mathematical
-checks under `runs/validation-recovery-draft/`. It makes no API calls and has
-no collection workflow. See the plan for the gap in prior controls, the two
-recovery arms, interpretation of original history bounds and the decision rule.
+Partial labels remain pending. Accepted labels are archived alongside reports;
+the reviewer's file is not overwritten. The report never treats a choice pass
+as automatic approval of the original social measure or a pilot.
+
+## Technical interruptions and offline checks
+
+If collection fails, keep the partial artifact and inspect its logs first.
+GitHub **Re-run jobs** starts a fresh collection and does not resume saved
+responses. An exact local resume requires the recorded source revision,
+original response JSONL and its `.jsonl.config.json` together. Saved replies,
+including unusable ones, are not reissued. Document any uncertainty about a
+server-side completion after a transport error before resuming.
+
+```bash
+uv run --frozen python -m wtrbench.validation_recovery run --resume --out runs/validation-recovery/responses.jsonl
+```
+
+To generate the reviewable prompts and verify the freeze without API calls:
+
+```bash
+uv run --frozen python -m wtrbench.validation_recovery generate
+uv run --frozen pytest -q tests/test_validation_recovery.py tests/test_recovery_run.py
+```
+
+The collection manifest is `protocols/known-partner-recovery-v1.json`. It binds
+the ordered item JSONL, request bodies/settings and frozen analysis plan. Do
+not edit the frozen plan after observing responses; add a separate audit.
 
 ## Suspended robustness proposal: retained instructions
 

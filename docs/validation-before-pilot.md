@@ -62,9 +62,11 @@ those are separate problems from underidentified history evidence.
 
 ## The missing experiment: known-partner recovery
 
-**Status: draft specified and mathematically checked offline; no API runner or
-collection workflow is enabled for it.** This is a diagnostic before a pilot.
-The exact generator is `src/wtrbench/validation_recovery.py`.
+**Status: implemented, frozen and ready for one diagnostic collection.**
+The researcher authorized building this next step after reviewing the draft.
+The [frozen collection plan](known-partner-recovery-v1.md) preserves the exact
+draft prompts and order. Use **Inference recovery diagnostic** once; both
+social pilots remain on hold. The generator is `src/wtrbench/validation_recovery.py`.
 
 Use the same Sonnet snapshot, temperature 0, 256-token limit, fresh contexts,
 brief explanation then structured A/B answer. Retain the original six ratios:
@@ -97,7 +99,7 @@ choice is determined for **every** weight consistent with that history. No
 point estimate is required to equal the private weight: an interval containing
 it is the appropriate recovery target. The midpoint is only a summary.
 
-Proposed fixed budget: **216 requests**, 108 templates in two passes.
+Fixed budget: **216 requests**, 108 templates in two passes.
 
 - Explicit: 3 profiles × 6 rungs × 2 option orders × 2 repeats = 72.
 - History: 3 profiles × 6 rungs × 2 option orders × 2 history orders × 2 repeats = 144.
@@ -109,7 +111,7 @@ Generating the files makes no API calls and supplies no new model evidence.
 
 ## Interpretation and decision rule, specified before collection
 
-The offline report uses a deliberately conservative **clear-pass** rule:
+The analysis report uses a deliberately conservative **clear-pass** rule:
 all 216 choices usable and correct, with all 54 by-order and pooled ladder
 fits recovering their containing interval without violations in either pass.
 This also entails agreement across the planned option/history reversals and
@@ -135,7 +137,7 @@ Report which arm/profile/order failed and whether the interval conclusion
 changes; do not silently relax the clear-pass rule. Do not choose the best
 repeat, discard a profile or replace errors with the expected answer.
 
-The diagnostic would run once after its collection implementation and review.
+The diagnostic runs once through its manual collection workflow.
 Any follow-up must target a specific failure demonstrated in that run and be
 specified separately. There is no automatic second batch or pilot dispatch.
 If the basic task remains unreliable, acknowledge that outcome rather than
@@ -164,11 +166,11 @@ does not quietly substitute the robustness study for it.
 ## Offline reproduction and methodological precedent
 
 ```bash
-uv run --frozen python -m wtrbench.validation_recovery
-uv run --frozen pytest -q tests/test_validation_recovery.py
+uv run --frozen python -m wtrbench.validation_recovery generate
+uv run --frozen pytest -q tests/test_validation_recovery.py tests/test_recovery_run.py
 ```
 
-The generated `runs/validation-recovery-draft/` contains all 216 scheduled
+The generated `runs/validation-recovery/` contains all 216 scheduled
 items, the original-history bound audit and a **programmed-oracle** recovery
 report. That report must never be presented as an LLM result. Tests also
 check that fixed-letter, always-keep, always-give and missing responders fail.

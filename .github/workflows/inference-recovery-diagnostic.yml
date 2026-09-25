@@ -1,0 +1,58 @@
+name: Inference recovery diagnostic
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: inference-recovery-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          python-version: "3.12"
+      - run: uv sync --frozen --all-groups --extra eval
+      - name: Verify known-answer recovery and transport offline
+        run: uv run --frozen pytest -q tests/test_validation_recovery.py tests/test_recovery_run.py
+      - name: Check API credential
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          if not os.environ.get("ANTHROPIC_API_KEY"):
+              raise SystemExit("ANTHROPIC_API_KEY repository secret is required.")
+          PY
+      - name: Save frozen prompts, plan and provenance
+        run: |
+          uv run --frozen python -m wtrbench.validation_recovery generate
+          git rev-parse HEAD > runs/validation-recovery/git-revision.txt
+          uv pip freeze > runs/validation-recovery/dependencies.txt
+      - name: Run the fixed 216-request diagnostic once, including both passes
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: uv run --frozen python -m wtrbench.validation_recovery run
+      - name: Inspect complete or partial responses
+        if: always()
+        run: |
+          response="runs/validation-recovery/responses.jsonl"
+          if [ -f "$response" ]; then
+            uv run --frozen python -m wtrbench.validation_recovery inspect "$response" > runs/validation-recovery/responses.inspect.md
+            cat runs/validation-recovery/responses.inspect.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve diagnostic artifact, including partial data
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: inference-recovery-diagnostic-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/validation-recovery/
+          retention-days: 90
+          if-no-files-found: ignore

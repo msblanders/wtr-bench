@@ -1,7 +1,8 @@
-"""Offline specification of a known-answer partner-inference recovery diagnostic.
+"""Known-answer partner-inference recovery diagnostic: 216 fixed requests.
 
-Generates reviewable prompts and checks mathematical recovery. No API runner.
-python -m wtrbench.validation_recovery
+python -m wtrbench.validation_recovery generate  # offline
+python -m wtrbench.validation_recovery run
+python -m wtrbench.validation_recovery inspect PATH
 """
 
 from __future__ import annotations
@@ -10,7 +11,6 @@ import hashlib
 import json
 from collections import defaultdict
 from decimal import Decimal
-from pathlib import Path
 from typing import Any, Literal
 
 from pydantic import BaseModel
@@ -19,7 +19,9 @@ from wtrbench.explanation_calibration import MODEL, ending, request_settings
 from wtrbench.inference import AGGREGATE_SETS, PILOT_LADDER
 from wtrbench.score import ladder_estimate
 
-PROTOCOL = "known-partner-recovery-v1-draft"
+PROTOCOL = "known-partner-recovery-v1"
+# Keep the reviewed draft's exact sequence when promoting it to collection.
+ORDER_SEED = "known-partner-recovery-v1-draft"
 # Weight and two history amounts are private audit metadata in the history arm.
 # At fixed other-payoff 20, give at the lower ratio and keep at the upper ratio.
 PROFILES = {"low": ("0.3", 5, 8), "middle": ("0.75", 12, 18), "high": ("1.75", 32, 38)}
@@ -94,7 +96,7 @@ def generate_items() -> list[RecoveryItem]:
                             current.append(RecoveryItem.model_validate({**fields,
                                 "template_id": template, "repetition": repetition,
                                 "item_id": "wtr-recovery-" + _hash([template, repetition])[:16]}))
-        result.extend(sorted(current, key=lambda i: _hash([PROTOCOL, i.item_id])))
+        result.extend(sorted(current, key=lambda i: _hash([ORDER_SEED, i.item_id])))
     return result
 
 
@@ -151,16 +153,9 @@ def original_history_bounds() -> list[dict[str, Any]]:
 
 
 def main() -> None:
-    items = generate_items()
-    out = Path("runs/validation-recovery-draft")
-    out.mkdir(parents=True, exist_ok=True)
-    (out / "items.jsonl").write_text("".join(i.model_dump_json()+"\n" for i in items))
-    (out / "original-history-bounds.json").write_text(json.dumps(original_history_bounds(), indent=2)+"\n")
-    report = recovery_report(items, {i.item_id: i.expected_answer for i in items})
-    (out / "programmed-oracle-check.json").write_text(json.dumps(report, indent=2)+"\n")
-    print(f"Draft: {len(items)} requests, {len({i.template_id for i in items})} templates; "
-          f"programmed oracle recovers {sum(f['recovered_interval'] for f in report['fits'])}/"
-          f"{len(report['fits'])} fits. NO MODEL WAS QUERIED; collection is not enabled.")
+    from wtrbench.recovery_run import main as run_main
+
+    run_main()
 
 
 if __name__ == "__main__":

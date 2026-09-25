@@ -8,9 +8,9 @@ pilot remains unrun. The 816-request robustness proposal is preserved but
 its collection workflow and CLI are disabled; it does not replace the
 original research aim. See [validation before pilot](validation-before-pilot.md).
 
-The next diagnostic is specified and checked offline: recover known partner
-weights using complete ladders with either an explicit weight or informative
-choice histories. No collection is enabled. Original histories that only
+The [216-request known-partner recovery diagnostic](known-partner-recovery-v1.md)
+is implemented, frozen and ready for one manual run. It uses complete ladders
+with either an explicit weight or informative choice histories. Original histories that only
 show keeping impose upper bounds; LOW/HIGH separation is a theoretical
 prediction, not a known-answer validation criterion. Null effects, reversed
 effects and unresolved bounds must remain possible outcomes of an adequately
@@ -19,7 +19,7 @@ measured social test.
 The original design below and all [development findings](measurement-36099597085-review.md)
 remain unchanged. References to preregistration describe an intention;
 no external registration has occurred. The [runbook](inference-runbook.md)
-records the pause and retains historical procedures.
+gives diagnostic run instructions, records the pilot pause and retains historical procedures.
 
 ## 0. What this module adds, and what it does not
 
