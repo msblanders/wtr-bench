@@ -1,0 +1,60 @@
+name: Inference robustness pilot
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: inference-robustness-pilot
+  cancel-in-progress: false
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          python-version: "3.12"
+      - run: uv sync --frozen --all-groups --extra eval
+      - name: Verify frozen pilot offline
+        run: uv run --frozen pytest -q tests/test_robustness_pilot.py tests/test_explanation_debug.py
+      - name: Verify synthetic recovery
+        run: uv run --frozen python -m wtrbench.pilot synthetic
+      - name: Check API credential
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          if not os.environ.get("ANTHROPIC_API_KEY"):
+              raise SystemExit("ANTHROPIC_API_KEY repository secret is required.")
+          PY
+      - name: Save frozen prompts, plan and provenance
+        run: |
+          uv run --frozen python -m wtrbench.robustness_pilot generate
+          git rev-parse HEAD > runs/robustness-pilot/git-revision.txt
+          uv pip freeze > runs/robustness-pilot/dependencies.txt
+      - name: Run the 816-request pilot once, including both passes
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: uv run --frozen python -m wtrbench.robustness_pilot run
+      - name: Inspect complete or partial responses
+        if: always()
+        run: |
+          response="runs/robustness-pilot/responses.jsonl"
+          if [ -f "$response" ]; then
+            uv run --frozen python -m wtrbench.robustness_pilot inspect "$response" > runs/robustness-pilot/responses.inspect.md
+            cat runs/robustness-pilot/responses.inspect.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Save pilot artifact, including partial data
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: inference-robustness-pilot-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/robustness-pilot/
+          retention-days: 90
+          if-no-files-found: ignore

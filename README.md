@@ -6,7 +6,9 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. Its initial design has **196 debug items and 888 pilot items**. Four exploratory debug runs, five response-calibration batches, a calculation diagnostic and a fixed 156-request measurement diagnostic are complete. The latest diagnostic returned 156 usable answers and 32/32 correct control choices, but one false-tie calculation recurred, the wider ladders did not establish a stable common switching estimate, and option/notation disagreements remained. Clarified explanations respected the supplied conditions in 8/8 cases versus 5/8 originals, while final judgments remained order-sensitive. [Read the completed diagnostic audit](docs/measurement-36099597085-review.md). **End this calibration/range-tuning loop; the social measure remains unvalidated, and the 888-item pilot remains unrun, unfrozen and unregistered.** The next recommendation is an offline plan for a narrower pilot of response robustness.
+**Ready to run: the fixed [816-request response robustness pilot](docs/response-robustness-pilot-v1.md).** It tests option-order consistency, adherence to supplied conditions and repeatability across six scenarios and two numerical construction sets. The 408 prompts are each queried twice in one workflow. WTR fits remain exploratory: the development runs did not validate a stable scalar social measure. No further pre-pilot calibration is required.
+
+The repository also contains Module A's 3,600-prompt generator and the original inference design (196 debug items and an unrun 888-item pilot). Four debug runs, five calibration batches and two diagnostics are archived. The [latest diagnostic audit](docs/measurement-36099597085-review.md) documents the recurring false calculation, censored/tied ladders and remaining order sensitivity. The new pilot studies those observable limitations; it supersedes the 888-item collection as the next study.
 
 ## Why this is useful
 
@@ -70,7 +72,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Synthetic checks, four debug runs, five calibration batches and two diagnostics completed.** The fixed range/conditional diagnostic did not establish a stable scalar measure. Correct choices, stated calculations, conditional fidelity and order robustness are reported separately. End this tuning loop; a narrower prospective pilot plan and independent human coding remain future work. |
+| Validate and report the measurements | **Fixed robustness pilot ready.** The 816-call budget, two repetitions, primary outcomes, coding rubric and item/plan hashes are specified before collection. Earlier diagnostics did not validate scalar WTR. Conditional explanations and control calculations require manual review after collection; independent second coding remains future work. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -94,24 +96,11 @@ This generates prompts locally. It does not call a model API or produce benchmar
 
 ## Run the inference module
 
-Current status: **the [fixed 156-request measurement diagnostic is complete and audited](docs/measurement-36099597085-review.md)**.
-All final control choices were correct, but the false-tie explanation returned.
-Wider ratios did not establish a stable common WTR switch, and clarification
-improved conditional fidelity without eliminating option-order disagreement.
+Open **[Actions → Inference robustness pilot](https://github.com/msblanders/wtr-bench/actions/workflows/inference-robustness-pilot.yml) → Run workflow**, select `main`, and run **once**. Both passes are included automatically: **816 requests**, using `claude-sonnet-4-5-20250929` and the existing `ANTHROPIC_API_KEY` secret. Calls are billed to that key. There are no protocol inputs to adjust.
 
-**Stop repeated calibration and further range expansion in this development
-sequence. Keep the 888-item pilot paused.** The recommended next step is an
-offline plan for a pilot of response robustness, with observable outcomes,
-held-out scenarios, coding rules and a fixed budget specified before calls.
-No next workflow is configured or recommended to run now.
+The [frozen plan](docs/response-robustness-pilot-v1.md) specifies the sample, stopping rule and analysis. The [runbook](docs/inference-runbook.md) explains artifacts, partial-run handling and manual review. Disagreements and control errors are pilot results; they do not trigger another calibration batch. This is prospectively specified on GitHub, not an external preregistration. No pilot responses have yet been collected at this revision.
 
-The [measurement diagnostic specification](docs/inference-measurement-diagnostic.md),
-[full-debug audit](docs/debug-36095971330-review.md),
-[calibration audit](docs/calibration-explanation-repeats-review.md) and
-[calculation diagnostic](docs/calculation-36087344540-review.md) retain the
-full development record. Existing workflows remain available for deliberate
-reproduction; green execution alone does not validate a social measure.
-
+The [measurement diagnostic](docs/inference-measurement-diagnostic.md), [full-debug audit](docs/debug-36095971330-review.md), [calibration audit](docs/calibration-explanation-repeats-review.md) and [calculation diagnostic](docs/calculation-36087344540-review.md) retain the development record. Existing workflows remain for deliberate reproduction.
 Install the optional API dependencies and run the synthetic checks locally:
 
 ```bash
@@ -133,9 +122,8 @@ uv run python -m wtrbench.pilot debug claude-haiku-4-5-20251001
 uv run python -m wtrbench.pilot inspect runs/debug_claude-haiku-4-5-20251001.jsonl
 ```
 
-Read the debug responses before freezing and running the 888-item pilot.
-Use the **pilot** item hash for preregistration. See the
-[runbook](docs/inference-runbook.md) for freeze, resume, and pilot commands.
+The original 888-item commands remain for historical reproduction. Use the
+new robustness workflow and its separate freeze manifest for this collection.
 Generated runs are excluded from version control; retain the downloaded artifacts.
 Selected original records are preserved under `results/debug/`,
 `results/calibration/`, and `results/diagnostics/` with audits.

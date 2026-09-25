@@ -1,0 +1,92 @@
+{
+  "config": {
+    "mode": "response-robustness-pilot-v1",
+    "model": "claude-sonnet-4-5-20250929",
+    "n_requests": 816,
+    "n_templates": 408,
+    "repetitions": [
+      1,
+      2
+    ],
+    "items_hash": "4ab84d33ef76d50e",
+    "request": {
+      "temperature": 0,
+      "max_tokens": 256,
+      "system": "For each question, Return a JSON object with exactly two fields in this order: \"brief_basis\", a brief explanation (one or two sentences) for your answer using the supplied information; then \"answer\", whose value is A or B. Do not include other fields.",
+      "output_config": {
+        "format": {
+          "type": "json_schema",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "brief_basis": {
+                "type": "string"
+              },
+              "answer": {
+                "type": "string",
+                "enum": [
+                  "A",
+                  "B"
+                ]
+              }
+            },
+            "required": [
+              "brief_basis",
+              "answer"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "transport_max_retries": 0,
+    "order_seed": "2026-09-25-response-robustness-v1",
+    "sequence": "two passes; 24 controls then 384 social requests per pass; fixed hash order",
+    "counts": {
+      "control/original": 48,
+      "valuation/original": 480,
+      "binary/clarified": 144,
+      "binary/original": 144
+    },
+    "design": {
+      "tasks": [
+        "couch",
+        "faucet",
+        "spreadsheet",
+        "translate",
+        "dog",
+        "presentation"
+      ],
+      "causes": [
+        "unable",
+        "unwilling"
+      ],
+      "numerical_sets": [
+        "set0",
+        "set1"
+      ],
+      "attribution_ladder": [
+        0.1,
+        0.2,
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "numerical_ladder": [
+        0.1,
+        0.5,
+        2.0
+      ],
+      "binary_probes": [
+        "p_will_same",
+        "p_able_same",
+        "p_able_diff"
+      ],
+      "form": 0
+    },
+    "stopping_rule": "816 scheduled requests; no accuracy gate or outcome-adaptive extension",
+    "analysis_plan_sha256": "94e9d764469d70e691fc503ce474fd1f8c5eb1d98d48ad7b0000180eb6a49454"
+  },
+  "items_jsonl_sha256": "f784d237325e82dee2d168da45f1e0fd2d0c94cfa985a3127981d14054f65e1b"
+}

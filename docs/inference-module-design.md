@@ -2,19 +2,21 @@
 *Working draft, v0.4 (September 2026). Companion to `wtr-bench-design.md`.
 Decisions are stated as decisions; open questions are listed per section.*
 
-**Execution update (2026-09-25):** Four exploratory debug runs (two Haiku,
-two Sonnet), five response-calibration batches, a control-only calculation
-diagnostic and a fixed 156-request measurement diagnostic are complete.
-The [latest audit](measurement-36099597085-review.md) finds 32/32 correct
-final control choices but a recurring false-tie explanation. Five of six
-combined range ladders remain left-censored and one unidentified. Clarification
-improves the returned explanations' conditional fidelity (8/8 versus 5/8)
-without eliminating option-order disagreement. End this tuning loop. The
-next recommendation is an offline plan for a narrower pilot of response
-robustness; no new batch is configured. The item design and scoring below
-are retained as the original intended scalar design, not a validated measure.
-The 888-item pilot remains paused, unfrozen and unrun. References below to
-preregistered comparisons describe intended registrations; none has occurred.
+**Execution update (2026-09-25, v0.5.0):** Development calibration and range
+expansion have ended. The [fixed response robustness pilot](response-robustness-pilot-v1.md)
+is ready: **816 requests**, 408 prompts queried twice across six scenarios
+and two numerical construction sets. Its primary outcomes are option-order
+consistency, adherence to stated conditions and exact-request repeatability.
+WTR estimates remain exploratory. This supersedes the unrun 888-item scalar
+pilot as the next collection; no additional calibration is required.
+
+The [latest development audit](measurement-36099597085-review.md) documents
+the recurring false calculation, censored/tied ladders and remaining order
+sensitivity. These findings motivated the revised question. The original
+item design, intended theoretical predictions and scoring below remain for
+historical context. References to preregistration describe an intention;
+no external registration has occurred. The new pilot has its own frozen
+plan/manifest and [run instructions](inference-runbook.md).
 
 ## 0. What this module adds, and what it does not
 
@@ -337,8 +339,9 @@ contrasts; percentile bootstrap over scenarios), `synthetic.py`, and
    counts. Set minimum effects of interest from these cells. These results
    are exploratory and are never described as held out.
 3. Freeze: generator hash, the predictions in section 4, the scoring code.
-4. Run `pilot` on one or two models: **888 calls per model**, under a dollar
-   for a small instruction-tuned model at current listed rates.
+4. Original proposal: run `pilot` on one or two models, **888 calls per model**.
+   This remains unrun and is superseded by the fixed robustness plan for the
+   current collection. Billing depends on the model and account.
 5. Report: the two required contrasts per scenario (six rows each), the
    aggregate contrasts per set, exploratory contrasts, and the nuisance checks
    (option order, choice order). Two figures: `p_infer` by cause with one line

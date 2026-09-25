@@ -1,26 +1,83 @@
 # Running the inference pilot
 
-Four exploratory debug batches, five response-calibration batches, a
-calculation diagnostic and the fixed 156-request measurement diagnostic are
-complete. The [latest audit](measurement-36099597085-review.md) records 156
-usable answers and 32/32 correct final controls, with 19/20 correct stated
-rule calculations. The false-tie explanation recurred. The expanded range
-left five combined ladders censored and one unidentified; clarification
-improved adherence to stipulated conditions without eliminating order effects.
+**The fixed response robustness pilot is ready. No additional pre-pilot A/B
+calibration is required.** The [prospective plan](response-robustness-pilot-v1.md)
+fixes 816 requests, two passes, and the analysis before collection. The former
+888-item scalar pilot remains unrun; the robustness pilot is the next study.
+The study is specified on GitHub, not externally preregistered. WTR remains
+exploratory because the [development diagnostic](measurement-36099597085-review.md)
+did not establish a stable scalar measure.
 
-**Stop this calibration/range-tuning loop. Keep the 888-item pilot paused.**
-The fixed diagnostic's one-batch stopping rule has been reached. The next
-recommendation is to write an offline plan for a narrower pilot of response
-robustness, using unexposed scenarios and prespecified observable outcomes,
-repetitions, coding rules and budget. No new model run is configured or
-recommended now. Do not rerun the same diagnostic to seek a preferred result.
+## Run the actual pilot in GitHub
 
-The [measurement diagnostic](inference-measurement-diagnostic.md) and
-[explanation debug](inference-debug-explanation.md) workflows remain available
-for deliberate reproduction. Earlier failures remain part of the record.
-The study has not been preregistered, and the 888-item pilot has not been
-frozen or run. Synthetic outputs remain programmed checks, not observations
-of an LLM. The intended scalar interpretation is under evaluation.
+1. Open **Actions → [Inference robustness pilot](https://github.com/msblanders/wtr-bench/actions/workflows/inference-robustness-pilot.yml)**.
+2. Click **Run workflow**, select `main`, and click **Run workflow** once.
+   There are no model or protocol inputs. The existing `ANTHROPIC_API_KEY`
+   repository secret is used. Calls are billed to that key.
+3. Let the same job complete both passes: 408 prompts per pass, 816 total
+   requests, pinned Sonnet 4.5, temperature 0, maximum 256 output tokens.
+   The operational timeout is 90 minutes. Do not launch a second workflow
+   to obtain the second pass; it is already included.
+4. Download `inference-robustness-pilot-RUN_ID-ATTEMPT`. Retain it and send
+   the run link for analysis. Reports separate automatic outcomes from
+   condition/calculation reviews that are still pending.
+
+The sample contains six scenarios, two numerical sets, option and history
+reversals, original/clarified binary questions and 48 total known controls.
+The social source prompts were absent from archived development item files.
+Incorrect controls, unusable answers and disagreements stay in the sample.
+They do not stop collection or authorize additional calibration.
+
+The artifact contains all planned items, the frozen plan/manifest, source
+revision, dependencies, raw requests/responses, JSON summary, Markdown report,
+pair records, per-order/per-pass ladder fits, control review and shuffled
+condition-review template plus its separate metadata key.
+
+## Review and technical interruptions
+
+Read the raw responses and all 24 rule explanations, including both occurrences
+of `rule_1_20` / Sam-second. A correct final answer does not prove a correct
+calculation. Exact expected option values are in `responses.controls.jsonl`.
+
+Copy `responses.condition-review-template.jsonl` to a separate file such as
+`condition-labels.jsonl`. Code all 288 rows using the plan's four-category
+rubric and supporting notes. Keep `review_id` and `response_digest` unchanged.
+The template hides final choice and condition/pass metadata, but the actual
+prompt reveals its wording; this is not fully blinded or independent coding.
+
+```bash
+uv run --frozen python -m wtrbench.robustness_pilot inspect runs/robustness-pilot/responses.jsonl --labels condition-labels.jsonl
+```
+
+The command rejects duplicate/unknown/stale labels, retains pending reviews,
+and archives accepted labels alongside reports. Do not label a social yes/no
+choice as correct merely because it matches a preferred theory. Preserve the
+manual control-calculation audit separately, with supporting excerpts.
+
+If the workflow stops on an API or integrity error, retain its partial artifact
+and inspect the failure before any rerun. GitHub **Re-run jobs** starts a fresh
+collection and would repeat calls; it is not a resume. To resume locally, use
+the exact recorded source revision, place the original response JSONL and its
+`.jsonl.config.json` together, and use the command below. Document any uncertain
+server-side completion after a transport failure first. Saved responses,
+including unusable ones, are never automatically reissued.
+
+```bash
+uv run --frozen python -m wtrbench.robustness_pilot run --resume --out runs/robustness-pilot/responses.jsonl
+```
+
+The plan and ordered item JSONL are bound by
+`protocols/response-robustness-pilot-v1.json`. Generate verifies the freeze and
+writes local provenance without API calls:
+
+```bash
+uv run --frozen python -m wtrbench.robustness_pilot generate
+```
+
+The sections below preserve the original answer-only execution instructions.
+They are historical reproduction procedures, not prerequisites or commands
+for the current robustness pilot. Earlier calibration and diagnostic findings
+remain part of the research record.
 
 ## Verify the installation
 
@@ -47,8 +104,8 @@ the installed SDK and protect against mixing response protocols on resume.
 ## Reproduce the earlier 196-item debug batch in GitHub
 
 The following workflow retains the earlier answer-only protocol. It is not
-the next run. A compatible full debug implementation must follow a passing
-explanation calibration before assessing ladders under that protocol.
+the next run. The compatible explanation full-debug implementation was subsequently run
+and audited; the calibration/range-tuning sequence is now complete.
 
 1. Open the repository's **Settings → Secrets and variables → Actions**.
 2. Add a repository secret named `ANTHROPIC_API_KEY` containing your Anthropic
@@ -62,8 +119,8 @@ explanation calibration before assessing ladders under that protocol.
 The Sonnet comparison using `claude-sonnet-4-5-20250929` is complete. Its
 user prompts and request settings matched the second Haiku run, but the
 valuation answers were strongly order-dependent. Retain all three runs.
-The response calibrations investigated this limitation and have not yet
-validated a format. The existing API secret remains configured.
+The later explanation protocol made output collection usable, while
+substantive calculation and social-response limitations remained. The existing API secret remains configured.
 
 The manual workflow performs only the exploratory debug batch. A new workflow
 execution starts a new run; it does not automatically resume an earlier
@@ -111,7 +168,7 @@ produce the predicted ordering. Document every such change and keep earlier
 debug runs. Synthetic success does not guarantee that the real model follows
 a threshold.
 
-## Freeze before the pilot
+## Historical freeze procedure for the original 888-item design
 
 Commit the chosen code and design. Record the source revision, exact model ID,
 request settings, predictions, scoring rules, missing-response handling,
@@ -145,7 +202,7 @@ registration. If preregistration is skipped, describe the run as exploratory.
 Repeating a study is possible; do not tune on observed pilot results and then
 describe those same cases as an untouched test.
 
-## Run the 888-item pilot after the freeze
+## Historical 888-item command (superseded for current collection)
 
 ```bash
 uv run python -m wtrbench.pilot pilot claude-haiku-4-5-20251001
