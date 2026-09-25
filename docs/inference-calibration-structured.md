@@ -1,8 +1,10 @@
 # Structured-answer response calibration
 
-**Current next step: Actions → Inference calibration (structured) → Run
-workflow → branch main.** There are no model or budget inputs to change.
-The existing `ANTHROPIC_API_KEY` repository secret is used.
+**Status:** Run [36085603717](calibration-36085603717-review.md) completed.
+All answers parsed, but neither format passed the fixed progression criteria.
+The specification below is retained as the pre-run protocol. For reproduction,
+use Actions → Inference calibration (structured) → Run workflow → main, with
+the existing `ANTHROPIC_API_KEY` secret. This is not a recommendation to rerun it.
 
 This follow-up addresses the response-collection failures in
 [calibration 36081054221](calibration-36081054221-review.md). It is exploratory

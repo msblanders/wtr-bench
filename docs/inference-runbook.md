@@ -1,11 +1,10 @@
 # Running the inference pilot
 
-Three debug batches and the first response calibration completed. The
-calibration passed simple controls but truncated every explicit-rule answer;
-its social judgments remained unstable. [Read the latest audit](calibration-36081054221-review.md).
-**Pause the full pilot. The current next step is the separate
-[72-request structured-answer calibration](inference-calibration-structured.md),
-available as the Inference calibration (structured) workflow.**
+Three debug batches and two response calibrations completed. Structured output
+collected all 72 answers, but neither reply format passed the rule controls
+and social option-order checks. [Read the latest audit](calibration-36085603717-review.md).
+**Pause the full debug battery and pilot. A 24-request control-only diagnostic
+is recommended in the audit but is not yet implemented; no new run is ready.**
 The study has not been preregistered and the 888-item pilot has not been run.
 Synthetic outputs remain programmed checks, not observations of an LLM.
 
@@ -45,8 +44,8 @@ the installed SDK and protect against mixing response protocols on resume.
 The Sonnet comparison using `claude-sonnet-4-5-20250929` is complete. Its
 user prompts and request settings matched the second Haiku run, but the
 valuation answers were strongly order-dependent. Retain all three runs.
-The new calibration workflow investigates this limitation before another
-full debug or any pilot freeze. The existing API secret is sufficient.
+The response calibrations investigated this limitation and have not yet
+validated a format. The existing API secret remains configured.
 
 The manual workflow performs only the exploratory debug batch. A new workflow
 execution starts a new run; it does not automatically resume an earlier

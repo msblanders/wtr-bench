@@ -1,0 +1,62 @@
+{
+  "mode": "calibration-structured-v1",
+  "model": "claude-sonnet-4-5-20250929",
+  "n_items": 72,
+  "items_hash": "ac2f89d22ce87380",
+  "transport_max_retries": 0,
+  "requests": {
+    "letter": {
+      "temperature": 0,
+      "max_tokens": 256,
+      "system": "For each question, Return a JSON object with exactly one field, \"answer\", whose value is A or B. Do not include an explanation or other fields.",
+      "output_config": {
+        "format": {
+          "type": "json_schema",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "answer": {
+                "type": "string",
+                "enum": [
+                  "A",
+                  "B"
+                ]
+              }
+            },
+            "required": [
+              "answer"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "recipient": {
+      "temperature": 0,
+      "max_tokens": 256,
+      "system": "For each question, Return a JSON object with exactly one field, \"answer\", whose value is SAM or YOU, naming the recipient in the selected option. Do not include an explanation or other fields.",
+      "output_config": {
+        "format": {
+          "type": "json_schema",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "answer": {
+                "type": "string",
+                "enum": [
+                  "SAM",
+                  "YOU"
+                ]
+              }
+            },
+            "required": [
+              "answer"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  },
+  "started": "2026-09-25T02:17:00.091692+00:00"
+}
