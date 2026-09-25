@@ -16,11 +16,12 @@ import json
 import os
 import platform
 from collections import Counter, defaultdict
+from collections.abc import Callable
 from datetime import UTC, datetime
 from fractions import Fraction
 from itertools import product
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 PROTOCOL = "paired-ordinal-v2"
 MODEL = "claude-sonnet-4-5-20250929"
@@ -106,13 +107,13 @@ def render(case: dict[str, Any], assignment: int, position: int) -> tuple[str, d
     names = dict(zip(("P", "Q"), ("Priya", "Sam") if assignment else ("Sam", "Priya")))
     order = ("Q", "P") if position else ("P", "Q")
     lines = [f"{names[order[0]]} and {names[order[1]]} are two people you have dealt with.",
-        "For point choices, each uses own points + w times your points, with their own fixed "
+        ("For point choices, each uses own points + w times your points, with their own fixed "
         "nonnegative w, and always chooses the strictly higher value. The histories below "
         "and current point choices contain no exact value ties. Choosing points requires no "
         "special skill. For these constructed cases use only the stated facts; do not invent "
         "a probability distribution over unknown weights. If different compatible weights "
         "imply different comparisons, the evidence is insufficient, rather than evidence of "
-        "equal probabilities.", ""]
+        "equal probabilities."), ""]
     for who in order:
         name = names[who]
         lo, hi, den = case["bounds"][who]

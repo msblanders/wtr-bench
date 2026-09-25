@@ -13,15 +13,15 @@ from wtrbench.paired import ordinal as o
 
 def literal_answer(prompt: str) -> str:
     """Read displayed names/payoffs; independently enumerate rational interior weights."""
-    labels = dict(re.findall(r"^\(([AB])\) (\w+)$", prompt, re.M))
-    skills = dict(re.findall(r"^(\w+)'s success probability: (\d+)%\.$", prompt, re.M))
+    labels = dict(re.findall(r"^\(([AB])\) (\w+)$", prompt, re.MULTILINE))
+    skills = dict(re.findall(r"^(\w+)'s success probability: (\d+)%\.$", prompt, re.MULTILINE))
     if skills:
         a, b = [int(skills[labels[x]]) for x in ("A", "B")]
         return "C" if a == b else ("A" if a > b else "B")
     pattern = (r"^(\w+) chose (GIVE|KEEP) when the alternatives were "
                r"KEEP \((\w+): (\d+); you: 0\) or GIVE \((\w+): 0; you: (\d+)\)\.$")
     bounds = {}
-    for person, choice, keeper, own, giver, other in re.findall(pattern, prompt, re.M):
+    for person, choice, keeper, own, giver, other in re.findall(pattern, prompt, re.MULTILINE):
         assert person == keeper == giver
         bounds.setdefault(person, {})[choice] = Fraction(int(own), int(other))
     assert len(bounds) == 2 and all(set(b) == {"GIVE", "KEEP"} for b in bounds.values())
@@ -124,7 +124,7 @@ def test_single_person_on_every_dimension_fails(semantic):
 
 
 def test_always_sam_detected_as_name_not_position_dependence():
-    rows = records(lambda i: next(k for k, v in re.findall(r"^\(([AB])\) (\w+)$", i["prompt"], re.M)
+    rows = records(lambda i: next(k for k, v in re.findall(r"^\(([AB])\) (\w+)$", i["prompt"], re.MULTILINE)
                                   if v == "Sam"))
     d = o.summarize(o.generate_items(), rows)["categories"]["discriminating"]
     assert d["position"]["disagreements"] == 0
