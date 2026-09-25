@@ -1,11 +1,17 @@
 # Brief-explanation response calibration
 
-**Status:** Implemented in v0.4.6 and ready for a manual run; no model
-responses collected under this protocol yet. Open
+**Status:** [Run 36088607405](calibration-36088607405-review.md) completed.
+All 72 responses were usable; neither format passed the fixed progression
+criterion. A/B had one control error; SAM/YOU had one inconsistent social
+pair. The audit recommends two further unchanged 72-request batches as a
+bounded repeatability check, retaining all three runs. The full debug and
+pilot remain paused. The specification below is the original pre-run protocol.
+
+For an independent replication, open
 [Actions → Inference calibration (explanation)](https://github.com/msblanders/wtr-bench/actions/workflows/inference-calibration-explanation.yml),
 choose **Run workflow → main**, and click the green **Run workflow** button
-once. There are no model or budget inputs to choose. The existing repository
-`ANTHROPIC_API_KEY` secret is used.
+once per planned batch. There are no model or budget inputs to choose. The
+existing repository `ANTHROPIC_API_KEY` secret is used.
 
 This returns to the original 72-question calibration after the
 [24-request calculation diagnostic](calculation-36087344540-review.md)

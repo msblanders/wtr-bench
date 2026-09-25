@@ -130,7 +130,9 @@ produce the favored valuation hypothesis. Retain all earlier runs.
 
 Implementation update: this next calibration is now available as
 [Inference calibration (explanation)](inference-calibration-explanation.md),
-protocol `calibration-explanation-v1`. Its results are pending. This update
+protocol `calibration-explanation-v1`. It subsequently completed in
+[run 36088607405](calibration-36088607405-review.md), with all 72 answers usable
+but neither format meeting the combined progression criterion. This update
 does not change the calculation diagnostic or its conclusions. No additional
 calculation-only batch is needed on the current evidence. The full debug
 battery and 888-item pilot remain paused.

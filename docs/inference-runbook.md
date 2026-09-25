@@ -1,13 +1,16 @@
 # Running the inference pilot
 
-Three debug batches, two response calibrations and a calculation diagnostic
-completed. The calculation-first protocol returned correct option values
-and choices on all 24 controls. [Read the latest audit](calculation-36087344540-review.md).
-**Next: run the [72-question brief-explanation calibration](inference-calibration-explanation.md).**
-Open **Actions → Inference calibration (explanation) → Run workflow → main**.
-The workflow is implemented; its results are pending. The existing API secret
-is used, with no settings to choose. Keep the full debug battery and pilot
-paused until these results are reviewed.
+Three debug batches, three response calibrations and a calculation diagnostic
+completed. The explanation calibration collected all 72 responses; A/B had
+23/24 correct controls and 6/6 consistent social pairs, while SAM/YOU had
+24/24 and 5/6. Neither passed the combined criterion.
+[Read the latest audit](calibration-36088607405-review.md).
+**Next recommendation: two further unchanged 72-request batches for a bounded
+repeatability check**, retaining all three runs. Use
+**Actions → Inference calibration (explanation) → Run workflow → main**
+for each independent batch. The [protocol](inference-calibration-explanation.md)
+and API secret remain the same, with no settings to choose. Keep the full
+debug battery and pilot paused while reviewing repeatability.
 The study has not been preregistered and the 888-item pilot has not been run.
 Synthetic outputs remain programmed checks, not observations of an LLM.
 
