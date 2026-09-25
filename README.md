@@ -6,7 +6,7 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. The inference module asks models to predict a partner's choices and ability. Its initial design has **196 debug items and 888 pilot items**. Three exploratory debug runs and two response calibrations are complete. Structured output collected all 72 answers, but both reply formats still failed rule controls and social option-order checks. [Read the latest audit](docs/calibration-36085603717-review.md). A control-only diagnostic is recommended before further social evaluation. **The 888-item pilot has not been run or frozen.**
+**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. The inference module asks models to predict a partner's choices and ability. Its initial design has **196 debug items and 888 pilot items**. Three exploratory debug runs and two response calibrations are complete. Structured output collected all 72 answers, but both reply formats still failed rule controls and social option-order checks. [Read the latest audit](docs/calibration-36085603717-review.md). The next step is the [24-request calculation diagnostic](docs/inference-calculation-diagnostic.md), which separately scores returned option values and final choices. **The 888-item pilot has not been run or frozen.**
 
 ## Why this is useful
 
@@ -70,7 +70,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Synthetic recovery checks, three exploratory debug runs, and two response calibrations completed.** Structured output fixed collection in the latest run; neither format passed the substantive calibration checks. Confirmatory evaluation and human calibration remain future work. |
+| Validate and report the measurements | **Synthetic recovery checks, three exploratory debug runs, and two response calibrations completed.** Structured output fixed collection in the latest run; neither format passed the substantive calibration checks. A 24-request calculation diagnostic is ready. Confirmatory evaluation and human calibration remain future work. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -94,12 +94,12 @@ This generates prompts locally. It does not call a model API or produce benchmar
 
 ## Run the inference module
 
-Current status: **review the [structured-calibration audit](docs/calibration-36085603717-review.md)**.
-Both response formats failed the pre-run progression criteria. The proposed
-24-request diagnostic of explicit-rule calculations is not yet implemented;
-there is no new batch to launch. Keep the full debug battery and pilot paused.
-The [structured calibration protocol](docs/inference-calibration-structured.md)
-remains available for reproduction of the completed run.
+Current next step: **Actions → Inference calculation diagnostic → Run workflow**,
+branch **main**. No inputs need changing. This makes 24 calls on the same
+Sonnet model, returning both option values and a final choice for the six
+explicit-rule controls. Read the [protocol](docs/inference-calculation-diagnostic.md).
+The full debug battery and pilot remain paused following the
+[structured-calibration audit](docs/calibration-36085603717-review.md).
 
 Install the optional API dependencies and run the synthetic checks locally:
 

@@ -3,8 +3,9 @@
 Three debug batches and two response calibrations completed. Structured output
 collected all 72 answers, but neither reply format passed the rule controls
 and social option-order checks. [Read the latest audit](calibration-36085603717-review.md).
-**Pause the full debug battery and pilot. A 24-request control-only diagnostic
-is recommended in the audit but is not yet implemented; no new run is ready.**
+**Pause the full debug battery and pilot. The next step is the
+[24-request calculation diagnostic](inference-calculation-diagnostic.md):
+Actions → Inference calculation diagnostic → Run workflow → main.**
 The study has not been preregistered and the 888-item pilot has not been run.
 Synthetic outputs remain programmed checks, not observations of an LLM.
 

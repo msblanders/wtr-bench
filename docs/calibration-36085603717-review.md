@@ -136,10 +136,11 @@ are task outputs, not a transparent record of the model's internal reasoning.
 Requiring them also changes the task; success would not retroactively validate
 the answer-only protocol or demonstrate a psychological mechanism.
 
-This diagnostic is a recommendation, not yet implemented or run. Do not
-rerun the current structured workflow expecting it to include those fields.
-Interpret this result before preparing another request batch; do not advance
-to the full debug or pilot merely because the output now parses.
+The diagnostic has now been implemented as a separate
+[Inference calculation diagnostic workflow](inference-calculation-diagnostic.md);
+no diagnostic model responses have been collected while preparing it.
+The original structured workflow does not include these calculation fields.
+Keep the full debug and pilot paused while diagnosing the control failures.
 
 ## Implications and usage
 
