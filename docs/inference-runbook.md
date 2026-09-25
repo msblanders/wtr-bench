@@ -1,11 +1,11 @@
 # Running the inference pilot
 
-Three debug batches and two response calibrations completed. Structured output
-collected all 72 answers, but neither reply format passed the rule controls
-and social option-order checks. [Read the latest audit](calibration-36085603717-review.md).
-**Pause the full debug battery and pilot. The next step is the
-[24-request calculation diagnostic](inference-calculation-diagnostic.md):
-Actions → Inference calculation diagnostic → Run workflow → main.**
+Three debug batches, two response calibrations and a calculation diagnostic
+completed. The calculation-first protocol returned correct option values
+and choices on all 24 controls. [Read the latest audit](calculation-36087344540-review.md).
+**Keep the full debug battery and pilot paused. A uniform brief-explanation-
+plus-answer calibration on the original 72 questions is recommended next,
+but is not yet implemented; there is no new workflow to launch.**
 The study has not been preregistered and the 888-item pilot has not been run.
 Synthetic outputs remain programmed checks, not observations of an LLM.
 

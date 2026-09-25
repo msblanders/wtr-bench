@@ -1,8 +1,10 @@
 # Explicit-rule calculation diagnostic
 
-**Ready to run: Actions → Inference calculation diagnostic → Run workflow →
-branch main.** No inputs need changing. The existing `ANTHROPIC_API_KEY`
-secret is used. Launch once and share the resulting run link for review.
+**Status:** [Run 36087344540](calculation-36087344540-review.md) completed,
+with correct option values and choices on all 24 controls. This is the
+retained pre-run protocol. For reproduction, use Actions → Inference
+calculation diagnostic → Run workflow → main and the existing
+`ANTHROPIC_API_KEY` secret. No further calculation-only batch is recommended.
 
 This is a 24-request follow-up to
 [structured calibration 36085603717](calibration-36085603717-review.md).

@@ -1,0 +1,77 @@
+{
+  "mode": "calculation-diagnostic-v1",
+  "model": "claude-sonnet-4-5-20250929",
+  "n_items": 24,
+  "items_hash": "7306b8fde1e80015",
+  "transport_max_retries": 0,
+  "requests": {
+    "letter": {
+      "temperature": 0,
+      "max_tokens": 256,
+      "system": "For each question, calculate the option values and return only the requested JSON.",
+      "output_config": {
+        "format": {
+          "type": "json_schema",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "option_a_value_to_sam": {
+                "type": "number"
+              },
+              "option_b_value_to_sam": {
+                "type": "number"
+              },
+              "answer": {
+                "type": "string",
+                "enum": [
+                  "A",
+                  "B"
+                ]
+              }
+            },
+            "required": [
+              "option_a_value_to_sam",
+              "option_b_value_to_sam",
+              "answer"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "recipient": {
+      "temperature": 0,
+      "max_tokens": 256,
+      "system": "For each question, calculate the option values and return only the requested JSON.",
+      "output_config": {
+        "format": {
+          "type": "json_schema",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "option_a_value_to_sam": {
+                "type": "number"
+              },
+              "option_b_value_to_sam": {
+                "type": "number"
+              },
+              "answer": {
+                "type": "string",
+                "enum": [
+                  "SAM",
+                  "YOU"
+                ]
+              }
+            },
+            "required": [
+              "option_a_value_to_sam",
+              "option_b_value_to_sam",
+              "answer"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  }
+}

@@ -138,7 +138,8 @@ the answer-only protocol or demonstrate a psychological mechanism.
 
 The diagnostic has now been implemented as a separate
 [Inference calculation diagnostic workflow](inference-calculation-diagnostic.md);
-no diagnostic model responses have been collected while preparing it.
+it subsequently passed all 24 controls in
+[run 36087344540](calculation-36087344540-review.md).
 The original structured workflow does not include these calculation fields.
 Keep the full debug and pilot paused while diagnosing the control failures.
 
