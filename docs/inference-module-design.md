@@ -2,21 +2,24 @@
 *Working draft, v0.4 (September 2026). Companion to `wtr-bench-design.md`.
 Decisions are stated as decisions; open questions are listed per section.*
 
-**Execution update (2026-09-25, v0.5.0):** Development calibration and range
-expansion have ended. The [fixed response robustness pilot](response-robustness-pilot-v1.md)
-is ready: **816 requests**, 408 prompts queried twice across six scenarios
-and two numerical construction sets. Its primary outcomes are option-order
-consistency, adherence to stated conditions and exact-request repeatability.
-WTR estimates remain exploratory. This supersedes the unrun 888-item scalar
-pilot as the next collection; no additional calibration is required.
+**Execution update (2026-09-25):** The researcher has requested validation
+of the original measurement task before any pilot. The original 888-item
+pilot remains unrun. The 816-request robustness proposal is preserved but
+its collection workflow and CLI are disabled; it does not replace the
+original research aim. See [validation before pilot](validation-before-pilot.md).
 
-The [latest development audit](measurement-36099597085-review.md) documents
-the recurring false calculation, censored/tied ladders and remaining order
-sensitivity. These findings motivated the revised question. The original
-item design, intended theoretical predictions and scoring below remain for
-historical context. References to preregistration describe an intention;
-no external registration has occurred. The new pilot has its own frozen
-plan/manifest and [run instructions](inference-runbook.md).
+The next diagnostic is specified and checked offline: recover known partner
+weights using complete ladders with either an explicit weight or informative
+choice histories. No collection is enabled. Original histories that only
+show keeping impose upper bounds; LOW/HIGH separation is a theoretical
+prediction, not a known-answer validation criterion. Null effects, reversed
+effects and unresolved bounds must remain possible outcomes of an adequately
+measured social test.
+
+The original design below and all [development findings](measurement-36099597085-review.md)
+remain unchanged. References to preregistration describe an intention;
+no external registration has occurred. The [runbook](inference-runbook.md)
+records the pause and retains historical procedures.
 
 ## 0. What this module adds, and what it does not
 
@@ -340,8 +343,8 @@ contrasts; percentile bootstrap over scenarios), `synthetic.py`, and
    are exploratory and are never described as held out.
 3. Freeze: generator hash, the predictions in section 4, the scoring code.
 4. Original proposal: run `pilot` on one or two models, **888 calls per model**.
-   This remains unrun and is superseded by the fixed robustness plan for the
-   current collection. Billing depends on the model and account.
+   This remains unrun; both it and the later robustness proposal are paused
+   pending measurement validation. Billing depends on the model and account.
 5. Report: the two required contrasts per scenario (six rows each), the
    aggregate contrasts per set, exploratory contrasts, and the nuisance checks
    (option order, choice order). Two figures: `p_infer` by cause with one line

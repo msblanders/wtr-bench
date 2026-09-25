@@ -338,9 +338,20 @@ def test_workflow_is_manual_one_collection_and_always_preserves_artifacts():
     doc = yaml.safe_load(Path(".github/workflows/inference-robustness-pilot.yml").read_text())
     assert doc.get("on", doc.get(True)) == {"workflow_dispatch": None}
     job = doc["jobs"]["pilot"]
+    assert job["if"] == "${{ false }}"
     assert job["timeout-minutes"] == 90
     calls = [s for s in job["steps"] if s.get("run", "").strip().endswith("robustness_pilot run")]
     assert len(calls) == 1 and "ANTHROPIC_API_KEY" in calls[0]["env"]
     uploads = [s for s in job["steps"] if s.get("uses", "").startswith("actions/upload-artifact")]
     assert len(uploads) == 1 and uploads[0]["if"] == "always()"
     assert uploads[0]["with"]["retention-days"] == 90
+
+
+def test_cli_pause_happens_before_api_client_creation(monkeypatch):
+    def forbidden():
+        pytest.fail("Paused CLI must not create an API client")
+    monkeypatch.setattr(pilot, "PilotResponder", forbidden)
+    monkeypatch.setattr("sys.argv", ["robustness_pilot", "run"])
+    with pytest.raises(SystemExit) as stopped:
+        pilot.main()
+    assert stopped.value.code == 2

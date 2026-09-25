@@ -1,26 +1,32 @@
 # Running the inference pilot
 
-**The fixed response robustness pilot is ready. No additional pre-pilot A/B
-calibration is required.** The [prospective plan](response-robustness-pilot-v1.md)
-fixes 816 requests, two passes, and the analysis before collection. The former
-888-item scalar pilot remains unrun; the robustness pilot is the next study.
-The study is specified on GitHub, not externally preregistered. WTR remains
-exploratory because the [development diagnostic](measurement-36099597085-review.md)
-did not establish a stable scalar measure.
+**Pilot collection is paused at the researcher's request.** Focus first on
+[validating the original measurement task](validation-before-pilot.md).
+The original 888-item pilot is unrun. The 816-request robustness proposal is
+retained but its collection job and CLI `run` command are disabled. No new
+model calls are authorized by these instructions.
 
-## Run the actual pilot in GitHub
+## Current offline validation work
 
-1. Open **Actions → [Inference robustness pilot](https://github.com/msblanders/wtr-bench/actions/workflows/inference-robustness-pilot.yml)**.
-2. Click **Run workflow**, select `main`, and click **Run workflow** once.
-   There are no model or protocol inputs. The existing `ANTHROPIC_API_KEY`
-   repository secret is used. Calls are billed to that key.
-3. Let the same job complete both passes: 408 prompts per pass, 816 total
-   requests, pinned Sonnet 4.5, temperature 0, maximum 256 output tokens.
-   The operational timeout is 90 minutes. Do not launch a second workflow
-   to obtain the second pass; it is already included.
-4. Download `inference-robustness-pilot-RUN_ID-ATTEMPT`. Retain it and send
-   the run link for analysis. Reports separate automatic outcomes from
-   condition/calculation reviews that are still pending.
+```bash
+uv run --frozen python -m wtrbench.validation_recovery
+uv run --frozen pytest -q tests/test_validation_recovery.py
+```
+
+This creates a 216-request known-partner diagnostic draft and mathematical
+checks under `runs/validation-recovery-draft/`. It makes no API calls and has
+no collection workflow. See the plan for the gap in prior controls, the two
+recovery arms, interpretation of original history bounds and the decision rule.
+
+## Suspended robustness proposal: retained instructions
+
+The material below documents the previous 816-request proposal. It is not a
+current recommendation to run or resume it. The workflow is now named
+**Inference robustness pilot (paused)** and skips collection even if manually
+triggered. The CLI also stops before API-client creation. Its frozen plan and
+manifest are preserved unchanged. Reopening any pilot requires a documented
+measurement decision; a successful known-answer control alone is not complete
+construct validation.
 
 The sample contains six scenarios, two numerical sets, option and history
 reversals, original/clarified binary questions and 48 total known controls.
@@ -56,9 +62,10 @@ manual control-calculation audit separately, with supporting excerpts.
 
 If the workflow stops on an API or integrity error, retain its partial artifact
 and inspect the failure before any rerun. GitHub **Re-run jobs** starts a fresh
-collection and would repeat calls; it is not a resume. To resume locally, use
-the exact recorded source revision, place the original response JSONL and its
-`.jsonl.config.json` together, and use the command below. Document any uncertain
+collection and would repeat calls; it is not a resume. The historical local
+resume procedure uses the exact recorded revision and keeps the original
+response JSONL and its `.jsonl.config.json` together. The command below is
+currently blocked while pilot collection is paused. Document any uncertain
 server-side completion after a transport failure first. Saved responses,
 including unusable ones, are never automatically reissued.
 
@@ -202,7 +209,7 @@ registration. If preregistration is skipped, describe the run as exploratory.
 Repeating a study is possible; do not tune on observed pilot results and then
 describe those same cases as an untouched test.
 
-## Historical 888-item command (superseded for current collection)
+## Historical 888-item command (currently on hold)
 
 ```bash
 uv run python -m wtrbench.pilot pilot claude-haiku-4-5-20251001

@@ -1,4 +1,4 @@
-name: Inference robustness pilot
+name: Inference robustness pilot (paused)
 
 on:
   workflow_dispatch:
@@ -11,7 +11,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  pause-notice:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pilot collection is paused
+        run: |
+          echo "Pilot paused at the user's request. No model requests will be made."
+          echo "See docs/validation-before-pilot.md for the measurement-validation plan."
   pilot:
+    if: ${{ false }} # User requested validation before any pilot; deliberately disabled.
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:

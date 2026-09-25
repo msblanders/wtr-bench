@@ -317,6 +317,9 @@ def main() -> None:
     args_inspect.add_argument("path", type=Path)
     args_inspect.add_argument("--labels", type=Path)
     args = parser.parse_args()
+    if args.command == "run":
+        parser.error("Pilot collection is paused at the user's request. "
+                     "See docs/validation-before-pilot.md. No API client was created.")
     items = generate_items()
     verify_freeze(items)
     if args.command == "generate":
