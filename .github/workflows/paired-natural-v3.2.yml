@@ -1,0 +1,61 @@
+name: Paired natural v3.2
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Generate offline artifacts, or collect the one reviewed validation batch
+        type: choice
+        options: [generate, collect]
+        default: generate
+      confirmation:
+        description: For paid collection only, type COLLECT_280 after reviewing the plan
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: paired-natural-v3.2
+  cancel-in-progress: false
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --frozen --all-groups --extra eval
+      - name: Verify source freeze and software tests (no model calls)
+        run: |
+          uv run python -m wtrbench.paired.natural check
+          uv run pytest tests/test_paired_natural_v3.py
+      - name: Generate fixed artifacts (no model calls)
+        run: |
+          uv run python -m wtrbench.paired.natural generate
+          uv pip freeze > runs/paired-v3/environment.txt
+      - name: Collect only with explicit confirmation
+        if: inputs.mode == 'collect'
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          test "$CONFIRMATION" = COLLECT_280 || { echo 'Missing COLLECT_280'; exit 1; }
+          test "$GITHUB_RUN_ATTEMPT" = 1 || { echo 'Do not Re-run jobs'; exit 1; }
+          uv run python -m wtrbench.paired.natural run --confirm 280
+      - name: Score complete or partial records offline
+        if: always()
+        run: |
+          if test -f runs/paired-v3/responses.jsonl; then
+            uv run python -m wtrbench.paired.natural report
+          fi
+      - name: Checksum artifacts
+        if: always()
+        run: |
+          if test -d runs/paired-v3; then
+            find runs/paired-v3 -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > runs/paired-v3/SHA256SUMS.txt
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: paired-natural-v3.2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/paired-v3/
+          if-no-files-found: warn

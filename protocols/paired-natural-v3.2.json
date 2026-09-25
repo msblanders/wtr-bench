@@ -1,0 +1,15 @@
+{
+  "protocol": "paired-natural-v3.2",
+  "baseline_commit": "061880e0c8c50bd7b858b1df470f867b69cd3706",
+  "n_requests": 280,
+  "n_base_cases": 35,
+  "items_jsonl_sha256": "93c78e09b7d22841be54acb83accecdd0543e9e065cd27f876357e29ab265c89",
+  "request_bodies_jsonl_sha256": "aed50c51b92a438e3d9af679f843c23cc2d256a2efa9ddca6b05d68a964c929e",
+  "source_sha256": {
+    "src/wtrbench/paired/__init__.py": "347dbb897070a901f75715b90a08e98cfa59107a18a7f23633de8a9ff61a64f4",
+    "src/wtrbench/paired/natural.py": "c553b8385cadee14076b444a7b49a4425c4155d7a6a7cd6e65deae6888d432e4",
+    "tests/test_paired_natural_v3.py": "72a88656a8336c009b84a63c556e46d1c721dc95e394f9c550ef5e25115b86ac",
+    "docs/paired-natural-v3.2.md": "1b18f918d17c0d4ed25763edd571e7ca10dcabe4889e49f3bb983ea29189becd",
+    ".github/workflows/paired-natural-v3.2.yml": "fb1c703ccdb700787405c8aa5dfdcf34caca906948903cedac9e49e2b7a8e8cf"
+  }
+}
