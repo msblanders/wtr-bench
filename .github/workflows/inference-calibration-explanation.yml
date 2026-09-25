@@ -1,0 +1,58 @@
+name: Inference calibration (explanation)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: inference-calibration-explanation
+  cancel-in-progress: false
+
+jobs:
+  calibration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          python-version: "3.12"
+      - run: uv sync --frozen --all-groups --extra eval
+      - name: Verify explanation request and scoring offline
+        run: uv run --frozen pytest -q tests/test_explanation_calibration.py
+      - name: Check API credential
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          if not os.environ.get("ANTHROPIC_API_KEY"):
+              raise SystemExit("ANTHROPIC_API_KEY repository secret is required.")
+          PY
+      - name: Save prompts and provenance
+        run: |
+          uv run --frozen python -m wtrbench.explanation_calibration generate
+          git rev-parse HEAD > runs/calibration-explanation/git-revision.txt
+          uv pip freeze > runs/calibration-explanation/dependencies.txt
+      - name: Run 72 controls and social cases with explanation then answer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: uv run --frozen python -m wtrbench.explanation_calibration run
+      - name: Inspect complete or partial responses
+        if: always()
+        run: |
+          response="runs/calibration-explanation/responses.jsonl"
+          if [ -f "$response" ]; then
+            uv run --frozen python -m wtrbench.explanation_calibration inspect "$response" > runs/calibration-explanation/responses.inspect.md
+            cat runs/calibration-explanation/responses.inspect.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Save explanation calibration artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: inference-calibration-explanation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/calibration-explanation/
+          retention-days: 90
+          if-no-files-found: ignore

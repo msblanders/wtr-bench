@@ -3,9 +3,11 @@
 Three debug batches, two response calibrations and a calculation diagnostic
 completed. The calculation-first protocol returned correct option values
 and choices on all 24 controls. [Read the latest audit](calculation-36087344540-review.md).
-**Keep the full debug battery and pilot paused. A uniform brief-explanation-
-plus-answer calibration on the original 72 questions is recommended next,
-but is not yet implemented; there is no new workflow to launch.**
+**Next: run the [72-question brief-explanation calibration](inference-calibration-explanation.md).**
+Open **Actions → Inference calibration (explanation) → Run workflow → main**.
+The workflow is implemented; its results are pending. The existing API secret
+is used, with no settings to choose. Keep the full debug battery and pilot
+paused until these results are reviewed.
 The study has not been preregistered and the 888-item pilot has not been run.
 Synthetic outputs remain programmed checks, not observations of an LLM.
 
@@ -31,7 +33,11 @@ option-order disagreement denominators. Older records remain readable; absent
 metadata is labeled as unrecorded. The tests include offline requests through
 the installed SDK and protect against mixing response protocols on resume.
 
-## Run the 196-item debug batch in GitHub
+## Reproduce the earlier 196-item debug batch in GitHub
+
+The following workflow retains the earlier answer-only protocol. It is not
+the next run. A compatible full debug implementation must follow a passing
+explanation calibration before assessing ladders under that protocol.
 
 1. Open the repository's **Settings → Secrets and variables → Actions**.
 2. Add a repository secret named `ANTHROPIC_API_KEY` containing your Anthropic

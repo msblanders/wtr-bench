@@ -128,9 +128,12 @@ effects before any pilot freeze. If both pass, carry both into that
 comparison. Select formats by measurement behavior, never by whether they
 produce the favored valuation hypothesis. Retain all earlier runs.
 
-This next calibration is a recommendation, not an implemented or completed
-run. No additional calculation-only batch is needed on the current evidence.
-The full debug battery and 888-item pilot remain paused.
+Implementation update: this next calibration is now available as
+[Inference calibration (explanation)](inference-calibration-explanation.md),
+protocol `calibration-explanation-v1`. Its results are pending. This update
+does not change the calculation diagnostic or its conclusions. No additional
+calculation-only batch is needed on the current evidence. The full debug
+battery and 888-item pilot remain paused.
 
 ## Article implications and usage
 
