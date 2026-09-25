@@ -1,7 +1,8 @@
 # Running the inference pilot
 
-The first exploratory API debug batch completed, but it did not establish
-readiness for the pilot: [audit and next step](debug-36074815150-review.md).
+Two exploratory Haiku debug batches completed. The second resolved format
+failures, but valuation censoring and numerical option-order sensitivity
+remain: [latest audit and next step](debug-36076712362-review.md).
 The study has not been preregistered and the 888-item pilot has not been run.
 Synthetic outputs remain programmed checks, not observations of an LLM.
 
@@ -38,12 +39,14 @@ the installed SDK and protect against mixing response protocols on resume.
    report, inspection output, item sets and hashes, the git revision, and
    dependency versions. Partial results are uploaded if the API run fails.
 
-For the second debug, launch a **new workflow on main**, using the same Haiku
-model. GitHub's **Re-run jobs** on the old run would use the old code revision.
-The existing API secret is sufficient; do not replace it just to run again.
-The second debug intentionally repeats the 196 throwaway items under the new
-response protocol. Keep it separate from the first run; do not resume the old
-JSONL with new request settings. Review this batch before any pilot freeze.
+The next planned run is a **new workflow on main** with the model input set
+to `claude-sonnet-4-5-20250929`. It uses the same 196 debug items and v0.4.2
+response protocol as the second Haiku run, changing only the model. GitHub's
+**Re-run jobs** would repeat the original run's revision and model input.
+The existing API secret is sufficient. Retain both Haiku runs and review
+the comparison before any pilot freeze. The recommendation is based on
+measurement coverage and option-order consistency, not obtaining the
+predicted psychological ordering.
 
 The manual workflow performs only the exploratory debug batch. A new workflow
 execution starts a new run; it does not automatically resume an earlier

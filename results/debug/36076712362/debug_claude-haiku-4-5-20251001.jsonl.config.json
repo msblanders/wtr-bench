@@ -1,0 +1,30 @@
+{
+  "mode": "debug",
+  "model": "claude-haiku-4-5-20251001",
+  "generator": {
+    "ladder": [
+      0.1,
+      0.2,
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "tasks": [
+      "boxes"
+    ],
+    "set_roles": [
+      "debug"
+    ],
+    "form": 0
+  },
+  "request": {
+    "temperature": 0,
+    "max_tokens": 64,
+    "system": "For each question, reply with exactly one uppercase letter: A or B. Do not include any explanation or other text."
+  },
+  "responder": "anthropic:claude-haiku-4-5-20251001",
+  "n_items": 196,
+  "items_hash": "43e45d7065200983",
+  "started": "2026-09-25T00:15:51+00:00"
+}
