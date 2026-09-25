@@ -1,0 +1,80 @@
+{
+  "mode": "measurement-diagnostic-v1",
+  "model": "claude-sonnet-4-5-20250929",
+  "n_items": 156,
+  "items_hash": "a23f46bf6a51a8c8",
+  "request": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "system": "For each question, Return a JSON object with exactly two fields in this order: \"brief_basis\", a brief explanation (one or two sentences) for your answer using the supplied information; then \"answer\", whose value is A or B. Do not include other fields.",
+    "output_config": {
+      "format": {
+        "type": "json_schema",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "brief_basis": {
+              "type": "string"
+            },
+            "answer": {
+              "type": "string",
+              "enum": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          "required": [
+            "brief_basis",
+            "answer"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "transport_max_retries": 0,
+  "source_run": "36095971330",
+  "source_debug_hash": "bfe1d39e753b7316",
+  "ratios": [
+    "0.01",
+    "0.05",
+    "0.1",
+    "0.2",
+    "0.5",
+    "2",
+    "4",
+    "8"
+  ],
+  "fixed_amount": "10",
+  "fraction_rules": [
+    [
+      "0.1",
+      "0.005"
+    ],
+    [
+      "0.1",
+      "0.05"
+    ],
+    [
+      "0.5",
+      "0.02"
+    ],
+    [
+      "0.5",
+      "0.1"
+    ]
+  ],
+  "counts": {
+    "control/original": 24,
+    "control/fraction_control": 8,
+    "valuation/extended": 48,
+    "valuation/original": 48,
+    "valuation/decimal_anchor": 12,
+    "binary/original": 8,
+    "binary/clarified": 8
+  },
+  "sequence": "24 original controls; 8 fraction controls; 96 ladder; 12 notation; 16 binary",
+  "stopping_rule": "one fixed batch; no outcome-adaptive calls, retries or follow-up",
+  "started": "2026-09-25T05:41:34.004882+00:00"
+}

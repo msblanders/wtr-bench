@@ -6,7 +6,7 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. Its initial design has **196 debug items and 888 pilot items**. Four exploratory debug runs, five response-calibration batches across three protocols, and a calculation diagnostic are complete. The latest 220-request explanation debug returned 220 usable answers, 24/24 correct control choices and 12/12 correctly stated rule calculations. It also exposed 8/98 debug option-order disagreements, no uniquely identified interior ladder estimates, and a conditional ability/willingness interpretation issue. [Read the full audit](docs/debug-36095971330-review.md). **The social measure remains unvalidated; the 888-item pilot remains unrun, unfrozen and unregistered.** The [156-request range and conditional-question diagnostic](docs/inference-measurement-diagnostic.md) is ready for one manual run; its results are pending.
+**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. Its initial design has **196 debug items and 888 pilot items**. Four exploratory debug runs, five response-calibration batches, a calculation diagnostic and a fixed 156-request measurement diagnostic are complete. The latest diagnostic returned 156 usable answers and 32/32 correct control choices, but one false-tie calculation recurred, the wider ladders did not establish a stable common switching estimate, and option/notation disagreements remained. Clarified explanations respected the supplied conditions in 8/8 cases versus 5/8 originals, while final judgments remained order-sensitive. [Read the completed diagnostic audit](docs/measurement-36099597085-review.md). **End this calibration/range-tuning loop; the social measure remains unvalidated, and the 888-item pilot remains unrun, unfrozen and unregistered.** The next recommendation is an offline plan for a narrower pilot of response robustness.
 
 ## Why this is useful
 
@@ -70,7 +70,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Synthetic checks, four exploratory debug runs, five calibration batches and a calculation diagnostic completed.** The latest full debug passed collection and controls but exposed order disagreements, censored/ambiguous ladders and a conditional-question issue. A bounded measurement diagnostic is recommended; confirmatory evaluation and human calibration remain future work. |
+| Validate and report the measurements | **Synthetic checks, four debug runs, five calibration batches and two diagnostics completed.** The fixed range/conditional diagnostic did not establish a stable scalar measure. Correct choices, stated calculations, conditional fidelity and order robustness are reported separately. End this tuning loop; a narrower prospective pilot plan and independent human coding remain future work. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -94,26 +94,23 @@ This generates prompts locally. It does not call a model API or produce benchmar
 
 ## Run the inference module
 
-Current status: **the [220-request explanation debug is complete and audited](docs/debug-36095971330-review.md)**.
-All answers were usable; final control choices and the twelve stated rule
-calculations were correct. The full battery exposed eight option-order
-disagreements, unresolved ladder estimates and a conditional ability/willingness
-issue. Keep the 888-item pilot paused.
+Current status: **the [fixed 156-request measurement diagnostic is complete and audited](docs/measurement-36099597085-review.md)**.
+All final control choices were correct, but the false-tie explanation returned.
+Wider ratios did not establish a stable common WTR switch, and clarification
+improved conditional fidelity without eliminating option-order disagreement.
 
-The next batch is ready: **[Inference measurement diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-measurement-diagnostic.yml)
-→ Run workflow → main**, then click **Run workflow once**. It makes 156
-requests: 32 controls, 96 range probes, twelve decimal spelling anchors and
-sixteen original/clarified conditional probes. Ratios span 0.01–8, with the
-recipient's offer fixed at 10 points. The model and explanation/A-B protocol
-are unchanged. [Fixed design, budget and interpretation rules](docs/inference-measurement-diagnostic.md).
-Results are pending; this workflow does not run or approve the pilot.
+**Stop repeated calibration and further range expansion in this development
+sequence. Keep the 888-item pilot paused.** The recommended next step is an
+offline plan for a pilot of response robustness, with observable outcomes,
+held-out scenarios, coding rules and a fixed budget specified before calls.
+No next workflow is configured or recommended to run now.
 
-The [explanation debug protocol](docs/inference-debug-explanation.md),
-[explanation calibration workflow](docs/inference-calibration-explanation.md)
-and [calculation protocol](docs/inference-calculation-diagnostic.md) remain
-available for reproduction. Earlier failures and calibration findings remain
-part of the record; the absence of the false-tie explanation in the latest
-batch does not erase its occurrence in all three calibration batches.
+The [measurement diagnostic specification](docs/inference-measurement-diagnostic.md),
+[full-debug audit](docs/debug-36095971330-review.md),
+[calibration audit](docs/calibration-explanation-repeats-review.md) and
+[calculation diagnostic](docs/calculation-36087344540-review.md) retain the
+full development record. Existing workflows remain available for deliberate
+reproduction; green execution alone does not validate a social measure.
 
 Install the optional API dependencies and run the synthetic checks locally:
 

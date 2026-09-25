@@ -1,10 +1,15 @@
 # Fixed range and conditional-question diagnostic
 
-**Status:** Implemented in v0.4.8; ready for one manual batch. No responses
-have been collected under this protocol. This is exploratory measurement
-development; the 888-item pilot remains unrun, unfrozen and unregistered.
+**Status:** The fixed batch completed in [run 36099597085](https://github.com/msblanders/wtr-bench/actions/runs/36099597085)
+and is [audited](measurement-36099597085-review.md). All 156 responses are
+usable and all 32 final control choices correct, but one false calculation
+recurred and the wider range/clarification did not establish a stable scalar
+measure. The one-batch stopping rule has been reached. End this tuning loop;
+no repeat or further expansion is recommended. The 888-item pilot remains
+unrun, unfrozen and unregistered. The prospective specification below is
+retained as written before collection.
 
-Open [Actions → Inference measurement diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-measurement-diagnostic.yml),
+For deliberate reproduction only, open [Actions → Inference measurement diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-measurement-diagnostic.yml),
 select **Run workflow → main**, and click the green **Run workflow** button
 **once**. There are no model, range or budget inputs to choose. The existing
 `ANTHROPIC_API_KEY` repository secret is used.

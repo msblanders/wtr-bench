@@ -6,8 +6,9 @@ and [audited](debug-36095971330-review.md). All 220 answers were usable, all
 The full battery exposed eight option-order disagreements, unresolved
 ladder estimates and a conditional ability/willingness interpretation issue.
 Keep the pilot paused; do not repeat this batch as the default next step.
-The [156-request measurement diagnostic](inference-measurement-diagnostic.md)
-is now ready for one manual run; its results are pending.
+The subsequent [156-request measurement diagnostic is complete and audited](measurement-36099597085-review.md).
+Its fixed stopping rule has been reached; no repeat or further range expansion
+is recommended. The proposed next work is an offline plan for a narrower pilot.
 The fixed protocol below is retained as specified before collection.
 
 For reproduction only, open

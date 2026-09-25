@@ -1,0 +1,421 @@
+{
+  "run": "36099597085",
+  "recorded_usable": 156,
+  "controls_correct": {
+    "original": 24,
+    "fraction_control": 8
+  },
+  "manually_correct_rule_values": {
+    "original": 11,
+    "fraction_control": 8
+  },
+  "manual_binary_condition_labels": {
+    "original": {
+      "respects_condition": 5,
+      "contradicts_condition": 3
+    },
+    "clarified": {
+      "respects_condition": 8
+    }
+  },
+  "option_pairs": {
+    "range": {
+      "complete": 48,
+      "disagree": 5
+    },
+    "decimal_anchor": {
+      "complete": 6,
+      "disagree": 0
+    },
+    "binary/original": {
+      "complete": 4,
+      "disagree": 1
+    },
+    "binary/clarified": {
+      "complete": 4,
+      "disagree": 1
+    }
+  },
+  "option_mismatches": [
+    {
+      "group": "range",
+      "cell": "boxes/unable",
+      "ratio": 2.0,
+      "item_ids": [
+        "wtrmeasure-27ce4765df802fec",
+        "wtrmeasure-34fcf4b42c92ef2c"
+      ]
+    },
+    {
+      "group": "range",
+      "cell": "boxes/unable",
+      "ratio": 8.0,
+      "item_ids": [
+        "wtrmeasure-25f386a7933a5b6f",
+        "wtrmeasure-03587bc159ba41d7"
+      ]
+    },
+    {
+      "group": "range",
+      "cell": "debug/low/t2/original",
+      "ratio": 0.2,
+      "item_ids": [
+        "wtrmeasure-899723832f161324",
+        "wtrmeasure-e377fd7d53a8720c"
+      ]
+    },
+    {
+      "group": "range",
+      "cell": "debug/low/t2/swapped",
+      "ratio": 0.1,
+      "item_ids": [
+        "wtrmeasure-4b4c0cce9c899b4c",
+        "wtrmeasure-18b220524f7ee601"
+      ]
+    },
+    {
+      "group": "range",
+      "cell": "debug/low/t2/swapped",
+      "ratio": 0.2,
+      "item_ids": [
+        "wtrmeasure-cd166b2bd6ad6c93",
+        "wtrmeasure-e02a6fca228bec7e"
+      ]
+    },
+    {
+      "group": "binary/original",
+      "cell": "boxes/unwilling/p_able_diff",
+      "ratio": null,
+      "item_ids": [
+        "wtrmeasure-eaa5ca4d8dda8215",
+        "wtrmeasure-19222ee922980538"
+      ]
+    },
+    {
+      "group": "binary/clarified",
+      "cell": "boxes/unable/p_will_same",
+      "ratio": null,
+      "item_ids": [
+        "wtrmeasure-b55e4167dd7944ca",
+        "wtrmeasure-2ce81fe6d598d8c1"
+      ]
+    }
+  ],
+  "fits": {
+    "boxes/unable": {
+      "fit": {
+        "identified": false,
+        "lower": 0.5,
+        "upper": 4.0,
+        "estimate": null,
+        "censored": "none",
+        "violations": 2,
+        "n": 16,
+        "n_missing": 0
+      },
+      "status": "unidentified",
+      "by_order": {
+        "A": {
+          "identified": true,
+          "lower": 0.5,
+          "upper": 2.0,
+          "estimate": 1.0,
+          "censored": "none",
+          "violations": 1,
+          "n": 8,
+          "n_missing": 0
+        },
+        "B": {
+          "identified": true,
+          "lower": 2.0,
+          "upper": 4.0,
+          "estimate": 2.8284271247461903,
+          "censored": "none",
+          "violations": 0,
+          "n": 8,
+          "n_missing": 0
+        }
+      }
+    },
+    "boxes/unwilling": {
+      "fit": {
+        "identified": true,
+        "lower": null,
+        "upper": 0.01,
+        "estimate": null,
+        "censored": "left",
+        "violations": 0,
+        "n": 16,
+        "n_missing": 0
+      },
+      "status": "left",
+      "by_order": {
+        "A": {
+          "identified": true,
+          "lower": null,
+          "upper": 0.01,
+          "estimate": null,
+          "censored": "left",
+          "violations": 0,
+          "n": 8,
+          "n_missing": 0
+        },
+        "B": {
+          "identified": true,
+          "lower": null,
+          "upper": 0.01,
+          "estimate": null,
+          "censored": "left",
+          "violations": 0,
+          "n": 8,
+          "n_missing": 0
+        }
+      }
+    },
+    "debug/high/t2/original": {
+      "fit": {
+        "identified": true,
+        "lower": null,
+        "upper": 0.01,
+        "estimate": null,
+        "censored": "left",
+        "violations": 0,
+        "n": 16,
+        "n_missing": 0
+      },
+      "status": "left",
+      "by_order": {
+        "A": {
+          "identified": true,
+          "lower": null,
+          "upper": 0.01,
+          "estimate": null,
+          "censored": "left",
+          "violations": 0,
+          "n": 8,
+          "n_missing": 0
+        },
+        "B": {
+          "identified": true,
+          "lower": null,
+          "upper": 0.01,
+          "estimate": null,
+          "censored": "left",
+          "violations": 0,
+          "n": 8,
+          "n_missing": 0
+        }
+      }
+    },
+    "debug/high/t2/swapped": {
+      "fit": {
+        "identified": true,
+        "lower": null,
+        "upper": 0.01,
+        "estimate": null,
+        "censored": "left",
+        "violations": 0,
+        "n": 16,
+        "n_missing": 0
+      },
+      "status": "left",
+      "by_order": {
+        "A": {
+          "identified": true,
+          "lower": null,
+          "upper": 0.01,
+          "estimate": null,
+          "censored": "left",
+          "violations": 0,
+          "n": 8,
+          "n_missing": 0
+        },
+        "B": {
+          "identified": true,
+          "lower": null,
+          "upper": 0.01,
+          "estimate": null,
+          "censored": "left",
+          "violations": 0,
+          "n": 8,
+          "n_missing": 0
+        }
+      }
+    },
+    "debug/low/t2/original": {
+      "fit": {
+        "identified": true,
+        "lower": null,
+        "upper": 0.01,
+        "estimate": null,
+        "censored": "left",
+        "violations": 1,
+        "n": 16,
+        "n_missing": 0
+      },
+      "status": "left",
+      "by_order": {
+        "A": {
+          "identified": true,
+          "lower": null,
+          "upper": 0.01,
+          "estimate": null,
+          "censored": "left",
+          "violations": 0,
+          "n": 8,
+          "n_missing": 0
+        },
+        "B": {
+          "identified": true,
+          "lower": null,
+          "upper": 0.01,
+          "estimate": null,
+          "censored": "left",
+          "violations": 1,
+          "n": 8,
+          "n_missing": 0
+        }
+      }
+    },
+    "debug/low/t2/swapped": {
+      "fit": {
+        "identified": true,
+        "lower": null,
+        "upper": 0.01,
+        "estimate": null,
+        "censored": "left",
+        "violations": 2,
+        "n": 16,
+        "n_missing": 0
+      },
+      "status": "left",
+      "by_order": {
+        "A": {
+          "identified": false,
+          "lower": null,
+          "upper": 0.5,
+          "estimate": null,
+          "censored": "none",
+          "violations": 2,
+          "n": 8,
+          "n_missing": 0
+        },
+        "B": {
+          "identified": true,
+          "lower": null,
+          "upper": 0.01,
+          "estimate": null,
+          "censored": "left",
+          "violations": 0,
+          "n": 8,
+          "n_missing": 0
+        }
+      }
+    }
+  },
+  "pooled_ladder_status_counts": {
+    "unidentified": 1,
+    "left": 5
+  },
+  "keep_to_give_transitions": [
+    {
+      "cell": "boxes/unable",
+      "keyed_option": "A",
+      "from_ratio": 4.0,
+      "to_ratio": 8.0,
+      "from_item": "wtrmeasure-fc5e098ff6ab6d29",
+      "to_item": "wtrmeasure-25f386a7933a5b6f"
+    },
+    {
+      "cell": "debug/low/t2/original",
+      "keyed_option": "B",
+      "from_ratio": 0.1,
+      "to_ratio": 0.2,
+      "from_item": "wtrmeasure-ba83f68389d7aa00",
+      "to_item": "wtrmeasure-e377fd7d53a8720c"
+    },
+    {
+      "cell": "debug/low/t2/swapped",
+      "keyed_option": "A",
+      "from_ratio": 0.05,
+      "to_ratio": 0.1,
+      "from_item": "wtrmeasure-f0d0abca27fe4575",
+      "to_item": "wtrmeasure-4b4c0cce9c899b4c"
+    }
+  ],
+  "comparisons": {
+    "decimal_anchor": {
+      "complete": 12,
+      "mismatches": [
+        {
+          "original": "wtrmeasure-4b4c0cce9c899b4c",
+          "changed": "wtrmeasure-ecf4e180e685cefe",
+          "disagree": true
+        }
+      ]
+    },
+    "clarified": {
+      "complete": 8,
+      "mismatches": [
+        {
+          "original": "wtrmeasure-eaa5ca4d8dda8215",
+          "changed": "wtrmeasure-e956ee19a1c05009",
+          "disagree": true
+        },
+        {
+          "original": "wtrmeasure-89de9d3abc9c7e5c",
+          "changed": "wtrmeasure-b55e4167dd7944ca",
+          "disagree": true
+        }
+      ]
+    },
+    "evidence/range": {
+      "complete": 32,
+      "mismatches": [
+        {
+          "original": "wtrmeasure-d309cbe2d7546783",
+          "swapped": "wtrmeasure-4b4c0cce9c899b4c",
+          "disagree": true
+        },
+        {
+          "original": "wtrmeasure-899723832f161324",
+          "swapped": "wtrmeasure-cd166b2bd6ad6c93",
+          "disagree": true
+        },
+        {
+          "original": "wtrmeasure-e377fd7d53a8720c",
+          "swapped": "wtrmeasure-e02a6fca228bec7e",
+          "disagree": true
+        }
+      ]
+    },
+    "evidence/decimal_anchor": {
+      "complete": 4,
+      "mismatches": []
+    }
+  },
+  "anchor_counts": {
+    "control": {
+      "complete": 24,
+      "disagree": 0
+    },
+    "valuation": {
+      "complete": 48,
+      "disagree": 1
+    },
+    "binary": {
+      "complete": 8,
+      "disagree": 0
+    }
+  },
+  "anchor_mismatches": [
+    "wtrmeasure-e377fd7d53a8720c"
+  ],
+  "numerical_range_keeps": 61,
+  "usage": {
+    "input_tokens": 62848,
+    "output_tokens": 11239,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+  }
+}

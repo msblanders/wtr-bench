@@ -3,21 +3,18 @@
 Decisions are stated as decisions; open questions are listed per section.*
 
 **Execution update (2026-09-25):** Four exploratory debug runs (two Haiku,
-two Sonnet), five response-calibration batches across three protocols, and
-a control-only calculation diagnostic are complete. The latest
-[220-request explanation debug audit](debug-36095971330-review.md) records
-220 usable answers, 24/24 correct control choices and twelve correct returned
-rule calculations. The full battery also reveals 8/98 option-order
-disagreements, no uniquely identified interior ladder estimates, and a
-conditional ability/willingness interpretation issue. The small calibration
-subset's earlier A/B successes and false calculations remain documented.
-The item design and scoring below remain unchanged. The separate v0.4.8
-[156-request measurement diagnostic](inference-measurement-diagnostic.md)
-is ready for one manual run, covering wider ratios, decimal notation checks
-and original/clarified conditional probes in selected debug cases. Its
-results are pending; it does not approve or dispatch the pilot. The 888-item pilot remains paused,
-unfrozen and unrun. Statements below about preregistered comparisons describe
-intended registrations; no registration has occurred.
+two Sonnet), five response-calibration batches, a control-only calculation
+diagnostic and a fixed 156-request measurement diagnostic are complete.
+The [latest audit](measurement-36099597085-review.md) finds 32/32 correct
+final control choices but a recurring false-tie explanation. Five of six
+combined range ladders remain left-censored and one unidentified. Clarification
+improves the returned explanations' conditional fidelity (8/8 versus 5/8)
+without eliminating option-order disagreement. End this tuning loop. The
+next recommendation is an offline plan for a narrower pilot of response
+robustness; no new batch is configured. The item design and scoring below
+are retained as the original intended scalar design, not a validated measure.
+The 888-item pilot remains paused, unfrozen and unrun. References below to
+preregistered comparisons describe intended registrations; none has occurred.
 
 ## 0. What this module adds, and what it does not
 

@@ -1,30 +1,26 @@
 # Running the inference pilot
 
-Four exploratory debug batches, five response-calibration batches across
-three protocols, and a calculation diagnostic are complete. The latest
-[220-request explanation debug audit](debug-36095971330-review.md) finds
-220 usable answers, 24/24 correct controls and twelve correct returned rule
-calculations. It also finds 8/98 debug option-order disagreements, no uniquely
-identified interior estimates, and explanations that override a supplied
-future-ability condition.
+Four exploratory debug batches, five response-calibration batches, a
+calculation diagnostic and the fixed 156-request measurement diagnostic are
+complete. The [latest audit](measurement-36099597085-review.md) records 156
+usable answers and 32/32 correct final controls, with 19/20 correct stated
+rule calculations. The false-tie explanation recurred. The expanded range
+left five combined ladders censored and one unidentified; clarification
+improved adherence to stipulated conditions without eliminating order effects.
 
-**Next: run the [156-request measurement diagnostic](inference-measurement-diagnostic.md) once.**
-Open **Actions → Inference measurement diagnostic → Run workflow → main**
-and click **Run workflow**. It contains 32 controls, 96 range probes, twelve
-same-allocation decimal spelling checks and sixteen original/clarified binary
-probes. It preserves 80 exact prior requests and both option orders. The
-range is 0.01–8 with your offer fixed at 10 points; fractional controls and
-notation comparisons address the representation change. Model/settings and
-explanation/A-B schema are unchanged. This batch is fixed before collection;
-its results are pending. Keep the pilot paused and review this single batch
-before any further calls.
+**Stop this calibration/range-tuning loop. Keep the 888-item pilot paused.**
+The fixed diagnostic's one-batch stopping rule has been reached. The next
+recommendation is to write an offline plan for a narrower pilot of response
+robustness, using unexposed scenarios and prespecified observable outcomes,
+repetitions, coding rules and budget. No new model run is configured or
+recommended now. Do not rerun the same diagnostic to seek a preferred result.
 
-The completed [explanation debug workflow](inference-debug-explanation.md)
-remains available for reproduction. The older **Inference debug** workflow
-retains its answer-only protocol. The bounded calibration replication check
-is finished. The study has not been preregistered, and the 888-item pilot
-has not been frozen or run. Synthetic outputs remain programmed checks,
-not observations of an LLM.
+The [measurement diagnostic](inference-measurement-diagnostic.md) and
+[explanation debug](inference-debug-explanation.md) workflows remain available
+for deliberate reproduction. Earlier failures remain part of the record.
+The study has not been preregistered, and the 888-item pilot has not been
+frozen or run. Synthetic outputs remain programmed checks, not observations
+of an LLM. The intended scalar interpretation is under evaluation.
 
 ## Verify the installation
 
