@@ -15,7 +15,7 @@ import re
 from collections.abc import Callable, Iterable
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Literal
+from typing import Literal, Protocol
 
 from pydantic import BaseModel
 
@@ -36,6 +36,10 @@ class ModelOutput(BaseModel):
 
 
 Responder = Callable[[InferenceItem], str | ModelOutput]
+
+
+class PromptItem(Protocol):
+    prompt: str
 
 #: Full-string match only. Allowed: A, B, (A), (B), A., B., A), B), optionally
 #: wrapped in quotes, backticks or asterisks. Anything else, including any
@@ -140,7 +144,8 @@ def load_responses(jsonl_path: str | Path) -> list[Response]:
 class AnthropicResponder:
     """Forced-choice API requests, retaining metadata needed to audit failures."""
 
-    def __init__(self, model: str, max_tokens: int = 64) -> None:
+    def __init__(self, model: str, max_tokens: int = 64, *,
+                 format_system: str = FORMAT_SYSTEM) -> None:
         try:
             from anthropic import Anthropic  # type: ignore[import-not-found]
         except ImportError as e:  # pragma: no cover
@@ -148,20 +153,21 @@ class AnthropicResponder:
         self._client = Anthropic()
         self.model = model
         self.max_tokens = max_tokens
+        self.format_system = format_system
         self.name = f"anthropic:{model}"
 
     @property
     def request_config(self) -> dict[str, object]:
-        return {"temperature": 0, "max_tokens": self.max_tokens, "system": FORMAT_SYSTEM}
+        return {"temperature": 0, "max_tokens": self.max_tokens, "system": self.format_system}
 
-    def __call__(self, item: InferenceItem) -> ModelOutput:
+    def __call__(self, item: PromptItem) -> ModelOutput:
         msg = self._client.messages.create(
             model=self.model,
             max_tokens=self.max_tokens,
             # Haiku 4.5 supports temperature, but SDK 1.x no longer exposes
             # it as a named argument. Send the frozen setting in the body.
             extra_body={"temperature": 0},
-            system=FORMAT_SYSTEM,
+            system=self.format_system,
             messages=[{"role": "user", "content": item.prompt}],
         )
         return ModelOutput(

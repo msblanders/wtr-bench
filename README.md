@@ -6,7 +6,7 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. The inference module asks models to predict a partner's choices and ability. Its initial design has **196 debug items and 888 pilot items**. Two Haiku debug runs completed. The second resolved response-format failures, but valuation censoring and numerical option-order sensitivity remain. [Read the latest audit and comparison-model plan](docs/debug-36076712362-review.md). **The 888-item pilot has not been run or frozen.**
+**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. The inference module asks models to predict a partner's choices and ability. Its initial design has **196 debug items and 888 pilot items**. Two Haiku debug runs and one Sonnet debug are complete; the latter shows pervasive option-order sensitivity. [Read the latest audit](docs/debug-36077785515-review.md). A separate [72-request calibration](docs/inference-calibration.md) is ready to check known answers and reply formats. **The 888-item pilot has not been run or frozen.**
 
 ## Why this is useful
 
@@ -70,7 +70,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Synthetic recovery checks and two exploratory Haiku debug runs completed.** A comparison-model debug is planned to assess remaining measurement limitations. Confirmatory evaluation and human calibration remain future work. |
+| Validate and report the measurements | **Synthetic recovery checks and three exploratory debug runs completed.** Known-answer calibration is implemented and awaiting its first model run. Confirmatory evaluation and human calibration remain future work. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -93,6 +93,11 @@ PY
 This generates prompts locally. It does not call a model API or produce benchmark scores.
 
 ## Run the inference module
+
+Current next step: **Actions → Inference calibration → Run workflow**, using
+the default Sonnet model. This runs 72 controls/debug questions; see the
+[calibration protocol](docs/inference-calibration.md). The full pilot is paused
+while measurement problems identified by the debug runs are investigated.
 
 Install the optional API dependencies and run the synthetic checks locally:
 

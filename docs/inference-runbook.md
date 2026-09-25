@@ -1,8 +1,10 @@
 # Running the inference pilot
 
-Two exploratory Haiku debug batches completed. The second resolved format
-failures, but valuation censoring and numerical option-order sensitivity
-remain: [latest audit and next step](debug-36076712362-review.md).
+Two Haiku debug batches and the Sonnet comparison completed. The Sonnet
+batch showed pervasive option-order sensitivity: [latest audit](debug-36077785515-review.md).
+**Pause the full pilot. The current next step is the separate
+[72-request calibration](inference-calibration.md), available as the
+Inference calibration workflow.**
 The study has not been preregistered and the 888-item pilot has not been run.
 Synthetic outputs remain programmed checks, not observations of an LLM.
 
@@ -39,14 +41,11 @@ the installed SDK and protect against mixing response protocols on resume.
    report, inspection output, item sets and hashes, the git revision, and
    dependency versions. Partial results are uploaded if the API run fails.
 
-The next planned run is a **new workflow on main** with the model input set
-to `claude-sonnet-4-5-20250929`. It uses the same 196 debug items and v0.4.2
-response protocol as the second Haiku run, changing only the model. GitHub's
-**Re-run jobs** would repeat the original run's revision and model input.
-The existing API secret is sufficient. Retain both Haiku runs and review
-the comparison before any pilot freeze. The recommendation is based on
-measurement coverage and option-order consistency, not obtaining the
-predicted psychological ordering.
+The Sonnet comparison using `claude-sonnet-4-5-20250929` is complete. Its
+user prompts and request settings matched the second Haiku run, but the
+valuation answers were strongly order-dependent. Retain all three runs.
+The new calibration workflow investigates this limitation before another
+full debug or any pilot freeze. The existing API secret is sufficient.
 
 The manual workflow performs only the exploratory debug batch. A new workflow
 execution starts a new run; it does not automatically resume an earlier

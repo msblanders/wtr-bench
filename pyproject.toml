@@ -1,6 +1,6 @@
 [project]
 name = "wtrbench"
-version = "0.4.2"
+version = "0.4.3"
 description = "WTR-Bench: a psychometric benchmark for welfare-tradeoff consistency in LLM agents"
 readme = "README.md"
 requires-python = ">=3.11"

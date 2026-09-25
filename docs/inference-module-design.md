@@ -2,14 +2,14 @@
 *Working draft, v0.4 (September 2026). Companion to `wtr-bench-design.md`.
 Decisions are stated as decisions; open questions are listed per section.*
 
-**Execution update (2026-09-25):** The first Haiku debug completed, with
-substantial format drift and option-order sensitivity. See the
-[audit](debug-36074815150-review.md). The item design and scoring below are
-unchanged; v0.4.2 revises response collection to use a neutral A/B-only system
-instruction, 64 output tokens, and API stop-reason/usage logging. Another
-debug is required before freezing a response protocol. Statements below about
-preregistered comparisons describe intended registrations; registration and
-the 888-item pilot have not occurred.
+**Execution update (2026-09-25):** Two Haiku debug runs and one Sonnet debug
+are complete. Format failures resolved under v0.4.2, but valuation censoring
+and/or option-order sensitivity remain; see the [latest audit](debug-36077785515-review.md).
+The item design and scoring below remain unchanged. Version 0.4.3 adds a
+separate [known-answer calibration](inference-calibration.md) comparing A/B
+and recipient-name replies. It has not yet been run on a model. The full
+pilot is paused. Statements below about preregistered comparisons describe
+intended registrations; registration and the 888-item pilot have not occurred.
 
 ## 0. What this module adds, and what it does not
 
