@@ -1,0 +1,61 @@
+name: Paired ordinal v2
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Generate offline artifacts, or collect the one reviewed validation batch
+        type: choice
+        options: [generate, collect]
+        default: generate
+      confirmation:
+        description: For paid collection only, type COLLECT_240 after reviewing the plan
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: paired-ordinal-v2
+  cancel-in-progress: false
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --frozen --all-groups --extra eval
+      - name: Verify source freeze and software tests (no model calls)
+        run: |
+          uv run python -m wtrbench.paired.ordinal check
+          uv run pytest tests/test_paired_ordinal_v2.py
+      - name: Generate fixed artifacts (no model calls)
+        run: |
+          uv run python -m wtrbench.paired.ordinal generate
+          uv pip freeze > runs/paired-v2/environment.txt
+      - name: Collect only with explicit confirmation
+        if: inputs.mode == 'collect'
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          test "$CONFIRMATION" = COLLECT_240 || { echo 'Missing COLLECT_240'; exit 1; }
+          test "$GITHUB_RUN_ATTEMPT" = 1 || { echo 'Do not Re-run jobs'; exit 1; }
+          uv run python -m wtrbench.paired.ordinal run --confirm 240
+      - name: Score complete or partial records offline
+        if: always()
+        run: |
+          if test -f runs/paired-v2/responses.jsonl; then
+            uv run python -m wtrbench.paired.ordinal report
+          fi
+      - name: Checksum artifacts
+        if: always()
+        run: |
+          if test -d runs/paired-v2; then
+            find runs/paired-v2 -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > runs/paired-v2/SHA256SUMS.txt
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: paired-ordinal-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/paired-v2/
+          if-no-files-found: warn
