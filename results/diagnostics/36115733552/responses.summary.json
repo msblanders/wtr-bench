@@ -1,0 +1,948 @@
+{
+  "data_origin": "recorded_API_responses",
+  "protocol": "payoff-presentation-v1",
+  "model": "claude-sonnet-4-5-20250929",
+  "items_hash": "22a58034722f9d0d",
+  "collection": {
+    "planned": 288,
+    "recorded": 288,
+    "usable": 288,
+    "correct": 277,
+    "incorrect_usable": 11,
+    "missing": 0,
+    "unusable": 0,
+    "accuracy_among_usable": 0.9618055555555556,
+    "correct_fraction_planned": 0.9618055555555556
+  },
+  "by_presentation": {
+    "original": {
+      "planned": 144,
+      "recorded": 144,
+      "usable": 144,
+      "correct": 138,
+      "incorrect_usable": 6,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.9583333333333334,
+      "correct_fraction_planned": 0.9583333333333334,
+      "planned_fits": 36,
+      "recovered_fits": 24,
+      "choice_clear_pass": false,
+      "choice_status": "mixed_or_failed"
+    },
+    "explicit_payoffs": {
+      "planned": 144,
+      "recorded": 144,
+      "usable": 144,
+      "correct": 139,
+      "incorrect_usable": 5,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.9652777777777778,
+      "correct_fraction_planned": 0.9652777777777778,
+      "planned_fits": 36,
+      "recovered_fits": 28,
+      "choice_clear_pass": false,
+      "choice_status": "mixed_or_failed"
+    }
+  },
+  "matched_presentation": {
+    "planned": 144,
+    "complete": 144,
+    "incomplete": 0,
+    "disagree": 11,
+    "rate_among_complete": 0.0763888888888889,
+    "both_correct": 133,
+    "explicit_payoffs_only_correct": 6,
+    "original_only_correct": 5,
+    "both_incorrect": 0,
+    "net_correct_gain_on_complete_pairs": 1,
+    "accuracy_difference_on_complete_pairs": 0.006944444444444444,
+    "correct_original_planned": 138,
+    "correct_explicit_payoffs_planned": 139,
+    "correct_fraction_difference_planned": 0.006944444444444444
+  },
+  "matched_by_factor": {
+    "profile": {
+      "high": {
+        "planned": 48,
+        "complete": 48,
+        "incomplete": 0,
+        "disagree": 1,
+        "rate_among_complete": 0.020833333333333332,
+        "both_correct": 47,
+        "explicit_payoffs_only_correct": 1,
+        "original_only_correct": 0,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 1,
+        "accuracy_difference_on_complete_pairs": 0.020833333333333332,
+        "correct_original_planned": 47,
+        "correct_explicit_payoffs_planned": 48,
+        "correct_fraction_difference_planned": 0.020833333333333332
+      },
+      "low": {
+        "planned": 48,
+        "complete": 48,
+        "incomplete": 0,
+        "disagree": 7,
+        "rate_among_complete": 0.14583333333333334,
+        "both_correct": 41,
+        "explicit_payoffs_only_correct": 2,
+        "original_only_correct": 5,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": -3,
+        "accuracy_difference_on_complete_pairs": -0.0625,
+        "correct_original_planned": 46,
+        "correct_explicit_payoffs_planned": 43,
+        "correct_fraction_difference_planned": -0.0625
+      },
+      "middle": {
+        "planned": 48,
+        "complete": 48,
+        "incomplete": 0,
+        "disagree": 3,
+        "rate_among_complete": 0.0625,
+        "both_correct": 45,
+        "explicit_payoffs_only_correct": 3,
+        "original_only_correct": 0,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 3,
+        "accuracy_difference_on_complete_pairs": 0.0625,
+        "correct_original_planned": 45,
+        "correct_explicit_payoffs_planned": 48,
+        "correct_fraction_difference_planned": 0.0625
+      }
+    },
+    "own_amount": {
+      "1": {
+        "planned": 24,
+        "complete": 24,
+        "incomplete": 0,
+        "disagree": 2,
+        "rate_among_complete": 0.08333333333333333,
+        "both_correct": 22,
+        "explicit_payoffs_only_correct": 0,
+        "original_only_correct": 2,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": -2,
+        "accuracy_difference_on_complete_pairs": -0.08333333333333333,
+        "correct_original_planned": 24,
+        "correct_explicit_payoffs_planned": 22,
+        "correct_fraction_difference_planned": -0.08333333333333333
+      },
+      "10": {
+        "planned": 24,
+        "complete": 24,
+        "incomplete": 0,
+        "disagree": 0,
+        "rate_among_complete": 0.0,
+        "both_correct": 24,
+        "explicit_payoffs_only_correct": 0,
+        "original_only_correct": 0,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 0,
+        "accuracy_difference_on_complete_pairs": 0.0,
+        "correct_original_planned": 24,
+        "correct_explicit_payoffs_planned": 24,
+        "correct_fraction_difference_planned": 0.0
+      },
+      "15": {
+        "planned": 24,
+        "complete": 24,
+        "incomplete": 0,
+        "disagree": 0,
+        "rate_among_complete": 0.0,
+        "both_correct": 24,
+        "explicit_payoffs_only_correct": 0,
+        "original_only_correct": 0,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 0,
+        "accuracy_difference_on_complete_pairs": 0.0,
+        "correct_original_planned": 24,
+        "correct_explicit_payoffs_planned": 24,
+        "correct_fraction_difference_planned": 0.0
+      },
+      "2": {
+        "planned": 24,
+        "complete": 24,
+        "incomplete": 0,
+        "disagree": 3,
+        "rate_among_complete": 0.125,
+        "both_correct": 21,
+        "explicit_payoffs_only_correct": 2,
+        "original_only_correct": 1,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 1,
+        "accuracy_difference_on_complete_pairs": 0.041666666666666664,
+        "correct_original_planned": 22,
+        "correct_explicit_payoffs_planned": 23,
+        "correct_fraction_difference_planned": 0.041666666666666664
+      },
+      "20": {
+        "planned": 24,
+        "complete": 24,
+        "incomplete": 0,
+        "disagree": 0,
+        "rate_among_complete": 0.0,
+        "both_correct": 24,
+        "explicit_payoffs_only_correct": 0,
+        "original_only_correct": 0,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 0,
+        "accuracy_difference_on_complete_pairs": 0.0,
+        "correct_original_planned": 24,
+        "correct_explicit_payoffs_planned": 24,
+        "correct_fraction_difference_planned": 0.0
+      },
+      "5": {
+        "planned": 24,
+        "complete": 24,
+        "incomplete": 0,
+        "disagree": 6,
+        "rate_among_complete": 0.25,
+        "both_correct": 18,
+        "explicit_payoffs_only_correct": 4,
+        "original_only_correct": 2,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 2,
+        "accuracy_difference_on_complete_pairs": 0.08333333333333333,
+        "correct_original_planned": 20,
+        "correct_explicit_payoffs_planned": 22,
+        "correct_fraction_difference_planned": 0.08333333333333333
+      }
+    },
+    "history_swapped": {
+      "False": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 6,
+        "rate_among_complete": 0.08333333333333333,
+        "both_correct": 66,
+        "explicit_payoffs_only_correct": 3,
+        "original_only_correct": 3,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 0,
+        "accuracy_difference_on_complete_pairs": 0.0,
+        "correct_original_planned": 69,
+        "correct_explicit_payoffs_planned": 69,
+        "correct_fraction_difference_planned": 0.0
+      },
+      "True": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 5,
+        "rate_among_complete": 0.06944444444444445,
+        "both_correct": 67,
+        "explicit_payoffs_only_correct": 3,
+        "original_only_correct": 2,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 1,
+        "accuracy_difference_on_complete_pairs": 0.013888888888888888,
+        "correct_original_planned": 69,
+        "correct_explicit_payoffs_planned": 70,
+        "correct_fraction_difference_planned": 0.013888888888888888
+      }
+    },
+    "repetition": {
+      "1": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 6,
+        "rate_among_complete": 0.08333333333333333,
+        "both_correct": 66,
+        "explicit_payoffs_only_correct": 3,
+        "original_only_correct": 3,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 0,
+        "accuracy_difference_on_complete_pairs": 0.0,
+        "correct_original_planned": 69,
+        "correct_explicit_payoffs_planned": 69,
+        "correct_fraction_difference_planned": 0.0
+      },
+      "2": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 5,
+        "rate_among_complete": 0.06944444444444445,
+        "both_correct": 67,
+        "explicit_payoffs_only_correct": 3,
+        "original_only_correct": 2,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 1,
+        "accuracy_difference_on_complete_pairs": 0.013888888888888888,
+        "correct_original_planned": 69,
+        "correct_explicit_payoffs_planned": 70,
+        "correct_fraction_difference_planned": 0.013888888888888888
+      }
+    },
+    "sam_first": {
+      "False": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 2,
+        "rate_among_complete": 0.027777777777777776,
+        "both_correct": 70,
+        "explicit_payoffs_only_correct": 0,
+        "original_only_correct": 2,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": -2,
+        "accuracy_difference_on_complete_pairs": -0.027777777777777776,
+        "correct_original_planned": 72,
+        "correct_explicit_payoffs_planned": 70,
+        "correct_fraction_difference_planned": -0.027777777777777776
+      },
+      "True": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 9,
+        "rate_among_complete": 0.125,
+        "both_correct": 63,
+        "explicit_payoffs_only_correct": 6,
+        "original_only_correct": 3,
+        "both_incorrect": 0,
+        "net_correct_gain_on_complete_pairs": 3,
+        "accuracy_difference_on_complete_pairs": 0.041666666666666664,
+        "correct_original_planned": 66,
+        "correct_explicit_payoffs_planned": 69,
+        "correct_fraction_difference_planned": 0.041666666666666664
+      }
+    }
+  },
+  "by_cell": {
+    "explicit_payoffs/high/history-False/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/high/history-False/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/high/history-False/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/high/history-False/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/high/history-True/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/high/history-True/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/high/history-True/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/high/history-True/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/low/history-False/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 4,
+      "incorrect_usable": 2,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.6666666666666666,
+      "correct_fraction_planned": 0.6666666666666666
+    },
+    "explicit_payoffs/low/history-False/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/low/history-False/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "explicit_payoffs/low/history-False/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/low/history-True/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/low/history-True/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "explicit_payoffs/low/history-True/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/low/history-True/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "explicit_payoffs/middle/history-False/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/middle/history-False/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/middle/history-False/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/middle/history-False/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/middle/history-True/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/middle/history-True/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/middle/history-True/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "explicit_payoffs/middle/history-True/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/high/history-False/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "original/high/history-False/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/high/history-False/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/high/history-False/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/high/history-True/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/high/history-True/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/high/history-True/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/high/history-True/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/low/history-False/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/low/history-False/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/low/history-False/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/low/history-False/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/low/history-True/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "original/low/history-True/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/low/history-True/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "original/low/history-True/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/middle/history-False/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "original/middle/history-False/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/middle/history-False/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "original/middle/history-False/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/middle/history-True/pass-1/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/middle/history-True/pass-1/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    },
+    "original/middle/history-True/pass-2/sam-first": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 5,
+      "incorrect_usable": 1,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 0.8333333333333334,
+      "correct_fraction_planned": 0.8333333333333334
+    },
+    "original/middle/history-True/pass-2/sam-second": {
+      "planned": 6,
+      "recorded": 6,
+      "usable": 6,
+      "correct": 6,
+      "incorrect_usable": 0,
+      "missing": 0,
+      "unusable": 0,
+      "accuracy_among_usable": 1.0,
+      "correct_fraction_planned": 1.0
+    }
+  },
+  "within_presentation_comparisons": {
+    "original": {
+      "option_order": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 6,
+        "rate_among_complete": 0.08333333333333333
+      },
+      "history_order": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 4,
+        "rate_among_complete": 0.05555555555555555
+      },
+      "repeat": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 2,
+        "rate_among_complete": 0.027777777777777776
+      }
+    },
+    "explicit_payoffs": {
+      "option_order": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 5,
+        "rate_among_complete": 0.06944444444444445
+      },
+      "history_order": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 5,
+        "rate_among_complete": 0.06944444444444445
+      },
+      "repeat": {
+        "planned": 72,
+        "complete": 72,
+        "incomplete": 0,
+        "disagree": 1,
+        "rate_among_complete": 0.013888888888888888
+      }
+    }
+  },
+  "planned_fits": 72,
+  "recovered_fits": 52,
+  "explanation_review": {
+    "planned": 288,
+    "reviewed": 0,
+    "pending": 288,
+    "labels": {
+      "consistent": 0,
+      "incorrect_calculation_or_mapping": 0,
+      "unclear_or_no_checkable_basis": 0,
+      "unsupported_inference": 0,
+      "unusable_or_missing": 0
+    },
+    "status": "pending_review",
+    "by_presentation": {
+      "original": {
+        "planned": 144,
+        "reviewed": 0,
+        "pending": 144,
+        "labels": {
+          "consistent": 0,
+          "incorrect_calculation_or_mapping": 0,
+          "unclear_or_no_checkable_basis": 0,
+          "unsupported_inference": 0,
+          "unusable_or_missing": 0
+        },
+        "status": "pending_review"
+      },
+      "explicit_payoffs": {
+        "planned": 144,
+        "reviewed": 0,
+        "pending": 144,
+        "labels": {
+          "consistent": 0,
+          "incorrect_calculation_or_mapping": 0,
+          "unclear_or_no_checkable_basis": 0,
+          "unsupported_inference": 0,
+          "unusable_or_missing": 0
+        },
+        "status": "pending_review"
+      }
+    }
+  },
+  "stop_reasons": {
+    "end_turn": 288
+  },
+  "tokens": {
+    "input_tokens": 149040,
+    "output_tokens": 40484,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0
+  },
+  "interpretation": "Matched constructed-task presentation comparison; no automatic pilot release."
+}

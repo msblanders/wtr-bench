@@ -6,11 +6,11 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**The next step is the fixed [payoff presentation diagnostic](docs/payoff-presentation-v1.md), ready for one manual run.** Its 288 requests compare all 144 original history questions with matched versions showing both recipients' payoffs, including zeros, in the same collection. Model, evidence, option/history reversals and two passes are preserved. See the [matched prompt examples](docs/payoff-presentation-examples.md). Both social pilots remain paused.
+**The [288-request payoff presentation diagnostic is complete and audited](docs/presentation-36115733552-review.md).** Original wording scored 138/144 correct, versus 139/144 with complete-payoff tables; recovered fits were 24/36 and 28/36. Tables improved the explanations in the assistant audit but still produced wrong choices and misleading intervals. Both social pilots remain paused. No further collection is currently requested.
 
 The [216-request recovery diagnostic has been audited](docs/recovery-36111049496-review.md): explicit-weight questions scored 72/72 with 18/18 recovered intervals and consistent explanations. History questions scored 137/144, with six wrong answers, one truncated response and 24/36 recovered fits. Some correct choices also contained explanation errors. These diagnostics concern the weight attributed to a described partner; they do not measure the model's own preferences. The [validation plan](docs/validation-before-pilot.md) retains the original research question.
 
-The 816-request robustness workflow and its CLI collection command are disabled. Its [frozen proposal](docs/response-robustness-pilot-v1.md) remains in the record; it does not replace the original research objective. The original 888-item inference pilot remains unrun. Four debug runs, five calibration batches and three diagnostics are archived. The original social WTR measure has not been validated; controlled recovery is now documented separately from that broader claim.
+The 816-request robustness workflow and its CLI collection command are disabled. Its [frozen proposal](docs/response-robustness-pilot-v1.md) remains in the record; it does not replace the original research objective. The original 888-item inference pilot remains unrun. Four debug runs, five calibration batches and four diagnostics are archived. The original social WTR measure has not been validated; controlled recovery is documented separately from that broader claim.
 
 ## Why this is useful
 
@@ -74,7 +74,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Validation before any pilot.** Explicit-weight recovery passed; history recovery was mixed. All 216 explanations were audited. A fixed 288-request matched payoff-display comparison is ready to test a candidate revision. Both social pilots remain paused; the original theory-focused aim is retained. |
+| Validate and report the measurements | **Validation before any pilot.** Explicit-weight recovery passed; history recovery was mixed. The 216-request recovery and 288-request display comparison are audited. Tables improved explanation quality but did not establish reliable choice-derived intervals. Both social pilots remain paused; the original theory-focused aim is retained. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -98,9 +98,9 @@ This generates prompts locally. It does not call a model API or produce benchmar
 
 ## Run the inference module
 
-Run **[Actions → Inference payoff presentation diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-payoff-presentation.yml) → Run workflow → `main`**, once. One job makes **288 requests total**, including both presentations and both passes. It uses the existing `ANTHROPIC_API_KEY` and pinned Sonnet 4.5; API usage is billed to that key. No model, format or budget inputs need changing.
+**No new run is requested.** [Run 36115733552](https://github.com/msblanders/wtr-bench/actions/runs/36115733552) completed the fixed payoff-display comparison. All 288 replies were usable. Six matched answers improved with tables and five became wrong; some low-profile errors produced a coherent but wrong interval in both passes. See the [audit and next-step decision](docs/presentation-36115733552-review.md). Do not repeat the batch to seek a pass.
 
-The [prospective presentation plan](docs/payoff-presentation-v1.md) freezes the sample, paired gains/regressions, interval recovery, consistency and separate explanation audit. The [runbook](docs/inference-runbook.md) explains artifacts and interruptions. Do not launch a separate pass or the old recovery workflow. The earlier [run and audit](docs/recovery-36111049496-review.md), its frozen plan and raw data are unchanged; neither pilot launches automatically.
+The [prospective presentation plan](docs/payoff-presentation-v1.md), [matched prompt examples](docs/payoff-presentation-examples.md), raw responses and original reports remain unchanged. The [runbook](docs/inference-runbook.md) retains collection instructions as historical procedure. All 288 records have separate assistant explanation labels with disclosed exact-text reuse. Further work must address the valuation readout and demonstrated error effects before any newly specified collection; neither pilot launches automatically.
 
 To generate and verify the frozen prompts without model calls:
 

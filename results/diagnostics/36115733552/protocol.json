@@ -1,0 +1,73 @@
+{
+  "mode": "payoff-presentation-v1",
+  "model": "claude-sonnet-4-5-20250929",
+  "n_requests": 288,
+  "n_templates": 144,
+  "items_hash": "22a58034722f9d0d",
+  "counts_by_presentation": {
+    "explicit_payoffs": 144,
+    "original": 144
+  },
+  "repetitions": [
+    1,
+    2
+  ],
+  "order_seed": "payoff-presentation-v1",
+  "sequence": "two passes; presentations interleaved in fixed hash order within each pass",
+  "request": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "system": "For each question, Return a JSON object with exactly two fields in this order: \"brief_basis\", a brief explanation (one or two sentences) for your answer using the supplied information; then \"answer\", whose value is A or B. Do not include other fields.",
+    "output_config": {
+      "format": {
+        "type": "json_schema",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "brief_basis": {
+              "type": "string"
+            },
+            "answer": {
+              "type": "string",
+              "enum": [
+                "A",
+                "B"
+              ]
+            }
+          },
+          "required": [
+            "brief_basis",
+            "answer"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "transport_max_retries": 0,
+  "analysis_plan_sha256": "ae91c3e37e305e9402ad5fed097eb2114a02d4043ee6bc7e937211503c2f0717",
+  "implementation_sha256": {
+    "src/wtrbench/__init__.py": "01ce2f1d661b3b4a5702c957fa74a6a5a53b9ce0ac51c16ee8352effe477f181",
+    "src/wtrbench/calculation_diagnostic.py": "b2813e6fa70c5cb85ee5a8cb4daf863e79633f9d828da195158dc495817c2a0a",
+    "src/wtrbench/calibration.py": "9be3e623685c053b51bc5ae7d3586280dc99a9a6d4daf5a901b2ea1f06c30549",
+    "src/wtrbench/explanation_calibration.py": "576a353a5bd280dac4c2f70fae33254a34d426d45d201a74e8cda75a2741c967",
+    "src/wtrbench/explanation_debug.py": "f90a1ac5242be280a8820b8e44f523b4ff5624312bfad6d2301327d7e65ed1ef",
+    "src/wtrbench/inference.py": "7c49cac0d53dbb8348d656b78fde7d86b096959ffba2a751ff3e21826be86cfc",
+    "src/wtrbench/items.py": "75f1cf4b8900d50510ae4dd55f01febd8ec653b80c1d8373dbb74fb6b9e84c59",
+    "src/wtrbench/measurement_diagnostic.py": "2c50344d1deed72ca06fdc5e2e0b107994dc67efad6112a3a2f0f78ec7202dc4",
+    "src/wtrbench/payoff_presentation.py": "8f91789f65c60e9a4a83f1887accfe9f37fc01941c68750fa25e92788cb4ca5d",
+    "src/wtrbench/pilot.py": "02d31c9f762c71b25c65856f92d5750ad584bd212e29e380aaa050f562176010",
+    "src/wtrbench/presentation_report.py": "7ec89eb3414ee7fc81bc5b5b56198fb5a7b91733d44f35f4131dcf17c7386d68",
+    "src/wtrbench/presentation_run.py": "adcc053e84b1d93ebd28fc08fc77590e3f7444a5670bf231ba2e5f4b336470cf",
+    "src/wtrbench/recovery_report.py": "2b061f0a84dd1791b83b1ae31f54eeee7320933adae3793f48da931ce9491321",
+    "src/wtrbench/recovery_run.py": "77a110d9b707d9b657d8e6c667904deb9b1106c3d0d9cde9d5f62948fb235073",
+    "src/wtrbench/robustness_pilot.py": "b10c01a651bf4f485a399e8d159ae3bf30502555beafd9139341b50883484d50",
+    "src/wtrbench/robustness_report.py": "c5681183589b5b7c2298f3e1023f53acffe743db5d3cb3a923a34e0e3d2ba4dd",
+    "src/wtrbench/run.py": "cca5bd068f4ab152a977ad0d1684b045a66abe1f232aa46274bee9a95a0028df",
+    "src/wtrbench/score.py": "ea1500368cbc25da2065101b53b4bda32899614b28cf1758a1e7c948e6b841c9",
+    "src/wtrbench/structured_calibration.py": "4f916c179e820c066ef55ed518baf85fbbf04d97dac5418e2e106bcfb20e658c",
+    "src/wtrbench/synthetic.py": "35aa474ff89d17631e4eeaef8630a6ac4914b5401fed0d3c194c19a37eda4b2d",
+    "src/wtrbench/validation_recovery.py": "459318a6f5c82e019df825acb8bd91363a6df55adf024aaf1fc6ae823fc0aa29"
+  },
+  "stopping_rule": "288 scheduled calls once; no answer-accuracy gate during collection"
+}

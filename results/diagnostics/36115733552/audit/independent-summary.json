@@ -1,0 +1,160 @@
+{
+  "checks": "All 16 original hashes, 288 literal-prompt truth keys and strict responses, 72 independently enumerated fits, 576 pairs and 288 response-bound labels verified.",
+  "by_presentation_profile": {
+    "original/low": {
+      "n": 48,
+      "correct": 46,
+      "incorrect": 2
+    },
+    "original/middle": {
+      "n": 48,
+      "correct": 45,
+      "incorrect": 3
+    },
+    "original/high": {
+      "n": 48,
+      "correct": 47,
+      "incorrect": 1
+    },
+    "explicit_payoffs/low": {
+      "n": 48,
+      "correct": 43,
+      "incorrect": 5
+    },
+    "explicit_payoffs/middle": {
+      "n": 48,
+      "correct": 48,
+      "incorrect": 0
+    },
+    "explicit_payoffs/high": {
+      "n": 48,
+      "correct": 48,
+      "incorrect": 0
+    }
+  },
+  "by_presentation_pass": {
+    "original/1": {
+      "n": 72,
+      "correct": 69,
+      "incorrect": 3
+    },
+    "original/2": {
+      "n": 72,
+      "correct": 69,
+      "incorrect": 3
+    },
+    "explicit_payoffs/1": {
+      "n": 72,
+      "correct": 69,
+      "incorrect": 3
+    },
+    "explicit_payoffs/2": {
+      "n": 72,
+      "correct": 70,
+      "incorrect": 2
+    }
+  },
+  "matched_choice_outcomes_original_then_explicit": {
+    "(True, True)": 133,
+    "(True, False)": 5,
+    "(False, True)": 6
+  },
+  "comparisons": {
+    "explicit_payoffs/history_order": {
+      "planned": 72,
+      "complete": 72,
+      "disagree": 5
+    },
+    "explicit_payoffs/option_order": {
+      "planned": 72,
+      "complete": 72,
+      "disagree": 5
+    },
+    "explicit_payoffs/repeat": {
+      "planned": 72,
+      "complete": 72,
+      "disagree": 1
+    },
+    "original/history_order": {
+      "planned": 72,
+      "complete": 72,
+      "disagree": 4
+    },
+    "original/option_order": {
+      "planned": 72,
+      "complete": 72,
+      "disagree": 6
+    },
+    "original/repeat": {
+      "planned": 72,
+      "complete": 72,
+      "disagree": 2
+    },
+    "presentation": {
+      "planned": 144,
+      "complete": 144,
+      "disagree": 11
+    }
+  },
+  "recovered_fits_by_profile": {
+    "original": {
+      "high": 10,
+      "middle": 6,
+      "low": 8
+    },
+    "explicit_payoffs": {
+      "middle": 12,
+      "low": 4,
+      "high": 12
+    }
+  },
+  "nonrecovered_fit_types": {
+    "original": {
+      "violations": 2,
+      "tied_fit": 5,
+      "wrong_interval": 5
+    },
+    "explicit_payoffs": {
+      "tied_fit": 4,
+      "wrong_interval": 2,
+      "censored": 1,
+      "violations": 1
+    }
+  },
+  "matched_fit_recovery_original_then_explicit": {
+    "(False, True)": 10,
+    "(True, True)": 18,
+    "(True, False)": 6,
+    "(False, False)": 2
+  },
+  "assistant_explanation_labels": {
+    "explicit_payoffs": {
+      "consistent": 133,
+      "incorrect_calculation_or_mapping": 11
+    },
+    "explicit_payoffs/final_correct_True": {
+      "consistent": 133,
+      "incorrect_calculation_or_mapping": 6
+    },
+    "original": {
+      "consistent": 106,
+      "incorrect_calculation_or_mapping": 38
+    },
+    "original/final_correct_True": {
+      "consistent": 106,
+      "incorrect_calculation_or_mapping": 32
+    },
+    "explicit_payoffs/final_correct_False": {
+      "incorrect_calculation_or_mapping": 5
+    },
+    "original/final_correct_False": {
+      "incorrect_calculation_or_mapping": 6
+    }
+  },
+  "review_methods": {
+    "fresh_assistant_review": 181,
+    "exact_prompt_raw_match_to_prior_assistant_review": 69,
+    "exact_prompt_raw_duplicate_within_run": 38
+  },
+  "limits": "Fixed-set descriptive evidence. Fits overlap. Assistant coding is unblinded, including disclosed exact-text label reuse. No internal-mechanism or social-pilot validation claim."
+}

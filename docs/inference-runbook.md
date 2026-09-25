@@ -1,12 +1,23 @@
 # Inference diagnostic runbook
 
-**The payoff presentation diagnostic is ready for one manual run. Both social
-pilots remain paused.** The [prospective plan](payoff-presentation-v1.md) freezes
-288 requests: all 144 original history questions and their 144 matched
-complete-payoff versions, including both passes. Review the
-[prompt examples](payoff-presentation-examples.md).
+**The payoff presentation diagnostic is complete and audited. No new run is
+requested; both social pilots remain paused.** [Run 36115733552](https://github.com/msblanders/wtr-bench/actions/runs/36115733552)
+returned 288 usable responses. Original wording scored 138/144 with 24/36
+recovered fits; tables scored 139/144 with 28/36. The [audit](presentation-36115733552-review.md)
+records paired gains/regressions, all explanation labels and the wrong
+intervals that remain. Do not repeat this collection to seek a pass.
 
-## Run the next diagnostic in GitHub
+The [prospective plan](payoff-presentation-v1.md), [prompt examples](payoff-presentation-examples.md)
+and original artifact files are unchanged. Verify the archive offline with:
+
+```bash
+python results/diagnostics/36115733552/audit/verify.py
+```
+
+## Payoff diagnostic: retained collection instructions
+
+These are the historical instructions used for run 36115733552, not a request
+to run again. The manual workflow remains available for reproduction.
 
 1. Open **Actions → [Inference payoff presentation diagnostic](https://github.com/msblanders/wtr-bench/actions/workflows/inference-payoff-presentation.yml)**.
 2. Click **Run workflow**, select **`main`**, and run **once**. There are no
@@ -76,7 +87,7 @@ consistent. Choice history: 137/144 correct, six wrong, one truncated;
 24/36 recovered fits. All 216 explanations were reviewed separately.
 See the [audit, preserved evidence and next-step rationale](recovery-36111049496-review.md).
 The frozen clear-pass rule was not met. Do not repeat that batch to seek a
-preferred result. The newly authorized matched display test is described above.
+preferred result. The completed matched display test is described above.
 
 ## Completed diagnostic: retained collection instructions
 

@@ -24,11 +24,15 @@ remain unchanged. References to preregistration describe an intention;
 no external registration has occurred. The [runbook](inference-runbook.md)
 records the completed diagnostic, the pilot pause and historical procedures.
 
-**Next authorized collection:** the fixed [payoff presentation comparison](payoff-presentation-v1.md)
-is ready. It uses 288 new history requests to compare the original display
-with complete-payoff tables, retaining all profiles, rungs, reversals and two
-passes. It tests a candidate response to the observed mapping errors; it does
-not impose a known weight on natural stories or release either pilot.
+**Payoff presentation comparison complete:** the [288-request audit](presentation-36115733552-review.md)
+records 138/144 correct original choices versus 139/144 table choices, and
+24/36 versus 28/36 recovered fits. Tables reduced explanation errors in the
+assistant audit from 38 to 11, but all five wrong table choices state correct
+history bounds and current values. Some produce coherent but wrong intervals.
+Both displays fail the frozen recovery rule. Stop display iteration; assess
+the valuation readout and its error effects before any new collection. The
+[prospective plan](payoff-presentation-v1.md) is unchanged and neither pilot
+is released.
 
 ## 0. What this module adds, and what it does not
 

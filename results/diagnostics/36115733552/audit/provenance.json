@@ -1,0 +1,29 @@
+{
+  "run_url": "https://github.com/msblanders/wtr-bench/actions/runs/36115733552",
+  "run_id": 36115733552,
+  "run_attempt": 1,
+  "workflow": "Inference payoff presentation diagnostic",
+  "conclusion": "success",
+  "source_commit": "ae14ed5146d237cff3cd87705f5c526991e1ace0",
+  "source_tree": "01be0b89ace20514923a6cde5ed936e468dbbd82",
+  "created_at": "2026-09-25T08:57:21Z",
+  "updated_at": "2026-09-25T09:16:59Z",
+  "artifact_id": 10855641840,
+  "artifact_name": "inference-payoff-presentation-36115733552-1",
+  "artifact_zip_bytes": 169731,
+  "artifact_zip_sha256": "7437b020aeeea75e15e6f922185651a68c3697d6cf32755b3a625003ad915028",
+  "archive_method": "All 16 original files extracted byte-for-byte. SHA256SUMS covers originals only. Post-collection additions are in audit/ and a separate documentation review. Frozen plan, source and original pending-review reports are unchanged.",
+  "reviewer": "assistant",
+  "review_date_utc": "2026-09-25",
+  "explanation_review": "All 288 records labeled using the frozen rubric, unblinded to prompt, reference values and final choice. No independent human rater or inter-rater reliability estimate. Exact prompt/full-raw matches reuse a documented assistant judgment; each current record has a new response-bound digest and review ID.",
+  "review_methods": {
+    "fresh_assistant_review": 181,
+    "exact_prompt_raw_duplicate_within_run": 38,
+    "exact_prompt_raw_match_to_prior_assistant_review": 69
+  },
+  "prior_label_source_run": 36111049496,
+  "response_provenance": "All 288 responses were newly collected in this run, including the 144 original-display comparators. Reuse refers only to coding judgments for identical prompt/raw text, never reuse of prior response data as new observations.",
+  "verification": "Original freeze, items, config, decoding and automatic reports reproduced using the recorded code. Separate stdlib audit derives truth from literal prompts and independently verifies thresholds, pairs, strict raw parsing, original hashes and review bindings. The independent threshold helper is reused from the prior archived audit, not production scoring.",
+  "additional_model_requests": 0,
+  "pilot_status": "Both social pilots remain paused. No new collection configured."
+}

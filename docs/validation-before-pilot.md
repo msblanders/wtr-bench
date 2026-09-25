@@ -149,22 +149,32 @@ specified separately. There is no automatic second batch or pilot dispatch.
 If the basic task remains unreliable, acknowledge that outcome rather than
 guaranteeing that additional calibration will eventually validate it.
 
-## Authorized follow-up: matched payoff presentation
+## Completed follow-up: matched payoff presentation
 
 Following the recovery audit, the researcher authorized a targeted display
-comparison. The [prospective payoff presentation plan](payoff-presentation-v1.md)
-is implemented and ready for one manual collection: **288 requests**, comparing
-all 144 original history requests with matched complete-payoff versions in the
-same run. Each alternative displays both recipients' payoffs, including zeros.
-All profiles, rungs, option/history reversals and two passes are retained.
-The model, fixed-rule evidence and answer protocol remain unchanged.
+comparison. **Run 36115733552 is complete and [audited](presentation-36115733552-review.md).**
+The [prospective plan](payoff-presentation-v1.md) remains unchanged: 288 requests
+compared 144 newly collected original history responses with matched tables
+showing both recipients' payoffs, including zeros. All profiles, rungs,
+option/history reversals and two passes were retained, with the same model,
+fixed-rule evidence and answer protocol.
 
-This candidate addresses observed payoff-mapping errors; false comparisons
-may persist. Paired improvements, regressions, interval recovery and all
-explanations will be reported separately. The earlier run and pass criterion
-are unchanged, and no result automatically releases either social pilot.
-See the [runbook](inference-runbook.md) for the new workflow, cost exposure and
-partial-run handling. Do not rerun the old recovery workflow.
+Original wording scored 138/144 and tables 139/144: six paired improvements,
+five regressions. Recovered fits were 24/36 and 28/36; explanation error labels
+were 38 and 11 in the unblinded assistant audit. All five wrong table answers
+state correct history bounds and current values before choosing incorrectly.
+In both passes, one low-profile table condition yields a unique, monotonic
+but wrong interval of 0.5 to 1 instead of 0.2 to 0.5. These errors can change
+the valuation contrast, not merely its response-format quality.
+
+Neither display meets the frozen rule. Stop payoff-display iteration here.
+Before any new collection, specify the required effect resolution and assess
+whether a proposed readout/error model can handle the demonstrated failures
+without discarding them. A revised method selected on these data would need
+fresh prospective validation; rescoring this batch is exploratory. Do not
+repair final choices from explanations or quietly adopt a different measure.
+Both pilots remain paused, and no new run is requested. The [runbook](inference-runbook.md)
+retains historical collection instructions and offline reproduction.
 
 ## Remaining bridge to the original social pilot
 
