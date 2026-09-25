@@ -1,0 +1,15 @@
+{
+  "protocol": "paired-ordinal-v2",
+  "baseline_commit": "fcef24a33514ece1306e6c97015c8e3d38737663",
+  "n_requests": 240,
+  "n_base_cases": 30,
+  "items_jsonl_sha256": "cf26850f7eeb247ff8f26890da5f283252bba0309d519e1faedd571a5429f133",
+  "request_bodies_jsonl_sha256": "5065e869a25514e7dccdb7ee7397b862a6a14dfc4c22133bbcdfb488953e7bbe",
+  "source_sha256": {
+    "src/wtrbench/paired/__init__.py": "347dbb897070a901f75715b90a08e98cfa59107a18a7f23633de8a9ff61a64f4",
+    "src/wtrbench/paired/ordinal.py": "6308da7dba6033551d5abed946d506aaf6fd065f2947fadb4537b109cda7a2b7",
+    "tests/test_paired_ordinal_v2.py": "86e388ba39d1ce16a7534d4f23264068c9bc85209d1917317640730b3cbc26cc",
+    "docs/paired-ordinal-v2.md": "86f29fca7e684756842c4beaddf33c3cc9bbeb5f4c4387c01f92016df008e24c",
+    ".github/workflows/paired-ordinal-v2.yml": "6bd0a38b78c9a4d34aae2866ee94b2e2e896d0a33c41acd7c9002296174bf6e2"
+  }
+}
