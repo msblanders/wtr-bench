@@ -1,0 +1,19 @@
+{
+  "mode": "calibration-v1",
+  "model": "claude-sonnet-4-5-20250929",
+  "n_items": 72,
+  "items_hash": "299094bf02c5a1d1",
+  "requests": {
+    "letter": {
+      "temperature": 0,
+      "max_tokens": 64,
+      "system": "For each question, reply with exactly one uppercase letter: A or B. Do not include any explanation or other text."
+    },
+    "recipient": {
+      "temperature": 0,
+      "max_tokens": 64,
+      "system": "For each question, reply with exactly one uppercase word: SAM or YOU. Do not include any explanation or other text."
+    }
+  },
+  "started": "2026-09-25T01:13:25.065406+00:00"
+}

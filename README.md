@@ -6,7 +6,7 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. The inference module asks models to predict a partner's choices and ability. Its initial design has **196 debug items and 888 pilot items**. Two Haiku debug runs and one Sonnet debug are complete; the latter shows pervasive option-order sensitivity. [Read the latest audit](docs/debug-36077785515-review.md). A separate [72-request calibration](docs/inference-calibration.md) is ready to check known answers and reply formats. **The 888-item pilot has not been run or frozen.**
+**Working now:** Module A's reproducible generator for 3,600 decision prompts, plus an inference module with an API runner, interval-aware scoring, and synthetic recovery checks. The inference module asks models to predict a partner's choices and ability. Its initial design has **196 debug items and 888 pilot items**. Three exploratory debug runs and the first response calibration are complete. The calibration passed simple controls but yielded truncated rule predictions and unstable social judgments. [Read the latest audit](docs/calibration-36081054221-review.md). The next step is the separate [72-request structured-answer calibration](docs/inference-calibration-structured.md). **The 888-item pilot has not been run or frozen.**
 
 ## Why this is useful
 
@@ -70,7 +70,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Synthetic recovery checks and three exploratory debug runs completed.** Known-answer calibration is implemented and awaiting its first model run. Confirmatory evaluation and human calibration remain future work. |
+| Validate and report the measurements | **Synthetic recovery checks, three exploratory debug runs, and one response calibration completed.** Neither calibrated format passed; a structured-answer follow-up is ready. Confirmatory evaluation and human calibration remain future work. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -94,9 +94,10 @@ This generates prompts locally. It does not call a model API or produce benchmar
 
 ## Run the inference module
 
-Current next step: **Actions → Inference calibration → Run workflow**, using
-the default Sonnet model. This runs 72 controls/debug questions; see the
-[calibration protocol](docs/inference-calibration.md). The full pilot is paused
+Current next step: **Actions → Inference calibration (structured) → Run workflow**,
+branch **main**. No inputs need changing: Sonnet 4.5 and the 256-token allowance
+are fixed. This runs 72 controls/debug questions with a required JSON answer;
+see the [structured protocol](docs/inference-calibration-structured.md). The full pilot is paused
 while measurement problems identified by the debug runs are investigated.
 
 Install the optional API dependencies and run the synthetic checks locally:
@@ -123,7 +124,8 @@ Read the debug responses before freezing and running the 888-item pilot.
 Use the **pilot** item hash for preregistration. See the
 [runbook](docs/inference-runbook.md) for freeze, resume, and pilot commands.
 Generated runs are excluded from version control; retain the downloaded artifacts.
-Selected original debug records are preserved under `results/debug/` with an audit.
+Selected original debug and calibration records are preserved under `results/debug/`
+and `results/calibration/` with audits.
 
 ## What would the results mean?
 

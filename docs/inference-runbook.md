@@ -1,10 +1,11 @@
 # Running the inference pilot
 
-Two Haiku debug batches and the Sonnet comparison completed. The Sonnet
-batch showed pervasive option-order sensitivity: [latest audit](debug-36077785515-review.md).
+Three debug batches and the first response calibration completed. The
+calibration passed simple controls but truncated every explicit-rule answer;
+its social judgments remained unstable. [Read the latest audit](calibration-36081054221-review.md).
 **Pause the full pilot. The current next step is the separate
-[72-request calibration](inference-calibration.md), available as the
-Inference calibration workflow.**
+[72-request structured-answer calibration](inference-calibration-structured.md),
+available as the Inference calibration (structured) workflow.**
 The study has not been preregistered and the 888-item pilot has not been run.
 Synthetic outputs remain programmed checks, not observations of an LLM.
 

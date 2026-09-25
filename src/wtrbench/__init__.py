@@ -1,3 +1,3 @@
 """WTR-Bench: psychometric evaluation of welfare tradeoff ratios in LLM agents."""
 
-__version__ = "0.4.3"
+__version__ = "0.4.4"

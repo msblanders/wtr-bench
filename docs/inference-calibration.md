@@ -1,5 +1,11 @@
 # Exploratory response calibration
 
+**Status:** This original protocol was run in
+[36081054221](calibration-36081054221-review.md). Neither format passed.
+The current next step is the separate
+[structured-answer calibration](inference-calibration-structured.md).
+The specification below is retained as the original pre-run record.
+
 Prepared after [Sonnet debug 36077785515](debug-36077785515-review.md), before
 any calibration responses. The question is whether the current protocol
 can collect interpretable predictions, independent of their psychological
