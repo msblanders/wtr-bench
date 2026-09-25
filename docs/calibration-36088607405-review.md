@@ -191,12 +191,15 @@ criteria must be explicit before collecting new evidence to assess it.
 Three observations per prompt provide a small descriptive repeatability
 check, not a precise reliability estimate or definitive order-effect test.
 
-This repeatability check is recommended, not yet run. The existing
-[Inference calibration (explanation) workflow](https://github.com/msblanders/wtr-bench/actions/workflows/inference-calibration-explanation.yml)
-already supports independent batches; no prompt changes are needed. No
-workflow was dispatched during this audit. Keep the full debug battery and
-pilot paused while reviewing repeatability; the 888-item pilot remains
-unrun, unfrozen and unregistered.
+Follow-up update: the two planned replications subsequently completed in
+runs 36090248661 and 36090756872. The
+[combined audit](calibration-explanation-repeats-review.md) retains the
+initial failed flags above. A/B's final-answer error did not recur, but the
+same incorrect stated calculation appeared in all three runs. SAM/YOU's
+social mismatch repeated in both new runs. The fixed replication check is
+finished; no further identical batches are recommended. The next candidate
+is A/B for a compatible exploratory full debug workflow with concurrent
+controls. The 888-item pilot remains unrun, unfrozen and unregistered.
 
 ## Article implications and usage
 

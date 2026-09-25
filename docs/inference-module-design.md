@@ -2,14 +2,19 @@
 *Working draft, v0.4 (September 2026). Companion to `wtr-bench-design.md`.
 Decisions are stated as decisions; open questions are listed per section.*
 
-**Execution update (2026-09-25):** Two Haiku debug runs and one Sonnet debug
-are complete. Format failures resolved under v0.4.2, but valuation censoring
-and/or option-order sensitivity remain; see the [latest audit](debug-36077785515-review.md).
-The item design and scoring below remain unchanged. Version 0.4.3 adds a
-separate [known-answer calibration](inference-calibration.md) comparing A/B
-and recipient-name replies. It has not yet been run on a model. The full
-pilot is paused. Statements below about preregistered comparisons describe
-intended registrations; registration and the 888-item pilot have not occurred.
+**Execution update (2026-09-25):** Two Haiku and one Sonnet exploratory debug
+runs are complete, followed by five response-calibration batches across
+three protocols and a control-only calculation diagnostic. The latest
+[three-run explanation audit](calibration-explanation-repeats-review.md)
+identifies A/B as the candidate for compatible full debug: it met the
+final-answer criterion in both planned replications, while SAM/YOU repeated
+one social order mismatch in all three batches. An A/B stated-calculation
+error also persisted despite correct final answers in the replications.
+The item design and scoring below remain unchanged. The next recommended
+workflow is the existing 196 debug items plus 24 A/B controls under the
+brief-explanation protocol; it is not yet implemented. The 888-item pilot
+remains paused and unrun. Statements below about preregistered comparisons
+describe intended registrations; no registration has occurred.
 
 ## 0. What this module adds, and what it does not
 
