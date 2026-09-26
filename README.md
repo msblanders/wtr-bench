@@ -6,7 +6,20 @@
 
 WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
 
-**The [288-request payoff presentation diagnostic is complete and audited](docs/presentation-36115733552-review.md).** Original wording scored 138/144 correct, versus 139/144 with complete-payoff tables; recovered fits were 24/36 and 28/36. Tables improved the explanations in the assistant audit but still produced wrong choices and misleading intervals. Both social pilots remain paused. No further collection is currently requested.
+**Current work:** the [144-request ordinal social pilot](docs/paired-pilot-v1.md)
+completed on Claude Sonnet 4.5 in [run 36216737006](https://github.com/msblanders/wtr-bench/actions/runs/36216737006).
+It favored the unable/tried person on giving in 48/48 responses and the able/refusing
+person on same-task ability in 46/48, with two insufficient-information responses.
+These are comparative predictions, not WTR magnitudes or evidence of an internal variable.
+
+**Next collection:** one fixed [Qwen3-14B replication](docs/paired-open-v1.md) on DeepInfra,
+using the identical 144 items. The [GitHub workflow](https://github.com/msblanders/wtr-bench/actions/workflows/paired-open-v1.yml)
+defaults to offline generation. Collection requires `DEEPINFRA_API_KEY`, mode `collect`,
+and `COLLECT_144`. Report both models regardless of outcome.
+
+The following numerical diagnostics are historical; their original pilots remain paused.
+
+**The [288-request payoff presentation diagnostic is complete and audited](docs/presentation-36115733552-review.md).** Original wording scored 138/144 correct, versus 139/144 with complete-payoff tables; recovered fits were 24/36 and 28/36. Tables improved the explanations in the assistant audit but still produced wrong choices and misleading intervals. Both original numerical social pilots remain paused; the later ordinal pilot and its replication are described above.
 
 The [216-request recovery diagnostic has been audited](docs/recovery-36111049496-review.md): explicit-weight questions scored 72/72 with 18/18 recovered intervals and consistent explanations. History questions scored 137/144, with six wrong answers, one truncated response and 24/36 recovered fits. Some correct choices also contained explanation errors. These diagnostics concern the weight attributed to a described partner; they do not measure the model's own preferences. The [validation plan](docs/validation-before-pilot.md) retains the original research question.
 
@@ -74,7 +87,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Validation before any pilot.** Explicit-weight recovery passed; history recovery was mixed. The 216-request recovery and 288-request display comparison are audited. Tables improved explanation quality but did not establish reliable choice-derived intervals. Both social pilots remain paused; the original theory-focused aim is retained. |
+| Validate and report the measurements | **Validation before any pilot.** Explicit-weight recovery passed; history recovery was mixed. The 216-request recovery and 288-request display comparison are audited. Tables improved explanation quality but did not establish reliable choice-derived intervals. The original numerical pilots remain paused; the later ordinal pilot is complete and a fixed open-model replication is prepared. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
@@ -100,7 +113,7 @@ This generates prompts locally. It does not call a model API or produce benchmar
 
 **No new run is requested.** [Run 36115733552](https://github.com/msblanders/wtr-bench/actions/runs/36115733552) completed the fixed payoff-display comparison. All 288 replies were usable. Six matched answers improved with tables and five became wrong; some low-profile errors produced a coherent but wrong interval in both passes. See the [audit and next-step decision](docs/presentation-36115733552-review.md). Do not repeat the batch to seek a pass.
 
-The [prospective presentation plan](docs/payoff-presentation-v1.md), [matched prompt examples](docs/payoff-presentation-examples.md), raw responses and original reports remain unchanged. The [runbook](docs/inference-runbook.md) retains collection instructions as historical procedure. All 288 records have separate assistant explanation labels with disclosed exact-text reuse. Further work must address the valuation readout and demonstrated error effects before any newly specified collection; neither pilot launches automatically.
+The [prospective presentation plan](docs/payoff-presentation-v1.md), [matched prompt examples](docs/payoff-presentation-examples.md), raw responses and original reports remain unchanged. The [runbook](docs/inference-runbook.md) retains collection instructions as historical procedure. All 288 records have separate assistant explanation labels with disclosed exact-text reuse. Those findings motivated the later ordinal instrument described above. Neither original numerical pilot launches automatically.
 
 To generate and verify the frozen prompts without model calls:
 

@@ -1,0 +1,64 @@
+name: Paired open-model replication v1
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Generate offline files or collect the fixed 144-request Qwen3-14B replication
+        type: choice
+        options: [generate, collect]
+        default: generate
+      confirmation:
+        description: For collection, type COLLECT_144 after reading docs/paired-open-v1.md
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: paired-open-v1
+  cancel-in-progress: false
+jobs:
+  replication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --frozen --all-groups
+      - name: Verify both freezes and replication software (no model calls)
+        run: |
+          uv run python -m wtrbench.paired.open_replication check
+          uv run pytest tests/test_paired_open_replication.py tests/test_paired_social_pilot.py
+      - name: Generate frozen requests and complete source snapshot (no model calls)
+        run: |
+          uv run python -m wtrbench.paired.open_replication generate
+          uv pip freeze > runs/paired-open-v1/environment.txt
+      - name: Collect the one fixed replication
+        if: inputs.mode == 'collect'
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+          DEEPINFRA_API_KEY: ${{ secrets.DEEPINFRA_API_KEY }}
+        run: |
+          test "$CONFIRMATION" = COLLECT_144 || { echo 'Missing COLLECT_144'; exit 1; }
+          test "$GITHUB_RUN_ATTEMPT" = 1 || { echo 'Do not Re-run jobs'; exit 1; }
+          test -n "$DEEPINFRA_API_KEY" || { echo 'Missing DEEPINFRA_API_KEY secret'; exit 1; }
+          uv run python -m wtrbench.paired.open_replication run --confirm 144
+      - name: Report complete or partial records offline
+        if: always()
+        run: |
+          if test -f runs/paired-open-v1/responses.jsonl; then
+            uv run python -m wtrbench.paired.open_replication report
+            cat runs/paired-open-v1/report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Checksum all artifacts
+        if: always()
+        run: |
+          if test -d runs/paired-open-v1; then
+            (cd runs/paired-open-v1 && find . -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS.txt)
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: paired-open-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/paired-open-v1/
+          include-hidden-files: true
+          if-no-files-found: warn

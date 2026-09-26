@@ -1,0 +1,50 @@
+{
+  "retrieved_utc": "2026-09-26",
+  "catalog_url": "https://api.deepinfra.com/models/list",
+  "entry": {
+    "model_name": "Qwen/Qwen3-14B",
+    "type": "text-generation",
+    "reported_type": "text-generation",
+    "description": "Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models. Built upon extensive training, Qwen3 delivers groundbreaking advancements in reasoning, instruction-following, agent capabilities, and multilingual support. ",
+    "cover_img_url": "https://shared.deepinfra.com/models/Qwen/Qwen3-14B/cover_image.1201f1b95d6039377e39f7e52777b9e669c17ee28df3cf695172dbf189089420.webp",
+    "tags": [
+      "openai",
+      "tools",
+      "reasoning",
+      "json",
+      "non-reasoning",
+      "structured-output",
+      "priority",
+      "flex"
+    ],
+    "pricing": {
+      "discount": null,
+      "discount_ends_at": null,
+      "short": null,
+      "full": null,
+      "table": null,
+      "type": "tokens",
+      "cents_per_input_token": 1.2e-05,
+      "cents_per_output_token": 2.4e-05,
+      "rate_per_input_token_cached": null,
+      "rate_per_input_token_cache_write": null,
+      "rate_per_service_tier_priority": 1.5,
+      "rate_per_service_tier_flex": 0.8,
+      "rate_per_explicit_cache_write_token": null,
+      "explicit_cache_granularity_tokens": null
+    },
+    "max_tokens": 40960,
+    "replaced_by": null,
+    "deprecated": null,
+    "quantization": "fp8",
+    "mmlu": null,
+    "expected": null,
+    "create_ts": "2025-04-28T23:15:06+00:00",
+    "private": 0,
+    "is_partner": false
+  },
+  "upstream_model": "Qwen/Qwen3-14B",
+  "upstream_revision_at_setup": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "hosted_revision_verified": false,
+  "note": "Upstream SHA is a future local-study reference, not proof of the hosted checkpoint revision."
+}
