@@ -12,10 +12,22 @@ It favored the unable/tried person on giving in 48/48 responses and the able/ref
 person on same-task ability in 46/48, with two insufficient-information responses.
 These are comparative predictions, not WTR magnitudes or evidence of an internal variable.
 
-**Next collection:** one fixed [Qwen3-14B replication](docs/paired-open-v1.md) on DeepInfra,
-using the identical 144 items. The [GitHub workflow](https://github.com/msblanders/wtr-bench/actions/workflows/paired-open-v1.yml)
-defaults to offline generation. Collection requires `DEEPINFRA_API_KEY`, mode `collect`,
-and `COLLECT_144`. Report both models regardless of outcome.
+**Completed replication:** [Qwen3-14B, reasoning disabled](docs/paired-open-v1.md),
+[run 36278388351](https://github.com/msblanders/wtr-bench/actions/runs/36278388351),
+returned 144 valid, untruncated answers but did not reproduce the pattern: 123/144
+insufficient-information responses, 0/48 predicted crossovers, and 0/6 scenarios
+with both predicted directions. This is a result for the fixed hosted FP8,
+non-thinking, temperature-zero, strict-JSON configuration, not proof that Qwen
+lacks the distinction.
+
+**Next collection:** two prospectively fixed [thinking extensions](docs/paired-reasoning-v1.md):
+Qwen3-14B and Qwen3-32B, with the identical 144 social items per model, recommended
+thinking sampling settings and a 32,768-token allowance. One recorded technical
+canary per model checks reasoning plus JSON compatibility. The [new workflow](https://github.com/msblanders/wtr-bench/actions/workflows/paired-reasoning-v1.yml)
+defaults to offline generation. Use the existing `DEEPINFRA_API_KEY`, mode `collect`,
+and `COLLECT_290` to launch both conditions once. Report every condition regardless
+of outcome. These are configuration extensions motivated by the negative result;
+reasoning, sampling and token allowance change together.
 
 The following numerical diagnostics are historical; their original pilots remain paused.
 
@@ -87,7 +99,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Validation before any pilot.** Explicit-weight recovery passed; history recovery was mixed. The 216-request recovery and 288-request display comparison are audited. Tables improved explanation quality but did not establish reliable choice-derived intervals. The original numerical pilots remain paused; the later ordinal pilot is complete and a fixed open-model replication is prepared. |
+| Validate and report the measurements | **Validation before any pilot.** Explicit-weight recovery passed; history recovery was mixed. The 216-request recovery and 288-request display comparison are audited. Tables improved explanation quality but did not establish reliable choice-derived intervals. The original numerical pilots remain paused; the later ordinal pilot and its fixed open-model replication are complete; two thinking extensions are prospectively specified. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 
