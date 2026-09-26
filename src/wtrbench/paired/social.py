@@ -35,7 +35,7 @@ OUT = Path("runs/paired-pilot-v1")
 PROBES = ("valuation", "ability_same", "ability_different")
 SEMANTICS = ("unable", "unwilling", "equal", "insufficient", "invalid", "missing")
 SOURCE_FILES = (
-    "src/wtrbench/paired/__init__.py", "src/wtrbench/paired/natural.py",
+    "src/wtrbench/__init__.py", "src/wtrbench/paired/__init__.py", "src/wtrbench/paired/natural.py",
     "src/wtrbench/paired/social.py", "tests/test_paired_social_pilot.py",
     PLAN, DECISION, SCENARIOS, SAMPLES, PACKED,
     ".github/workflows/paired-pilot-v1.yml",
@@ -292,7 +292,9 @@ def export(out: Path) -> list[dict[str, Any]]:
     for source, name in ((PLAN, "analysis-plan.md"), (DECISION, "decision.md"), (SAMPLES, "samples.md")):
         (out / name).write_bytes((ROOT / source).read_bytes())
     # Self-contained source snapshot of everything bound by this freeze.
-    for source in SOURCE_FILES:
+    # Include the manifest at its normal path so check/report run inside the snapshot.
+    # It is deliberately not hashed by itself in SOURCE_FILES.
+    for source in (*SOURCE_FILES, FREEZE):
         dest = out / "frozen-source" / source
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_bytes((ROOT / source).read_bytes())

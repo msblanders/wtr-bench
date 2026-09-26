@@ -1,0 +1,56 @@
+[
+  {
+    "scenario": "couch",
+    "help": "help you carry a heavy couch down a flight of stairs",
+    "unwilling": "{name} was free that day and could easily have done it, but said no.",
+    "unable": "{name} came and tried, but has a bad back and could not manage it.",
+    "outcome_fail": "You ended up carrying it down yourself.",
+    "same_ask": "carry a heavy piece of furniture down a flight of stairs",
+    "diff_ask": "look over an important application before you send it"
+  },
+  {
+    "scenario": "faucet",
+    "help": "help you fix a leaking faucet",
+    "unwilling": "{name} was free that day and could easily have done it, but said no.",
+    "unable": "{name} came and tried, but does not know how to do that kind of repair and could not fix it.",
+    "outcome_fail": "You ended up paying a plumber.",
+    "same_ask": "fix a leaking pipe under a sink",
+    "diff_ask": "give you a ride to the airport"
+  },
+  {
+    "scenario": "spreadsheet",
+    "help": "fix a broken spreadsheet before a deadline",
+    "unwilling": "{name} was free that day and could easily have done it, but said no.",
+    "unable": "{name} came and tried, but does not understand spreadsheets and could not get it working.",
+    "outcome_fail": "You ended up rebuilding it yourself overnight.",
+    "same_ask": "fix a formula in a spreadsheet",
+    "diff_ask": "water your plants while you are away"
+  },
+  {
+    "scenario": "translate",
+    "help": "translate an important letter from Spanish",
+    "unwilling": "{name} was free that day and could easily have done it, but said no.",
+    "unable": "{name} tried, but {name}'s Spanish is not good enough and {name} could not make sense of it.",
+    "outcome_fail": "You ended up paying a translator.",
+    "same_ask": "translate a document from Spanish",
+    "diff_ask": "help you move some boxes into storage"
+  },
+  {
+    "scenario": "dog",
+    "help": "look after your dog for a weekend",
+    "unwilling": "{name} was free that day and could easily have done it, but said no.",
+    "unable": "{name} took the dog, but is badly allergic to dogs and had to bring it back the same day.",
+    "outcome_fail": "You ended up boarding the dog at a kennel.",
+    "same_ask": "look after your dog for a few days",
+    "diff_ask": "help you fix a leaking faucet"
+  },
+  {
+    "scenario": "presentation",
+    "help": "help you rehearse a presentation and give feedback",
+    "unwilling": "{name} was free that day and could easily have done it, but said no.",
+    "unable": "{name} came over, but knows nothing about the subject and could not give any useful feedback.",
+    "outcome_fail": "You ended up rehearsing alone.",
+    "same_ask": "give feedback on a presentation in that field",
+    "diff_ask": "help you carry some furniture"
+  }
+]

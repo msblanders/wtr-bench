@@ -1,0 +1,23 @@
+{
+  "protocol": "paired-pilot-v1",
+  "baseline_commit": "8adf2fb47174209ab6988693704fa7685f8d7343",
+  "validation_run": 36200022149,
+  "n_requests": 144,
+  "n_scenarios": 6,
+  "n_distinct_prompts": 72,
+  "items_jsonl_sha256": "8544ce8f81447f4074e21efa8b8af013409c11eba4940640765f03f608a1890e",
+  "request_bodies_jsonl_sha256": "f9aa643c6beb8f13ebe86cc3db674bb9971574815bf561780d4150689afe54ee",
+  "source_sha256": {
+    "src/wtrbench/__init__.py": "01ce2f1d661b3b4a5702c957fa74a6a5a53b9ce0ac51c16ee8352effe477f181",
+    "src/wtrbench/paired/__init__.py": "347dbb897070a901f75715b90a08e98cfa59107a18a7f23633de8a9ff61a64f4",
+    "src/wtrbench/paired/natural.py": "c553b8385cadee14076b444a7b49a4425c4155d7a6a7cd6e65deae6888d432e4",
+    "src/wtrbench/paired/social.py": "3fca4f48ace5895340899a3112b302bc6ad0a6703b079029859de793b2500717",
+    "tests/test_paired_social_pilot.py": "f51eaa790b3e09e628823ad7e7a464946c6f16ca80d6e5cc3abca790c9ddedab",
+    "docs/paired-pilot-v1.md": "b3d301efa4ab0192391f063a2bb7163b3663093033a28f9dcd915adbcdd6dd88",
+    "docs/paired-pilot-v1-decision.md": "99b22d72aefdd138cd27aefb6451b3d5d9f15d2bb6d69b847d1e34f13a9bcacd",
+    "protocols/paired-pilot-v1-scenarios.json": "68295402621641117510a4e73887eb91bb0f7f9eda9279f7ffe27d74b53ecf45",
+    "docs/paired-pilot-v1-samples.md": "8ff44c764d25d5a51adf7ae3ce3bfc971bb13c695702a94114282d78cf10ef38",
+    "protocols/paired-pilot-v1-items.jsonl.gz": "0fc26dbe8a12786838551bafe9b019315037f922f1920a49fe1c7f7182adacef",
+    ".github/workflows/paired-pilot-v1.yml": "9a424b2dbcb7b738fceeb89addaefc0ba3822070dbfcc333f239e5fe95a8d37a"
+  }
+}
