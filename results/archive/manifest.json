@@ -1,0 +1,230 @@
+{
+  "archive_version": 1,
+  "archived_utc": "2026-09-27",
+  "archives": [
+    {
+      "file": "paired-natural-v3.2-36200022149-1.zip",
+      "bytes": 91823,
+      "sha256": "79af87fdbf892338a51e22c84965d3dc43ce34e2f602323916dad8d8bddf77d8",
+      "records": [
+        {
+          "path": "collection-started.json",
+          "bytes": 1227,
+          "sha256": "07779989b5c88c1f11d2f40c571fec84a81a5690eff5adbddc032fbeba375094",
+          "lines": 25
+        },
+        {
+          "path": "items.jsonl",
+          "bytes": 394456,
+          "sha256": "93c78e09b7d22841be54acb83accecdd0543e9e065cd27f876357e29ab265c89",
+          "lines": 280
+        },
+        {
+          "path": "responses.jsonl",
+          "bytes": 731877,
+          "sha256": "a93b3632a474466a6646dd8a0d7419a21df51ec5932c35730b0e8251e63a4327",
+          "lines": 280
+        }
+      ],
+      "artifact_id": 10891559799,
+      "run_id": 36200022149,
+      "run_attempt": 1,
+      "source_commit": "8adf2fb47174209ab6988693704fa7685f8d7343",
+      "github_artifact_digest": "sha256:79af87fdbf892338a51e22c84965d3dc43ce34e2f602323916dad8d8bddf77d8",
+      "original_created_at": "2026-09-25T23:21:11Z",
+      "retrieval_note": "Recovered original ZIP bytes; digest matched GitHub artifact metadata on 2026-09-27."
+    },
+    {
+      "file": "paired-open-v1-36274679302-1.zip",
+      "bytes": 306433,
+      "sha256": "ad68f42ffeff45a356523aababfbd8c1b9401f24791f8a20483a5eb960d2ecdf",
+      "records": [
+        {
+          "path": "collection-started.json",
+          "bytes": 4645,
+          "sha256": "9e1be6171915c91c1161ad965794ed5b0435be282729421488a2692cefa4cca1",
+          "lines": 90
+        },
+        {
+          "path": "items.jsonl",
+          "bytes": 351352,
+          "sha256": "8544ce8f81447f4074e21efa8b8af013409c11eba4940640765f03f608a1890e",
+          "lines": 144
+        },
+        {
+          "path": "responses.jsonl",
+          "bytes": 2459,
+          "sha256": "11ad1d27d31374793cb693648efa8820dde123c8d8f5cb462a0077e8a4b7a6b8",
+          "lines": 1
+        }
+      ],
+      "artifact_id": 10917330421,
+      "run_id": 36274679302,
+      "run_attempt": 1,
+      "source_commit": "b9de09d789f4e8d9d44cc39575127356f63d3a79",
+      "github_artifact_digest": "sha256:ad68f42ffeff45a356523aababfbd8c1b9401f24791f8a20483a5eb960d2ecdf",
+      "original_created_at": "2026-09-26T21:57:52Z",
+      "retrieval_note": "Recovered original ZIP bytes; digest matched GitHub artifact metadata on 2026-09-27."
+    },
+    {
+      "file": "paired-open-v1-36278388351-1.zip",
+      "bytes": 372311,
+      "sha256": "1261d195415cddc7562ac551abb2517f733e01fd05a8b5964c9d73309f4da83c",
+      "records": [
+        {
+          "path": "collection-started.json",
+          "bytes": 4645,
+          "sha256": "809c1ecbfb4db11245bcf5c401fd33c953e91f331fc52eb5ddb5b99ad5f3c451",
+          "lines": 90
+        },
+        {
+          "path": "items.jsonl",
+          "bytes": 351352,
+          "sha256": "8544ce8f81447f4074e21efa8b8af013409c11eba4940640765f03f608a1890e",
+          "lines": 144
+        },
+        {
+          "path": "responses.jsonl",
+          "bytes": 457496,
+          "sha256": "6c0975debf41674b77ce5a50a39452b94cf3df7cbceb2c4fb96350ecad1a9e14",
+          "lines": 144
+        }
+      ],
+      "artifact_id": 10917996953,
+      "run_id": 36278388351,
+      "run_attempt": 1,
+      "source_commit": "b9de09d789f4e8d9d44cc39575127356f63d3a79",
+      "github_artifact_digest": "sha256:1261d195415cddc7562ac551abb2517f733e01fd05a8b5964c9d73309f4da83c",
+      "original_created_at": "2026-09-26T23:12:25Z",
+      "retrieval_note": "Recovered original ZIP bytes; digest matched GitHub artifact metadata on 2026-09-27."
+    },
+    {
+      "file": "paired-ordinal-v2-36190042216-1.zip",
+      "bytes": 105158,
+      "sha256": "29acfbfdbe858a27042299f1fa7c7dc764da4aaea649c18447519d0961e872dd",
+      "records": [
+        {
+          "path": "collection-started.json",
+          "bytes": 1221,
+          "sha256": "f383a9e76ac8c766b3d8940ecb4fe517a735908da7de4ce397ce8a43a0a893b5",
+          "lines": 25
+        },
+        {
+          "path": "items.jsonl",
+          "bytes": 377200,
+          "sha256": "cf26850f7eeb247ff8f26890da5f283252bba0309d519e1faedd571a5429f133",
+          "lines": 240
+        },
+        {
+          "path": "responses.jsonl",
+          "bytes": 706508,
+          "sha256": "4e886bfb381a55d1820a9c1c5d6e437982264bc5f71b919f935f84cf34c84c47",
+          "lines": 240
+        }
+      ],
+      "artifact_id": 10887973647,
+      "run_id": 36190042216,
+      "run_attempt": 1,
+      "source_commit": "061880e0c8c50bd7b858b1df470f867b69cd3706",
+      "github_artifact_digest": "sha256:29acfbfdbe858a27042299f1fa7c7dc764da4aaea649c18447519d0961e872dd",
+      "original_created_at": "2026-09-25T21:25:22Z",
+      "retrieval_note": "Recovered original ZIP bytes; digest matched GitHub artifact metadata on 2026-09-27."
+    },
+    {
+      "file": "paired-pilot-v1-36216737006-1.zip",
+      "bytes": 134138,
+      "sha256": "a595aeacba9e43a8166a317a3faf780845dfe2314e7dbecd00f9785acf588cd1",
+      "records": [
+        {
+          "path": "collection-started.json",
+          "bytes": 1977,
+          "sha256": "b9fc102d3fe0481e1ad7c140065ed277e204752a91b971fd5274390723b2f137",
+          "lines": 34
+        },
+        {
+          "path": "items.jsonl",
+          "bytes": 351352,
+          "sha256": "8544ce8f81447f4074e21efa8b8af013409c11eba4940640765f03f608a1890e",
+          "lines": 144
+        },
+        {
+          "path": "responses.jsonl",
+          "bytes": 427346,
+          "sha256": "09dcb43910e6bf1b7bf88caf83f12ce09467ef6a2f45aeac22141d53c35f75c9",
+          "lines": 144
+        }
+      ],
+      "artifact_id": 10898121687,
+      "run_id": 36216737006,
+      "run_attempt": 1,
+      "source_commit": "ff507473ff7fcdd229f7f8c7e23a52fb7b24a605",
+      "github_artifact_digest": "sha256:a595aeacba9e43a8166a317a3faf780845dfe2314e7dbecd00f9785acf588cd1",
+      "original_created_at": "2026-09-26T04:11:09Z",
+      "retrieval_note": "Recovered original ZIP bytes; digest matched GitHub artifact metadata on 2026-09-27."
+    },
+    {
+      "file": "paired-reasoning-v1-14b-thinking-36281301593-1.zip",
+      "bytes": 575723,
+      "sha256": "f22abbb5e94c7598e9c1fc00061db4e72869126b0373ce9b24b3cb5b51820d53",
+      "records": [
+        {
+          "path": "collection-started.json",
+          "bytes": 6133,
+          "sha256": "ccd6665f81177e4677b74dba539356cd64907b3d3b781763be04f7276b5a72db",
+          "lines": 113
+        },
+        {
+          "path": "items.jsonl",
+          "bytes": 351352,
+          "sha256": "8544ce8f81447f4074e21efa8b8af013409c11eba4940640765f03f608a1890e",
+          "lines": 144
+        },
+        {
+          "path": "responses.jsonl",
+          "bytes": 1128560,
+          "sha256": "4b96345cf32fa9e435d4ace4f57f52b0f86bd523912f84b5f4038fe9dc259683",
+          "lines": 144
+        }
+      ],
+      "artifact_id": 10919528696,
+      "run_id": 36281301593,
+      "run_attempt": 1,
+      "source_commit": "0b1f88787f031d43e52953807852f5c03fee4545",
+      "github_artifact_digest": "sha256:f22abbb5e94c7598e9c1fc00061db4e72869126b0373ce9b24b3cb5b51820d53",
+      "original_created_at": "2026-09-27T00:56:36Z",
+      "retrieval_note": "Recovered original ZIP bytes; digest matched GitHub artifact metadata on 2026-09-27."
+    },
+    {
+      "file": "paired-reasoning-v1-32b-thinking-36281301593-1.zip",
+      "bytes": 577016,
+      "sha256": "3ad0dc4ac6ea4260d03656ca313458fecac0b8cc6b5bb173614b30897b838cfb",
+      "records": [
+        {
+          "path": "collection-started.json",
+          "bytes": 6129,
+          "sha256": "8274d8873d28b47ef3c26e4776a1e65991891a6d24a5fc2e75bb915770fbadfb",
+          "lines": 113
+        },
+        {
+          "path": "items.jsonl",
+          "bytes": 351352,
+          "sha256": "8544ce8f81447f4074e21efa8b8af013409c11eba4940640765f03f608a1890e",
+          "lines": 144
+        },
+        {
+          "path": "responses.jsonl",
+          "bytes": 1084848,
+          "sha256": "b70342472f0fe600d440c2328c93c816054d365c0a53f902a7686426511d10aa",
+          "lines": 144
+        }
+      ],
+      "artifact_id": 10919393952,
+      "run_id": 36281301593,
+      "run_attempt": 1,
+      "source_commit": "0b1f88787f031d43e52953807852f5c03fee4545",
+      "github_artifact_digest": "sha256:3ad0dc4ac6ea4260d03656ca313458fecac0b8cc6b5bb173614b30897b838cfb",
+      "original_created_at": "2026-09-27T00:51:40Z",
+      "retrieval_note": "Recovered original ZIP bytes; digest matched GitHub artifact metadata on 2026-09-27."
+    }
+  ]
+}

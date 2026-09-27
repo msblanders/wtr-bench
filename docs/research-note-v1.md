@@ -183,6 +183,11 @@ broader EFLA program require separate experiments.
 
 ## Provenance and disclosure
 
+The [public data record](data-record.md) links to committed copies of the original
+collection ZIPs, including the unsuccessful funding attempt, with checksums and source
+revisions. These copies do not depend on the retention of the Actions artifacts below.
+It also indexes the earlier instrument-development raw records already in the repository.
+
 - Natural-language validation: [run 36200022149](https://github.com/msblanders/wtr-bench/actions/runs/36200022149).
 - Sonnet social pilot: [run 36216737006](https://github.com/msblanders/wtr-bench/actions/runs/36216737006).
 - Completed non-thinking replication: [run 36278388351](https://github.com/msblanders/wtr-bench/actions/runs/36278388351).
