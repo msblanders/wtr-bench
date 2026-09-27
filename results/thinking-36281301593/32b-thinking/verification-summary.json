@@ -1,0 +1,50 @@
+{
+  "artifact_checksums_verified": 41,
+  "source_files_verified": 25,
+  "same_item_stream_as_sonnet": true,
+  "same_system_and_user_messages_as_sonnet": true,
+  "independently_mapped_answers": 144,
+  "independently_reproduced_pairs": 216,
+  "independently_reproduced_crossovers": 48,
+  "byte_identical_replay_outputs": [
+    "report.json",
+    "report.md",
+    "pair-audit.json",
+    "answer-audit.csv"
+  ],
+  "unique_prompt_final_output_groups_available": 144,
+  "exact_duplicate_reuse": 0,
+  "unique_message_ids": 145,
+  "unique_http_request_ids": 145,
+  "provider_fingerprints": [
+    null
+  ],
+  "usage": {
+    "usage_social": {
+      "prompt_tokens": 49408,
+      "completion_tokens": 107781,
+      "total_tokens": 157189,
+      "estimated_cost": 0.03413132
+    },
+    "usage_canary": {
+      "prompt_tokens": 129,
+      "completion_tokens": 287,
+      "total_tokens": 416,
+      "estimated_cost": 9.067999999999999e-05
+    },
+    "usage_all_calls": {
+      "prompt_tokens": 49537,
+      "completion_tokens": 108068,
+      "total_tokens": 157605,
+      "estimated_cost": 0.034222
+    }
+  },
+  "condition": "32b-thinking",
+  "all_checks_passed": true,
+  "social_reasoning_traces": 144,
+  "canary_answer": "A",
+  "completion_token_range_social": [
+    299,
+    2588
+  ]
+}

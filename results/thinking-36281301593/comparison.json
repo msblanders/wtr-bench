@@ -1,0 +1,758 @@
+{
+  "sonnet": {
+    "by_probe": {
+      "valuation": {
+        "unable": 48,
+        "unwilling": 0,
+        "equal": 0,
+        "insufficient": 0,
+        "invalid": 0,
+        "missing": 0
+      },
+      "ability_same": {
+        "unable": 0,
+        "unwilling": 46,
+        "equal": 0,
+        "insufficient": 2,
+        "invalid": 0,
+        "missing": 0
+      },
+      "ability_different": {
+        "unable": 9,
+        "unwilling": 3,
+        "equal": 9,
+        "insufficient": 27,
+        "invalid": 0,
+        "missing": 0
+      }
+    },
+    "crossovers": [
+      {
+        "scenario": "couch",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 8,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 0,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -1.0,
+        "net_difference": 2.0,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "faucet",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 8,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 0,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -1.0,
+        "net_difference": 2.0,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "spreadsheet",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 8,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 0,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -1.0,
+        "net_difference": 2.0,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "translate",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 8,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 0,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -1.0,
+        "net_difference": 2.0,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "dog",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 6,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 2,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -0.75,
+        "net_difference": 1.75,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "presentation",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 8,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 0,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -1.0,
+        "net_difference": 2.0,
+        "both_net_directions_as_predicted": true
+      }
+    ],
+    "scenarios_with_both_net_directions": 6,
+    "presentation_sensitivity": {
+      "position": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 11,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 0
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 2
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 9
+          }
+        }
+      },
+      "name": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 14,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 0
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 2
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 12
+          }
+        }
+      },
+      "repeat": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 4,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 0
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 0
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 4
+          }
+        }
+      }
+    }
+  },
+  "qwen14_nonthinking": {
+    "by_probe": {
+      "valuation": {
+        "unable": 4,
+        "unwilling": 4,
+        "equal": 2,
+        "insufficient": 38,
+        "invalid": 0,
+        "missing": 0
+      },
+      "ability_same": {
+        "unable": 6,
+        "unwilling": 4,
+        "equal": 0,
+        "insufficient": 38,
+        "invalid": 0,
+        "missing": 0
+      },
+      "ability_different": {
+        "unable": 0,
+        "unwilling": 0,
+        "equal": 1,
+        "insufficient": 47,
+        "invalid": 0,
+        "missing": 0
+      }
+    },
+    "crossovers": [
+      {
+        "scenario": "couch",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 0,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 8,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.0,
+        "same_ability_net": -0.25,
+        "net_difference": 0.25,
+        "both_net_directions_as_predicted": false
+      },
+      {
+        "scenario": "faucet",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 0,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 8,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.25,
+        "same_ability_net": 0.0,
+        "net_difference": 0.25,
+        "both_net_directions_as_predicted": false
+      },
+      {
+        "scenario": "spreadsheet",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 0,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 8,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.0,
+        "same_ability_net": 0.25,
+        "net_difference": -0.25,
+        "both_net_directions_as_predicted": false
+      },
+      {
+        "scenario": "translate",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 0,
+          "reverse_crossover": 0,
+          "same_person_on_both": 2,
+          "includes_equal_or_insufficient": 6,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.25,
+        "same_ability_net": 0.5,
+        "net_difference": -0.25,
+        "both_net_directions_as_predicted": false
+      },
+      {
+        "scenario": "dog",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 0,
+          "reverse_crossover": 0,
+          "same_person_on_both": 2,
+          "includes_equal_or_insufficient": 6,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": -0.5,
+        "same_ability_net": -0.25,
+        "net_difference": -0.25,
+        "both_net_directions_as_predicted": false
+      },
+      {
+        "scenario": "presentation",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 0,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 8,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.0,
+        "same_ability_net": 0.0,
+        "net_difference": 0.0,
+        "both_net_directions_as_predicted": false
+      }
+    ],
+    "scenarios_with_both_net_directions": 0,
+    "presentation_sensitivity": {
+      "position": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 21,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 10
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 10
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 1
+          }
+        }
+      },
+      "name": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 17,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 6
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 10
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 1
+          }
+        }
+      },
+      "repeat": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 1,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 0
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 0
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 1
+          }
+        }
+      }
+    }
+  },
+  "qwen14_thinking": {
+    "by_probe": {
+      "valuation": {
+        "unable": 5,
+        "unwilling": 0,
+        "equal": 0,
+        "insufficient": 43,
+        "invalid": 0,
+        "missing": 0
+      },
+      "ability_same": {
+        "unable": 0,
+        "unwilling": 43,
+        "equal": 0,
+        "insufficient": 5,
+        "invalid": 0,
+        "missing": 0
+      },
+      "ability_different": {
+        "unable": 0,
+        "unwilling": 0,
+        "equal": 3,
+        "insufficient": 45,
+        "invalid": 0,
+        "missing": 0
+      }
+    },
+    "crossovers": [
+      {
+        "scenario": "couch",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 2,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 6,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.25,
+        "same_ability_net": -1.0,
+        "net_difference": 1.25,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "faucet",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 1,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 7,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.125,
+        "same_ability_net": -1.0,
+        "net_difference": 1.125,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "spreadsheet",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 0,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 8,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.0,
+        "same_ability_net": -0.875,
+        "net_difference": 0.875,
+        "both_net_directions_as_predicted": false
+      },
+      {
+        "scenario": "translate",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 1,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 7,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.125,
+        "same_ability_net": -1.0,
+        "net_difference": 1.125,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "dog",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 0,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 8,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.0,
+        "same_ability_net": -1.0,
+        "net_difference": 1.0,
+        "both_net_directions_as_predicted": false
+      },
+      {
+        "scenario": "presentation",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 0,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 8,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 0.125,
+        "same_ability_net": -0.5,
+        "net_difference": 0.625,
+        "both_net_directions_as_predicted": true
+      }
+    ],
+    "scenarios_with_both_net_directions": 4,
+    "presentation_sensitivity": {
+      "position": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 13,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 5
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 5
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 3
+          }
+        }
+      },
+      "name": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 11,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 5
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 3
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 3
+          }
+        }
+      },
+      "repeat": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 11,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 5
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 3
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 3
+          }
+        }
+      }
+    }
+  },
+  "qwen32_thinking": {
+    "by_probe": {
+      "valuation": {
+        "unable": 48,
+        "unwilling": 0,
+        "equal": 0,
+        "insufficient": 0,
+        "invalid": 0,
+        "missing": 0
+      },
+      "ability_same": {
+        "unable": 0,
+        "unwilling": 41,
+        "equal": 0,
+        "insufficient": 7,
+        "invalid": 0,
+        "missing": 0
+      },
+      "ability_different": {
+        "unable": 9,
+        "unwilling": 0,
+        "equal": 6,
+        "insufficient": 33,
+        "invalid": 0,
+        "missing": 0
+      }
+    },
+    "crossovers": [
+      {
+        "scenario": "couch",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 8,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 0,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -1.0,
+        "net_difference": 2.0,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "faucet",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 6,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 2,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -0.75,
+        "net_difference": 1.75,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "spreadsheet",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 8,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 0,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -1.0,
+        "net_difference": 2.0,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "translate",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 5,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 3,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -0.625,
+        "net_difference": 1.625,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "dog",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 8,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 0,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -1.0,
+        "net_difference": 2.0,
+        "both_net_directions_as_predicted": true
+      },
+      {
+        "scenario": "presentation",
+        "scheduled_matched_forms": 8,
+        "counts": {
+          "predicted_crossover": 6,
+          "reverse_crossover": 0,
+          "same_person_on_both": 0,
+          "includes_equal_or_insufficient": 2,
+          "invalid_or_missing": 0
+        },
+        "valuation_net": 1.0,
+        "same_ability_net": -0.75,
+        "net_difference": 1.75,
+        "both_net_directions_as_predicted": true
+      }
+    ],
+    "scenarios_with_both_net_directions": 6,
+    "presentation_sensitivity": {
+      "position": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 18,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 0
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 7
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 11
+          }
+        }
+      },
+      "name": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 19,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 0
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 5
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 14
+          }
+        }
+      },
+      "repeat": {
+        "scheduled_pairs": 72,
+        "comparable_pairs": 72,
+        "disagreements": 13,
+        "by_probe": {
+          "valuation": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 0
+          },
+          "ability_same": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 5
+          },
+          "ability_different": {
+            "scheduled_pairs": 24,
+            "comparable_pairs": 24,
+            "disagreements": 8
+          }
+        }
+      }
+    }
+  }
+}
