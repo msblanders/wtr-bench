@@ -1,0 +1,71 @@
+name: Paired reasoning extensions v1
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Generate offline or collect both fixed thinking conditions
+        type: choice
+        options: [generate, collect]
+        default: generate
+      confirmation:
+        description: For collection, type COLLECT_290 after reading docs/paired-reasoning-v1.md
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: paired-reasoning-v1
+  cancel-in-progress: false
+jobs:
+  extension:
+    strategy:
+      fail-fast: false
+      matrix:
+        condition: [14b-thinking, 32b-thinking]
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      CONDITION: ${{ matrix.condition }}
+      RUN_OUT: runs/paired-reasoning-v1/${{ matrix.condition }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --frozen --all-groups
+      - name: Verify old and new freezes and software (no model calls)
+        run: |
+          uv run python -m wtrbench.paired.reasoning_extension check --condition "$CONDITION"
+          uv run pytest tests/test_paired_reasoning_extension.py tests/test_paired_open_replication.py tests/test_paired_social_pilot.py
+      - name: Generate requests and complete source snapshot (no model calls)
+        run: |
+          uv run python -m wtrbench.paired.reasoning_extension generate --condition "$CONDITION"
+          uv pip freeze > "$RUN_OUT/environment.txt"
+      - name: Collect one technical canary and 144 social items
+        if: inputs.mode == 'collect'
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+          DEEPINFRA_API_KEY: ${{ secrets.DEEPINFRA_API_KEY }}
+        run: |
+          test "$CONFIRMATION" = COLLECT_290 || { echo 'Missing COLLECT_290'; exit 1; }
+          test "$GITHUB_RUN_ATTEMPT" = 1 || { echo 'Do not Re-run jobs'; exit 1; }
+          test -n "$DEEPINFRA_API_KEY" || { echo 'Missing DEEPINFRA_API_KEY secret'; exit 1; }
+          uv run python -m wtrbench.paired.reasoning_extension run --condition "$CONDITION" --confirm 145
+      - name: Report complete or partial records offline
+        if: always()
+        run: |
+          if test -f "$RUN_OUT/collection-started.json"; then
+            uv run python -m wtrbench.paired.reasoning_extension report --condition "$CONDITION"
+            cat "$RUN_OUT/report.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Checksum all artifacts
+        if: always()
+        run: |
+          if test -d "$RUN_OUT"; then
+            (cd "$RUN_OUT" && find . -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS.txt)
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: paired-reasoning-v1-${{ matrix.condition }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/paired-reasoning-v1/${{ matrix.condition }}/
+          include-hidden-files: true
+          if-no-files-found: warn

@@ -1,0 +1,57 @@
+{
+  "protocol": "paired-reasoning-v1",
+  "baseline_commit": "b9de09d789f4e8d9d44cc39575127356f63d3a79",
+  "prior_sonnet_run": 36216737006,
+  "prior_qwen_run": 36278388351,
+  "social_requests_per_condition": 144,
+  "technical_canaries_per_condition": 1,
+  "total_max_requests": 290,
+  "scenario_count": 6,
+  "distinct_prompts_per_condition": 72,
+  "items_jsonl_sha256": "8544ce8f81447f4074e21efa8b8af013409c11eba4940640765f03f608a1890e",
+  "conditions": {
+    "14b-thinking": {
+      "model": "Qwen/Qwen3-14B",
+      "endpoint": "https://api.deepinfra.com/v1/openai/chat/completions",
+      "reported_quantization": "fp8",
+      "hosted_weight_revision": null,
+      "request_bodies_jsonl_sha256": "d6fa2c8815e5f49af219430cd8e7d131fdf34925f7380476ab4c819d06382821",
+      "canary_request_sha256": "5e0be95f9dc77341fc0207c86c34c6509fce9fac5390aae8b50c8ef9c07d308e"
+    },
+    "32b-thinking": {
+      "model": "Qwen/Qwen3-32B",
+      "endpoint": "https://api.deepinfra.com/v1/openai/chat/completions",
+      "reported_quantization": "fp8",
+      "hosted_weight_revision": null,
+      "request_bodies_jsonl_sha256": "4536a1faa21b30e40ace2e4685845ad1371c0bb5da1de69c8c752de224a89c7c",
+      "canary_request_sha256": "c975f27fa067bac51ff71cb75d404e8b2b0d695c9d7cee4d1a48497bfec74cf7"
+    }
+  },
+  "source_sha256": {
+    "src/wtrbench/__init__.py": "01ce2f1d661b3b4a5702c957fa74a6a5a53b9ce0ac51c16ee8352effe477f181",
+    "src/wtrbench/paired/__init__.py": "347dbb897070a901f75715b90a08e98cfa59107a18a7f23633de8a9ff61a64f4",
+    "src/wtrbench/paired/natural.py": "c553b8385cadee14076b444a7b49a4425c4155d7a6a7cd6e65deae6888d432e4",
+    "src/wtrbench/paired/social.py": "3fca4f48ace5895340899a3112b302bc6ad0a6703b079029859de793b2500717",
+    "tests/test_paired_social_pilot.py": "f51eaa790b3e09e628823ad7e7a464946c6f16ca80d6e5cc3abca790c9ddedab",
+    "docs/paired-pilot-v1.md": "b3d301efa4ab0192391f063a2bb7163b3663093033a28f9dcd915adbcdd6dd88",
+    "docs/paired-pilot-v1-decision.md": "99b22d72aefdd138cd27aefb6451b3d5d9f15d2bb6d69b847d1e34f13a9bcacd",
+    "protocols/paired-pilot-v1-scenarios.json": "68295402621641117510a4e73887eb91bb0f7f9eda9279f7ffe27d74b53ecf45",
+    "docs/paired-pilot-v1-samples.md": "8ff44c764d25d5a51adf7ae3ce3bfc971bb13c695702a94114282d78cf10ef38",
+    "protocols/paired-pilot-v1-items.jsonl.gz": "0fc26dbe8a12786838551bafe9b019315037f922f1920a49fe1c7f7182adacef",
+    ".github/workflows/paired-pilot-v1.yml": "9a424b2dbcb7b738fceeb89addaefc0ba3822070dbfcc333f239e5fe95a8d37a",
+    "protocols/paired-pilot-v1.json": "40045e0e7507ff1d87dc494407346d1dcb34edf6f6204f1deec29bdea7ac3b6d",
+    "src/wtrbench/paired/open_replication.py": "1954bf866bf2dcd377e930829465018c312e8641ae796aaceb3a6f6e80b5e9ed",
+    "tests/test_paired_open_replication.py": "aac3e99935d29fed1e4d4277241ba2823d971ec4664a83c9e5b73244c6f6283c",
+    ".github/workflows/paired-open-v1.yml": "4740077dd5ee43accc5d14fe99460ee87b8fe0a851bdb12abb90354e4e5aac43",
+    "docs/paired-open-v1.md": "7c7e76d303964bc9f30c5e42bf44807c66b2f415cc7abbe8304e88ca190b60a1",
+    "protocols/paired-open-v1-provider.json": "643319f57594e29306b7ea691af17508d44755cf51515608004bc168c2ab6c44",
+    "pyproject.toml": "e76160861dfb1be75564663ca01ac2b08bb8576286edef9af9230fb6eb4d4610",
+    "uv.lock": "7c21715f9236a4f4a0f5e508f9305e5084f8b66c52ce094baec1a2df9f826b30",
+    "protocols/paired-open-v1.json": "a2c19ae7d349374ed4cf5cd65936da2bcc6789cbd01dc46269bcfb5a494ced16",
+    "src/wtrbench/paired/reasoning_extension.py": "8eca7333feed8bf58dcae81bbc984dd237e825333abebf2553775ea80a6fba53",
+    "tests/test_paired_reasoning_extension.py": "fedaa98103d622bb332f2b3339a69f29685cc64e1182fbc74c0e91ea03e3a4a7",
+    ".github/workflows/paired-reasoning-v1.yml": "11b7ac6c64c8cb13dab44eedfb426db5b55a7e984750798f3e90bd8b648fc1f0",
+    "docs/paired-reasoning-v1.md": "507cc850ad73637c4bc41746006a141ab309a89e963b7799b7ac66a076c7d395",
+    "protocols/paired-reasoning-v1-provider.json": "e715005c9668e6e79483f9971e60e6fa57bf787756bcb80dd2fe84b046c32eb3"
+  }
+}
