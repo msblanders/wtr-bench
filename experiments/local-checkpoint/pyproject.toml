@@ -1,0 +1,16 @@
+[project]
+name = "wtrbench-local-checkpoint"
+version = "0.1.0"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "torch==2.8.0",
+  "transformers==4.56.2",
+  "accelerate==1.10.1",
+  "xgrammar==0.1.25",
+  "huggingface-hub==0.35.1",
+  "numpy==2.3.3",
+]
+
+[tool.uv]
+package = false
+required-environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]

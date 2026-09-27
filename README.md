@@ -20,14 +20,28 @@ with both predicted directions. This is a result for the fixed hosted FP8,
 non-thinking, temperature-zero, strict-JSON configuration, not proof that Qwen
 lacks the distinction.
 
-**Next collection:** two prospectively fixed [thinking extensions](docs/paired-reasoning-v1.md):
-Qwen3-14B and Qwen3-32B, with the identical 144 social items per model, recommended
-thinking sampling settings and a 32,768-token allowance. One recorded technical
-canary per model checks reasoning plus JSON compatibility. The [new workflow](https://github.com/msblanders/wtr-bench/actions/workflows/paired-reasoning-v1.yml)
-defaults to offline generation. Use the existing `DEEPINFRA_API_KEY`, mode `collect`,
-and `COLLECT_290` to launch both conditions once. Report every condition regardless
-of outcome. These are configuration extensions motivated by the negative result;
-reasoning, sampling and token allowance change together.
+**Completed thinking extensions:** [run 36281301593](https://github.com/msblanders/wtr-bench/actions/runs/36281301593)
+collected the two prospectively fixed conditions. Qwen3-14B thinking favored the
+unable/tried person on giving in 5/48 and the able/refusing person on same-task
+ability in 43/48 (4/48 matched crossovers). Qwen3-32B thinking produced 48/48 and
+41/48 respectively (41/48 crossovers), with both predicted net directions in all
+six scenarios. All 288 social responses were valid and untruncated. The
+[audit](docs/thinking-36281301593-review.md) retains every condition and the
+mixed different-task probe. Reasoning, sampling and token allowance changed
+together; this is not a pure causal test of reasoning.
+
+**Research note and next study:** the [working note](docs/research-note-v1.md)
+connects the instrument failures, validation and all four configurations. The
+[mechanism proposal](docs/irv-mechanism-proposal-v0.2.md) specifies constructed-system
+calibration followed by selective causal interventions. Neither the behavioral
+result nor a local replication establishes an internal WTR variable.
+
+**Ready for operator launch:** the [pinned local Qwen3-32B bridge](docs/paired-local-v1.md)
+reuses the 144 social items on the inspectable BF16 checkpoint. It targets a Linux
+machine with one 80 GB NVIDIA GPU, uses a separate locked environment, and needs
+no API key. Engineering checks use a CPU fixture; a full 32B GPU collection has
+not been run during implementation. This is the preparation step for activation
+work. It does not launch through GitHub's ordinary hosted runner.
 
 The following numerical diagnostics are historical; their original pilots remain paused.
 
@@ -99,7 +113,7 @@ The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 6
 | Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
 | Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
 | Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Validation before any pilot.** Explicit-weight recovery passed; history recovery was mixed. The 216-request recovery and 288-request display comparison are audited. Tables improved explanation quality but did not establish reliable choice-derived intervals. The original numerical pilots remain paused; the later ordinal pilot and its fixed open-model replication are complete; two thinking extensions are prospectively specified. |
+| Validate and report the measurements | **Validation before any pilot.** Explicit-weight recovery passed; history recovery was mixed. The 216-request recovery and 288-request display comparison are audited. Tables improved explanation quality but did not establish reliable choice-derived intervals. The original numerical pilots remain paused; the later ordinal pilot and its fixed open-model replication are complete; both thinking extensions are complete and audited; a local checkpoint bridge is prepared. |
 
 The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
 

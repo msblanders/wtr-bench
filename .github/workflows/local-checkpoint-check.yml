@@ -1,0 +1,26 @@
+name: Local checkpoint engineering check
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'experiments/local-checkpoint/**'
+      - 'src/wtrbench/paired/local_checkpoint.py'
+      - 'protocols/paired-local-v1*'
+      - 'tests/test_paired_local_checkpoint.py'
+      - 'docs/paired-local-v1.md'
+      - '.github/workflows/local-checkpoint-check.yml'
+permissions:
+  contents: read
+jobs:
+  cpu-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+      CUDA_VISIBLE_DEVICES: ''
+      TOKENIZERS_PARALLELISM: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --project experiments/local-checkpoint --frozen --python 3.11
+      - run: uv run --project experiments/local-checkpoint --frozen python experiments/local-checkpoint/smoke.py
