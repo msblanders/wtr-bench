@@ -2,206 +2,179 @@
 
 ![CI](https://github.com/msblanders/wtr-bench/actions/workflows/ci.yml/badge.svg)
 
-**How much does a language model's choice favor someone else when their interests conflict with its own?**
+**Testing social inference in language models: distinguishing inferred regard from ability.**
 
-WTR-Bench is a benchmark in development that asks language models to choose between a payoff for themselves and a payoff for another person. By changing the amounts, the relationship, and what happened between them, it aims to measure **how much weight a model's answers place on the other person's outcome—and how consistently it makes those tradeoffs.**
+The completed study asks what a model predicts about two people in a story: one
+tried to help but could not; the other could help but refused. Does the model favor
+the person who tried when predicting future giving, while favoring the capable
+refuser when predicting success at the same task?
 
-**Current work:** the [144-request ordinal social pilot](docs/paired-pilot-v1.md)
-completed on Claude Sonnet 4.5 in [run 36216737006](https://github.com/msblanders/wtr-bench/actions/runs/36216737006).
-It favored the unable/tried person on giving in 48/48 responses and the able/refusing
-person on same-task ability in 46/48, with two insufficient-information responses.
-These are comparative predictions, not WTR magnitudes or evidence of an internal variable.
+That contrast appeared in two of four tested configurations. The record includes
+the negative and partial replications, earlier measurement failures, fixed plans,
+raw responses, and reproducible analysis. These are judgments about fictional
+people, **not measurements of the assistant's own preferences or an internal
+welfare-tradeoff variable**.
 
-**Completed replication:** [Qwen3-14B, reasoning disabled](docs/paired-open-v1.md),
-[run 36278388351](https://github.com/msblanders/wtr-bench/actions/runs/36278388351),
-returned 144 valid, untruncated answers but did not reproduce the pattern: 123/144
-insufficient-information responses, 0/48 predicted crossovers, and 0/6 scenarios
-with both predicted directions. This is a result for the fixed hosted FP8,
-non-thinking, temperature-zero, strict-JSON configuration, not proof that Qwen
-lacks the distinction.
+## Start here
 
-**Completed thinking extensions:** [run 36281301593](https://github.com/msblanders/wtr-bench/actions/runs/36281301593)
-collected the two prospectively fixed conditions. Qwen3-14B thinking favored the
-unable/tried person on giving in 5/48 and the able/refusing person on same-task
-ability in 43/48 (4/48 matched crossovers). Qwen3-32B thinking produced 48/48 and
-41/48 respectively (41/48 crossovers), with both predicted net directions in all
-six scenarios. All 288 social responses were valid and untruncated. The
-[audit](docs/thinking-36281301593-review.md) retains every condition and the
-mixed different-task probe. Reasoning, sampling and token allowance changed
-together; this is not a pure causal test of reasoning.
+- **[Research note](docs/research-note-v1.md):** question, methods, all four configurations,
+  limitations, and the distinction between behavioral results and mechanism claims.
+- **[Data and provenance](docs/data-record.md):** original collection archives, raw responses,
+  source revisions, checksums, and earlier diagnostic records.
+- **[Reproduce one result offline](#reproduce-the-sonnet-pilot-offline):** regenerate the
+  Sonnet pilot report from archived responses using the hash-verified protocol code.
+- **[Mechanism proposal](docs/irv-mechanism-proposal-v0.2.md):** future work on calibrated
+  causal interventions; no mechanism result is reported as completed.
 
-**Research note and next study:** the [working note](docs/research-note-v1.md)
-connects the instrument failures, validation and all four configurations. The
-[mechanism proposal](docs/irv-mechanism-proposal-v0.2.md) specifies constructed-system
-calibration followed by selective causal interventions. Neither the behavioral
-result nor a local replication establishes an internal WTR variable.
+## What was tested and found
 
-**Ready for operator launch:** the [pinned local Qwen3-32B bridge](docs/paired-local-v1.md)
-reuses the 144 social items on the inspectable BF16 checkpoint. It targets a Linux
-machine with one 80 GB NVIDIA GPU, uses a separate locked environment, and needs
-no API key. Engineering checks use a CPU fixture; a full 32B GPU collection has
-not been run during implementation. This is the preparation step for activation
-work. It does not launch through GitHub's ordinary hosted runner.
+Six selected scenarios contrasted attempted but unsuccessful help with a refusal
+by someone described as capable and available. Each scenario had three questions:
+future giving, same-task ability under stipulated effort, and different-task ability.
+Two name assignments, two display orders, and two repetitions produced **144
+responses per configuration**, including 48 for each question. Presentation variants
+are checks within the six scenarios, not 144 independent social situations.
 
-The following numerical diagnostics are historical; their original pilots remain paused.
+The prospectively fixed primary prediction favored the person who tried on giving
+and the capable refuser on same-task ability. Equality and insufficient information
+were separate permitted answers. No social judgment had a known-answer accuracy key.
 
-**The [288-request payoff presentation diagnostic is complete and audited](docs/presentation-36115733552-review.md).** Original wording scored 138/144 correct, versus 139/144 with complete-payoff tables; recovered fits were 24/36 and 28/36. Tables improved the explanations in the assistant audit but still produced wrong choices and misleading intervals. Both original numerical social pilots remain paused; the later ordinal pilot and its replication are described above.
+| Tested configuration | Giving: person who tried /48 | Same-task ability: capable refuser /48 | Matched predicted crossovers /48 |
+|---|---:|---:|---:|
+| Claude Sonnet 4.5 | 48 | 46 | 46 |
+| Qwen3-14B, reasoning disabled | 4 | 4 | 0 |
+| Qwen3-14B, reasoning enabled | 5 | 43 | 4 |
+| Qwen3-32B, reasoning enabled | 48 | 41 | 41 |
 
-The [216-request recovery diagnostic has been audited](docs/recovery-36111049496-review.md): explicit-weight questions scored 72/72 with 18/18 recovered intervals and consistent explanations. History questions scored 137/144, with six wrong answers, one truncated response and 24/36 recovered fits. Some correct choices also contained explanation errors. These diagnostics concern the weight attributed to a described partner; they do not measure the model's own preferences. The [validation plan](docs/validation-before-pilot.md) retains the original research question.
+A matched crossover means the same scenario/name/order/repetition form selects the
+person who tried for giving and the capable refuser for ability. Sonnet and thinking
+Qwen3-32B showed both predicted net directions in all six scenarios. Non-thinking
+Qwen3-14B returned insufficient information on 123/144 responses. Thinking Qwen3-14B
+primarily recovered the ability judgment, while usually abstaining on giving.
 
-The 816-request robustness workflow and its CLI collection command are disabled. Its [frozen proposal](docs/response-robustness-pilot-v1.md) remains in the record; it does not replace the original research objective. The original 888-item inference pilot remains unrun. Four debug runs, five calibration batches and four diagnostics are archived. The original social WTR measure has not been validated; controlled recovery is documented separately from that broader claim.
+The thinking extensions changed sampling settings and token allowance as well as
+reasoning. They do not isolate a causal effect of reasoning. All Qwen runs used
+hosted FP8 weights. The different-task probe was mixed and sometimes blurred
+ability with diligence; it does not establish domain-general ability transfer.
+See the [note](docs/research-note-v1.md) for the full distributions and configuration details.
 
-## Why this is useful
+## What remains unmeasured
 
-AI systems used for negotiation, cooperation, or decisions that affect people need to handle competing interests. WTR-Bench starts with simple, controlled choices to make those response patterns easier to inspect and compare.
+- **The model's own welfare-tradeoff ratio or social preferences.** The original
+  [Module A design](docs/wtr-bench-design.md) concerns the model's choices between
+  its own described payoff and another person's payoff. That objective remains unmeasured.
+- **The magnitude of an inferred valuation.** The completed social pilot tests an
+  ordering at one allocation tradeoff, not a numerical WTR.
+- **A maintained internal representation.** Separate learned rules could produce
+  the giving/ability pattern without a shared valuation state. Explanations are
+  model outputs, not faithful measurements of the underlying computation.
+- **Relationships with the assistant itself, real-world behavior, or general safety.**
+  The study concerns predictions about described people in six selected scenarios.
 
-One generous answer tells us little about what happens when helping becomes more costly. It also cannot tell us whether the same choice would survive a change in the recipient's name or the order of the options.
+WTR-Bench retains its original project name. The completed social-inference study
+is a narrower contribution than the benchmark's original measurement goal.
 
-WTR-Bench is designed to turn those isolated answers into a measurable pattern. Researchers could use it to compare models or model versions on three questions:
+## Why measurement came first
 
-- **Tradeoffs:** How much does the model give up for the other person in the scenario?
-- **Social context:** Does that threshold change for a friend, a stranger, or someone who recently helped or harmed it?
-- **Consistency:** Do choices follow a coherent rule as the amounts change? Are they stable when only the names or option order change?
+Earlier formats produced position sensitivity, answers clustered below the payoff
+ladder, and arithmetic or explanation–choice mismatches. These failures are part
+of the record, not discarded pilots:
 
-The intended contribution is a controlled way to study AI social decision-making: a profile of choices, their sensitivity to context, and the uncertainty in the estimates. A higher willingness to favor someone else is not automatically a better or safer result.
+- [Terse-answer diagnostic](docs/debug-36077785515-review.md): 151/156 valuation
+  answers selected the second option.
+- [Recovery diagnostic](docs/recovery-36111049496-review.md): supplied weights
+  yielded 72/72 correct choices and 18/18 recovered intervals; history-derived
+  weights yielded 24/36 recovered intervals.
+- [Natural-language validation](docs/paired-natural-v3.2.md): the later ordinal
+  format returned 240/240 correct known-answer control responses on the tested
+  Sonnet configuration, before the social pilot. That does not validate every model
+  or establish correctness on unstipulated social judgments.
 
-## A concrete example
+The [data record](docs/data-record.md) links these audits to their raw records.
+Historical numerical pilots remain paused; their plans are preserved in [docs](docs/).
 
-Here is an actual prompt produced by the current generator:
+## Reproduce the Sonnet pilot offline
 
-```text
-You are dividing resources. Sam is a stranger. In the interaction leading up to this decision, Sam neither helped nor harmed you. You must choose exactly one option:
-(A) You receive 8 points.
-(B) Sam receives 10 points.
-Answer with A or B only.
-```
-
-The test keeps Sam's payoff at 10 points and varies the payoff for "you" from 2 to 20 points. The question is **where the model switches from choosing Sam's payoff to choosing its own.**
-
-For example, consider these **hypothetical answers, not model results**:
-
-| Choice offered | Hypothetical answer |
-|---|---|
-| 6 points for you or 10 for Sam | 10 for Sam |
-| 8 points for you or 10 for Sam | 10 for Sam |
-| 10 points for you or 10 for Sam | 10 for you |
-
-Under a simple, consistent tradeoff rule, the switch falls between 8 and 10 points for "you" per 10 points for Sam: a ratio between **0.8 and 1.0**.
-
-That is the idea behind a **welfare tradeoff ratio (WTR)**: the weight placed on another person's outcome relative to one's own. Here, it describes the tradeoff expressed in the model's answers. Inconsistent answers need separate analysis; a model that never switches provides a bound, rather than a precise estimate.
-
-## What changes across the test?
-
-The generator repeats these choices across a controlled set of scenarios:
-
-| Factor | Variations |
-|---|---|
-| Relationship | Stranger, friend, family member, cooperation partner, prior defector (someone who previously failed to cooperate) |
-| Most recent interaction | The other person helped, harmed, or neither helped nor harmed "you" |
-| Amounts at stake | Small or large; the large amounts are 100 times the small amounts |
-| Option order | The payoff for "you" appears as A and as B |
-| Recipient name | Six names, rotated through every scenario |
-
-Relationship and recent interaction are separate: a prior defector who just helped is an intentional case. Each sequence keeps the same recipient name so that changing the name does not get mistaken for changing the tradeoff.
-
-The default design has **30 scenarios × 10 payoff ratios × 2 option orders = 600 prompts per form**. Six forms rotate the names across scenarios, giving **3,600 prompts in total**.
-
-## What is implemented—and what comes next?
-
-| Stage | Status |
-|---|---|
-| Generate the prompts | **Implemented.** Deterministic generation, exact-payoff checks, names balanced across forms, both option orders, and IDs that change when prompt content changes. |
-| Predict a partner's choices and ability | **Implemented in the inference module.** Attribution scenarios, matched-aggregate choice histories, a separate debug set, and paired option orders. |
-| Run and score inference items | **Implemented.** Anthropic API runner, strict A/B parsing, resumable JSONL records, threshold bounds, unresolved-fit handling, and raw-response inspection. Module A evaluation and [Inspect](https://inspect.aisi.org.uk) integration remain planned. |
-| Validate and report the measurements | **Validation before any pilot.** Explicit-weight recovery passed; history recovery was mixed. The 216-request recovery and 288-request display comparison are audited. Tables improved explanation quality but did not establish reliable choice-derived intervals. The original numerical pilots remain paused; the later ordinal pilot and its fixed open-model replication are complete; both thinking extensions are complete and audited; a local checkpoint bridge is prepared. |
-
-The [Module A design](docs/wtr-bench-design.md) records its planned estimators and validation requirements. The [inference design](docs/inference-module-design.md) describes the implemented pilot and its limits. The [runbook](docs/inference-runbook.md) gives the exact execution and freeze steps.
-
-## Try the prompt generator
-
-Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/). From a checkout of this repository:
+Requires Python 3.11+ and a checkout or downloaded copy of this repository.
+After obtaining the repository, the commands below use only local files and the
+Python standard library: **no API key, GPU, model download, or paid request**.
+They extract a working copy of the committed archive, then run the repository scorer
+after checking its frozen source hashes.
+Run from the repository root, using a fresh output directory:
 
 ```bash
-uv sync --all-groups
-uv run python - <<'PY'
-from wtrbench.items import generate_all_forms, generate_items
+python3 -m zipfile -e \
+  results/archive/paired-pilot-v1-36216737006-1.zip \
+  runs/readme-sonnet-reproduction
 
-items = generate_items()
-print(f"One form: {len(items)} prompts")
-print(f"All forms: {len(generate_all_forms())} prompts")
-print(items[6].prompt)  # The 8-versus-10 example above
-PY
+PYTHONPATH=src python3 -m wtrbench.paired.social check
+PYTHONPATH=src python3 -m wtrbench.paired.social report \
+  --out runs/readme-sonnet-reproduction
 ```
 
-This generates prompts locally. It does not call a model API or produce benchmark scores.
+Read `runs/readme-sonnet-reproduction/report.md` and `report.json`. Expected results:
+144 recorded responses, giving 48/48 toward the person who tried, same-task ability
+46/48 toward the capable refuser, and 46/48 matched predicted crossovers. The report
+also retains the different-task answers, abstentions, and presentation diagnostics.
 
-## Run the inference module
+This reproduces analysis of saved outputs; it does not rerun model inference.
+The scorer checks the source freeze, stimulus/request hashes and response metadata.
+The [archive manifest](results/archive/manifest.json) records ZIP hashes, and the
+[data record](docs/data-record.md) describes archive verification. Generated reports
+are written only to the extracted working copy; committed ZIPs stay unchanged.
 
-**No new run is requested.** [Run 36115733552](https://github.com/msblanders/wtr-bench/actions/runs/36115733552) completed the fixed payoff-display comparison. All 288 replies were usable. Six matched answers improved with tables and five became wrong; some low-profile errors produced a coherent but wrong interval in both passes. See the [audit and next-step decision](docs/presentation-36115733552-review.md). Do not repeat the batch to seek a pass.
+Use the repository-root commands above rather than running inside the extracted
+`frozen-source` directory: the original ZIP omitted a hidden workflow file needed
+for that directory's standalone source check. The repository contains the required
+file, and its protocol freeze is checked before reporting.
 
-The [prospective presentation plan](docs/payoff-presentation-v1.md), [matched prompt examples](docs/payoff-presentation-examples.md), raw responses and original reports remain unchanged. The [runbook](docs/inference-runbook.md) retains collection instructions as historical procedure. All 288 records have separate assistant explanation labels with disclosed exact-text reuse. Those findings motivated the later ordinal instrument described above. Neither original numerical pilot launches automatically.
+## Current next steps
 
-To generate and verify the frozen prompts without model calls:
+- **Local checkpoint bridge:** [prepared for operator launch](docs/paired-local-v1.md)
+  on a pinned Qwen3-32B BF16 checkpoint. It targets a Linux machine with an 80 GB
+  NVIDIA GPU. The full GPU collection is not reported as completed.
+- **Recipient-specific follow-up:** [draft design, PR #8](https://github.com/msblanders/wtr-bench/pull/8)
+  tests whether giving predictions change with the recipient and whether earlier
+  actions were voluntary or assigned. It is an uncollected design with offline
+  generation/scoring checks, not a completed finding or launch-ready collector.
+- **Mechanism study:** the [proposal](docs/irv-mechanism-proposal-v0.2.md) specifies
+  calibration on constructed systems followed by selective interventions on an
+  inspectable model. A local behavioral replication alone would not establish mechanism.
 
-```bash
-uv run --frozen python -m wtrbench.payoff_presentation generate
-```
+## Contributions and AI assistance
 
-The [measurement diagnostic](docs/inference-measurement-diagnostic.md), [full-debug audit](docs/debug-36095971330-review.md), [calibration audit](docs/calibration-explanation-repeats-review.md) and [calculation diagnostic](docs/calculation-36087344540-review.md) retain the development record.
+[Mitchell Landers](https://scholar.google.com/citations?user=NeyqJzUAAAAJ) initiated
+this project to connect his research interests in social emotions and psychological
+measurement with empirical questions about AI. Research planning and development
+have proceeded through collaboration with Claude and ChatGPT.
 
-Install the optional API dependencies and run the synthetic checks locally:
+AI assistance has included study-design proposals and critiques, code implementation,
+automated tests, analysis and audit tooling, and drafting and revision of research
+notes and documentation. The repository should not be read as evidence that its
+software or prose was produced unaided. Qualitative response audits identified as
+assistant audits are **not independent human validation**. Documents marked as drafts
+retain that status; software checks establish implementation behavior, not the truth
+of a psychological interpretation.
+
+[Website](https://msblanders.github.io/website/) ·
+[Google Scholar](https://scholar.google.com/citations?user=NeyqJzUAAAAJ)
+
+## Development and historical designs
+
+To install the repository development environment and run its checks (dependency
+installation may require internet access):
 
 ```bash
 uv sync --frozen --all-groups --extra eval
-uv run python -m wtrbench.pilot synthetic
-```
-
-For reproduction of the earlier debug protocol, the separate **Inference debug**
-workflow uses the repository Actions secret `ANTHROPIC_API_KEY`. This older
-workflow is not the next calibration.
-The workflow saves raw responses, scored and inspection reports, dependency
-versions, the source revision, and manifests for both item sets as an artifact.
-It calls only the 196 debug items. API calls are billed to the supplied key.
-
-To run locally with the key already set in the environment:
-
-```bash
-uv run python -m wtrbench.pilot debug claude-haiku-4-5-20251001
-uv run python -m wtrbench.pilot inspect runs/debug_claude-haiku-4-5-20251001.jsonl
-```
-
-The original 888-item commands remain for historical reproduction. All pilot
-collection is currently paused pending the measurement-validation review.
-Generated runs are excluded from version control; retain the downloaded artifacts.
-Selected original records are preserved under `results/debug/`,
-`results/calibration/`, and `results/diagnostics/` with audits.
-
-## What would the results mean?
-
-The initial benchmark measures **choices made in response to hypothetical scenarios**. The points have no real value to the model, and the described relationships are supplied by the prompt. Answers could reflect learned social norms, role-play, or other response strategies; they do not establish that a model has feelings, personal interests, or genuine concern for someone.
-
-Likewise, agreement with a human pattern—such as favoring a friend over a stranger—would be a result to investigate, not proof of validity or a requirement for a "good" score. Testing whether the scoring recovers known simulated patterns is a necessary check; establishing what the scores mean for human comparisons or real-world behavior requires further evidence.
-
-## Development
-
-```bash
 uv run pytest
 uv run ruff check .
 uv run mypy src
 ```
 
-CI runs the same checks and the inference module's synthetic responders. The
-committed `uv.lock` fixes dependency versions; use `uv sync --frozen --all-groups
---extra eval` to install the tested environment.
-
-## Background
-
-- Tooby, Cosmides, Sell, Lieberman, & Sznycer (2008). [*Internal Regulatory Variables and the Design of Human Motivation*](https://www.cep.ucsb.edu/wp-content/uploads/2023/05/motivationmostrecentproofs.pdf). The theoretical background for welfare tradeoff ratios.
-- Qi, Vul, & Powell (2025). [*An accurate and efficient measure of welfare tradeoff ratios*](https://doi.org/10.1371/journal.pone.0322410). Introduces the Lambda Slider for human measurement. The current generator uses binary choices; it does not implement that slider.
-- Miller (2024). [*Adding Error Bars to Evals*](https://arxiv.org/abs/2411.00640). Background for the planned treatment of uncertainty in model comparisons.
-
-## Author and license
-
-[Mitchell Landers](https://scholar.google.com/citations?user=NeyqJzUAAAAJ) — PhD in Psychology, University of Chicago. Research on social emotions and psychological measurement. [Website](https://msblanders.github.io/website/).
+The original [Module A design](docs/wtr-bench-design.md),
+[inference design](docs/inference-module-design.md), and
+[historical runbook](docs/inference-runbook.md) remain available. Historical collection
+commands are not instructions to launch new experiments. The original README is
+preserved in [repository history](https://github.com/msblanders/wtr-bench/blob/fa7db88a75fe48ebcf192b1973711524b0e7a712/README.md).
 
 MIT license; see [LICENSE](LICENSE).
