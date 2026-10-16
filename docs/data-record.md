@@ -65,3 +65,13 @@ follows later revisions. Relative links from a commit-pinned copy of this index 
 to the same snapshot. These committed files do not have Actions artifact expiry.
 This is a repository archive, not a DOI deposit or a promise of preservation if the
 repository itself is removed.
+
+## Reproduction clarification, 15 October 2026 (America/Los_Angeles)
+
+The original Sonnet social-pilot ZIP omits
+`frozen-source/.github/workflows/paired-pilot-v1.yml`, which its standalone source
+check requires. The original ZIP and its checksum are preserved unchanged. Use
+the [repository-root offline reproduction commands](../README.md#reproduce-the-sonnet-pilot-offline),
+which verify the repository protocol source against its freeze and score a working
+copy of the archived responses. This route was checked against the saved report;
+it does not issue model requests or bypass the freeze check.
