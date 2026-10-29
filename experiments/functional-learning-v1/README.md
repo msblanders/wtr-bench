@@ -78,7 +78,7 @@ python3 runs/functional-learning-v1/experiment.py collect --out runs/functional-
 python3 runs/functional-learning-v1/experiment.py report --out runs/functional-learning-v1
 ```
 
-Use the frozen copy for collection and reporting. Never paste credentials into chat or commit them. The manual `functional-learning-v1` GitHub workflow offers offline, read-only `check-access`, and collect modes using the existing secret name `ANTHROPIC_API_KEY`.
+Use the frozen copy for collection and reporting. Never paste credentials into chat or commit them. The manual `functional-learning-v1` GitHub workflow offers offline, read-only `check-access`, and collect modes using GitHub secret `WTR_BENCH` when present, otherwise `ANTHROPIC_API_KEY`. The selected value is passed to the collector as environment variable `ANTHROPIC_API_KEY`.
 
 For the initial pilot, a push to the dedicated branch `run/functional-learning-v1-20261029` with the exact commit message `Run functional-learning-v1 pilot once` also launches collection. Ordinary code commits and pull requests do not launch paid collection. This permits the bounded experiment to run before merging its implementation. Do not repeat that launch message on the run branch to restart a partial collection.
 
@@ -93,6 +93,7 @@ Collection is single-pass. An exclusive ledger blocks reruns of the same directo
 - [Repository CI](https://github.com/msblanders/wtr-bench/actions/runs/40957205530) passed lint, type checks, the test suite, and the existing synthetic pilot. The new experiment's 13 offline tests passed separately as well.
 - [Initial collection](https://github.com/msblanders/wtr-bench/actions/runs/40957490711) stopped on an HTTP rejection of the first request. No model responses were collected. Frozen inputs and the attempt ledger were preserved in the workflow artifact.
 - A separate [read-only access check](https://github.com/msblanders/wtr-bench/actions/runs/40957786680) returned HTTP 401, `authentication_error`, `invalid x-api-key`. No completion was requested in that check.
-- The next required action is to replace the repository's `ANTHROPIC_API_KEY` Actions secret with a valid key for the account holding the intended credit. After access works, a deliberate fresh collection can use the unchanged request stream. The rejected attempt must remain in the run history.
+- The replacement was saved as GitHub secret `WTR_BENCH`. The workflow now supports that name. A [read-only check](https://github.com/msblanders/wtr-bench/actions/runs/40969613278) returned HTTP 200 for `claude-sonnet-4-6`.
+- The [new collection](https://github.com/msblanders/wtr-bench/actions/runs/40969709564) was launched after that successful check and is in progress as of this update. The request stream is unchanged (`a28acac7eeffb1087581d6cb4cdc1d669f82bd4dcc6396e9acc8f91dba5a34e8`). Earlier rejected attempts remain in the run history.
 
-There are **no empirical learning results yet**. `reference-results.json` contains only the deterministic reference calculations described above.
+There are **no completed empirical learning results yet**. `reference-results.json` contains only the deterministic reference calculations described above.
