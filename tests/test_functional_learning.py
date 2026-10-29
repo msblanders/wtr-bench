@@ -3,9 +3,9 @@ import contextlib
 import importlib.util
 import io
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 MODULE = Path(__file__).resolve().parents[1] / "experiments/functional-learning-v1/experiment.py"
 spec = importlib.util.spec_from_file_location("functional_learning", MODULE)

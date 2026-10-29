@@ -3,13 +3,14 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import http.client
 import json
 import math
 import os
-from pathlib import Path
 import random
 import statistics
 import urllib.request
+from pathlib import Path
 
 VERSION = "functional-learning-v1.0"
 CRITERION_MSE = 0.04
@@ -302,7 +303,7 @@ def collect(out, budget, sender=send):
                                              "cumulative_reserve_usd": reserved})
         try:
             raw = sender(r["body"])
-        except Exception as exc:
+        except (OSError, ValueError, http.client.HTTPException) as exc:
             # No automatic retry: a timeout can have incurred a charge.
             write_json(out / "collection-status.json", {"status": "transport_error_no_retry",
                 "id": r["id"], "error_type": type(exc).__name__, "spent_usd": spent,
@@ -420,8 +421,8 @@ def report(out):
                "interpretation": "Exploratory contextual prediction study; no weight learning or mechanism identification."}
     write_json(out / "report.json", summary)
     lines = ["# Functional learning pilot", "", f"Data origin: {ledger['data_origin']}.", "",
-             f"Recorded {len(records)}/{len(requests)} responses; "
-             f"valid {summary['valid']}; cost ${summary['cost_usd']:.3f}.", "",
+             (f"Recorded {len(records)}/{len(requests)} responses; "
+              f"valid {summary['valid']}; cost ${summary['cost_usd']:.3f}."), "",
              "Positive contrasts favor the functional procedure. World-level bootstrap intervals are exploratory.", "",
              "| Environment | Comparator minus functional | Complete worlds | Mean MSE advantage | 95% interval |",
              "|---|---|---:|---:|---|"]
