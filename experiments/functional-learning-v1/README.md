@@ -78,10 +78,21 @@ python3 runs/functional-learning-v1/experiment.py collect --out runs/functional-
 python3 runs/functional-learning-v1/experiment.py report --out runs/functional-learning-v1
 ```
 
-Use the frozen copy for collection and reporting. Never paste credentials into chat or commit them. The manual `functional-learning-v1` GitHub workflow offers an offline mode and a collect mode using the existing secret name `ANTHROPIC_API_KEY`.
+Use the frozen copy for collection and reporting. Never paste credentials into chat or commit them. The manual `functional-learning-v1` GitHub workflow offers offline, read-only `check-access`, and collect modes using the existing secret name `ANTHROPIC_API_KEY`.
 
 For the initial pilot, a push to the dedicated branch `run/functional-learning-v1-20261029` with the exact commit message `Run functional-learning-v1 pilot once` also launches collection. Ordinary code commits and pull requests do not launch paid collection. This permits the bounded experiment to run before merging its implementation. Do not repeat that launch message on the run branch to restart a partial collection.
+
+The commit message `Check functional-learning-v1 API access` on that branch instead performs a read-only model-metadata request. It does not request a completion or collect experimental data.
 
 The 256-request plan reserves approximately **$13.41**, using a deliberately conservative byte-based input allowance and the full output limit at [$3 input / $15 output per million tokens](https://platform.claude.com/docs/en/models/sonnet-4-6/overview), checked October 29, 2026. Actual costs come from recorded usage. The collector refuses planned spending beyond $25 and stops on missing usage or an exceeded allowance. This is a local spending guard, not a provider-enforced billing cap.
 
 Collection is single-pass. An exclusive ledger blocks reruns of the same directory, and transport failures stop without retrying because an uncertain request may have incurred a charge. Inspect preserved artifacts before arranging recovery; generating a new directory does not reset provider spending. GitHub reruns of paid jobs are disabled. Raw responses, usage, attempts, status, and report files are retained in the run artifact.
+
+## Initial launch status — October 29, 2026
+
+- [Repository CI](https://github.com/msblanders/wtr-bench/actions/runs/40957205530) passed lint, type checks, the test suite, and the existing synthetic pilot. The new experiment's 13 offline tests passed separately as well.
+- [Initial collection](https://github.com/msblanders/wtr-bench/actions/runs/40957490711) stopped on an HTTP rejection of the first request. No model responses were collected. Frozen inputs and the attempt ledger were preserved in the workflow artifact.
+- A separate [read-only access check](https://github.com/msblanders/wtr-bench/actions/runs/40957786680) returned HTTP 401, `authentication_error`, `invalid x-api-key`. No completion was requested in that check.
+- The next required action is to replace the repository's `ANTHROPIC_API_KEY` Actions secret with a valid key for the account holding the intended credit. After access works, a deliberate fresh collection can use the unchanged request stream. The rejected attempt must remain in the run history.
+
+There are **no empirical learning results yet**. `reference-results.json` contains only the deterministic reference calculations described above.

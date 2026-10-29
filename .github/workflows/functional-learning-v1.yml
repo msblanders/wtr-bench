@@ -8,7 +8,7 @@ on:
       mode:
         description: Offline generation or paid collection (256 calls; $25 local limit)
         type: choice
-        options: [offline, collect]
+        options: [offline, check-access, collect]
         default: offline
         required: true
 
@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   pilot:
-    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Run functional-learning-v1 pilot once'
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Run functional-learning-v1 pilot once' || github.event.head_commit.message == 'Check functional-learning-v1 API access'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -33,8 +33,13 @@ jobs:
         run: python -m unittest discover -s tests -p test_functional_learning.py -v
       - name: Freeze pilot
         run: python experiments/functional-learning-v1/experiment.py generate --out runs/functional-learning-v1 --seeds 8
+      - name: Check model access without a completion
+        if: inputs.mode == 'check-access' || github.event.head_commit.message == 'Check functional-learning-v1 API access'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python experiments/functional-learning-v1/check_access.py
       - name: Collect once
-        if: inputs.mode == 'collect' || github.event_name == 'push'
+        if: inputs.mode == 'collect' || github.event.head_commit.message == 'Run functional-learning-v1 pilot once'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
