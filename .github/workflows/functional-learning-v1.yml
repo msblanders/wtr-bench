@@ -36,12 +36,15 @@ jobs:
       - name: Check model access without a completion
         if: inputs.mode == 'check-access' || github.event.head_commit.message == 'Check functional-learning-v1 API access'
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python experiments/functional-learning-v1/check_access.py
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+          PILOT_SECRET_NAME: ${{ secrets.WTR_BENCH != '' && 'WTR_BENCH' || 'ANTHROPIC_API_KEY' }}
+        run: |
+          echo "GitHub secret selected: $PILOT_SECRET_NAME"
+          python experiments/functional-learning-v1/check_access.py
       - name: Collect once
         if: inputs.mode == 'collect' || github.event.head_commit.message == 'Run functional-learning-v1 pilot once'
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
         run: |
           if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
             echo 'Paid collection cannot be rerun automatically; inspect the earlier artifact.'
