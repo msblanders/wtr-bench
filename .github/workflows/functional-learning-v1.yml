@@ -1,0 +1,62 @@
+name: functional-learning-v1
+
+on:
+  push:
+    branches: [run/functional-learning-v1-20261029]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Offline generation or paid collection (256 calls; $25 local limit)
+        type: choice
+        options: [offline, collect]
+        default: offline
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: functional-learning-v1
+  cancel-in-progress: false
+
+jobs:
+  pilot:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Run functional-learning-v1 pilot once'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate offline
+        run: python -m unittest discover -s tests -p test_functional_learning.py -v
+      - name: Freeze pilot
+        run: python experiments/functional-learning-v1/experiment.py generate --out runs/functional-learning-v1 --seeds 8
+      - name: Collect once
+        if: inputs.mode == 'collect' || github.event_name == 'push'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
+            echo 'Paid collection cannot be rerun automatically; inspect the earlier artifact.'
+            exit 1
+          fi
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo 'ANTHROPIC_API_KEY secret is missing; no API calls made.'
+            exit 1
+          fi
+          python runs/functional-learning-v1/experiment.py collect --out runs/functional-learning-v1 --budget-usd 25
+      - name: Score available responses
+        if: always()
+        run: |
+          if [ -f runs/functional-learning-v1/responses.jsonl ]; then
+            python runs/functional-learning-v1/experiment.py report --out runs/functional-learning-v1
+          fi
+      - name: Preserve frozen inputs and observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: functional-learning-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/functional-learning-v1/
+          if-no-files-found: warn
