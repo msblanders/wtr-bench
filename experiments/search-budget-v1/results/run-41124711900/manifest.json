@@ -1,0 +1,173 @@
+{
+  "version": "search-budget-v1.0",
+  "config": {
+    "replicates": 8,
+    "generations": 2048,
+    "population": 32,
+    "elites": 8,
+    "batch_size": 64,
+    "max_history": 24,
+    "validation_lifetimes": 256,
+    "evaluation_lifetimes": 512,
+    "diagnostic_lifetimes": 256,
+    "test_lengths": [
+      4,
+      12,
+      24,
+      48
+    ],
+    "primary_lengths": [
+      4,
+      12,
+      24
+    ],
+    "budgets": [
+      512,
+      2048
+    ],
+    "bank_batches": 512,
+    "development_candidates": 512,
+    "initial_sd": 0.5,
+    "mean_rate": 0.3,
+    "sd_rate": 0.15,
+    "min_sd": 0.05,
+    "max_sd": 2.0,
+    "adam_lr": 0.003,
+    "gradient_clip": 1.0,
+    "readouts": [
+      "interaction",
+      "wide_control"
+    ],
+    "execution_noninferiority_margin": 0.002,
+    "objective": "0.5*(choice_brier+execution_brier)",
+    "development_objective": "0.5*(choice_brier+execution_brier)"
+  },
+  "config_sha256": "bcb3a9c73f93344039f5b7608ed3f4ed2d48c88de3463a483198664e33ec44e5",
+  "source_hashes": {
+    "experiment.py": "b97c63558e1cf4d740708342559fbd47d8689c4eccd6f7d63b6a2aed968bcc5b",
+    "models.py": "bf8c415cea45870be7a0915e59ca4c0433bf792225a3465f8cf66e9bc68a29ba",
+    "worlds.py": "35f22ac049bb39fd93832aaae9b9c802a9e2055e33802246b2cbe3caf698230c",
+    "external.py": "cd078b7f4f0a9421dca432acb34b8bed6e72205f83829ebf8bc93fe6a9366cb1",
+    "requirements.txt": "9a5f47d3fb24e9bdcb07e24835ab718036f6ef2a4a07a369bdd8e3d102bf583a",
+    "README.md": "d834441b2761b983fe6ee1b2394dee17ada0400a50a603e932622ba0cd0587d3"
+  },
+  "readouts": [
+    "interaction",
+    "wide_control"
+  ],
+  "suites": [
+    "canonical_seen",
+    "canonical_heldout",
+    "shifted",
+    "external_games"
+  ],
+  "predecessor": "4aa0e4dc6a62b87805dce673028d2ffbb6968556",
+  "unchanged_predecessor_sources": {
+    "models.py": "bf8c415cea45870be7a0915e59ca4c0433bf792225a3465f8cf66e9bc68a29ba",
+    "worlds.py": "35f22ac049bb39fd93832aaae9b9c802a9e2055e33802246b2cbe3caf698230c",
+    "external.py": "cd078b7f4f0a9421dca432acb34b8bed6e72205f83829ebf8bc93fe6a9366cb1",
+    "requirements.txt": "9a5f47d3fb24e9bdcb07e24835ab718036f6ef2a4a07a369bdd8e3d102bf583a"
+  },
+  "external_commit": "8d7f9946b3cc4ff1d7fae7a1a7a149499c35dede",
+  "external_sha256": {
+    "games.py": "1fcb6e25de7bfea5fa44ddfbeced6a482b75ffeaee97947241c62a58476ca653",
+    "agents.py": "2b387b6a407177566a8783da2875f0243be4cfed9c51c21e9e3b0ec87fa63833",
+    "utils.py": "8c52b713a428c15a0ce1fb9fd46e0ee5451633ad7a3eddc5dbafb91ebbfec0fa"
+  },
+  "python": "3.11.17",
+  "numpy": "1.26.4",
+  "torch": "2.5.1+cpu",
+  "github_sha": "985f87e07ce53d86df7f0c87d44abd6a264180b5",
+  "api_cost_usd": 0,
+  "status": "frozen before study selection and holdout evaluation",
+  "seed_plan": [
+    {
+      "initialization": 181000000,
+      "training": 182000000,
+      "validation": 183000000,
+      "evolution": 184000000,
+      "random_search": 185000000,
+      "evaluation": 186000000,
+      "diagnostics": 187000000,
+      "donors": 189000000,
+      "replay": 190000000
+    },
+    {
+      "initialization": 181000001,
+      "training": 182000001,
+      "validation": 183000001,
+      "evolution": 184000001,
+      "random_search": 185000001,
+      "evaluation": 186001000,
+      "diagnostics": 187000001,
+      "donors": 189001000,
+      "replay": 190000001
+    },
+    {
+      "initialization": 181000002,
+      "training": 182000002,
+      "validation": 183000002,
+      "evolution": 184000002,
+      "random_search": 185000002,
+      "evaluation": 186002000,
+      "diagnostics": 187000002,
+      "donors": 189002000,
+      "replay": 190000002
+    },
+    {
+      "initialization": 181000003,
+      "training": 182000003,
+      "validation": 183000003,
+      "evolution": 184000003,
+      "random_search": 185000003,
+      "evaluation": 186003000,
+      "diagnostics": 187000003,
+      "donors": 189003000,
+      "replay": 190000003
+    },
+    {
+      "initialization": 181000004,
+      "training": 182000004,
+      "validation": 183000004,
+      "evolution": 184000004,
+      "random_search": 185000004,
+      "evaluation": 186004000,
+      "diagnostics": 187000004,
+      "donors": 189004000,
+      "replay": 190000004
+    },
+    {
+      "initialization": 181000005,
+      "training": 182000005,
+      "validation": 183000005,
+      "evolution": 184000005,
+      "random_search": 185000005,
+      "evaluation": 186005000,
+      "diagnostics": 187000005,
+      "donors": 189005000,
+      "replay": 190000005
+    },
+    {
+      "initialization": 181000006,
+      "training": 182000006,
+      "validation": 183000006,
+      "evolution": 184000006,
+      "random_search": 185000006,
+      "evaluation": 186006000,
+      "diagnostics": 187000006,
+      "donors": 189006000,
+      "replay": 190000006
+    },
+    {
+      "initialization": 181000007,
+      "training": 182000007,
+      "validation": 183000007,
+      "evolution": 184000007,
+      "random_search": 185000007,
+      "evaluation": 186007000,
+      "diagnostics": 187000007,
+      "donors": 189007000,
+      "replay": 190000007
+    }
+  ]
+}
