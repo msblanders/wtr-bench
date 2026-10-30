@@ -1,0 +1,982 @@
+{
+  "version": "functional-learning-v1.0",
+  "data_origin": "anthropic_api",
+  "expected": 256,
+  "collected": 256,
+  "valid": 109,
+  "missing": 0,
+  "complete": true,
+  "cost_usd": 3.5111969999999966,
+  "cells": [
+    {
+      "regime": "shared",
+      "budget": 0,
+      "arm": "general",
+      "collected": 8,
+      "invalid": 0,
+      "mean_mse_including_invalid_penalty": 0.07656855942528171,
+      "valid_only_mse": 0.07656855942528171,
+      "transfer_choice_mse": 0.0646415726911791,
+      "seen_choice_mse": 0.0646415726911791,
+      "execution_mse": 0.0884955461593843
+    },
+    {
+      "regime": "shared",
+      "budget": 0,
+      "arm": "structured",
+      "collected": 8,
+      "invalid": 0,
+      "mean_mse_including_invalid_penalty": 0.07656855942528171,
+      "valid_only_mse": 0.07656855942528171,
+      "transfer_choice_mse": 0.0646415726911791,
+      "seen_choice_mse": 0.0646415726911791,
+      "execution_mse": 0.0884955461593843
+    },
+    {
+      "regime": "shared",
+      "budget": 0,
+      "arm": "functional",
+      "collected": 8,
+      "invalid": 0,
+      "mean_mse_including_invalid_penalty": 0.07656855942528171,
+      "valid_only_mse": 0.07656855942528171,
+      "transfer_choice_mse": 0.0646415726911791,
+      "seen_choice_mse": 0.0646415726911791,
+      "execution_mse": 0.0884955461593843
+    },
+    {
+      "regime": "shared",
+      "budget": 0,
+      "arm": "wrong_routing",
+      "collected": 8,
+      "invalid": 0,
+      "mean_mse_including_invalid_penalty": 0.07656855942528171,
+      "valid_only_mse": 0.07656855942528171,
+      "transfer_choice_mse": 0.0646415726911791,
+      "seen_choice_mse": 0.0646415726911791,
+      "execution_mse": 0.0884955461593843
+    },
+    {
+      "regime": "shared",
+      "budget": 2,
+      "arm": "general",
+      "collected": 8,
+      "invalid": 0,
+      "mean_mse_including_invalid_penalty": 0.0751904908029252,
+      "valid_only_mse": 0.0751904908029252,
+      "transfer_choice_mse": 0.06009966417006268,
+      "seen_choice_mse": 0.09319235582485437,
+      "execution_mse": 0.06821952299925993
+    },
+    {
+      "regime": "shared",
+      "budget": 2,
+      "arm": "structured",
+      "collected": 8,
+      "invalid": 7,
+      "mean_mse_including_invalid_penalty": 0.883713614100432,
+      "valid_only_mse": 0.06970891280345642,
+      "transfer_choice_mse": 0.8823176098627202,
+      "seen_choice_mse": 0.8916663292876074,
+      "execution_mse": 0.8788771387215525
+    },
+    {
+      "regime": "shared",
+      "budget": 2,
+      "arm": "functional",
+      "collected": 8,
+      "invalid": 1,
+      "mean_mse_including_invalid_penalty": 0.17508108572707556,
+      "valid_only_mse": 0.057235526545229204,
+      "transfer_choice_mse": 0.1639302030882408,
+      "seen_choice_mse": 0.16557908874704783,
+      "execution_mse": 0.18513271126003894
+    },
+    {
+      "regime": "shared",
+      "budget": 2,
+      "arm": "wrong_routing",
+      "collected": 8,
+      "invalid": 1,
+      "mean_mse_including_invalid_penalty": 0.17180018891498436,
+      "valid_only_mse": 0.05348593018855355,
+      "transfer_choice_mse": 0.16027951263684198,
+      "seen_choice_mse": 0.16027951263684198,
+      "execution_mse": 0.1833208651931267
+    },
+    {
+      "regime": "shared",
+      "budget": 8,
+      "arm": "general",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "shared",
+      "budget": 8,
+      "arm": "structured",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "shared",
+      "budget": 8,
+      "arm": "functional",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "shared",
+      "budget": 8,
+      "arm": "wrong_routing",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "shared",
+      "budget": 24,
+      "arm": "general",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "shared",
+      "budget": 24,
+      "arm": "structured",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "shared",
+      "budget": 24,
+      "arm": "functional",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "shared",
+      "budget": 24,
+      "arm": "wrong_routing",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "context_specific",
+      "budget": 0,
+      "arm": "general",
+      "collected": 8,
+      "invalid": 0,
+      "mean_mse_including_invalid_penalty": 0.08487069889834793,
+      "valid_only_mse": 0.08487069889834793,
+      "transfer_choice_mse": 0.07905263791513477,
+      "seen_choice_mse": 0.08234245849839993,
+      "execution_mse": 0.0884955461593843
+    },
+    {
+      "regime": "context_specific",
+      "budget": 0,
+      "arm": "structured",
+      "collected": 8,
+      "invalid": 0,
+      "mean_mse_including_invalid_penalty": 0.08487069889834793,
+      "valid_only_mse": 0.08487069889834793,
+      "transfer_choice_mse": 0.07905263791513477,
+      "seen_choice_mse": 0.08234245849839993,
+      "execution_mse": 0.0884955461593843
+    },
+    {
+      "regime": "context_specific",
+      "budget": 0,
+      "arm": "functional",
+      "collected": 8,
+      "invalid": 0,
+      "mean_mse_including_invalid_penalty": 0.08487069889834793,
+      "valid_only_mse": 0.08487069889834793,
+      "transfer_choice_mse": 0.07905263791513477,
+      "seen_choice_mse": 0.08234245849839993,
+      "execution_mse": 0.0884955461593843
+    },
+    {
+      "regime": "context_specific",
+      "budget": 0,
+      "arm": "wrong_routing",
+      "collected": 8,
+      "invalid": 0,
+      "mean_mse_including_invalid_penalty": 0.08487069889834793,
+      "valid_only_mse": 0.08487069889834793,
+      "transfer_choice_mse": 0.07905263791513477,
+      "seen_choice_mse": 0.08234245849839993,
+      "execution_mse": 0.0884955461593843
+    },
+    {
+      "regime": "context_specific",
+      "budget": 2,
+      "arm": "general",
+      "collected": 8,
+      "invalid": 1,
+      "mean_mse_including_invalid_penalty": 0.2003626794937864,
+      "valid_only_mse": 0.08612877656432731,
+      "transfer_choice_mse": 0.21756114953972255,
+      "seen_choice_mse": 0.21955692764632498,
+      "execution_mse": 0.1818336907101153
+    },
+    {
+      "regime": "context_specific",
+      "budget": 2,
+      "arm": "structured",
+      "collected": 8,
+      "invalid": 6,
+      "mean_mse_including_invalid_penalty": 0.7673431881083109,
+      "valid_only_mse": 0.06937275243324385,
+      "transfer_choice_mse": 0.7797788107025024,
+      "seen_choice_mse": 0.769719935551646,
+      "execution_mse": 0.7616134822813572
+    },
+    {
+      "regime": "context_specific",
+      "budget": 2,
+      "arm": "functional",
+      "collected": 8,
+      "invalid": 1,
+      "mean_mse_including_invalid_penalty": 0.20872143282898714,
+      "valid_only_mse": 0.09568163751884244,
+      "transfer_choice_mse": 0.263088885230307,
+      "seen_choice_mse": 0.19694075856531554,
+      "execution_mse": 0.19845273153766158
+    },
+    {
+      "regime": "context_specific",
+      "budget": 2,
+      "arm": "wrong_routing",
+      "collected": 8,
+      "invalid": 2,
+      "mean_mse_including_invalid_penalty": 0.31316445146568644,
+      "valid_only_mse": 0.08421926862091529,
+      "transfer_choice_mse": 0.36467242448639053,
+      "seen_choice_mse": 0.29696315302754206,
+      "execution_mse": 0.3067959927508814
+    },
+    {
+      "regime": "context_specific",
+      "budget": 8,
+      "arm": "general",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "context_specific",
+      "budget": 8,
+      "arm": "structured",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "context_specific",
+      "budget": 8,
+      "arm": "functional",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "context_specific",
+      "budget": 8,
+      "arm": "wrong_routing",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "context_specific",
+      "budget": 24,
+      "arm": "general",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "context_specific",
+      "budget": 24,
+      "arm": "structured",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "context_specific",
+      "budget": 24,
+      "arm": "functional",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    },
+    {
+      "regime": "context_specific",
+      "budget": 24,
+      "arm": "wrong_routing",
+      "collected": 8,
+      "invalid": 8,
+      "mean_mse_including_invalid_penalty": 1.0,
+      "valid_only_mse": null,
+      "transfer_choice_mse": 1.0,
+      "seen_choice_mse": 1.0,
+      "execution_mse": 1.0
+    }
+  ],
+  "contrasts": [
+    {
+      "regime": "shared",
+      "comparison": "general minus functional",
+      "complete_worlds": 8,
+      "mean_mse_advantage": -0.03329686497471679,
+      "paired_world_bootstrap_95ci": [
+        -0.11180324959109818,
+        0.007793208240901034
+      ]
+    },
+    {
+      "regime": "shared",
+      "comparison": "structured minus functional",
+      "complete_worlds": 8,
+      "mean_mse_advantage": 0.23621084279111884,
+      "paired_world_bootstrap_95ci": [
+        0.11900439371051864,
+        0.3160596143777577
+      ]
+    },
+    {
+      "regime": "shared",
+      "comparison": "wrong_routing minus functional",
+      "complete_worlds": 8,
+      "mean_mse_advantage": -0.0010936322706970646,
+      "paired_world_bootstrap_95ci": [
+        -0.0024634252508511957,
+        0.0006968535515214621
+      ]
+    },
+    {
+      "regime": "context_specific",
+      "comparison": "general minus functional",
+      "complete_worlds": 8,
+      "mean_mse_advantage": -0.0027862511117335807,
+      "paired_world_bootstrap_95ci": [
+        -0.11897409571306898,
+        0.10780138178088366
+      ]
+    },
+    {
+      "regime": "context_specific",
+      "comparison": "structured minus functional",
+      "complete_worlds": 8,
+      "mean_mse_advantage": 0.18620725175977462,
+      "paired_world_bootstrap_95ci": [
+        0.07443845551676838,
+        0.2959084140707381
+      ]
+    },
+    {
+      "regime": "context_specific",
+      "comparison": "wrong_routing minus functional",
+      "complete_worlds": 8,
+      "mean_mse_advantage": 0.034814339545566446,
+      "paired_world_bootstrap_95ci": [
+        -0.0031809131655281785,
+        0.10725939182604266
+      ]
+    }
+  ],
+  "regime_interaction": {
+    "complete_seed_pairs": 8,
+    "mean_shared_minus_context_specific_advantage": 0.050003591031344226,
+    "paired_bootstrap_95ci": [
+      0.007178049537702663,
+      0.12874888702999818
+    ]
+  },
+  "criterion_mse": 0.04,
+  "criterion_results": [
+    {
+      "seed": 0,
+      "regime": "shared",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 1,
+      "regime": "shared",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 2,
+      "regime": "shared",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 3,
+      "regime": "shared",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 4,
+      "regime": "shared",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 5,
+      "regime": "shared",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 6,
+      "regime": "shared",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 7,
+      "regime": "shared",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 0,
+      "regime": "shared",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 1,
+      "regime": "shared",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 2,
+      "regime": "shared",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 3,
+      "regime": "shared",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 4,
+      "regime": "shared",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 5,
+      "regime": "shared",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 6,
+      "regime": "shared",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 7,
+      "regime": "shared",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 0,
+      "regime": "shared",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 1,
+      "regime": "shared",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 2,
+      "regime": "shared",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 3,
+      "regime": "shared",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 4,
+      "regime": "shared",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 5,
+      "regime": "shared",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 6,
+      "regime": "shared",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 7,
+      "regime": "shared",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 0,
+      "regime": "shared",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 1,
+      "regime": "shared",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 2,
+      "regime": "shared",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 3,
+      "regime": "shared",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 4,
+      "regime": "shared",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 5,
+      "regime": "shared",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 6,
+      "regime": "shared",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 7,
+      "regime": "shared",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 0,
+      "regime": "context_specific",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 1,
+      "regime": "context_specific",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 2,
+      "regime": "context_specific",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 3,
+      "regime": "context_specific",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 4,
+      "regime": "context_specific",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 5,
+      "regime": "context_specific",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 6,
+      "regime": "context_specific",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 7,
+      "regime": "context_specific",
+      "arm": "general",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 0,
+      "regime": "context_specific",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 1,
+      "regime": "context_specific",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 2,
+      "regime": "context_specific",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 3,
+      "regime": "context_specific",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 4,
+      "regime": "context_specific",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 5,
+      "regime": "context_specific",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 6,
+      "regime": "context_specific",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 7,
+      "regime": "context_specific",
+      "arm": "structured",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 0,
+      "regime": "context_specific",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 1,
+      "regime": "context_specific",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 2,
+      "regime": "context_specific",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 3,
+      "regime": "context_specific",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 4,
+      "regime": "context_specific",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 5,
+      "regime": "context_specific",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 6,
+      "regime": "context_specific",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 7,
+      "regime": "context_specific",
+      "arm": "functional",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 0,
+      "regime": "context_specific",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 1,
+      "regime": "context_specific",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 2,
+      "regime": "context_specific",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 3,
+      "regime": "context_specific",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 4,
+      "regime": "context_specific",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 5,
+      "regime": "context_specific",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 6,
+      "regime": "context_specific",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    },
+    {
+      "seed": 7,
+      "regime": "context_specific",
+      "arm": "wrong_routing",
+      "complete": true,
+      "first_sustained_observed_budget": null,
+      "right_censored": true
+    }
+  ],
+  "interpretation": "Exploratory contextual prediction study; no weight learning or mechanism identification."
+}

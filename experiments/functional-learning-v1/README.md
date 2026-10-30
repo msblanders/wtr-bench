@@ -94,6 +94,10 @@ Collection is single-pass. An exclusive ledger blocks reruns of the same directo
 - [Initial collection](https://github.com/msblanders/wtr-bench/actions/runs/40957490711) stopped on an HTTP rejection of the first request. No model responses were collected. Frozen inputs and the attempt ledger were preserved in the workflow artifact.
 - A separate [read-only access check](https://github.com/msblanders/wtr-bench/actions/runs/40957786680) returned HTTP 401, `authentication_error`, `invalid x-api-key`. No completion was requested in that check.
 - The replacement was saved as GitHub secret `WTR_BENCH`. The workflow now supports that name. A [read-only check](https://github.com/msblanders/wtr-bench/actions/runs/40969613278) returned HTTP 200 for `claude-sonnet-4-6`.
-- The [new collection](https://github.com/msblanders/wtr-bench/actions/runs/40969709564) was launched after that successful check and is in progress as of this update. The request stream is unchanged (`a28acac7eeffb1087581d6cb4cdc1d669f82bd4dcc6396e9acc8f91dba5a34e8`). Earlier rejected attempts remain in the run history.
+- The [completed collection](https://github.com/msblanders/wtr-bench/actions/runs/40969709564) returned all 256 responses for $3.511197. The request stream was unchanged (`a28acac7eeffb1087581d6cb4cdc1d669f82bd4dcc6396e9acc8f91dba5a34e8`). Earlier rejected attempts remain in the run history.
 
-There are **no completed empirical learning results yet**. `reference-results.json` contains only the deterministic reference calculations described above.
+## Completed pilot results
+
+See [the full results and limitations](results/run-40969709564/README.md). The exact raw artifact, original scores, post hoc analysis, and reproducible analysis script are included.
+
+The strict parser accepted 109/256 responses. All 256 contained complete probability predictions; extracting the JSON objects without changing probabilities yields an explicitly post hoc analysis. Functional instructions reduced mean error by 27.4% versus the structured control in the shared environment and increased it by 15.9% in the context-specific environment. However, the wrong-rule condition behaved much more like correct routing in all 48 nonzero-history cases, so the intended manipulation failed. This is exploratory evidence about pooling assumptions, not a clean validation of the proposed update rule.
