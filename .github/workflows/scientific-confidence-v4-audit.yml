@@ -56,11 +56,30 @@ jobs:
           idx = {(r["case_id"], r["arm"]): r for r in trajectories if r["phase"] == "main"}
           ids = sorted({cid for cid, arm in idx})
           deltas = [idx[cid, "versioned_operator"]["mean_loss"] - idx[cid, "active_checklist"]["mean_loss"] for cid in ids]
+          score_index = {(r["case_id"], r["arm"], r["step"]): r for r in scores if r["phase"] == "main"}
+          lineage = {}
+          for arm in manifest["arms"]:
+              first_counts = {}
+              for cid in ids:
+                  steps = [t for t in range(12) if not score_index[cid, arm, t]["active_source_faithful"]]
+                  if steps:
+                      key = str(min(steps))
+                      first_counts[key] = first_counts.get(key, 0) + 1
+              lineage[arm] = {
+                  "first_unfaithful_checkpoint_counts": first_counts,
+                  "faithful_before_reinstatement_then_unfaithful": sum(score_index[cid, arm, 9]["active_source_faithful"] and not score_index[cid, arm, 10]["active_source_faithful"] for cid in ids),
+                  "unfaithful_before_reinstatement_then_faithful": sum(not score_index[cid, arm, 9]["active_source_faithful"] and score_index[cid, arm, 10]["active_source_faithful"] for cid in ids),
+              }
+          clean_ids = [cid for cid in ids if score_index[cid, "active_checklist", 0]["active_source_faithful"] and score_index[cid, "versioned_operator", 0]["active_source_faithful"]]
+          dirty_delta_abs = sum(abs(idx[cid, "versioned_operator"]["mean_loss"] - idx[cid, "active_checklist"]["mean_loss"]) for cid in ids if cid not in clean_ids)
+          lineage["posthoc_selection_caution"] = "Initial correctness is post-treatment. These are descriptive diagnostics, not causal subgroup effects."
+          lineage["both_initially_faithful"] = {"n": len(clean_ids), "mean_paired_loss_difference": statistics.mean(idx[cid, "versioned_operator"]["mean_loss"] - idx[cid, "active_checklist"]["mean_loss"] for cid in clean_ids) if clean_ids else None}
+          lineage["share_absolute_paired_difference_in_initially_unfaithful_trajectories"] = dirty_delta_abs / sum(map(abs, deltas)) if sum(map(abs, deltas)) else 0
           result = {
               "frozen_file_hashes_verified": True,
               "unique_call_and_record_keys_verified": True,
               "calls": len(calls), "planned_calls": manifest["planned_calls"],
-              "no_model_calls_in_audit": True, "arms": arms,
+              "no_model_calls_in_audit": True, "arms": arms, "posthoc_lineage": lineage,
               "primary_case_directions_descriptive": {
                   "operator_better_by_more_than_1e_8": sum(d < -1e-8 for d in deltas),
                   "baseline_better_by_more_than_1e_8": sum(d > 1e-8 for d in deltas),
