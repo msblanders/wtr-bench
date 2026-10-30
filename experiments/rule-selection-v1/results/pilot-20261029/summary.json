@@ -1,0 +1,771 @@
+{
+  "version": "rule-selection-v1.0",
+  "data_origin": "synthetic_selection_experiment",
+  "api_cost_usd": 0,
+  "cells": [
+    {
+      "ecology": "both_shared",
+      "method": "flexible",
+      "mse": 0.02852548829029531,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.028144285472508513,
+        0.02886197252386282
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "method": "tied",
+      "mse": 0.02852548829029531,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.028144285472508513,
+        0.02886197252386282
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "method": "random",
+      "mse": 0.04336255262367708,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.03779894630263827,
+        0.0478930803218732
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "method": "fixed_functional",
+      "mse": 0.02852548829029531,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.028144285472508513,
+        0.02886197252386282
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "method": "regime_informed",
+      "mse": 0.02852548829029531,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.028144285472508513,
+        0.02886197252386282
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "method": "swap_transfer",
+      "mse": 0.02852548829029531,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.028144285472508513,
+        0.02886197252386282
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "method": "swap_programs",
+      "mse": 0.13609183446583437,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.13377587681320927,
+        0.1388210899203488
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "method": "adaptive",
+      "mse": 0.032264689969981795,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.03197719229803273,
+        0.03255145639655029
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "method": "flexible_in_opposite_ecology",
+      "mse": 0.08264465221536707,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.08197954909042947,
+        0.0832527899765104
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "method": "flexible",
+      "mse": 0.0541531695468908,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.053831761776821564,
+        0.05451113457323842
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "method": "tied",
+      "mse": 0.0541531695468908,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.053831761776821564,
+        0.05451113457323842
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "method": "random",
+      "mse": 0.060837590367111324,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.05916440018684187,
+        0.0626731455951731
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "method": "fixed_functional",
+      "mse": 0.08264465221536707,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.08197954909042947,
+        0.0832527899765104
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "method": "regime_informed",
+      "mse": 0.0541531695468908,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.053831761776821564,
+        0.05451113457323842
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "method": "swap_transfer",
+      "mse": 0.0541531695468908,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.053831761776821564,
+        0.05451113457323842
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "method": "swap_programs",
+      "mse": 0.11218186300232276,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.1112623734445356,
+        0.11327246441092254
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "method": "adaptive",
+      "mse": 0.05854078215818576,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.058111093866798164,
+        0.05900423502556268
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "method": "flexible_in_opposite_ecology",
+      "mse": 0.05400173116396555,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.05371590298024344,
+        0.05430115839312927
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "method": "flexible",
+      "mse": 0.040626190175662186,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.040292058268754836,
+        0.04099660472561068
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "method": "tied",
+      "mse": 0.054328981280750276,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.05374427893849276,
+        0.05498613775045791
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "method": "random",
+      "mse": 0.05013107257647009,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.04722286297283604,
+        0.05267928317828504
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "method": "fixed_functional",
+      "mse": 0.05452602469546964,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.05399855882339494,
+        0.0551268713936843
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "method": "regime_informed",
+      "mse": 0.040626190175662186,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.040292058268754836,
+        0.04099660472561068
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "method": "swap_transfer",
+      "mse": 0.06799397539920689,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.06760877664150097,
+        0.06840761477268051
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "method": "swap_programs",
+      "mse": 0.12577531052544794,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.12483448033940177,
+        0.12679301837662432
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "method": "adaptive",
+      "mse": 0.04470050601046568,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.04439432771204569,
+        0.04503805604651801
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "method": "flexible_in_opposite_ecology",
+      "mse": 0.068369202835702,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.0678063580195552,
+        0.0688852608523388
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "method": "flexible",
+      "mse": 0.041823530741655596,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.041407577574196774,
+        0.04224417258411113
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "method": "tied",
+      "mse": 0.05429375217903362,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.05383634609658051,
+        0.054862865448289874
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "method": "random",
+      "mse": 0.053502857663707784,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.05160677889970322,
+        0.05540001750358774
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "method": "fixed_functional",
+      "mse": 0.05611620774096431,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.055513512065509925,
+        0.05671462872037956
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "method": "regime_informed",
+      "mse": 0.041823530741655596,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.041407577574196774,
+        0.04224417258411113
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "method": "swap_transfer",
+      "mse": 0.068369202835702,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.0678063580195552,
+        0.0688852608523388
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "method": "swap_programs",
+      "mse": 0.12422951474866487,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.12283345763828739,
+        0.125876385897351
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "method": "adaptive",
+      "mse": 0.04593393006801991,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.04545652897091148,
+        0.046473439912928224
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "method": "flexible_in_opposite_ecology",
+      "mse": 0.06799397539920689,
+      "replicates": 8,
+      "bootstrap_95ci": [
+        0.06760877664150097,
+        0.06840761477268051
+      ]
+    }
+  ],
+  "contrasts": [
+    {
+      "ecology": "both_shared",
+      "comparison": "tied minus flexible",
+      "mean": 0.0,
+      "bootstrap_95ci": [
+        0.0,
+        0.0
+      ],
+      "run_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "comparison": "random minus flexible",
+      "mean": 0.014837064333381772,
+      "bootstrap_95ci": [
+        0.00955597251354893,
+        0.01926788993949698
+      ],
+      "run_differences": [
+        0.01331337377532657,
+        0.009259087873514725,
+        0.020464799795591352,
+        0.01891404631853167,
+        0.0,
+        0.017745171652205197,
+        0.014892342916929344,
+        0.024107692334955324
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "comparison": "adaptive minus flexible",
+      "mean": 0.003739201679686486,
+      "bootstrap_95ci": [
+        0.0036365560496911587,
+        0.0038750514705198956
+      ],
+      "run_differences": [
+        0.003727273400215697,
+        0.003755816506570725,
+        0.0036480012914566935,
+        0.0034957647385556873,
+        0.004145015807447038,
+        0.003663165126014521,
+        0.003677981931531484,
+        0.003800594635700042
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "comparison": "swap_transfer minus flexible",
+      "mean": 0.0,
+      "bootstrap_95ci": [
+        0.0,
+        0.0
+      ],
+      "run_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "ecology": "both_shared",
+      "comparison": "swap_programs minus flexible",
+      "mean": 0.10756634617553905,
+      "bootstrap_95ci": [
+        0.10497870317740185,
+        0.1106427298159041
+      ],
+      "run_differences": [
+        0.10589725940374181,
+        0.10924460782879769,
+        0.10288502371916296,
+        0.11002430589425162,
+        0.11620852626241773,
+        0.10698575394966675,
+        0.10209696464447997,
+        0.10718832770179387
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "comparison": "tied minus flexible",
+      "mean": 0.0,
+      "bootstrap_95ci": [
+        0.0,
+        0.0
+      ],
+      "run_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "comparison": "random minus flexible",
+      "mean": 0.0066844208202205295,
+      "bootstrap_95ci": [
+        0.005017914145899537,
+        0.008454554098373814
+      ],
+      "run_differences": [
+        0.005034681017641117,
+        0.004851694671103524,
+        0.007836720547014106,
+        0.0026859154499325674,
+        0.006410247213888373,
+        0.006353823261821698,
+        0.011474071009371888,
+        0.008828213390990963
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "comparison": "adaptive minus flexible",
+      "mean": 0.004387612611294967,
+      "bootstrap_95ci": [
+        0.004076284495624341,
+        0.004745855656958093
+      ],
+      "run_differences": [
+        0.0042978250492014605,
+        0.0048280295104433935,
+        0.003650095043016499,
+        0.004031313785486865,
+        0.004316550969850952,
+        0.005353232011332892,
+        0.004126450155592591,
+        0.0044974043654350815
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "comparison": "swap_transfer minus flexible",
+      "mean": 0.0,
+      "bootstrap_95ci": [
+        0.0,
+        0.0
+      ],
+      "run_differences": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "ecology": "both_local",
+      "comparison": "swap_programs minus flexible",
+      "mean": 0.05802869345543196,
+      "bootstrap_95ci": [
+        0.05712244282968873,
+        0.059163952874204985
+      ],
+      "run_differences": [
+        0.05738593271759545,
+        0.056939718335321944,
+        0.058223552774969815,
+        0.05642454672308569,
+        0.0611137651185014,
+        0.056629599722093665,
+        0.0581108475608472,
+        0.05940158469104054
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "comparison": "tied minus flexible",
+      "mean": 0.013702791105088093,
+      "bootstrap_95ci": [
+        0.013265703029856555,
+        0.014220641219780485
+      ],
+      "run_differences": [
+        0.013617510918663318,
+        0.01513149820373108,
+        0.013083887915763377,
+        0.013670599208843719,
+        0.013732507050440143,
+        0.01287012402963588,
+        0.014355852177407702,
+        0.013160349336219533
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "comparison": "random minus flexible",
+      "mean": 0.009504882400807907,
+      "bootstrap_95ci": [
+        0.0067110833262765835,
+        0.012046195594054822
+      ],
+      "run_differences": [
+        0.0016447646377688238,
+        0.009655738595407456,
+        0.00804662833026381,
+        0.010195771096422765,
+        0.011656405380597784,
+        0.006408468881640365,
+        0.014773693148894214,
+        0.013657589135468044
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "comparison": "adaptive minus flexible",
+      "mean": 0.004074315834803496,
+      "bootstrap_95ci": [
+        0.003930057688360349,
+        0.004238150262677958
+      ],
+      "run_differences": [
+        0.004227469630328287,
+        0.00448278223506126,
+        0.0037781446398129914,
+        0.003811631853317232,
+        0.004155468374348263,
+        0.003927187369294864,
+        0.003953237914992788,
+        0.004258604661272279
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "comparison": "swap_transfer minus flexible",
+      "mean": 0.027367785223544702,
+      "bootstrap_95ci": [
+        0.027094677553813926,
+        0.027642089488724673
+      ],
+      "run_differences": [
+        0.027005065239085843,
+        0.028017785591680056,
+        0.026695729985600276,
+        0.02736182874975604,
+        0.0276866300311443,
+        0.02730250510524209,
+        0.027710130820399373,
+        0.027162606265449647
+      ]
+    },
+    {
+      "ecology": "w_shared_a_local",
+      "comparison": "swap_programs minus flexible",
+      "mean": 0.08514912034978574,
+      "bootstrap_95ci": [
+        0.08403680881799018,
+        0.08625334267633664
+      ],
+      "run_differences": [
+        0.08515266215005111,
+        0.08422348113114557,
+        0.08238959351430147,
+        0.08651721695991987,
+        0.08743363440325272,
+        0.08716046232304756,
+        0.08376286572207262,
+        0.084553046594495
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "comparison": "tied minus flexible",
+      "mean": 0.012470221437378023,
+      "bootstrap_95ci": [
+        0.01191083455573584,
+        0.013316037859040557
+      ],
+      "run_differences": [
+        0.012006285276531518,
+        0.012399487217713938,
+        0.0123815047758596,
+        0.011851744377227365,
+        0.015163155173631565,
+        0.011510899726020547,
+        0.01256748805005814,
+        0.011881206901981509
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "comparison": "random minus flexible",
+      "mean": 0.011679326922052188,
+      "bootstrap_95ci": [
+        0.009628535714392547,
+        0.013744998143954827
+      ],
+      "run_differences": [
+        0.008902410719196556,
+        0.014743487712323797,
+        0.015394035900419843,
+        0.007854790962676335,
+        0.015052930906810938,
+        0.012868902605745934,
+        0.00934265150040186,
+        0.009275405068842238
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "comparison": "adaptive minus flexible",
+      "mean": 0.004110399326364309,
+      "bootstrap_95ci": [
+        0.0038223697663991693,
+        0.004456312853603795
+      ],
+      "run_differences": [
+        0.0038984266834924605,
+        0.004232267381721409,
+        0.0036706810799280176,
+        0.0037581971050942853,
+        0.00447172610718604,
+        0.005151118477901763,
+        0.0036922950015981226,
+        0.004008482773992371
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "comparison": "swap_transfer minus flexible",
+      "mean": 0.0265456720940464,
+      "bootstrap_95ci": [
+        0.025981542275982844,
+        0.02722345680914792
+      ],
+      "run_differences": [
+        0.025715731668199147,
+        0.0270001075992991,
+        0.025482756358611358,
+        0.026051684922328337,
+        0.028478275339319785,
+        0.027006840523790585,
+        0.026713222487911484,
+        0.0259167578529114
+      ]
+    },
+    {
+      "ecology": "w_local_a_shared",
+      "comparison": "swap_programs minus flexible",
+      "mean": 0.08240598400700927,
+      "bootstrap_95ci": [
+        0.08103664991618695,
+        0.08400097794230765
+      ],
+      "run_differences": [
+        0.0809050136612178,
+        0.08514880616230874,
+        0.08097080285875677,
+        0.08092786787844944,
+        0.08605284348939402,
+        0.07941153267478268,
+        0.08160776087988386,
+        0.08422324445128082
+      ]
+    }
+  ],
+  "primary_interaction": {
+    "meaning": "tied-minus-flexible advantage: heterogeneous minus homogeneous ecologies",
+    "mean": 0.013086506271233058,
+    "bootstrap_95ci": [
+      0.012651781306313989,
+      0.013585372706892853
+    ],
+    "run_differences": [
+      0.012811898097597418,
+      0.01376549271072251,
+      0.012732696345811489,
+      0.012761171793035542,
+      0.014447831112035854,
+      0.012190511877828214,
+      0.013461670113732921,
+      0.012520778119100521
+    ]
+  },
+  "flexible_exact_rule_recovery": 32,
+  "run_ecology_combinations": 32,
+  "shared_contextual_interpreter_equivalent": true,
+  "elapsed_seconds": 25.0897324510006
+}
