@@ -1,0 +1,194 @@
+{
+  "artifacts": [
+    {
+      "id": 12966676049,
+      "name": "discovery-transfer-seed-0-41031406355",
+      "size_in_bytes": 79145,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12966676049",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12966676049/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:12:07Z",
+      "expires_at": "2027-01-28T09:09:48Z",
+      "updated_at": "2026-10-30T09:12:07Z",
+      "digest": "sha256:d9bd501b5f2a7d2c022f33ffa350cfde505773063ecbfe3ac21286f4c1a458ca",
+      "workflow_run": {
+        "id": 41031406355,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/discovery-transfer-v1-20261030",
+        "head_sha": "19922365aa38de6a762e1423bcf54eef71721abb"
+      }
+    },
+    {
+      "id": 12966597370,
+      "name": "discovery-transfer-seed-7-41031406355",
+      "size_in_bytes": 76898,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12966597370",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12966597370/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:13:03Z",
+      "expires_at": "2027-01-28T09:09:48Z",
+      "updated_at": "2026-10-30T09:13:03Z",
+      "digest": "sha256:7833738f2a98983d32227334046478323f635d948583199044c83b18a567cf6c",
+      "workflow_run": {
+        "id": 41031406355,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/discovery-transfer-v1-20261030",
+        "head_sha": "19922365aa38de6a762e1423bcf54eef71721abb"
+      }
+    },
+    {
+      "id": 12966547542,
+      "name": "discovery-transfer-seed-4-41031406355",
+      "size_in_bytes": 77018,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12966547542",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12966547542/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:13:01Z",
+      "expires_at": "2027-01-28T09:09:48Z",
+      "updated_at": "2026-10-30T09:13:01Z",
+      "digest": "sha256:84cc1d37a4ad4603e99443e06362a073a1ff83ad65e5265f100bab454a27d99d",
+      "workflow_run": {
+        "id": 41031406355,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/discovery-transfer-v1-20261030",
+        "head_sha": "19922365aa38de6a762e1423bcf54eef71721abb"
+      }
+    },
+    {
+      "id": 12966257189,
+      "name": "discovery-transfer-protocol-41031406355",
+      "size_in_bytes": 42159,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12966257189",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12966257189/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:10:52Z",
+      "expires_at": "2027-01-28T09:09:48Z",
+      "updated_at": "2026-10-30T09:10:52Z",
+      "digest": "sha256:e57d21da6603f856e84f63727db9ea69dcf94053b6c7b4e898a2d7e08006824f",
+      "workflow_run": {
+        "id": 41031406355,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/discovery-transfer-v1-20261030",
+        "head_sha": "19922365aa38de6a762e1423bcf54eef71721abb"
+      }
+    },
+    {
+      "id": 12966142218,
+      "name": "discovery-transfer-seed-5-41031406355",
+      "size_in_bytes": 79057,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12966142218",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12966142218/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:12:53Z",
+      "expires_at": "2027-01-28T09:09:48Z",
+      "updated_at": "2026-10-30T09:12:53Z",
+      "digest": "sha256:105509c26ef40d39be02692bfe8575f5d3d654950aca845e6b2e22eba91466a2",
+      "workflow_run": {
+        "id": 41031406355,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/discovery-transfer-v1-20261030",
+        "head_sha": "19922365aa38de6a762e1423bcf54eef71721abb"
+      }
+    },
+    {
+      "id": 12965971950,
+      "name": "discovery-transfer-seed-3-41031406355",
+      "size_in_bytes": 79101,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12965971950",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12965971950/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:12:08Z",
+      "expires_at": "2027-01-28T09:09:48Z",
+      "updated_at": "2026-10-30T09:12:08Z",
+      "digest": "sha256:ba8dea6ab62e9e2d356cb6cde221889041c0a8c6efb20c245a325fe5e53777bd",
+      "workflow_run": {
+        "id": 41031406355,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/discovery-transfer-v1-20261030",
+        "head_sha": "19922365aa38de6a762e1423bcf54eef71721abb"
+      }
+    },
+    {
+      "id": 12965892200,
+      "name": "discovery-transfer-seed-2-41031406355",
+      "size_in_bytes": 78972,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12965892200",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12965892200/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:12:07Z",
+      "expires_at": "2027-01-28T09:09:48Z",
+      "updated_at": "2026-10-30T09:12:07Z",
+      "digest": "sha256:c255dda2f838ef4efa7d60dec40d48e1cce66378ccea8c78f4a527266c5b8e1b",
+      "workflow_run": {
+        "id": 41031406355,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/discovery-transfer-v1-20261030",
+        "head_sha": "19922365aa38de6a762e1423bcf54eef71721abb"
+      }
+    },
+    {
+      "id": 12965702622,
+      "name": "discovery-transfer-results-41031406355",
+      "size_in_bytes": 247479,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12965702622",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12965702622/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:13:50Z",
+      "expires_at": "2027-01-28T09:09:48Z",
+      "updated_at": "2026-10-30T09:13:50Z",
+      "digest": "sha256:2956f9351ca7f4f1fddcd8d1cabb45156377b1c52f65666038012ae603907d8b",
+      "workflow_run": {
+        "id": 41031406355,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/discovery-transfer-v1-20261030",
+        "head_sha": "19922365aa38de6a762e1423bcf54eef71721abb"
+      }
+    },
+    {
+      "id": 12965428253,
+      "name": "discovery-transfer-seed-1-41031406355",
+      "size_in_bytes": 78862,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12965428253",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12965428253/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:12:02Z",
+      "expires_at": "2027-01-28T09:09:48Z",
+      "updated_at": "2026-10-30T09:12:02Z",
+      "digest": "sha256:47fd2363c00737c268347b54bc642e6bb33a863118656c87d2bfeebceccbe882",
+      "workflow_run": {
+        "id": 41031406355,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/discovery-transfer-v1-20261030",
+        "head_sha": "19922365aa38de6a762e1423bcf54eef71721abb"
+      }
+    },
+    {
+      "id": 12965024424,
+      "name": "discovery-transfer-seed-6-41031406355",
+      "size_in_bytes": 79179,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12965024424",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12965024424/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:13:14Z",
+      "expires_at": "2027-01-28T09:09:48Z",
+      "updated_at": "2026-10-30T09:13:14Z",
+      "digest": "sha256:37843bc5ac842b6bab9c97104d93de5db82347c6ec0be794b9f09f1ac019e555",
+      "workflow_run": {
+        "id": 41031406355,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/discovery-transfer-v1-20261030",
+        "head_sha": "19922365aa38de6a762e1423bcf54eef71721abb"
+      }
+    }
+  ]
+}

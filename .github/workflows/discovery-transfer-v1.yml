@@ -1,0 +1,106 @@
+name: discovery-transfer-v1
+
+on:
+  push:
+    branches: [experiment/discovery-transfer-v1, run/discovery-transfer-v1-20261030]
+  pull_request:
+    paths:
+      - experiments/discovery-transfer-v1/**
+      - tests/test_discovery_transfer.py
+      - .github/workflows/discovery-transfer-v1.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: discovery-transfer-v1-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: experiments/discovery-transfer-v1/requirements.txt
+      - run: python -m pip install -r experiments/discovery-transfer-v1/requirements.txt
+      - name: Fetch and verify independent source
+        run: python experiments/discovery-transfer-v1/external.py upstream
+      - name: Validate scientific invariants
+        env:
+          DISCOVERY_UPSTREAM: upstream
+        run: python -m unittest discover -s tests -p test_discovery_transfer.py -v
+      - name: Freeze source, protocol and independent implementation
+        run: python experiments/discovery-transfer-v1/experiment.py freeze --upstream upstream --out frozen
+      - uses: actions/upload-artifact@v4
+        with:
+          name: discovery-transfer-protocol-${{ github.run_id }}
+          path: frozen/
+
+  select:
+    needs: validate
+    if: github.event.head_commit.message == 'Run discovery-transfer-v1 pilot once'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        seed: [0, 1, 2, 3, 4, 5, 6, 7]
+    env:
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: discovery-transfer-protocol-${{ github.run_id }}
+          path: frozen
+      - run: python -m pip install -r frozen/requirements.txt
+      - name: Select, train and evaluate frozen procedures
+        run: |
+          if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
+            echo 'Inspect existing artifacts before launching a new experiment.'
+            exit 1
+          fi
+          python frozen/experiment.py run --seed ${{ matrix.seed }} --out runs/seed-${{ matrix.seed }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: discovery-transfer-seed-${{ matrix.seed }}-${{ github.run_id }}
+          path: runs/seed-${{ matrix.seed }}/
+          if-no-files-found: warn
+
+  aggregate:
+    needs: [validate, select]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: discovery-transfer-protocol-${{ github.run_id }}
+          path: frozen
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: discovery-transfer-seed-*-${{ github.run_id }}
+          path: collected
+      - run: python -m pip install -r frozen/requirements.txt
+      - name: Analyze all eight independent runs
+        run: python frozen/experiment.py aggregate --inputs collected --out final
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: discovery-transfer-results-${{ github.run_id }}
+          path: final/
+          if-no-files-found: warn

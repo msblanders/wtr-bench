@@ -1,0 +1,132 @@
+{
+  "version": "discovery-transfer-v1.0",
+  "config": {
+    "replicates": 8,
+    "generations": 512,
+    "population": 32,
+    "elites": 8,
+    "batch_size": 64,
+    "max_history": 24,
+    "validation_lifetimes": 256,
+    "evaluation_lifetimes": 512,
+    "diagnostic_lifetimes": 256,
+    "test_lengths": [
+      4,
+      12,
+      24,
+      48
+    ],
+    "primary_lengths": [
+      4,
+      12,
+      24
+    ],
+    "checkpoints": [
+      0,
+      128,
+      512
+    ],
+    "initial_sd": 0.5,
+    "mean_rate": 0.3,
+    "sd_rate": 0.15,
+    "min_sd": 0.05,
+    "max_sd": 2,
+    "adam_lr": 0.003,
+    "gradient_clip": 1
+  },
+  "config_sha256": "cbe2f65903fcb6c9dbbd29b46603be44da3c7b7443116374f613dfcd40ecfe89",
+  "source_hashes": {
+    "experiment.py": "857dd8441fa583f76559d0f569e2e8faebd49c61b84b9495c44ea9fc2f770542",
+    "models.py": "028bbc4c8809fb557c01c1a7395e40a44edfff6295a68bd85444c1b59a79d735",
+    "worlds.py": "35f22ac049bb39fd93832aaae9b9c802a9e2055e33802246b2cbe3caf698230c",
+    "external.py": "cd078b7f4f0a9421dca432acb34b8bed6e72205f83829ebf8bc93fe6a9366cb1",
+    "requirements.txt": "9a5f47d3fb24e9bdcb07e24835ab718036f6ef2a4a07a369bdd8e3d102bf583a",
+    "README.md": "38d807c783776fed5e79a8c1e938edceb1be73a19e20bbe72e1d63c380b3f3e3"
+  },
+  "external_commit": "8d7f9946b3cc4ff1d7fae7a1a7a149499c35dede",
+  "external_sha256": {
+    "games.py": "1fcb6e25de7bfea5fa44ddfbeced6a482b75ffeaee97947241c62a58476ca653",
+    "agents.py": "2b387b6a407177566a8783da2875f0243be4cfed9c51c21e9e3b0ec87fa63833",
+    "utils.py": "8c52b713a428c15a0ce1fb9fd46e0ee5451633ad7a3eddc5dbafb91ebbfec0fa"
+  },
+  "python": "3.11.17",
+  "numpy": "1.26.4",
+  "torch": "2.5.1+cpu",
+  "github_sha": "19922365aa38de6a762e1423bcf54eef71721abb",
+  "api_cost_usd": 0,
+  "status": "frozen before study selection and holdout evaluation",
+  "seed_plan": [
+    {
+      "initialization": 121000000,
+      "training": 122000000,
+      "validation": 123000000,
+      "evolution": 124000000,
+      "random_search": 125000000,
+      "evaluation": 126000000,
+      "diagnostics": 127000000
+    },
+    {
+      "initialization": 121000001,
+      "training": 122000001,
+      "validation": 123000001,
+      "evolution": 124000001,
+      "random_search": 125000001,
+      "evaluation": 126001000,
+      "diagnostics": 127000001
+    },
+    {
+      "initialization": 121000002,
+      "training": 122000002,
+      "validation": 123000002,
+      "evolution": 124000002,
+      "random_search": 125000002,
+      "evaluation": 126002000,
+      "diagnostics": 127000002
+    },
+    {
+      "initialization": 121000003,
+      "training": 122000003,
+      "validation": 123000003,
+      "evolution": 124000003,
+      "random_search": 125000003,
+      "evaluation": 126003000,
+      "diagnostics": 127000003
+    },
+    {
+      "initialization": 121000004,
+      "training": 122000004,
+      "validation": 123000004,
+      "evolution": 124000004,
+      "random_search": 125000004,
+      "evaluation": 126004000,
+      "diagnostics": 127000004
+    },
+    {
+      "initialization": 121000005,
+      "training": 122000005,
+      "validation": 123000005,
+      "evolution": 124000005,
+      "random_search": 125000005,
+      "evaluation": 126005000,
+      "diagnostics": 127000005
+    },
+    {
+      "initialization": 121000006,
+      "training": 122000006,
+      "validation": 123000006,
+      "evolution": 124000006,
+      "random_search": 125000006,
+      "evaluation": 126006000,
+      "diagnostics": 127000006
+    },
+    {
+      "initialization": 121000007,
+      "training": 122000007,
+      "validation": 123000007,
+      "evolution": 124000007,
+      "random_search": 125000007,
+      "evaluation": 126007000,
+      "diagnostics": 127000007
+    }
+  ]
+}
