@@ -1,0 +1,62 @@
+name: scientific-confidence-v7
+on:
+  push:
+    branches: [run/scientific-confidence-v7-20261030]
+permissions:
+  contents: read
+concurrency:
+  group: scientific-confidence-v7
+  cancel-in-progress: false
+jobs:
+  experiment:
+    if: github.event.head_commit.message == 'Run scientific-confidence-v7 transfer pilot once within five dollars'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate scientific-confidence and budget boundaries
+        run: python -m unittest discover -s tests -p 'test_scientific_confidence*.py' -v
+      - name: Freeze protocol and fixed external sample
+        run: python experiments/scientific-confidence-v7/experiment.py generate --out runs/scientific-confidence-v7
+      - name: Development transport check within shared five-dollar ceiling
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
+            echo 'Refusing repeated paid collection.'
+            exit 1
+          fi
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo 'Configured API secret unavailable.'
+            exit 1
+          fi
+          python runs/scientific-confidence-v7/experiment.py collect --out runs/scientific-confidence-v7 --phase development --budget-usd 5
+      - name: Main sample with same budget and no retries
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+        run: python runs/scientific-confidence-v7/experiment.py collect --out runs/scientific-confidence-v7 --phase main --budget-usd 5
+      - name: Exact offline integrity audit
+        run: python runs/scientific-confidence-v7/experiment.py audit --out runs/scientific-confidence-v7
+      - name: Preserve partial reports
+        if: always()
+        run: |
+          if [ -f runs/scientific-confidence-v7/manifest.json ]; then
+            python runs/scientific-confidence-v7/experiment.py report --out runs/scientific-confidence-v7
+          fi
+      - name: Encrypt complete records before upload
+        if: always()
+        run: |
+          if [ -d runs/scientific-confidence-v7 ]; then
+            python -c "import shutil; shutil.make_archive('raw-v7', 'zip', 'runs/scientific-confidence-v7')"
+            python experiments/scientific-confidence-v7/seal_artifact.py seal --archive raw-v7.zip --key experiments/scientific-confidence-v7/public_key.pem --directory sealed-v7
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scientific-confidence-v7-encrypted-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-v7/
+          if-no-files-found: ignore
+          retention-days: 90
