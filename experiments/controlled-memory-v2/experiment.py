@@ -10,6 +10,7 @@ import math
 import os
 import random
 import statistics
+import urllib.error
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -21,12 +22,12 @@ assert spec is not None and spec.loader is not None
 v1 = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(v1)
 
-VERSION = "controlled-memory-v2.1"
+VERSION = "controlled-memory-v2.1.1"
 ARMS = ("functional", "local", "adaptive", "wrong_routing")
 BUDGETS = v1.BUDGETS
 REGIMES = ("shared", "context_specific")
 MODEL = "claude-sonnet-4-6"
-MAX_BUDGET = 24.88  # Leaves room for the $0.114906 spent on the stopped v2.0 smoke run.
+MAX_BUDGET = 24.70  # Includes room for v2.0 smoke cost and conservative reserves for diagnostics.
 SEED_START = 1000
 MEMORY_TOLERANCE = 0.02
 DECISION_AGREEMENT_GATE = 0.90
@@ -141,10 +142,11 @@ def make_request(seed, regime, budget, arm, phase="pilot"):
     schema = object_schema({
         "predictions": object_schema({q["id"]: {"type": "number",
              "description": "Finite probability between 0 and 1 inclusive."} for q in queries}),
-        "calculations": object_schema({d["id"]: object_schema({
+        "calculations": {"type": "array", "items": object_schema({
+            "id": {"type": "string", "description": "Decision ID, each requested ID exactly once."},
             "event_probability": {"type": "number", "description": "Probability of receiving the benefit, between 0 and 1."},
             "expected_net_value": {"type": "number", "description": "Benefit times event_probability minus upfront fee; can be negative."},
-        }) for d in decisions}),
+        })},
         "decisions": object_schema({d["id"]: {"type": "boolean"} for d in decisions})})
     descriptions = {
         "voluntary_delivery": "Commission a voluntary delivery. Receive benefit only if the partner chooses an attempt AND succeeds.",
@@ -204,6 +206,18 @@ def parse_response(text, request):
     obj = json.loads(text, object_pairs_hook=unique)
     if not isinstance(obj, dict) or set(obj) != {"predictions", "calculations", "decisions"}:
         raise ValueError("Incorrect response keys")
+    calculations = obj["calculations"]
+    if not isinstance(calculations, list):
+        raise TypeError("Calculations must be an array")
+    normalized = {}
+    for calculation in calculations:
+        if not isinstance(calculation, dict) or set(calculation) != {"id", "event_probability", "expected_net_value"}:
+            raise ValueError("Incorrect calculation item schema")
+        key = calculation["id"]
+        if not isinstance(key, str) or key in normalized:
+            raise ValueError("Invalid or duplicate calculation ID")
+        normalized[key] = {k: v for k, v in calculation.items() if k != "id"}
+    obj["calculations"] = normalized
     for group in ("predictions", "calculations", "decisions"):
         if not isinstance(obj[group], dict) or set(obj[group]) != set(request["expected_output"][group]):
             raise ValueError("IDs do not match")
@@ -341,6 +355,20 @@ def collect(out, budget=MAX_BUDGET, sender=v1.send):
                                              "cumulative_reserve_usd": reserved})
         try:
             raw = sender(request["body"])
+        except urllib.error.HTTPError as exc:
+            try:
+                error = json.loads(exc.read(8192)).get("error", {})
+            except (OSError, ValueError, UnicodeError):
+                error = {"type": "non_json_error", "message": "Provider returned a non-JSON error"}
+            message = str(error.get("message", ""))
+            if key := os.environ.get("ANTHROPIC_API_KEY"):
+                message = message.replace(key, "[REDACTED]")
+            status = {"status": "http_error_no_retry", "id": request["id"],
+                      "http_status": exc.code, "error_type": error.get("type"),
+                      "message": message[:1600], "spent_usd": spent, "reserved_usd": reserved}
+            write_json(out / "collection-status.json", status)
+            print(json.dumps(status), flush=True)
+            raise RuntimeError("Provider rejected request; safe error details saved; no retry") from None
         except (OSError, ValueError, http.client.HTTPException) as exc:
             write_json(out / "collection-status.json", {"status": "transport_error_no_retry", "id": request["id"],
                 "error_type": type(exc).__name__, "spent_usd": spent, "reserved_usd": reserved})
