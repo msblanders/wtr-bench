@@ -269,10 +269,10 @@ def run(out, seed, protocol):
         if len(hashes) != 1:
             raise ValueError("Unmatched data within ecology")
     evaluation_hashes, results = {}, {}
-    for eco in ECOLOGIES:
+    for eco, prior in ECOLOGIES.items():
         rng = np.random.default_rng(seed_plan(seed, eco, config["widths"][0])["evaluation"])
         obs, family = sequences(rng, config["evaluation_lifetimes"], config["evaluation_length"],
-                               config["hazard"], config["observation_error"], ECOLOGIES[eco])
+                               config["hazard"], config["observation_error"], prior)
         evaluation_hashes[eco] = hashlib.sha256(obs.tobytes()).hexdigest()
         for h in config["widths"]:
             key = f"{eco}-h{h}"
