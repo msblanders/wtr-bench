@@ -1,0 +1,24 @@
+{
+  "version": "controlled-memory-v2.0",
+  "model": "claude-sonnet-4-6",
+  "seeds": 8,
+  "seed_start": 1000,
+  "requests": 264,
+  "smoke_requests": 8,
+  "pilot_requests": 256,
+  "source_hashes": {
+    "experiment.py": "516be44e2020660f8b6e91375262d64e0d23221e7d9c9200d2a7313109f1a273",
+    "world_v1.py": "0842a795e6145445acde9222077c54fae76b3d1093fed6db37329b44ff7ca646",
+    "protocol.md": "f99af902a4a918eb1fa880a976eb7db6cf0c8564dbf2d3100019479d2fe7e4b7"
+  },
+  "requests_sha256": "c7a7bfe6a648afc81d2ab824296a6a75865741c7de2be895b53ffb313d37de6d",
+  "rates": {
+    "input_per_million": 3.0,
+    "output_per_million": 15.0
+  },
+  "price_checked": "2026-10-29",
+  "price_source": "https://platform.claude.com/docs/en/about-claude/pricing",
+  "budget_limit_usd": 25.0,
+  "planning_reserve_usd": 15.461706000000023,
+  "status": "frozen exploratory protocol; no API observations"
+}

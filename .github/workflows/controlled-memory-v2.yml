@@ -1,0 +1,62 @@
+name: controlled-memory-v2.2
+
+on:
+  push:
+    branches: [run/controlled-memory-v2-2-20261030]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Offline generation or pilot collection (256 calls; $24.40 remaining guard)
+        type: choice
+        options: [offline, collect]
+        default: offline
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: controlled-memory-v2
+  cancel-in-progress: false
+
+jobs:
+  pilot:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Run controlled-memory-v2.2 pilot once'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate offline
+        run: python -m unittest discover -s tests -p 'test_*learning.py' -v && python -m unittest discover -s tests -p test_controlled_memory.py -v
+      - name: Freeze controlled-memory pilot
+        run: python experiments/controlled-memory-v2/experiment.py generate --out runs/controlled-memory-v2 --seeds 8
+      - name: Collect 256 pilot requests with code action scoring
+        if: inputs.mode == 'collect' || github.event.head_commit.message == 'Run controlled-memory-v2.2 pilot once'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
+            echo 'Paid collection cannot be rerun automatically; inspect the earlier artifact.'
+            exit 1
+          fi
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo 'API secret missing; no calls made.'
+            exit 1
+          fi
+          python runs/controlled-memory-v2/experiment.py collect --out runs/controlled-memory-v2 --budget-usd 24.40
+      - name: Score available responses
+        if: always()
+        run: |
+          if [ -f runs/controlled-memory-v2/collection-started.json ]; then
+            python runs/controlled-memory-v2/experiment.py report --out runs/controlled-memory-v2
+          fi
+      - name: Preserve frozen inputs and observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: controlled-memory-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/controlled-memory-v2/
+          if-no-files-found: warn
