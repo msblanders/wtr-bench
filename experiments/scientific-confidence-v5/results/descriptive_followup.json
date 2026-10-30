@@ -1,0 +1,32 @@
+{
+  "active_checklist": {
+    "new_reinstatement_errors": 10,
+    "post_error_patterns": {
+      "0000": 53,
+      "1111": 11
+    },
+    "numerical_error_cases_after_reinstatement": 6,
+    "new_error_cases_with_later_probability_error_above_half_pp": 5,
+    "new_reinstatement_problem_flags": {
+      "missing_active_unit": 10,
+      "wrong_active_revision": 3,
+      "wrong_active_values": 3,
+      "wrong_prediction_mapping": 1,
+      "wrong_scope": 1,
+      "extra_active_unit": 6
+    }
+  },
+  "versioned_checklist": {
+    "new_reinstatement_errors": 0,
+    "post_error_patterns": {
+      "0000": 63,
+      "1111": 1
+    },
+    "numerical_error_cases_after_reinstatement": 1,
+    "new_error_cases_with_later_probability_error_above_half_pp": 0,
+    "new_reinstatement_problem_flags": {}
+  },
+  "post_probability_loss_reduction_percent": 64.29495076893639,
+  "main_cost_increase_percent": 42.50040055805711,
+  "shared_first_error_cases": 1
+}

@@ -1,0 +1,22 @@
+{
+  "analysis_type": "descriptive follow-up; does not alter prospective scoring",
+  "active_only_nonempty_index_outputs": 166,
+  "active_only_cases_with_nonempty_index": 70,
+  "active_only_nonempty_index_by_event": {
+    "withdrawal": 31,
+    "scope_correction": 14,
+    "stale_withdrawn": 21,
+    "new_study": 18,
+    "partial_withdrawal": 51,
+    "second_withdrawal": 13,
+    "review": 8,
+    "reinstatement": 6,
+    "post_reinstatement_correction": 4
+  },
+  "cache_read_input_tokens": 0,
+  "cache_creation_input_tokens": 0,
+  "original_summary_and_audit_match_logs": true,
+  "compact_new_study_prediction_mapping_error_trajectories": 2,
+  "compact_vs_history_material_probability_disadvantage_trajectories": 1,
+  "all_cases_retained": true
+}

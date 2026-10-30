@@ -1,0 +1,136 @@
+{
+  "version": "scientific-confidence-v1",
+  "n_cases": 32,
+  "arms": {
+    "generic_review": {
+      "valid": 32,
+      "invalid": 0,
+      "missing": 0,
+      "preparation_truncated": 26,
+      "posterior_regret": 0.005158174436913115,
+      "future_regret": 0.004111785683252135,
+      "realized_hypothesis_brier": 0.28526641598056596,
+      "realized_future_brier": 0.14288724875,
+      "by_stratum": {
+        "replications": {
+          "n": 8,
+          "posterior_regret": 4.247051722891282e-05
+        },
+        "design_contrast": {
+          "n": 8,
+          "posterior_regret": 2.581644700597347e-06
+        },
+        "unequal_precision": {
+          "n": 8,
+          "posterior_regret": 6.6449498378645275e-06
+        },
+        "duplicate_reports": {
+          "n": 8,
+          "posterior_regret": 0.020581000635885086
+        }
+      }
+    },
+    "calibration_checklist": {
+      "valid": 32,
+      "invalid": 0,
+      "missing": 0,
+      "preparation_truncated": 31,
+      "posterior_regret": 1.3733951375343174e-05,
+      "future_regret": 0.00012884154040709796,
+      "realized_hypothesis_brier": 0.279965486761072,
+      "realized_future_brier": 0.1301066915625,
+      "by_stratum": {
+        "replications": {
+          "n": 8,
+          "posterior_regret": 1.0645695023209876e-07
+        },
+        "design_contrast": {
+          "n": 8,
+          "posterior_regret": 1.993624113294325e-05
+        },
+        "unequal_precision": {
+          "n": 8,
+          "posterior_regret": 6.652404557321891e-06
+        },
+        "duplicate_reports": {
+          "n": 8,
+          "posterior_regret": 2.8240702860875455e-05
+        }
+      }
+    },
+    "contrastive_audit": {
+      "valid": 30,
+      "invalid": 2,
+      "missing": 0,
+      "preparation_truncated": 32,
+      "posterior_regret": 0.0020872619311993646,
+      "future_regret": 0.001973487744600756,
+      "realized_hypothesis_brier": 0.25973641546651893,
+      "realized_future_brier": 0.12813921,
+      "by_stratum": {
+        "replications": {
+          "n": 7,
+          "posterior_regret": 8.512683478069421e-08
+        },
+        "design_contrast": {
+          "n": 8,
+          "posterior_regret": 5.452617627426159e-05
+        },
+        "unequal_precision": {
+          "n": 8,
+          "posterior_regret": 0.00776819862313759
+        },
+        "duplicate_reports": {
+          "n": 7,
+          "posterior_regret": 5.066236120380429e-06
+        }
+      }
+    },
+    "oracle_readout": {
+      "valid": 32,
+      "invalid": 0,
+      "missing": 0,
+      "preparation_truncated": 0,
+      "posterior_regret": 2.82550412712366e-10,
+      "future_regret": 1.1491718841211505e-05,
+      "realized_hypothesis_brier": 0.2795111244670379,
+      "realized_future_brier": 0.1300363275905,
+      "by_stratum": {
+        "replications": {
+          "n": 8,
+          "posterior_regret": 6.352013711504618e-14
+        },
+        "design_contrast": {
+          "n": 8,
+          "posterior_regret": 5.923772815455385e-16
+        },
+        "unequal_precision": {
+          "n": 8,
+          "posterior_regret": 4.575127416475536e-10
+        },
+        "duplicate_reports": {
+          "n": 8,
+          "posterior_regret": 6.72624796687514e-10
+        }
+      }
+    }
+  },
+  "primary_paired_comparison": {
+    "n_paired_cases": 30,
+    "mean_delta": 0.0020726209895484803,
+    "bootstrap_95_percentile_interval": [
+      -1.3686207460287197e-05,
+      0.00621173846867511
+    ]
+  },
+  "calls": 224,
+  "planned_calls": 224,
+  "recorded_cost_usd": 4.038996000000002,
+  "unknown_cost_calls": 0,
+  "cost_by_arm_usd": {
+    "generic_review": 1.191807,
+    "calibration_checklist": 1.1955929999999995,
+    "contrastive_audit": 1.2331320000000001,
+    "oracle_readout": 0.41846400000000006
+  }
+}

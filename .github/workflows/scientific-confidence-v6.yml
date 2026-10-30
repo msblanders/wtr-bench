@@ -1,0 +1,75 @@
+name: scientific-confidence-v6
+on:
+  push:
+    branches: [run/scientific-confidence-v6-20261030]
+permissions:
+  contents: read
+concurrency:
+  group: scientific-confidence-v6
+  cancel-in-progress: false
+jobs:
+  experiment:
+    if: github.event.head_commit.message == 'Run scientific-confidence-v6 compact-index test once'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate numerical, collection and encryption boundaries
+        run: python -m unittest discover -s tests -p 'test_scientific_confidence*.py' -v
+      - name: Freeze all development and main cases
+        run: python experiments/scientific-confidence-v6/experiment.py generate --out runs/scientific-confidence-v6
+      - name: Run development transport check
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
+            echo 'Refusing repeated paid collection.'
+            exit 1
+          fi
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo 'Configured API secret is unavailable.'
+            exit 1
+          fi
+          python runs/scientific-confidence-v6/experiment.py collect --out runs/scientific-confidence-v6 --phase development --budget-usd 150
+      - name: Evaluate frozen main cases with shared spending guard
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+        run: python runs/scientific-confidence-v6/experiment.py collect --out runs/scientific-confidence-v6 --phase main --budget-usd 150
+      - name: Score available outputs
+        if: always()
+        run: |
+          if [ -f runs/scientific-confidence-v6/manifest.json ]; then
+            python runs/scientific-confidence-v6/experiment.py report --out runs/scientific-confidence-v6
+            cat runs/scientific-confidence-v6/RESULTS.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Exact offline integrity audit
+        if: success()
+        run: python runs/scientific-confidence-v6/audit_saved_run.py --out runs/scientific-confidence-v6
+      - name: Encrypt raw records for artifact transport
+        if: always()
+        run: |
+          if [ -d runs/scientific-confidence-v6 ]; then
+            python -c "import shutil; shutil.make_archive('raw-v6', 'zip', 'runs/scientific-confidence-v6')"
+            python experiments/scientific-confidence-v6/seal_artifact.py seal --archive raw-v6.zip --key experiments/scientific-confidence-v6/public_key.pem --directory sealed-v6
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scientific-confidence-v6-encrypted-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-v6/
+          if-no-files-found: ignore
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scientific-confidence-v6-aggregate-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            runs/scientific-confidence-v6/summary.json
+            runs/scientific-confidence-v6/RESULTS.md
+            runs/scientific-confidence-v6/integrity_audit.json
+          if-no-files-found: ignore
+          retention-days: 90
+
