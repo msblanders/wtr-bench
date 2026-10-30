@@ -1,0 +1,631 @@
+{
+  "analysis_status": "Exploratory post hoc JSON-object extraction, not the frozen primary analysis",
+  "run_id": 40969709564,
+  "model": "claude-sonnet-4-6",
+  "cost_usd": 3.5111969999999966,
+  "source_sha256": "0842a795e6145445acde9222077c54fae76b3d1093fed6db37329b44ff7ca646",
+  "requests_sha256": "a28acac7eeffb1087581d6cb4cdc1d669f82bd4dcc6396e9acc8f91dba5a34e8",
+  "archive_sha256": "1bff0a24808ff56e04ae5a60be913dce7e70fa8384935150458a6e4969034290",
+  "responses": 256,
+  "strict_valid": 109,
+  "extracted_valid": 256,
+  "method": "One complete schema-valid object per response; all original probabilities preserved. No retries or model calls.",
+  "cells": [
+    {
+      "regime": "shared",
+      "budget": 0,
+      "arm": "general",
+      "strict_valid": 8,
+      "all": 0.07656855942528171,
+      "transfer_choice": 0.0646415726911791,
+      "seen_choice": 0.0646415726911791,
+      "execution": 0.0884955461593843
+    },
+    {
+      "regime": "shared",
+      "budget": 0,
+      "arm": "structured",
+      "strict_valid": 8,
+      "all": 0.07656855942528171,
+      "transfer_choice": 0.0646415726911791,
+      "seen_choice": 0.0646415726911791,
+      "execution": 0.0884955461593843
+    },
+    {
+      "regime": "shared",
+      "budget": 0,
+      "arm": "functional",
+      "strict_valid": 8,
+      "all": 0.07656855942528171,
+      "transfer_choice": 0.0646415726911791,
+      "seen_choice": 0.0646415726911791,
+      "execution": 0.0884955461593843
+    },
+    {
+      "regime": "shared",
+      "budget": 0,
+      "arm": "wrong_routing",
+      "strict_valid": 8,
+      "all": 0.07656855942528171,
+      "transfer_choice": 0.0646415726911791,
+      "seen_choice": 0.0646415726911791,
+      "execution": 0.0884955461593843
+    },
+    {
+      "regime": "shared",
+      "budget": 2,
+      "arm": "general",
+      "strict_valid": 8,
+      "all": 0.0751904908029252,
+      "transfer_choice": 0.06009966417006268,
+      "seen_choice": 0.09319235582485437,
+      "execution": 0.06821952299925993
+    },
+    {
+      "regime": "shared",
+      "budget": 2,
+      "arm": "structured",
+      "strict_valid": 1,
+      "all": 0.06652311239453414,
+      "transfer_choice": 0.049798221496980016,
+      "seen_choice": 0.08598985062236368,
+      "execution": 0.05912025054183248
+    },
+    {
+      "regime": "shared",
+      "budget": 2,
+      "arm": "functional",
+      "strict_valid": 7,
+      "all": 0.05424650958683712,
+      "transfer_choice": 0.0434705328035838,
+      "seen_choice": 0.04511941846239083,
+      "execution": 0.06392322926421909
+    },
+    {
+      "regime": "shared",
+      "budget": 2,
+      "arm": "wrong_routing",
+      "strict_valid": 7,
+      "all": 0.05096561277474592,
+      "transfer_choice": 0.03981984235218499,
+      "seen_choice": 0.03981984235218499,
+      "execution": 0.06211138319730686
+    },
+    {
+      "regime": "shared",
+      "budget": 8,
+      "arm": "general",
+      "strict_valid": 0,
+      "all": 0.04219906492745601,
+      "transfer_choice": 0.03157862015804347,
+      "seen_choice": 0.060672717068090805,
+      "execution": 0.033423445090170326
+    },
+    {
+      "regime": "shared",
+      "budget": 8,
+      "arm": "structured",
+      "strict_valid": 0,
+      "all": 0.04078251167040234,
+      "transfer_choice": 0.03741639292879595,
+      "seen_choice": 0.05405899699952743,
+      "execution": 0.03305356103152107
+    },
+    {
+      "regime": "shared",
+      "budget": 8,
+      "arm": "functional",
+      "strict_valid": 0,
+      "all": 0.027159333334903737,
+      "transfer_choice": 0.033883153866560725,
+      "seen_choice": 0.033883153866560725,
+      "execution": 0.02043551280324675
+    },
+    {
+      "regime": "shared",
+      "budget": 8,
+      "arm": "wrong_routing",
+      "strict_valid": 0,
+      "all": 0.021336243106628478,
+      "transfer_choice": 0.025484757620317457,
+      "seen_choice": 0.025484757620317457,
+      "execution": 0.0171877285929395
+    },
+    {
+      "regime": "shared",
+      "budget": 24,
+      "arm": "general",
+      "strict_valid": 0,
+      "all": 0.027264794783151157,
+      "transfer_choice": 0.031184017071545018,
+      "seen_choice": 0.021884448449206083,
+      "execution": 0.02954528490964992
+    },
+    {
+      "regime": "shared",
+      "budget": 24,
+      "arm": "structured",
+      "strict_valid": 0,
+      "all": 0.025709138734376392,
+      "transfer_choice": 0.04991764377925255,
+      "seen_choice": 0.021393937419793643,
+      "execution": 0.020516437929139503
+    },
+    {
+      "regime": "shared",
+      "budget": 24,
+      "arm": "functional",
+      "strict_valid": 0,
+      "all": 0.015226354474812848,
+      "transfer_choice": 0.04174489111770064,
+      "seen_choice": 0.013283377638659222,
+      "execution": 0.0076821601512860015
+    },
+    {
+      "regime": "shared",
+      "budget": 24,
+      "arm": "wrong_routing",
+      "strict_valid": 0,
+      "all": 0.010642291237271227,
+      "transfer_choice": 0.01811096000029773,
+      "seen_choice": 0.01248463249622905,
+      "execution": 0.006924507476957177
+    },
+    {
+      "regime": "context_specific",
+      "budget": 0,
+      "arm": "general",
+      "strict_valid": 8,
+      "all": 0.08487069889834793,
+      "transfer_choice": 0.07905263791513477,
+      "seen_choice": 0.08234245849839993,
+      "execution": 0.0884955461593843
+    },
+    {
+      "regime": "context_specific",
+      "budget": 0,
+      "arm": "structured",
+      "strict_valid": 8,
+      "all": 0.08487069889834793,
+      "transfer_choice": 0.07905263791513477,
+      "seen_choice": 0.08234245849839993,
+      "execution": 0.0884955461593843
+    },
+    {
+      "regime": "context_specific",
+      "budget": 0,
+      "arm": "functional",
+      "strict_valid": 8,
+      "all": 0.08487069889834793,
+      "transfer_choice": 0.07905263791513477,
+      "seen_choice": 0.08234245849839993,
+      "execution": 0.0884955461593843
+    },
+    {
+      "regime": "context_specific",
+      "budget": 0,
+      "arm": "wrong_routing",
+      "strict_valid": 8,
+      "all": 0.08487069889834793,
+      "transfer_choice": 0.07905263791513477,
+      "seen_choice": 0.08234245849839993,
+      "execution": 0.0884955461593843
+    },
+    {
+      "regime": "context_specific",
+      "budget": 2,
+      "arm": "general",
+      "strict_valid": 7,
+      "all": 0.08355520012806916,
+      "transfer_choice": 0.09929780426351155,
+      "seen_choice": 0.1011021632684374,
+      "execution": 0.06660968998934287
+    },
+    {
+      "regime": "context_specific",
+      "budget": 2,
+      "arm": "structured",
+      "strict_valid": 2,
+      "all": 0.07935004819032368,
+      "transfer_choice": 0.1189714561629569,
+      "seen_choice": 0.07986147126524493,
+      "execution": 0.0658019634828318
+    },
+    {
+      "regime": "context_specific",
+      "budget": 2,
+      "arm": "functional",
+      "strict_valid": 7,
+      "all": 0.09211895741633933,
+      "transfer_choice": 0.15175373115236293,
+      "seen_choice": 0.08336325411942755,
+      "execution": 0.07807783503560597
+    },
+    {
+      "regime": "context_specific",
+      "budget": 2,
+      "arm": "wrong_routing",
+      "strict_valid": 6,
+      "all": 0.08362793300169617,
+      "transfer_choice": 0.13507392513223548,
+      "seen_choice": 0.07263228591160473,
+      "execution": 0.07380970035157734
+    },
+    {
+      "regime": "context_specific",
+      "budget": 8,
+      "arm": "general",
+      "strict_valid": 0,
+      "all": 0.05939548036448608,
+      "transfer_choice": 0.11368098757055395,
+      "seen_choice": 0.0694832938259799,
+      "execution": 0.03457510232146757
+    },
+    {
+      "regime": "context_specific",
+      "budget": 8,
+      "arm": "structured",
+      "strict_valid": 0,
+      "all": 0.0587545597999223,
+      "transfer_choice": 0.10374221456188872,
+      "seen_choice": 0.05988407594227484,
+      "execution": 0.04300566411769847
+    },
+    {
+      "regime": "context_specific",
+      "budget": 8,
+      "arm": "functional",
+      "strict_valid": 0,
+      "all": 0.05991997805954214,
+      "transfer_choice": 0.15822346694140405,
+      "seen_choice": 0.06817871676926893,
+      "execution": 0.021646322625770317
+    },
+    {
+      "regime": "context_specific",
+      "budget": 8,
+      "arm": "wrong_routing",
+      "strict_valid": 0,
+      "all": 0.060511922828854266,
+      "transfer_choice": 0.14402732492513376,
+      "seen_choice": 0.07634778288042746,
+      "execution": 0.022116215429045634
+    },
+    {
+      "regime": "context_specific",
+      "budget": 24,
+      "arm": "general",
+      "strict_valid": 0,
+      "all": 0.03210111343311008,
+      "transfer_choice": 0.07947046805155948,
+      "seen_choice": 0.027931193437146867,
+      "execution": 0.019091275224269098
+    },
+    {
+      "regime": "context_specific",
+      "budget": 24,
+      "arm": "structured",
+      "strict_valid": 0,
+      "all": 0.033551584790341114,
+      "transfer_choice": 0.0915758575504065,
+      "seen_choice": 0.02499833963013846,
+      "execution": 0.019912323977121085
+    },
+    {
+      "regime": "context_specific",
+      "budget": 24,
+      "arm": "functional",
+      "strict_valid": 0,
+      "all": 0.04690837749311038,
+      "transfer_choice": 0.16684452243168937,
+      "seen_choice": 0.044755404749372896,
+      "execution": 0.00836497767607571
+    },
+    {
+      "regime": "context_specific",
+      "budget": 24,
+      "arm": "wrong_routing",
+      "strict_valid": 0,
+      "all": 0.0469382977307324,
+      "transfer_choice": 0.1574696629404936,
+      "seen_choice": 0.053669656186921155,
+      "execution": 0.00560693702335283
+    }
+  ],
+  "contrasts": [
+    {
+      "regime": "shared",
+      "comparison": "general minus functional",
+      "mean_advantage": 0.01600738437232622,
+      "exploratory_paired_world_bootstrap_95ci": [
+        0.009270083413244763,
+        0.023137546530529633
+      ],
+      "world_differences": [
+        0.007068340928902385,
+        0.026711168855729217,
+        0.004446669394356881,
+        0.012146578092629694,
+        0.004221689616216377,
+        0.03031570955623662,
+        0.015910109572313143,
+        0.02723880896222546
+      ]
+    },
+    {
+      "regime": "shared",
+      "comparison": "structured minus functional",
+      "mean_advantage": 0.01212752180091972,
+      "exploratory_paired_world_bootstrap_95ci": [
+        0.007041063811505956,
+        0.01818851807798507
+      ],
+      "world_differences": [
+        0.009141938446370554,
+        0.008244586673007419,
+        0.007854312036483305,
+        0.008517575211111392,
+        -0.0004570571628743844,
+        0.02825479416269545,
+        0.016917526824227692,
+        0.01854649821633633
+      ]
+    },
+    {
+      "regime": "shared",
+      "comparison": "wrong_routing minus functional",
+      "mean_advantage": -0.00456268342596936,
+      "exploratory_paired_world_bootstrap_95ci": [
+        -0.006320423628867261,
+        -0.002824384937691029
+      ],
+      "world_differences": [
+        -0.008914972039335459,
+        -0.0036651040210073614,
+        -0.0012539155293518553,
+        -0.0022400285152670008,
+        -0.007166907502798133,
+        -0.0055559034410192325,
+        -0.0027000354821743906,
+        -0.005004600876801445
+      ]
+    },
+    {
+      "regime": "context_specific",
+      "comparison": "general minus functional",
+      "mean_advantage": -0.007965173014442176,
+      "exploratory_paired_world_bootstrap_95ci": [
+        -0.02169429109453194,
+        0.0018273886636287961
+      ],
+      "world_differences": [
+        0.0051996880885078894,
+        -0.005157026010016753,
+        -0.019070308687609692,
+        -0.048657878042153935,
+        0.003399954113761594,
+        -0.003144361517482097,
+        -0.0035326229089656033,
+        0.0072411708484211995
+      ]
+    },
+    {
+      "regime": "context_specific",
+      "comparison": "structured minus functional",
+      "mean_advantage": -0.009097040062801584,
+      "exploratory_paired_world_bootstrap_95ci": [
+        -0.022098883974496757,
+        -0.00044615637372812447
+      ],
+      "world_differences": [
+        -0.009792845858063427,
+        -0.0009905374572634768,
+        -0.00480158930018551,
+        -0.05169994676995437,
+        0.004795812940049424,
+        0.0022412464757688016,
+        -0.0024214825615511276,
+        -0.010106977971212988
+      ]
+    },
+    {
+      "regime": "context_specific",
+      "comparison": "wrong_routing minus functional",
+      "mean_advantage": -0.002623053135903007,
+      "exploratory_paired_world_bootstrap_95ci": [
+        -0.010838768498032949,
+        0.0038769199623758374
+      ],
+      "world_differences": [
+        0.007934049925952952,
+        -0.0028540262412284217,
+        0.007355092694345755,
+        -0.026584837057455776,
+        -0.00020417164914107722,
+        0.0057579070606966,
+        -0.0009611448429239638,
+        -0.011427294977470123
+      ]
+    }
+  ],
+  "interaction": {
+    "shared_minus_context_specific_advantage": 0.021224561863721302,
+    "exploratory_paired_world_bootstrap_95ci": [
+      0.010754762331429914,
+      0.034188183886053033
+    ]
+  },
+  "wrong_rule_adherence_diagnostic": [
+    {
+      "regime": "shared",
+      "responses": 24,
+      "closer_to_functional_than_wrong_reference": 24,
+      "mean_reference_distance": {
+        "functional": 0.001150472181930516,
+        "wrong_routing": 0.11081237266683958
+      }
+    },
+    {
+      "regime": "context_specific",
+      "responses": 24,
+      "closer_to_functional_than_wrong_reference": 24,
+      "mean_reference_distance": {
+        "functional": 0.002623530365906385,
+        "wrong_routing": 0.10484846594543314
+      }
+    }
+  ],
+  "criterion_mse": 0.04,
+  "criterion_results": [
+    {
+      "regime": "shared",
+      "arm": "general",
+      "per_world": [
+        24,
+        null,
+        24,
+        8,
+        8,
+        null,
+        8,
+        24
+      ],
+      "counts": {
+        "24": 3,
+        "not_reached": 2,
+        "8": 3
+      }
+    },
+    {
+      "regime": "shared",
+      "arm": "structured",
+      "per_world": [
+        24,
+        2,
+        24,
+        8,
+        8,
+        24,
+        8,
+        8
+      ],
+      "counts": {
+        "24": 3,
+        "2": 1,
+        "8": 4
+      }
+    },
+    {
+      "regime": "shared",
+      "arm": "functional",
+      "per_world": [
+        24,
+        2,
+        24,
+        8,
+        8,
+        2,
+        8,
+        8
+      ],
+      "counts": {
+        "24": 2,
+        "2": 2,
+        "8": 4
+      }
+    },
+    {
+      "regime": "shared",
+      "arm": "wrong_routing",
+      "per_world": [
+        24,
+        2,
+        8,
+        8,
+        8,
+        2,
+        8,
+        8
+      ],
+      "counts": {
+        "24": 1,
+        "2": 2,
+        "8": 5
+      }
+    },
+    {
+      "regime": "context_specific",
+      "arm": "general",
+      "per_world": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        null
+      ],
+      "counts": {
+        "24": 7,
+        "not_reached": 1
+      }
+    },
+    {
+      "regime": "context_specific",
+      "arm": "structured",
+      "per_world": [
+        24,
+        24,
+        24,
+        8,
+        24,
+        24,
+        24,
+        null
+      ],
+      "counts": {
+        "24": 6,
+        "8": 1,
+        "not_reached": 1
+      }
+    },
+    {
+      "regime": "context_specific",
+      "arm": "functional",
+      "per_world": [
+        24,
+        null,
+        null,
+        null,
+        null,
+        24,
+        8,
+        null
+      ],
+      "counts": {
+        "24": 2,
+        "not_reached": 5,
+        "8": 1
+      }
+    },
+    {
+      "regime": "context_specific",
+      "arm": "wrong_routing",
+      "per_world": [
+        null,
+        null,
+        null,
+        24,
+        24,
+        24,
+        null,
+        null
+      ],
+      "counts": {
+        "not_reached": 5,
+        "24": 3
+      }
+    }
+  ]
+}
