@@ -1,6 +1,6 @@
 """Meaningful boundary and numerical checks for the v2 representation/calculation split."""
-import copy
 import contextlib
+import copy
 import importlib.util
 import io
 import json
