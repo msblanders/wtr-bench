@@ -155,7 +155,7 @@ def make_cases(phase, count):
         originals = sorted(v1.unique_studies(case), key=lambda s: s["study_id"])[:3]
         entries, packets, checkpoints = [], [], []
 
-        def create(sid, source, label, study, revision=1):
+        def create(sid, source, label, study, revision=1, hs=hs):
             row = {k: study[k] for k in ("design", "context", "estimate", "se")}
             row["estimate"] = float(n(row["estimate"]))
             return dict(row, study_id=sid, revision=revision, status="active",
@@ -165,7 +165,8 @@ def make_cases(phase, count):
             return (f"{row['design']} design, context {row['context']}, effect estimate "
                     f"{n(row['estimate'])}, standard error {n(row['se'])}")
 
-        def take(kind, packet):
+        def take(kind, packet, packets=packets, entries=entries, hs=hs,
+                 case=case, checkpoints=checkpoints):
             step = len(packets)
             packets.append({"step": step, "kind": kind, "packet": packet})
             state = {"priors": {h["id"]: h["prior"] for h in hs},
@@ -187,10 +188,10 @@ def make_cases(phase, count):
         alias = labels[0] + " Follow-up"
         entries[0]["identity_refs"] += ["D4", alias]
         forms = [
-            f"Document D4 is titled {alias}. Its methods identify exactly the participants and analysis "
-            f"published in D1. It republishes revision 1 unchanged: {describe(entries[0])}. No new observations.",
-            f"The bulletin D4 ({alias}) reproduces D1's original revision-1 estimate, with no new sample "
-            f"or analysis: {describe(entries[0])}. Both project names refer to the same evidence unit.",
+            (f"Document D4 is titled {alias}. Its methods identify exactly the participants and analysis "
+            f"published in D1. It republishes revision 1 unchanged: {describe(entries[0])}. No new observations."),
+            (f"The bulletin D4 ({alias}) reproduces D1's original revision-1 estimate, with no new sample "
+            f"or analysis: {describe(entries[0])}. Both project names refer to the same evidence unit."),
         ]
         take("alias_duplicate", forms[i % 2])
 
@@ -224,8 +225,8 @@ def make_cases(phase, count):
         for r in entries:
             if r["study_id"] == ids[0]:
                 r["status"] = "withdrawn"
-        take("withdrawal", f"Authoritative notice D8 withdraws ALL revisions of the single evidence "
-             f"unit described in D5, including its earlier D1/D4 reports. Those values are no longer "
+        take("withdrawal", "Authoritative notice D8 withdraws ALL revisions of the single evidence "
+             "unit described in D5, including its earlier D1/D4 reports. Those values are no longer "
              "eligible for inference. No other unit or cohort is withdrawn.")
 
         subrow["status"] = "superseded"
