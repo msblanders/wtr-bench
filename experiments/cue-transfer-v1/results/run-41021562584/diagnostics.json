@@ -1,0 +1,540 @@
+{
+  "shared": {
+    "functional": {
+      "event_contrasts": {
+        "failure_vs_decline": {
+          "mean_prediction_delta": [
+            0.1489292106580251,
+            -0.0518444510325935
+          ],
+          "mean_reference_delta": [
+            0.15521792457217318,
+            -0.05878755643770305
+          ],
+          "mean_delta_mse": 0.0003634640852055749,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": null
+        },
+        "success_vs_failure": {
+          "mean_prediction_delta": [
+            0,
+            0.1034475032138289
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11691341427669634
+          ],
+          "mean_delta_mse": 0.0002174914039227133,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        },
+        "assigned_success_vs_failure": {
+          "mean_prediction_delta": [
+            0,
+            0.1034475032138289
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11691341427669634
+          ],
+          "mean_delta_mse": 0.0002174914039227133,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_prediction_delta": [
+            0,
+            -0.0518444510325935
+          ],
+          "mean_reference_delta": [
+            0,
+            -0.05878755643770305
+          ],
+          "mean_delta_mse": 0.00008364375516057386,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        },
+        "decline_vs_baseline": {
+          "mean_prediction_delta": [
+            -0.07433892912558804,
+            0
+          ],
+          "mean_reference_delta": [
+            -0.07753893919665417,
+            0
+          ],
+          "mean_delta_mse": 0.00008884047188543316,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        }
+      },
+      "context_relabel_mean_abs_change": 0,
+      "checkpoint_reversed_channels": {
+        "0": [
+          0.050047884653048304,
+          0.05662636437878841
+        ],
+        "64": [
+          0.030954700027623013,
+          0.028958310505168127
+        ],
+        "256": [
+          0.0029832750149375816,
+          0.004315850430050437
+        ],
+        "1024": [
+          0.0006975060403211678,
+          0.0006164630618247853
+        ]
+      },
+      "final_canonical_excess": 0.0006627081707851927
+    },
+    "history": {
+      "event_contrasts": {
+        "failure_vs_decline": {
+          "mean_prediction_delta": [
+            0.12961518824158702,
+            -0.05038150382642925
+          ],
+          "mean_reference_delta": [
+            0.15521792457217318,
+            -0.05878755643770305
+          ],
+          "mean_delta_mse": 0.0017297983425788351,
+          "mean_directional_accuracy": 0.999267578125,
+          "mean_abs_change_null_channels": null
+        },
+        "success_vs_failure": {
+          "mean_prediction_delta": [
+            0.0013491474455804564,
+            0.09352445633157913
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11691341427669634
+          ],
+          "mean_delta_mse": 0.0007065597507362526,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.010208546664216556
+        },
+        "assigned_success_vs_failure": {
+          "mean_prediction_delta": [
+            -0.0005451626366266282,
+            0.09769421068085649
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11691341427669634
+          ],
+          "mean_delta_mse": 0.0005943889196187342,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.00853019442911318
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_prediction_delta": [
+            0.0030756289834243944,
+            -0.0495704268978443
+          ],
+          "mean_reference_delta": [
+            0,
+            -0.05878755643770305
+          ],
+          "mean_delta_mse": 0.0002762144290063741,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.007309730021006544
+        },
+        "decline_vs_baseline": {
+          "mean_prediction_delta": [
+            -0.06779092015312926,
+            0.003391943069800618
+          ],
+          "mean_reference_delta": [
+            -0.07753893919665417,
+            0
+          ],
+          "mean_delta_mse": 0.0003728956026584257,
+          "mean_directional_accuracy": 0.999755859375,
+          "mean_abs_change_null_channels": 0.007748284800982219
+        }
+      },
+      "context_relabel_mean_abs_change": 0.027067335067234428,
+      "checkpoint_reversed_channels": {
+        "0": [
+          0.050292273788820674,
+          0.059016927741341596
+        ],
+        "64": [
+          0.04042318735977346,
+          0.018787416810692743
+        ],
+        "256": [
+          0.01853153093393364,
+          0.004799210048834014
+        ],
+        "1024": [
+          0.0036949943829914767,
+          0.002125479979191573
+        ]
+      },
+      "final_canonical_excess": 0.002037046218221675
+    },
+    "wrong_rules": {
+      "event_contrasts": {
+        "failure_vs_decline": {
+          "mean_prediction_delta": [
+            0.10091191658466414,
+            0
+          ],
+          "mean_reference_delta": [
+            0.15521792457217318,
+            -0.05878755643770305
+          ],
+          "mean_delta_mse": 0.004806922466799907,
+          "mean_directional_accuracy": 0.5,
+          "mean_abs_change_null_channels": null
+        },
+        "success_vs_failure": {
+          "mean_prediction_delta": [
+            0,
+            0.08480597535526613
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11691341427669634
+          ],
+          "mean_delta_mse": 0.0010268111941738052,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        },
+        "assigned_success_vs_failure": {
+          "mean_prediction_delta": [
+            0,
+            0.08480597535526613
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11691341427669634
+          ],
+          "mean_delta_mse": 0.0010268111941738052,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_prediction_delta": [
+            0.02100012687697017,
+            -0.02868699436658062
+          ],
+          "mean_reference_delta": [
+            0,
+            -0.05878755643770305
+          ],
+          "mean_delta_mse": 0.001083547301497186,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.02100012687697017
+        },
+        "decline_vs_baseline": {
+          "mean_prediction_delta": [
+            -0.07991178970769397,
+            -0.02868699436658062
+          ],
+          "mean_reference_delta": [
+            -0.07753893919665417,
+            0
+          ],
+          "mean_delta_mse": 0.0007671293215377439,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.02868699436658062
+        }
+      },
+      "context_relabel_mean_abs_change": 0,
+      "checkpoint_reversed_channels": {
+        "0": [
+          0.05023693297963508,
+          0.05666929912885855
+        ],
+        "64": [
+          0.043120598636299086,
+          0.03794884984812646
+        ],
+        "256": [
+          0.016448502636348266,
+          0.013629702217270912
+        ],
+        "1024": [
+          0.01450580414441402,
+          0.01058870690804959
+        ]
+      },
+      "final_canonical_excess": 0.012556031677442
+    }
+  },
+  "context_specific": {
+    "functional": {
+      "event_contrasts": {
+        "failure_vs_decline": {
+          "mean_prediction_delta": [
+            0.061117529519833624,
+            -0.053874316239671316
+          ],
+          "mean_reference_delta": [
+            0,
+            -0.0578761773708064
+          ],
+          "mean_delta_mse": 0.002062903393565678,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.061117529519833624
+        },
+        "success_vs_failure": {
+          "mean_prediction_delta": [
+            0,
+            0.10924507313757204
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11554915963485379
+          ],
+          "mean_delta_mse": 0.00021295763171281596,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        },
+        "assigned_success_vs_failure": {
+          "mean_prediction_delta": [
+            0,
+            0.10924507313757204
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11554915963485379
+          ],
+          "mean_delta_mse": 0.00021295763171281596,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_prediction_delta": [
+            0,
+            -0.053874316239671316
+          ],
+          "mean_reference_delta": [
+            0,
+            -0.0578761773708064
+          ],
+          "mean_delta_mse": 0.00008629306031503138,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        },
+        "decline_vs_baseline": {
+          "mean_prediction_delta": [
+            -0.02989237106521614,
+            0
+          ],
+          "mean_reference_delta": [
+            0,
+            0
+          ],
+          "mean_delta_mse": 0.000510329918345549,
+          "mean_directional_accuracy": null,
+          "mean_abs_change_null_channels": 0.01494618553260807
+        }
+      },
+      "context_relabel_mean_abs_change": 0,
+      "checkpoint_reversed_channels": {
+        "0": [
+          0.005014402469606063,
+          0.06079980519963899
+        ],
+        "64": [
+          0.0020037093062130243,
+          0.028113831257008965
+        ],
+        "256": [
+          0.005836286195174828,
+          0.003986175301432171
+        ],
+        "1024": [
+          0.0067342491624070855,
+          0.0009163809232087296
+        ]
+      },
+      "final_canonical_excess": 0.0038307567832845633
+    },
+    "history": {
+      "event_contrasts": {
+        "failure_vs_decline": {
+          "mean_prediction_delta": [
+            0.05374611726438161,
+            -0.05043068224222225
+          ],
+          "mean_reference_delta": [
+            0,
+            -0.0578761773708064
+          ],
+          "mean_delta_mse": 0.0017675166093700442,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.05374611726438161
+        },
+        "success_vs_failure": {
+          "mean_prediction_delta": [
+            0.0016169646187336184,
+            0.09946418553590775
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11554915963485379
+          ],
+          "mean_delta_mse": 0.00044469320351649155,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.007629647203430068
+        },
+        "assigned_success_vs_failure": {
+          "mean_prediction_delta": [
+            0.00047650544001953676,
+            0.10574776607791136
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11554915963485379
+          ],
+          "mean_delta_mse": 0.000365323801117881,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.006003327878715936
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_prediction_delta": [
+            0.0024785631467239,
+            -0.05350330864166608
+          ],
+          "mean_reference_delta": [
+            0,
+            -0.0578761773708064
+          ],
+          "mean_delta_mse": 0.00018787116161501184,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.005373048545152415
+        },
+        "decline_vs_baseline": {
+          "mean_prediction_delta": [
+            -0.029600616660900414,
+            0.0026327409941586666
+          ],
+          "mean_reference_delta": [
+            0,
+            0
+          ],
+          "mean_delta_mse": 0.0005187281991706934,
+          "mean_directional_accuracy": null,
+          "mean_abs_change_null_channels": 0.017951527908735443
+        }
+      },
+      "context_relabel_mean_abs_change": 0.03071209904131441,
+      "checkpoint_reversed_channels": {
+        "0": [
+          0.0020912258124256046,
+          0.05719559789766777
+        ],
+        "64": [
+          0.0005598246718635275,
+          0.014192649226703389
+        ],
+        "256": [
+          0.002406281348863039,
+          0.0052897754274386435
+        ],
+        "1024": [
+          0.007640414860930708,
+          0.0015054121329038906
+        ]
+      },
+      "final_canonical_excess": 0.004015573132115175
+    },
+    "wrong_rules": {
+      "event_contrasts": {
+        "failure_vs_decline": {
+          "mean_prediction_delta": [
+            0.0375307593785692,
+            0
+          ],
+          "mean_reference_delta": [
+            0,
+            -0.0578761773708064
+          ],
+          "mean_delta_mse": 0.0028969865948015898,
+          "mean_directional_accuracy": 0,
+          "mean_abs_change_null_channels": 0.0375307593785692
+        },
+        "success_vs_failure": {
+          "mean_prediction_delta": [
+            0,
+            0.09691626673520659
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11554915963485379
+          ],
+          "mean_delta_mse": 0.0007006066884232597,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        },
+        "assigned_success_vs_failure": {
+          "mean_prediction_delta": [
+            0,
+            0.09691626673520659
+          ],
+          "mean_reference_delta": [
+            0,
+            0.11554915963485379
+          ],
+          "mean_delta_mse": 0.0007006066884232597,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_prediction_delta": [
+            0.009058908421138767,
+            -0.03152357242652215
+          ],
+          "mean_reference_delta": [
+            0,
+            -0.0578761773708064
+          ],
+          "mean_delta_mse": 0.0007709725468968442,
+          "mean_directional_accuracy": 1,
+          "mean_abs_change_null_channels": 0.009058908421138767
+        },
+        "decline_vs_baseline": {
+          "mean_prediction_delta": [
+            -0.028471850957430433,
+            -0.03152357242652215
+          ],
+          "mean_reference_delta": [
+            0,
+            0
+          ],
+          "mean_delta_mse": 0.0009797304683370378,
+          "mean_directional_accuracy": null,
+          "mean_abs_change_null_channels": 0.029997711691976292
+        }
+      },
+      "context_relabel_mean_abs_change": 0,
+      "checkpoint_reversed_channels": {
+        "0": [
+          0.005827400092592488,
+          0.061435079001716436
+        ],
+        "64": [
+          0.0006745568218589505,
+          0.03810872082977756
+        ],
+        "256": [
+          0.0034902440369812197,
+          0.011545087287774447
+        ],
+        "1024": [
+          0.004244112753197301,
+          0.009421728761932506
+        ]
+      },
+      "final_canonical_excess": 0.006719985666382715
+    }
+  }
+}
