@@ -1,0 +1,236 @@
+{
+  "checkpoints": {
+    "dense": {
+      "0": 0.061410602176152275,
+      "64": 0.006054830697546693,
+      "256": 0.002708624536050581,
+      "1024": 0.0010134411485321923
+    },
+    "routed": {
+      "0": 0.060563291019453194,
+      "64": 0.005605921073713771,
+      "256": 0.0024426651257533085,
+      "1024": 0.001333444457274506
+    },
+    "shared": {
+      "0": 0.059425795449778766,
+      "64": 0.003787605125317608,
+      "256": 0.0024567197125530053,
+      "1024": 0.001488148656014687
+    }
+  },
+  "diagnostics": {
+    "routed": {
+      "validationAlignedHeldoutDoublePreferenceCount": 0,
+      "details": [
+        {
+          "replicate": 0,
+          "assignment": {
+            "stable_rate": 0,
+            "hidden_state": 1
+          },
+          "deficits": {
+            "stable_rate": -0.058046893861603804,
+            "hidden_state": 0.05775394111675561
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 1,
+          "assignment": {
+            "stable_rate": 0,
+            "hidden_state": 1
+          },
+          "deficits": {
+            "stable_rate": -0.021231494876646745,
+            "hidden_state": 0.023890691913924872
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 2,
+          "assignment": {
+            "stable_rate": 0,
+            "hidden_state": 1
+          },
+          "deficits": {
+            "stable_rate": -0.06940440085612395,
+            "hidden_state": 0.07879631731022516
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 3,
+          "assignment": {
+            "stable_rate": 1,
+            "hidden_state": 0
+          },
+          "deficits": {
+            "stable_rate": 0.07568290741545117,
+            "hidden_state": -0.08097040517744392
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 4,
+          "assignment": {
+            "stable_rate": 1,
+            "hidden_state": 0
+          },
+          "deficits": {
+            "stable_rate": 0.08111379791303068,
+            "hidden_state": -0.08012635729402406
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 5,
+          "assignment": {
+            "stable_rate": 1,
+            "hidden_state": 0
+          },
+          "deficits": {
+            "stable_rate": -0.03150186494583551,
+            "hidden_state": 0.03712130483137158
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 6,
+          "assignment": {
+            "stable_rate": 1,
+            "hidden_state": 0
+          },
+          "deficits": {
+            "stable_rate": -0.0474041564391608,
+            "hidden_state": 0.061423448077133055
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 7,
+          "assignment": {
+            "stable_rate": 1,
+            "hidden_state": 0
+          },
+          "deficits": {
+            "stable_rate": -0.07367381920055682,
+            "hidden_state": 0.0918546339608722
+          },
+          "both_positive": false
+        }
+      ],
+      "meanFinalFamilyError": {
+        "stable_rate": 0.0012669318948789136,
+        "hidden_state": 0.0013999570196700987
+      },
+      "meanUniformGateError": 0.018396475267604424
+    },
+    "shared": {
+      "validationAlignedHeldoutDoublePreferenceCount": 0,
+      "details": [
+        {
+          "replicate": 0,
+          "assignment": {
+            "stable_rate": 1,
+            "hidden_state": 0
+          },
+          "deficits": {
+            "stable_rate": -0.0527608217407176,
+            "hidden_state": 0.06695319288590534
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 1,
+          "assignment": {
+            "stable_rate": 0,
+            "hidden_state": 1
+          },
+          "deficits": {
+            "stable_rate": 0.005422076170682133,
+            "hidden_state": -0.006441460290639522
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 2,
+          "assignment": {
+            "stable_rate": 0,
+            "hidden_state": 1
+          },
+          "deficits": {
+            "stable_rate": -0.023548260483390218,
+            "hidden_state": 0.027359911909878104
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 3,
+          "assignment": {
+            "stable_rate": 1,
+            "hidden_state": 0
+          },
+          "deficits": {
+            "stable_rate": -0.021662710120658138,
+            "hidden_state": 0.031191538836353144
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 4,
+          "assignment": {
+            "stable_rate": 1,
+            "hidden_state": 0
+          },
+          "deficits": {
+            "stable_rate": -0.05794836981958521,
+            "hidden_state": 0.07103874100161411
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 5,
+          "assignment": {
+            "stable_rate": 0,
+            "hidden_state": 1
+          },
+          "deficits": {
+            "stable_rate": -0.025110525169476025,
+            "hidden_state": 0.029576429271295904
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 6,
+          "assignment": {
+            "stable_rate": 0,
+            "hidden_state": 1
+          },
+          "deficits": {
+            "stable_rate": 0.0011750542899833516,
+            "hidden_state": -0.004058775643280332
+          },
+          "both_positive": false
+        },
+        {
+          "replicate": 7,
+          "assignment": {
+            "stable_rate": 0,
+            "hidden_state": 1
+          },
+          "deficits": {
+            "stable_rate": -0.03020035336191859,
+            "hidden_state": 0.0425356436901652
+          },
+          "both_positive": false
+        }
+      ],
+      "meanFinalFamilyError": {
+        "stable_rate": 0.0013565486888981791,
+        "hidden_state": 0.001619748623131194
+      },
+      "meanUniformGateError": 0.009953495011061648
+    }
+  }
+}

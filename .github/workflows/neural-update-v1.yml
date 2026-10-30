@@ -1,0 +1,102 @@
+name: neural-update-v1
+
+on:
+  push:
+    branches: [experiment/neural-update-v1, run/neural-update-v1-20261029]
+  pull_request:
+    paths:
+      - experiments/neural-update-v1/**
+      - tests/test_neural_update.py
+      - .github/workflows/neural-update-v1.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-update-v1-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: experiments/neural-update-v1/requirements.txt
+      - run: python -m pip install -r experiments/neural-update-v1/requirements.txt
+      - name: Validate scientific invariants
+        run: python -m unittest discover -s tests -p test_neural_update.py -v
+      - name: Freeze source and protocol
+        run: python experiments/neural-update-v1/experiment.py freeze --out frozen
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neural-update-protocol-${{ github.run_id }}
+          path: frozen/
+
+  train:
+    needs: validate
+    if: github.event.head_commit.message == 'Run neural-update-v1 pilot once'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        seed: [0, 1, 2, 3, 4, 5, 6, 7]
+    env:
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: neural-update-protocol-${{ github.run_id }}
+          path: frozen
+      - run: python -m pip install -r frozen/requirements.txt
+      - name: Train and evaluate paired learners
+        run: |
+          if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
+            echo 'Inspect existing artifacts before launching a new experiment.'
+            exit 1
+          fi
+          python frozen/experiment.py run --seed ${{ matrix.seed }} --out runs/seed-${{ matrix.seed }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neural-update-seed-${{ matrix.seed }}-${{ github.run_id }}
+          path: runs/seed-${{ matrix.seed }}/
+          if-no-files-found: warn
+
+  aggregate:
+    needs: [validate, train]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: neural-update-protocol-${{ github.run_id }}
+          path: frozen
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: neural-update-seed-*-${{ github.run_id }}
+          path: collected
+      - run: python -m pip install -r frozen/requirements.txt
+      - name: Analyze all eight paired runs
+        run: python frozen/experiment.py aggregate --inputs collected --out final
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neural-update-results-${{ github.run_id }}
+          path: final/
+          if-no-files-found: warn
