@@ -1,5 +1,7 @@
 # Scientific confidence v5: identical verified starting records
 
+**Completed:** 1,716 calls, $39.39, no truncation. With identical verified starts, full history reduced post-reinstatement record errors by 15.63 percentage points (paired 95% interval 7.81-25.00). Mean posterior error also fell on the secondary outcome. See [findings](PILOT_FINDINGS.md).
+
 Prospective protocol. Freeze this file, code, all cases and reference states before any
 paid call. V4 suggested a specific reinstatement failure in active-only records, but its
 large probability-loss difference was dominated by an initial extraction error. This
