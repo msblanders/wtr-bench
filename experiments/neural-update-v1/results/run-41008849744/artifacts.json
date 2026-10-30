@@ -1,0 +1,194 @@
+{
+  "artifacts": [
+    {
+      "id": 12956921879,
+      "name": "neural-update-seed-6-41008849744",
+      "size_in_bytes": 87502,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956921879",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956921879/zip",
+      "expired": false,
+      "created_at": "2026-10-30T05:33:44Z",
+      "expires_at": "2027-01-28T05:30:53Z",
+      "updated_at": "2026-10-30T05:33:44Z",
+      "digest": "sha256:b74318aab4d3da14038246377d263ab86b36ace6131382d5c352371ffffe9424",
+      "workflow_run": {
+        "id": 41008849744,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/neural-update-v1-20261029",
+        "head_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c"
+      }
+    },
+    {
+      "id": 12956906855,
+      "name": "neural-update-seed-4-41008849744",
+      "size_in_bytes": 87632,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956906855",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956906855/zip",
+      "expired": false,
+      "created_at": "2026-10-30T05:33:18Z",
+      "expires_at": "2027-01-28T05:30:53Z",
+      "updated_at": "2026-10-30T05:33:18Z",
+      "digest": "sha256:132e8eee5e397e126aa568bcee0e3243e33333b707aee415209023f8a9459f2e",
+      "workflow_run": {
+        "id": 41008849744,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/neural-update-v1-20261029",
+        "head_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c"
+      }
+    },
+    {
+      "id": 12956837063,
+      "name": "neural-update-seed-0-41008849744",
+      "size_in_bytes": 87548,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956837063",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956837063/zip",
+      "expired": false,
+      "created_at": "2026-10-30T05:32:46Z",
+      "expires_at": "2027-01-28T05:30:53Z",
+      "updated_at": "2026-10-30T05:32:46Z",
+      "digest": "sha256:ec2ebad349b0a961f429bc51e73aae08cac4d7baeb40925a80b67e21988782c8",
+      "workflow_run": {
+        "id": 41008849744,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/neural-update-v1-20261029",
+        "head_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c"
+      }
+    },
+    {
+      "id": 12956777194,
+      "name": "neural-update-seed-3-41008849744",
+      "size_in_bytes": 87562,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956777194",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956777194/zip",
+      "expired": false,
+      "created_at": "2026-10-30T05:32:42Z",
+      "expires_at": "2027-01-28T05:30:53Z",
+      "updated_at": "2026-10-30T05:32:42Z",
+      "digest": "sha256:923d48832a5ece1c709e63b8a631544b50aa531cf797c3d5cb46b801ac756f76",
+      "workflow_run": {
+        "id": 41008849744,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/neural-update-v1-20261029",
+        "head_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c"
+      }
+    },
+    {
+      "id": 12956737472,
+      "name": "neural-update-protocol-41008849744",
+      "size_in_bytes": 11080,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956737472",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956737472/zip",
+      "expired": false,
+      "created_at": "2026-10-30T05:31:38Z",
+      "expires_at": "2027-01-28T05:30:53Z",
+      "updated_at": "2026-10-30T05:31:38Z",
+      "digest": "sha256:621fefced8b577b2574658829bf4ab20e4ca4188c38ddfbacc103b093858173b",
+      "workflow_run": {
+        "id": 41008849744,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/neural-update-v1-20261029",
+        "head_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c"
+      }
+    },
+    {
+      "id": 12956611979,
+      "name": "neural-update-seed-2-41008849744",
+      "size_in_bytes": 87590,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956611979",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956611979/zip",
+      "expired": false,
+      "created_at": "2026-10-30T05:32:22Z",
+      "expires_at": "2027-01-28T05:30:53Z",
+      "updated_at": "2026-10-30T05:32:22Z",
+      "digest": "sha256:bd7fb9137cf96edc6a6ae03d77abd5198993ea78fa0b42dded9c5f4983e28bc9",
+      "workflow_run": {
+        "id": 41008849744,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/neural-update-v1-20261029",
+        "head_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c"
+      }
+    },
+    {
+      "id": 12956527614,
+      "name": "neural-update-seed-7-41008849744",
+      "size_in_bytes": 87541,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956527614",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956527614/zip",
+      "expired": false,
+      "created_at": "2026-10-30T05:33:49Z",
+      "expires_at": "2027-01-28T05:30:53Z",
+      "updated_at": "2026-10-30T05:33:49Z",
+      "digest": "sha256:1cf6278262501171b13087029fe511b0c69e201da4261ccf4f9f152eb2370b58",
+      "workflow_run": {
+        "id": 41008849744,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/neural-update-v1-20261029",
+        "head_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c"
+      }
+    },
+    {
+      "id": 12956447828,
+      "name": "neural-update-results-41008849744",
+      "size_in_bytes": 138141,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956447828",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956447828/zip",
+      "expired": false,
+      "created_at": "2026-10-30T05:34:24Z",
+      "expires_at": "2027-01-28T05:30:53Z",
+      "updated_at": "2026-10-30T05:34:24Z",
+      "digest": "sha256:6f1799f8992a52e98c35495a0550b569f7f9661fa668727aaae306fb6a435f16",
+      "workflow_run": {
+        "id": 41008849744,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/neural-update-v1-20261029",
+        "head_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c"
+      }
+    },
+    {
+      "id": 12956367815,
+      "name": "neural-update-seed-1-41008849744",
+      "size_in_bytes": 87556,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956367815",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956367815/zip",
+      "expired": false,
+      "created_at": "2026-10-30T05:32:44Z",
+      "expires_at": "2027-01-28T05:30:53Z",
+      "updated_at": "2026-10-30T05:32:44Z",
+      "digest": "sha256:71a82ff431e6b798541c7472001ad13ca34ea80653a8c7137f5d6a395ec0a155",
+      "workflow_run": {
+        "id": 41008849744,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/neural-update-v1-20261029",
+        "head_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c"
+      }
+    },
+    {
+      "id": 12956169931,
+      "name": "neural-update-seed-5-41008849744",
+      "size_in_bytes": 87491,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956169931",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12956169931/zip",
+      "expired": false,
+      "created_at": "2026-10-30T05:33:53Z",
+      "expires_at": "2027-01-28T05:30:53Z",
+      "updated_at": "2026-10-30T05:33:53Z",
+      "digest": "sha256:571d76fbd7f0edd0e2a77eabdc6b0803b096de7866da796834c243ba37c46654",
+      "workflow_run": {
+        "id": 41008849744,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/neural-update-v1-20261029",
+        "head_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c"
+      }
+    }
+  ]
+}

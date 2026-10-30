@@ -1,0 +1,85 @@
+{
+  "version": "neural-update-v1.0",
+  "replicates": 8,
+  "models": {
+    "dense": {
+      "mean_data_efficiency_excess": 0.003258965460709822,
+      "mean_final_excess": 0.001013441148532192,
+      "mean_final_longer_history_excess": 0.004043163044921458,
+      "resources": {
+        "parameters": 1153,
+        "state_values": 18,
+        "approx_forward_matrix_macs_per_observation": 1044
+      },
+      "mean_training_seconds": 6.783479686125
+    },
+    "routed": {
+      "mean_data_efficiency_excess": 0.0031273435522471953,
+      "mean_final_excess": 0.001333444457274506,
+      "mean_final_longer_history_excess": 0.004505904370531263,
+      "resources": {
+        "parameters": 1156,
+        "state_values": 24,
+        "approx_forward_matrix_macs_per_observation": 1008
+      },
+      "mean_training_seconds": 12.935904498375013
+    },
+    "shared": {
+      "mean_data_efficiency_excess": 0.002577491164628433,
+      "mean_final_excess": 0.0014881486560146867,
+      "mean_final_longer_history_excess": 0.004824882191317258,
+      "resources": {
+        "parameters": 1210,
+        "state_values": 34,
+        "approx_forward_matrix_macs_per_observation": 2142
+      },
+      "mean_training_seconds": 9.030373068374995
+    }
+  },
+  "contrasts": {
+    "shared_minus_routed": {
+      "mean": -0.0005498523876187617,
+      "paired_bootstrap_95ci": [
+        -0.001193314311260123,
+        -0.00004208318748471387
+      ],
+      "run_differences": [
+        -0.0011379860139714977,
+        0.00016870541572212155,
+        0.00027717742920212434,
+        0.000016497198031308665,
+        -0.0023426083982686645,
+        -0.00027127524709535597,
+        -0.00014014743595876103,
+        -0.0009691820486113691
+      ]
+    },
+    "dense_minus_routed": {
+      "mean": 0.00013162190846262675,
+      "paired_bootstrap_95ci": [
+        -0.0006206291672955012,
+        0.000754928868046794
+      ],
+      "run_differences": [
+        -0.00035912587589875594,
+        0.0005771723045684936,
+        0.0009768160069007878,
+        0.0006372857563208024,
+        -0.0019876672759824563,
+        0.001359119657425948,
+        0.0003440241460941772,
+        -0.0004946494517279829
+      ]
+    }
+  },
+  "primary_contrast": "shared_minus_routed",
+  "positive_difference_favors": "routed",
+  "api_cost_usd": 0,
+  "config_sha256": "f13c9bc7c711ede0eb3174f25791bf5d36c2284738f352ba11e978a6874007bd",
+  "source_hashes": {
+    "experiment.py": "a43aae1a272b45e94c82c2e7028a3f55c219a1f7a877e29a3cc650982c4fc779",
+    "protocol.md": "ad79ecff2fc45597048b74326eee545cc231a8b0c4c20e695a28583a92bc1d65",
+    "requirements.txt": "44b491d7cff080902d49f9674bb0b31aa4862f48d8fec84e83ed95a77ff6ce54"
+  },
+  "interpretation": "Learned recurrent update functions on two temporal inference problems; no claim of necessary physical modules or evolutionary-optimizer superiority."
+}

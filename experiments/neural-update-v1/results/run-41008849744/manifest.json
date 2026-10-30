@@ -1,0 +1,92 @@
+{
+  "version": "neural-update-v1.0",
+  "config": {
+    "replicates": 8,
+    "updates": 1024,
+    "batch_size": 64,
+    "train_length": 32,
+    "evaluation_length": 64,
+    "evaluation_lifetimes": 1024,
+    "validation_lifetimes": 512,
+    "checkpoints": [
+      0,
+      64,
+      256,
+      1024
+    ],
+    "learning_rate": 0.003,
+    "hazard": 0.08,
+    "observation_error": 0.15,
+    "clip_norm": 1
+  },
+  "source_hashes": {
+    "experiment.py": "a43aae1a272b45e94c82c2e7028a3f55c219a1f7a877e29a3cc650982c4fc779",
+    "protocol.md": "ad79ecff2fc45597048b74326eee545cc231a8b0c4c20e695a28583a92bc1d65",
+    "requirements.txt": "44b491d7cff080902d49f9674bb0b31aa4862f48d8fec84e83ed95a77ff6ce54"
+  },
+  "config_sha256": "f13c9bc7c711ede0eb3174f25791bf5d36c2284738f352ba11e978a6874007bd",
+  "torch": "2.5.1+cpu",
+  "numpy": "1.26.4",
+  "python": "3.11.17",
+  "github_sha": "cabfbbfd711289dfbc33c99f1dbf6cea4758744c",
+  "seed_plan": [
+    {
+      "replicate": 0,
+      "initialization": 7100000,
+      "training": 7200000,
+      "validation": 7300000,
+      "evaluation": 7400000
+    },
+    {
+      "replicate": 1,
+      "initialization": 7100001,
+      "training": 7200001,
+      "validation": 7300001,
+      "evaluation": 7400001
+    },
+    {
+      "replicate": 2,
+      "initialization": 7100002,
+      "training": 7200002,
+      "validation": 7300002,
+      "evaluation": 7400002
+    },
+    {
+      "replicate": 3,
+      "initialization": 7100003,
+      "training": 7200003,
+      "validation": 7300003,
+      "evaluation": 7400003
+    },
+    {
+      "replicate": 4,
+      "initialization": 7100004,
+      "training": 7200004,
+      "validation": 7300004,
+      "evaluation": 7400004
+    },
+    {
+      "replicate": 5,
+      "initialization": 7100005,
+      "training": 7200005,
+      "validation": 7300005,
+      "evaluation": 7400005
+    },
+    {
+      "replicate": 6,
+      "initialization": 7100006,
+      "training": 7200006,
+      "validation": 7300006,
+      "evaluation": 7400006
+    },
+    {
+      "replicate": 7,
+      "initialization": 7100007,
+      "training": 7200007,
+      "validation": 7300007,
+      "evaluation": 7400007
+    }
+  ],
+  "status": "prospectively frozen before neural training/evaluation",
+  "api_cost_usd": 0
+}
