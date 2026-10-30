@@ -19,7 +19,7 @@ e = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(e)
 
 
-def test_archive(path):
+def make_test_archive(path):
     corpus, dev, train = [], [], []
     for split, offset, target in [("dev", 0, dev), ("train", 100, train)]:
         for j, label in enumerate(e.LABELS):
@@ -91,7 +91,7 @@ class ScientificConfidenceV7Tests(unittest.TestCase):
     def test_selection_boundary_and_identical_initial_information(self):
         with tempfile.TemporaryDirectory() as d:
             archive = Path(d) / "data.tar.gz"
-            with patch.object(e, "DATA_SHA", test_archive(archive)):
+            with patch.object(e, "DATA_SHA", make_test_archive(archive)):
                 cases, gold = e.fixtures(archive)
                 self.assertEqual(len(cases), 21)
                 self.assertEqual(len({g["source_id"] for g in gold}), 21)
@@ -176,7 +176,7 @@ class ScientificConfidenceV7Tests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as d, contextlib.redirect_stdout(io.StringIO()):
             archive, out = Path(d) / "data.tar.gz", Path(d) / "freeze"
-            with patch.object(e, "DATA_SHA", test_archive(archive)):
+            with patch.object(e, "DATA_SHA", make_test_archive(archive)):
                 e.generate(out, archive)
                 for g in json.loads((out / "gold.json").read_text()):
                     refs[g["case_id"]] = g
