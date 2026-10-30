@@ -2,6 +2,9 @@
 
 Current protocol: **v2.1.1**, amended after the v2.0 smoke check; original run preserved below.
 
+**Current status:** the [v2.1.1 run stopped at the decision gate](results/run-40982656128/README.md): all 384 memory probabilities were exact, but 240/256 model decisions were consistent with the memory. A separately labelled post hoc calculator analysis using the model’s unchanged event probabilities gives 256/256 consistent decisions. The original gate remains failed. No further API batch has been launched. The protocol below records what was run, not a successful validation.
+
+
 Exploratory follow-up to the [first pilot](../functional-learning-v1/results/run-40969709564/README.md). The first pilot's wrong-rule prompt often elicited correct updating, and prose broke its strict parser. This run makes the memory manipulation executable and validates the downstream reader before comparing performance.
 
 ## Scope and question
