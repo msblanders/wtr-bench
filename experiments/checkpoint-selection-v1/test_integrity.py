@@ -23,7 +23,7 @@ class Integrity(unittest.TestCase):
         baseline.configure()
 
     def test_guard_excludes_execution_damage_and_keeps_joint_feasible(self):
-        rows = [dict(step=i, choice=c, execution=e, joint=j) for i, c, e, j in
+        rows = [{'step': i, 'choice': c, 'execution': e, 'joint': j} for i, c, e, j in
                 [(0, .4, .3, .35), (1, .35, .1, .225), (2, .3, .11, .23), (3, .33, .101, .23)]]
         cfg = dict(study.CONFIG, development_candidates=3)
         selected, pool = study.select_policies(rows, 3, cfg)
@@ -34,7 +34,7 @@ class Integrity(unittest.TestCase):
     def test_equal_development_counts_and_distinct_grids(self):
         steps = [0]+[s for s in range(1, 2049) if baseline.due_budgets(s, study.CONFIG)]
         self.assertEqual(len(steps), 897)
-        rows = [dict(step=s, choice=.2, execution=.2, joint=.2) for s in steps]
+        rows = [{'step': s, 'choice': .2, 'execution': .2, 'joint': .2} for s in steps]
         for budget in (512, 2048):
             selected, pool = study.select_policies(rows, budget, study.CONFIG)
             self.assertEqual(pool['candidate_count'], 513)
@@ -46,14 +46,14 @@ class Integrity(unittest.TestCase):
 
     def test_future_candidates_cannot_change_short_selection(self):
         cfg = dict(study.CONFIG, development_candidates=2)
-        rows = [dict(step=i, choice=.2, execution=.2, joint=.2) for i in range(5)]
+        rows = [{'step': i, 'choice': .2, 'execution': .2, 'joint': .2} for i in range(5)]
         before = study.select_policies(rows, 2, cfg)
         rows[4].update(choice=0., execution=0., joint=0.)
         self.assertEqual(before, study.select_policies(rows, 2, cfg))
 
     def test_selector_rejects_missing_candidates(self):
         with self.assertRaises(ValueError):
-            study.select_policies([dict(step=0, choice=.2, execution=.2, joint=.2)], 512, study.CONFIG)
+            study.select_policies([{'step': 0, 'choice': .2, 'execution': .2, 'joint': .2}], 512, study.CONFIG)
 
     def test_component_scores_match_original_joint_arithmetic(self):
         data = worlds.synthetic(np.random.default_rng(1), 32, 24, training=True)
