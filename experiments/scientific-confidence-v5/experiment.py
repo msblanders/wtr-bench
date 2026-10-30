@@ -528,8 +528,8 @@ def report(out):
         starting_states_verified &= state_diagnostic(initial["record"], cps[0], case["hypotheses"])["active_source_faithful"]
         starting_states_verified &= initial["derived_beliefs"] == calculate(initial["record"])
         for arm in ARMS:
-            prior = dict(valid=True, answer=initial["derived_beliefs"], posterior_loss=0.0,
-                         active_source_faithful=True)
+            prior = {"valid": True, "answer": initial["derived_beliefs"], "posterior_loss": 0.0,
+                     "active_source_faithful": True}
             part = []
             for step in PAID_STEPS:
                 checkpoint = cps[step]
