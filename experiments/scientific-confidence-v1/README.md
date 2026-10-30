@@ -1,5 +1,9 @@
 # Scientific confidence v1
 
+**Pilot completed:** 224 calls, $4.04 recorded API cost. The audit did not demonstrate a gain
+over the calibration checklist; output truncation limits interpretation.
+See [findings and raw data](PILOT_FINDINGS.md).
+
 This exploratory pilot asks whether an explicit contrastive evidence audit improves an LLM's
 probabilities beyond a strong calibration checklist. It is motivated by evidence synthesis:
 keeping track of independent studies, comparing explanations, and separating confidence in a
@@ -99,10 +103,29 @@ probability scores on held-out outcomes. Simulated oracle probabilities can supp
 development target. Models must then be tested with misspecified candidate sets and real evidence.
 We should not infer that better-looking probability language has improved reasoning.
 
+## Connection to the residency and next experiment
+
+Elicit's [residency description](https://jobs.ashbyhq.com/elicit/e04136b7-57e5-44d5-9a7c-cced3e2cb0f8)
+emphasizes readable knowledge states and operators that remain reliable over 1,000+ iterations.
+This two-call pilot is a prerequisite test of a candidate operator, not evidence of long-horizon
+stability. A subsequent experiment should store the original prior, unique evidence records,
+derived probabilities, and provenance as distinct parts of the state. It should compare:
+
+1. Repeated review with no new evidence: probabilities should remain stable rather than drift
+   toward greater confidence merely through repetition.
+2. Arrival of genuinely new studies: probabilities should change according to the new evidence.
+3. Arrival of another report of an existing study: it should add provenance, not evidential weight.
+4. Conflicting evidence under an omitted mechanism: the system should flag model inadequacy;
+   a closed-world posterior alone cannot verify that its hypothesis set is complete.
+
+These are proposed follow-ups, not additional outcomes of this frozen pilot. Start with short
+trajectories and increase horizon only after verifying transitions. Weight training should wait
+until we know which behavior needs to change and how to measure it independently.
+
 Sources informing the approach (not evidence this operator works):
 
 - Gneiting & Raftery, proper scoring rules: https://doi.org/10.1198/016214506000001437
-- Linguistic Calibration of Language Models, ICML 2024: https://proceedings.mlr.press/v235/band24a.html
-- Reinforcement Learning with Calibration Rewards: https://arxiv.org/abs/2507.16806
+- Linguistic Calibration of Long-Form Generations, ICML 2024: https://proceedings.mlr.press/v235/band24a.html
+- Beyond Binary Rewards: Training LMs to Reason About Their Uncertainty (RLCR): https://arxiv.org/abs/2507.16806
 - Model configuration/pricing: https://platform.claude.com/docs/en/models/sonnet-4-6/overview
 - API tool schema: https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools
