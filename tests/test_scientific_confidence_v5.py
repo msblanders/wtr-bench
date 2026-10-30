@@ -144,6 +144,13 @@ class ScientificConfidenceV5Tests(unittest.TestCase):
             self.assertLess(summary["conditions"]["active_checklist"]["mean_posterior_loss"], 1e-20)
             e.report(out)
             self.assertEqual(summary, json.loads((out / "summary.json").read_text()))
+            audit_spec = importlib.util.spec_from_file_location("audit_v5", SOURCE.parent / "audit_saved_run.py")
+            audit_module = importlib.util.module_from_spec(audit_spec)
+            audit_spec.loader.exec_module(audit_module)
+            audit_module.audit(out)
+            integrity = json.loads((out / "integrity_audit.json").read_text())
+            self.assertEqual(integrity["requests_and_state_handoffs_verified"], 104)
+            self.assertEqual(integrity["matched_first_request_pairs"], 4)
             with self.assertRaises(ValueError):
                 e.collect(out, 5, "main")
             with self.assertRaises(ValueError):
