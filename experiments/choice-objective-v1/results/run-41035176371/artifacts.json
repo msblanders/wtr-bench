@@ -1,0 +1,194 @@
+{
+  "artifacts": [
+    {
+      "id": 12968365941,
+      "name": "choice-objective-seed-1-41035176371",
+      "size_in_bytes": 202877,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12968365941",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12968365941/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:42:58Z",
+      "expires_at": "2027-01-28T09:40:43Z",
+      "updated_at": "2026-10-30T09:42:58Z",
+      "digest": "sha256:1955192824133095aeb1c6845b175ea6bca811df866f2175cba5b1bbdfd0fd03",
+      "workflow_run": {
+        "id": 41035176371,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/choice-objective-v1-20261030",
+        "head_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650"
+      }
+    },
+    {
+      "id": 12968225931,
+      "name": "choice-objective-seed-4-41035176371",
+      "size_in_bytes": 203093,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12968225931",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12968225931/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:43:28Z",
+      "expires_at": "2027-01-28T09:40:43Z",
+      "updated_at": "2026-10-30T09:43:28Z",
+      "digest": "sha256:7af700b92554bc7b7c83839a5fd0e3700135debb9f1bc1108dc9c87ed6453a3d",
+      "workflow_run": {
+        "id": 41035176371,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/choice-objective-v1-20261030",
+        "head_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650"
+      }
+    },
+    {
+      "id": 12968171040,
+      "name": "choice-objective-seed-2-41035176371",
+      "size_in_bytes": 202951,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12968171040",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12968171040/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:42:41Z",
+      "expires_at": "2027-01-28T09:40:43Z",
+      "updated_at": "2026-10-30T09:42:41Z",
+      "digest": "sha256:44d208121fc1b7920f8d508a0d6d3f6f5489eeb8b4c7200c014760eea25539a0",
+      "workflow_run": {
+        "id": 41035176371,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/choice-objective-v1-20261030",
+        "head_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650"
+      }
+    },
+    {
+      "id": 12967907321,
+      "name": "choice-objective-seed-6-41035176371",
+      "size_in_bytes": 201702,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967907321",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967907321/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:44:29Z",
+      "expires_at": "2027-01-28T09:40:43Z",
+      "updated_at": "2026-10-30T09:44:29Z",
+      "digest": "sha256:e6aedd0a11fefdcf4a0f542d5f8fbc47ffdb35f9d74b7582f3da8875e840a7d6",
+      "workflow_run": {
+        "id": 41035176371,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/choice-objective-v1-20261030",
+        "head_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650"
+      }
+    },
+    {
+      "id": 12967622095,
+      "name": "choice-objective-protocol-41035176371",
+      "size_in_bytes": 42473,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967622095",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967622095/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:41:38Z",
+      "expires_at": "2027-01-28T09:40:43Z",
+      "updated_at": "2026-10-30T09:41:38Z",
+      "digest": "sha256:488e09b61d2411f90e4ae5325534fc886bd7f5ac778cdce0dfbae4ba39464e89",
+      "workflow_run": {
+        "id": 41035176371,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/choice-objective-v1-20261030",
+        "head_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650"
+      }
+    },
+    {
+      "id": 12967508114,
+      "name": "choice-objective-results-41035176371",
+      "size_in_bytes": 436773,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967508114",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967508114/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:45:00Z",
+      "expires_at": "2027-01-28T09:40:43Z",
+      "updated_at": "2026-10-30T09:45:00Z",
+      "digest": "sha256:0e457cf01dcbd163c00d123809f4db7e34efef2adca4f9a1163cce9fe35e3907",
+      "workflow_run": {
+        "id": 41035176371,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/choice-objective-v1-20261030",
+        "head_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650"
+      }
+    },
+    {
+      "id": 12967352572,
+      "name": "choice-objective-seed-0-41035176371",
+      "size_in_bytes": 203396,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967352572",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967352572/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:43:20Z",
+      "expires_at": "2027-01-28T09:40:43Z",
+      "updated_at": "2026-10-30T09:43:20Z",
+      "digest": "sha256:61d6c63813f82af2c8d31d37f31728f9e233e7f816890c2ff4c6ee9dc2768604",
+      "workflow_run": {
+        "id": 41035176371,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/choice-objective-v1-20261030",
+        "head_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650"
+      }
+    },
+    {
+      "id": 12967188842,
+      "name": "choice-objective-seed-3-41035176371",
+      "size_in_bytes": 201269,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967188842",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967188842/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:42:33Z",
+      "expires_at": "2027-01-28T09:40:43Z",
+      "updated_at": "2026-10-30T09:42:33Z",
+      "digest": "sha256:287c9ce7ee2225e159f09d265888c5654b3fc8d7260d92ecf33f369b936dc2b9",
+      "workflow_run": {
+        "id": 41035176371,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/choice-objective-v1-20261030",
+        "head_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650"
+      }
+    },
+    {
+      "id": 12967164121,
+      "name": "choice-objective-seed-7-41035176371",
+      "size_in_bytes": 203355,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967164121",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967164121/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:44:18Z",
+      "expires_at": "2027-01-28T09:40:43Z",
+      "updated_at": "2026-10-30T09:44:18Z",
+      "digest": "sha256:14522e59602e70485f50943194335270d3b3a2803602b464b4c529ae957ecb2d",
+      "workflow_run": {
+        "id": 41035176371,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/choice-objective-v1-20261030",
+        "head_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650"
+      }
+    },
+    {
+      "id": 12967093331,
+      "name": "choice-objective-seed-5-41035176371",
+      "size_in_bytes": 204427,
+      "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967093331",
+      "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/12967093331/zip",
+      "expired": false,
+      "created_at": "2026-10-30T09:43:56Z",
+      "expires_at": "2027-01-28T09:40:43Z",
+      "updated_at": "2026-10-30T09:43:56Z",
+      "digest": "sha256:e85235873eaaa340798e26478762f5f69e5f41ab7474a127f4814044e8a244dd",
+      "workflow_run": {
+        "id": 41035176371,
+        "repository_id": 1356551292,
+        "head_repository_id": 1356551292,
+        "head_branch": "run/choice-objective-v1-20261030",
+        "head_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650"
+      }
+    }
+  ]
+}
