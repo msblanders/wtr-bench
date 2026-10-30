@@ -1,0 +1,24 @@
+name: rule-selection-v1-offline-tests
+on:
+  push:
+    paths:
+      - experiments/rule-selection-v1/**
+      - tests/test_rule_selection.py
+      - .github/workflows/rule-selection-v1.yml
+  pull_request:
+    paths:
+      - experiments/rule-selection-v1/**
+      - tests/test_rule_selection.py
+      - .github/workflows/rule-selection-v1.yml
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r experiments/rule-selection-v1/requirements.txt
+      - run: python -m unittest discover -s tests -p test_rule_selection.py -v
