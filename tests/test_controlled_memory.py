@@ -82,7 +82,8 @@ class ControlledMemoryTests(unittest.TestCase):
                          [(d["id"], d["fee"], d["kind"], d["setting"]) for d in b["decision_key"]])
         output = {"predictions": {q["id"]: q["truth"] for q in a["answer_key"]},
                   "decisions": {d["id"]: d["truth_gain"] > 0 for d in a["decision_key"]},
-                  "calculations": a["expected_output"]["calculations"]}
+                  "calculations": {d["id"]: {"event_probability": (d["truth_gain"] + d["fee"]) / d["benefit"],
+                                              "expected_net_value": d["truth_gain"]} for d in a["decision_key"]}}
         self.assertEqual(e.metrics(a, output)["decision_regret"], 0)
         self.assertEqual(e.metrics(a, output)["all"], 0)
 
@@ -131,14 +132,31 @@ class ControlledMemoryTests(unittest.TestCase):
             self.assertNotIn("test-secret-value", status["message"])
             self.assertIn("[REDACTED]", status["message"])
 
-    def test_smoke_gate_detects_reconstructed_correct_rule(self):
-        requests = [e.make_request(9000, "shared", 24, arm, "smoke") for arm in e.ARMS]
-        records = [{"id": r["id"], "status": "valid", "output": r["expected_output"]} for r in requests]
-        self.assertTrue(e.smoke_gate(requests, records)["passed"])
-        records[-1]["output"] = requests[-1]["correct_pooled_output"]
-        self.assertFalse(e.smoke_gate(requests, records)["passed"])
+    def test_arithmetic_errors_are_secondary_and_do_not_block_pilot(self):
+        with tempfile.TemporaryDirectory() as root, contextlib.redirect_stdout(io.StringIO()):
+            out = Path(root) / "run"
+            e.generate(out, 1)
+            requests = e.read_jsonl(out / "requests.jsonl")
+            by_hash = {r["request_hash"]: r for r in requests}
+            def sender(body):
+                r = by_hash[e.digest(body)]
+                output = json.loads(json.dumps(r["expected_output"]))
+                output["decisions"] = {k: not v for k, v in output["decisions"].items()}
+                for c in output["calculations"].values():
+                    c["expected_net_value"] = -123.0
+                return raw_response(body, output)
+            e.collect(out, e.MAX_BUDGET, sender)
+            e.report(out)
+            result = json.loads((out / "report.json").read_text())
+            self.assertEqual(result["pilot_valid"], 32)
+            self.assertTrue(result["manipulation_passed"])
+            self.assertTrue(all(r["decision_agreement"] == 1 for r in result["world_rows"]))
+            self.assertTrue(all(r["llm_decision_agreement"] == 0 for r in result["world_rows"]))
+            records = e.read_jsonl(out / "responses.jsonl")
+            self.assertEqual(records[0]["output"]["calculations"]["d01"]["expected_net_value"], -123.0)
+            self.assertFalse((out / "smoke-gate.json").exists())
 
-    def test_failure_stops_before_pilot(self):
+    def test_wrong_memory_reconstruction_is_reported_as_failed_manipulation(self):
         with tempfile.TemporaryDirectory() as root, contextlib.redirect_stdout(io.StringIO()):
             out = Path(root) / "run"
             e.generate(out, 1)
@@ -149,10 +167,13 @@ class ControlledMemoryTests(unittest.TestCase):
                 calls.append(body)
                 r = by_hash[e.digest(body)]
                 return raw_response(body, r["correct_pooled_output"] if r["arm"] == "wrong_routing" else r["expected_output"])
-            with self.assertRaises(RuntimeError):
-                e.collect(out, e.MAX_BUDGET, sender)
-            self.assertEqual(len(calls), 16)
-            self.assertEqual(json.loads((out / "collection-status.json").read_text())["status"], "smoke_gate_failed")
+            e.collect(out, e.MAX_BUDGET, sender)
+            e.report(out)
+            self.assertEqual(len(calls), 32)
+            result = json.loads((out / "report.json").read_text())
+            self.assertTrue(result["pilot_complete"])
+            self.assertFalse(result["manipulation_passed"])
+            self.assertEqual(result["wrong_closer_to_assigned_memory"], 0)
 
     def test_frozen_hash_budget_ledger_and_transport_guards(self):
         with tempfile.TemporaryDirectory() as root, contextlib.redirect_stdout(io.StringIO()):
@@ -196,8 +217,7 @@ class ControlledMemoryTests(unittest.TestCase):
             requests = e.read_jsonl(out / "requests.jsonl")
             outputs = {r["request_hash"]: r["expected_output"] for r in requests}
             self.assertTrue(all(r["seed"] >= 1000 for r in requests))
-            self.assertFalse({r["seed"] for r in requests if r["phase"] == "smoke"}
-                             & {r["seed"] for r in requests if r["phase"] == "pilot"})
+            self.assertTrue(all(r["phase"] == "pilot" for r in requests))
             def sender(body):
                 return raw_response(body, outputs[e.digest(body)])
             e.collect(out, e.MAX_BUDGET, sender)
@@ -210,8 +230,10 @@ class ControlledMemoryTests(unittest.TestCase):
             full = Path(root) / "full"
             e.generate(full, 8)
             manifest = json.loads((full / "manifest.json").read_text())
-            self.assertEqual(manifest["requests"], 272)
+            self.assertEqual(manifest["requests"], 256)
+            self.assertEqual(manifest["smoke_requests"], 0)
             self.assertLess(manifest["planning_reserve_usd"], e.MAX_BUDGET)
+            self.assertLess(manifest["budget_limit_usd"] + manifest["prior_v2_recorded_cost_usd"], 25)
 
 
 if __name__ == "__main__":

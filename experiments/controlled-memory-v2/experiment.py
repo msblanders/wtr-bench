@@ -22,15 +22,14 @@ assert spec is not None and spec.loader is not None
 v1 = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(v1)
 
-VERSION = "controlled-memory-v2.1.1"
+VERSION = "controlled-memory-v2.2"
 ARMS = ("functional", "local", "adaptive", "wrong_routing")
 BUDGETS = v1.BUDGETS
 REGIMES = ("shared", "context_specific")
 MODEL = "claude-sonnet-4-6"
-MAX_BUDGET = 24.70  # Includes room for v2.0 smoke cost and conservative reserves for diagnostics.
+MAX_BUDGET = 24.40  # Prior v2 usage $0.472506; combined allowance stays below $25.
 SEED_START = 1000
 MEMORY_TOLERANCE = 0.02
-DECISION_AGREEMENT_GATE = 0.90
 canonical = v1.canonical
 digest = v1.digest
 write_json = v1.write_json
@@ -236,23 +235,33 @@ def parse_response(text, request):
     return obj
 
 
+def calculated_decisions(request, output):
+    """Primary action policy: code arithmetic using the reader's unchanged event probabilities."""
+    return {d["id"]: d["benefit"] * output["calculations"][d["id"]]["event_probability"] - d["fee"] > 0
+            for d in request["decision_key"]}
+
+
 def metrics(request, output):
     scores = v1.score(request, output["predictions"])
     expected = request["expected_output"]
     differences = [abs(output["predictions"][k] - p) for k, p in expected["predictions"].items()]
     scores["memory_max_abs_error"] = max(differences)
     scores["memory_mse"] = statistics.mean(x*x for x in differences)
-    scores["decision_agreement"] = statistics.mean(output["decisions"][k] == x
+    decisions = calculated_decisions(request, output)
+    scores["decision_agreement"] = statistics.mean(decisions[k] == x
                                                    for k, x in expected["decisions"].items())
+    scores["llm_decision_agreement"] = statistics.mean(output["decisions"][k] == x
+                                                       for k, x in expected["decisions"].items())
     scores["calculation_max_probability_error"] = max(
         abs(output["calculations"][k]["event_probability"] - c["event_probability"])
         for k, c in expected["calculations"].items())
     scores["calculation_max_value_error"] = max(
         abs(output["calculations"][k]["expected_net_value"] - c["expected_net_value"])
         for k, c in expected["calculations"].items())
-    scores["decision_regret"] = statistics.mean(
-        max(0, d["truth_gain"]) - (d["truth_gain"] if output["decisions"][d["id"]] else 0)
-        for d in request["decision_key"])
+    for name, choices in (("decision_regret", decisions), ("llm_decision_regret", output["decisions"])):
+        scores[name] = statistics.mean(
+            max(0, d["truth_gain"]) - (d["truth_gain"] if choices[d["id"]] else 0)
+            for d in request["decision_key"])
     scores["distance_to_correct_pool"] = statistics.mean(
         (output["predictions"][k] - p)**2
         for k, p in request["correct_pooled_output"]["predictions"].items())
@@ -265,24 +274,23 @@ def generate(out, seeds=8):
                "protocol.md": (HERE / "README.md").read_bytes()}
     for name, data in sources.items():
         (out / name).write_bytes(data)
-    # Smoke fixtures are disjoint from pilot worlds. Only fidelity, never empirical ranking, gates collection.
-    smoke = [make_request(seed, regime, 24, arm, "smoke")
-             for seed, regime in ((9000, "shared"), (9001, "context_specific"),
-                                  (9002, "shared"), (9003, "context_specific")) for arm in ARMS]
+    # v2.2 prospectively uses code arithmetic. Previous smoke failures remain unchanged.
     pilot = [make_request(seed, regime, budget, arm)
              for seed in range(SEED_START, SEED_START + seeds) for regime in REGIMES
              for budget in BUDGETS for arm in ARMS]
     random.Random(20261030).shuffle(pilot)
-    requests = smoke + pilot
+    requests = pilot
     stream = "".join(canonical(r) + "\n" for r in requests)
     (out / "requests.jsonl").write_text(stream)
     rates = {"input_per_million": 3.0, "output_per_million": 15.0}
     manifest = {"version": VERSION, "model": MODEL, "seeds": seeds, "seed_start": SEED_START,
-                "requests": len(requests), "smoke_requests": len(smoke), "pilot_requests": len(pilot),
+                "requests": len(requests), "smoke_requests": 0, "pilot_requests": len(pilot),
                 "source_hashes": {name: hashlib.sha256(data).hexdigest() for name, data in sources.items()},
                 "requests_sha256": hashlib.sha256(stream.encode()).hexdigest(), "rates": rates,
                 "price_checked": "2026-10-29", "price_source": "https://platform.claude.com/docs/en/about-claude/pricing",
-                "budget_limit_usd": MAX_BUDGET,
+                "budget_limit_usd": MAX_BUDGET, "prior_v2_recorded_cost_usd": 0.472506,
+                "decision_policy": "code: benefit * model_event_probability - fee > 0; ties decline",
+                "collection_gate": "technical validity and spending only; fidelity assessed after collection",
                 "planning_reserve_usd": sum(v1.reserve_cost(r["body"], rates) for r in requests),
                 "status": "frozen exploratory protocol; no API observations"}
     write_json(out / "manifest.json", manifest)
@@ -309,23 +317,6 @@ def check_manifest(out):
     return m, requests
 
 
-def smoke_gate(requests, records):
-    by_id = {r["id"]: r for r in records}
-    details = []
-    for request in (r for r in requests if r["phase"] == "smoke"):
-        record = by_id.get(request["id"])
-        passed = False
-        scores = None
-        if record and record["status"] == "valid":
-            scores = metrics(request, record["output"])
-            passed = (scores["memory_max_abs_error"] <= MEMORY_TOLERANCE
-                      and scores["decision_agreement"] >= DECISION_AGREEMENT_GATE)
-            if request["arm"] == "wrong_routing":
-                passed = passed and scores["memory_mse"] < scores["distance_to_correct_pool"]
-        details.append({"id": request["id"], "passed": passed, "metrics": scores})
-    return {"passed": bool(details) and all(d["passed"] for d in details), "details": details}
-
-
 def collect(out, budget=MAX_BUDGET, sender=v1.send):
     m, requests = check_manifest(out)
     if not math.isfinite(budget) or not 0 < budget <= MAX_BUDGET:
@@ -334,17 +325,8 @@ def collect(out, budget=MAX_BUDGET, sender=v1.send):
         raise RuntimeError("ANTHROPIC_API_KEY missing; no API calls made")
     with (out / "collection-started.json").open("x") as f:
         json.dump({"budget_usd": budget, "data_origin": "anthropic_api" if sender is v1.send else "test_double"}, f)
-    spent, reserved, smoke_checked = 0.0, 0.0, False
-    records = []
+    spent, reserved = 0.0, 0.0
     for request in requests:
-        if request["phase"] == "pilot" and not smoke_checked:
-            gate = smoke_gate(requests, records)
-            write_json(out / "smoke-gate.json", gate)
-            if not gate["passed"]:
-                write_json(out / "collection-status.json", {"status": "smoke_gate_failed", "spent_usd": spent})
-                raise RuntimeError("Smoke fidelity gate failed; no pilot requests sent")
-            smoke_checked = True
-            print("SMOKE GATE PASSED: proceeding with frozen pilot", flush=True)
         allowance = v1.reserve_cost(request["body"], m["rates"])
         if max(spent, reserved) + allowance > budget:
             write_json(out / "collection-status.json", {"status": "budget_stop", "spent_usd": spent,
@@ -389,7 +371,6 @@ def collect(out, budget=MAX_BUDGET, sender=v1.send):
         except (ValueError, TypeError, KeyError) as exc:
             record["parse_error"] = str(exc)
         append_jsonl(out / "responses.jsonl", record)
-        records.append(record)
         print(f"{request['id']}: {record['status']}; recorded cost ${spent:.3f}", flush=True)
         if (record["status"] != "valid" or "input_tokens" not in usage or "output_tokens" not in usage
                 or usage.get("cache_creation_input_tokens", 0) or usage.get("cache_read_input_tokens", 0)
@@ -423,7 +404,9 @@ def report(out):
                 group = [r for r in rows if (r["regime"], r["budget"], r["arm"]) == (regime, budget, arm)]
                 cell = {"regime": regime, "budget": budget, "arm": arm, "collected": len(group)}
                 for metric in ("all", "seen_choice", "transfer_choice", "execution", "decision_regret",
-                               "memory_mse", "memory_max_abs_error", "decision_agreement"):
+                               "memory_mse", "memory_max_abs_error", "decision_agreement",
+                               "llm_decision_agreement", "llm_decision_regret",
+                               "calculation_max_probability_error", "calculation_max_value_error"):
                     cell[metric] = statistics.mean(r[metric] for r in group) if group else None
                     cell["reference_" + metric] = statistics.mean(r["reference"][metric] for r in group) if group else None
                 cells.append(cell)
@@ -446,12 +429,13 @@ def report(out):
     complete = len(rows) == m["pilot_requests"]
     adherence = {arm: {"requests": len(rs := [r for r in rows if r["arm"] == arm]),
                       "within_probability_tolerance": sum(r["memory_max_abs_error"] <= MEMORY_TOLERANCE for r in rs),
-                      "decision_agreement": statistics.mean(r["decision_agreement"] for r in rs) if rs else None}
+                      "decision_agreement": statistics.mean(r["decision_agreement"] for r in rs) if rs else None,
+                      "llm_decision_agreement": statistics.mean(r["llm_decision_agreement"] for r in rs) if rs else None}
                  for arm in ARMS}
     wrong = [r for r in rows if r["arm"] == "wrong_routing" and r["budget"] > 0]
     separated = [r for r in wrong if r["reference"]["distance_to_correct_pool"] > 1e-8]
     manipulation_passed = (complete and all(v["requests"] and v["within_probability_tolerance"] / v["requests"] >= 0.95
-        and v["decision_agreement"] >= DECISION_AGREEMENT_GATE for v in adherence.values())
+        for v in adherence.values())
         and bool(separated) and statistics.mean(r["memory_mse"] < r["distance_to_correct_pool"] for r in separated) >= 0.95)
     summary = {"version": VERSION, "data_origin": ledger["data_origin"], "expected": len(requests),
         "collected": len(records), "pilot_valid": len(rows), "pilot_complete": complete,
@@ -459,12 +443,14 @@ def report(out):
         "manipulation_passed": manipulation_passed, "wrong_separable_cases": len(separated),
         "wrong_closer_to_assigned_memory": sum(r["memory_mse"] < r["distance_to_correct_pool"] for r in separated),
         "cells": cells, "contrasts": contrasts, "world_rows": rows,
-        "interpretation": "External memory/readout validation, not learned update rules or an internal mechanism."}
+        "decision_policy": m["decision_policy"],
+        "interpretation": "External update procedures with LLM probability readout and code actions; not learned update rules or an internal mechanism."}
     write_json(out / "report.json", summary)
     lines = ["# Controlled-memory pilot", "", f"Data origin: {ledger['data_origin']}.", "",
              f"Collected {len(records)}/{len(requests)} responses; valid pilot {len(rows)}/{m['pilot_requests']}; cost ${summary['cost_usd']:.4f}.",
              f"Complete: {complete}. Manipulation gate passed: {manipulation_passed}.", "",
-             "Probability fidelity and decision agreement are the primary validation. Other contrasts are exploratory.",
+             "Memory probability fidelity validates the manipulation. Performance contrasts are exploratory.",
+             "Decision regret uses code actions from model event probabilities. Original LLM actions and payoff errors are secondary outcomes, never collection gates.",
              "References are deterministic code, not model observations. Positive contrasts favor functional pooling.", "",
              "| Environment | Comparison | Metric | Worlds | Mean difference | 95% interval |",
              "|---|---|---|---:|---:|---|"]
