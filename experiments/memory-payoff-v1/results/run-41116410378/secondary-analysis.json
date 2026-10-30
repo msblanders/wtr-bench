@@ -1,0 +1,412 @@
+{
+  "diagnostics_seen": {
+    "wide_control": {
+      "evolved": {
+        "failure_vs_decline": {
+          "mean_choice_execution_delta": [
+            0.0007266815518960357,
+            -0.06226026434160303
+          ],
+          "mean_reference_delta": [
+            0.11546041990250064,
+            -0.06482382770224562
+          ]
+        },
+        "success_vs_failure": {
+          "mean_choice_execution_delta": [
+            0.0008440414676442742,
+            0.12888742821087362
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_success_vs_failure": {
+          "mean_choice_execution_delta": [
+            -0.00019584022811613977,
+            0.15381354283817927
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_choice_execution_delta": [
+            0.0003318417293485254,
+            -0.07428411253567901
+          ],
+          "mean_reference_delta": [
+            0.0,
+            -0.06482382770224562
+          ]
+        },
+        "decline_vs_baseline": {
+          "mean_choice_execution_delta": [
+            -0.0002727228566072881,
+            0.0011701238763635047
+          ],
+          "mean_reference_delta": [
+            -0.0701157311030641,
+            0.0
+          ]
+        }
+      },
+      "random_search": {
+        "failure_vs_decline": {
+          "mean_choice_execution_delta": [
+            0.00031642972317058593,
+            0.0004358979786047712
+          ],
+          "mean_reference_delta": [
+            0.11546041990250064,
+            -0.06482382770224562
+          ]
+        },
+        "success_vs_failure": {
+          "mean_choice_execution_delta": [
+            -0.0010629166063154116,
+            0.021543229930102825
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_success_vs_failure": {
+          "mean_choice_execution_delta": [
+            -0.001105685587390326,
+            0.02355886519944761
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_choice_execution_delta": [
+            0.00028963015938643366,
+            -0.008601357651059516
+          ],
+          "mean_reference_delta": [
+            0.0,
+            -0.06482382770224562
+          ]
+        },
+        "decline_vs_baseline": {
+          "mean_choice_execution_delta": [
+            0.00048101411084644496,
+            -0.006953937030630186
+          ],
+          "mean_reference_delta": [
+            -0.0701157311030641,
+            0.0
+          ]
+        }
+      },
+      "matched_gradient": {
+        "failure_vs_decline": {
+          "mean_choice_execution_delta": [
+            0.005317992501659319,
+            -0.05789679682129645
+          ],
+          "mean_reference_delta": [
+            0.11546041990250064,
+            -0.06482382770224562
+          ]
+        },
+        "success_vs_failure": {
+          "mean_choice_execution_delta": [
+            0.0011208425275981426,
+            0.13229120025062002
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_success_vs_failure": {
+          "mean_choice_execution_delta": [
+            0.0023075997596606612,
+            0.14032266433423501
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_choice_execution_delta": [
+            0.0012128049274906516,
+            -0.06629402881299029
+          ],
+          "mean_reference_delta": [
+            0.0,
+            -0.06482382770224562
+          ]
+        },
+        "decline_vs_baseline": {
+          "mean_choice_execution_delta": [
+            -0.003400657617021352,
+            0.00015088813597685657
+          ],
+          "mean_reference_delta": [
+            -0.0701157311030641,
+            0.0
+          ]
+        }
+      }
+    },
+    "interaction": {
+      "evolved": {
+        "failure_vs_decline": {
+          "mean_choice_execution_delta": [
+            0.003878553630784154,
+            -0.05841182959557045
+          ],
+          "mean_reference_delta": [
+            0.11546041990250064,
+            -0.06482382770224562
+          ]
+        },
+        "success_vs_failure": {
+          "mean_choice_execution_delta": [
+            0.0018238782067783177,
+            0.13312074628993287
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_success_vs_failure": {
+          "mean_choice_execution_delta": [
+            0.0023377854959107935,
+            0.15668848486166098
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_choice_execution_delta": [
+            0.0013016185839660466,
+            -0.06826644835018669
+          ],
+          "mean_reference_delta": [
+            0.0,
+            -0.06482382770224562
+          ]
+        },
+        "decline_vs_baseline": {
+          "mean_choice_execution_delta": [
+            -0.0036128660722170025,
+            -0.004324837889726041
+          ],
+          "mean_reference_delta": [
+            -0.0701157311030641,
+            0.0
+          ]
+        }
+      },
+      "random_search": {
+        "failure_vs_decline": {
+          "mean_choice_execution_delta": [
+            0.021990600114804693,
+            -0.02700540294245002
+          ],
+          "mean_reference_delta": [
+            0.11546041990250064,
+            -0.06482382770224562
+          ]
+        },
+        "success_vs_failure": {
+          "mean_choice_execution_delta": [
+            -0.010975435230648145,
+            0.04630797822755994
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_success_vs_failure": {
+          "mean_choice_execution_delta": [
+            -0.007815308665158227,
+            0.040435566326777916
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_choice_execution_delta": [
+            0.0033830731845228,
+            -0.017222177382791415
+          ],
+          "mean_reference_delta": [
+            0.0,
+            -0.06482382770224562
+          ]
+        },
+        "decline_vs_baseline": {
+          "mean_choice_execution_delta": [
+            -0.005631216219626367,
+            0.0013050044071860611
+          ],
+          "mean_reference_delta": [
+            -0.0701157311030641,
+            0.0
+          ]
+        }
+      },
+      "matched_gradient": {
+        "failure_vs_decline": {
+          "mean_choice_execution_delta": [
+            0.019562637564376928,
+            -0.06022744774600142
+          ],
+          "mean_reference_delta": [
+            0.11546041990250064,
+            -0.06482382770224562
+          ]
+        },
+        "success_vs_failure": {
+          "mean_choice_execution_delta": [
+            0.002930471528088674,
+            0.1284988632578461
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_success_vs_failure": {
+          "mean_choice_execution_delta": [
+            0.0034402108867652714,
+            0.1436457066629373
+          ],
+          "mean_reference_delta": [
+            0.0,
+            0.12951274392924783
+          ]
+        },
+        "assigned_failure_vs_baseline": {
+          "mean_choice_execution_delta": [
+            0.004818510220502503,
+            -0.06995759279016056
+          ],
+          "mean_reference_delta": [
+            0.0,
+            -0.06482382770224562
+          ]
+        },
+        "decline_vs_baseline": {
+          "mean_choice_execution_delta": [
+            -0.014368349773576483,
+            0.005134023442224134
+          ],
+          "mean_reference_delta": [
+            -0.0701157311030641,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "raw_final_canonical_seen_length24": {
+    "wide_control": {
+      "evolved": {
+        "intact": {
+          "choice_brier": 0.22852519362870266,
+          "execution_brier": 0.18778600622103686
+        },
+        "no_memory": {
+          "choice_brier": 0.22864141659735018,
+          "execution_brier": 0.25140718527765205
+        },
+        "donor_history": {
+          "choice_brier": 0.2285868112441492,
+          "execution_brier": 0.32970312198417223
+        }
+      },
+      "matched_gradient": {
+        "intact": {
+          "choice_brier": 0.2288485735304419,
+          "execution_brier": 0.18567488725751136
+        },
+        "no_memory": {
+          "choice_brier": 0.22837443452667122,
+          "execution_brier": 0.25005416654065776
+        },
+        "donor_history": {
+          "choice_brier": 0.2291852023385339,
+          "execution_brier": 0.3250624920743863
+        }
+      }
+    },
+    "interaction": {
+      "evolved": {
+        "intact": {
+          "choice_brier": 0.22913118666029025,
+          "execution_brier": 0.18619380423646886
+        },
+        "no_memory": {
+          "choice_brier": 0.23033688806004066,
+          "execution_brier": 0.2505392275450039
+        },
+        "donor_history": {
+          "choice_brier": 0.22932038104678013,
+          "execution_brier": 0.3289953229358123
+        }
+      },
+      "matched_gradient": {
+        "intact": {
+          "choice_brier": 0.22621049695288925,
+          "execution_brier": 0.1880137085321719
+        },
+        "no_memory": {
+          "choice_brier": 0.23011256612644312,
+          "execution_brier": 0.24994669322383775
+        },
+        "donor_history": {
+          "choice_brier": 0.22858556143660416,
+          "execution_brier": 0.3193561309566673
+        }
+      }
+    }
+  },
+  "initial_canonical_seen": {
+    "wide_control": {
+      "evolved": {
+        "choice_brier": 0.2542668532051565,
+        "execution_brier": 0.30551967488420523
+      },
+      "random_search": {
+        "choice_brier": 0.2542668532051565,
+        "execution_brier": 0.30551967488420523
+      },
+      "matched_gradient": {
+        "choice_brier": 0.2542668532051565,
+        "execution_brier": 0.30551967488420523
+      }
+    },
+    "interaction": {
+      "evolved": {
+        "choice_brier": 0.26119330533376767,
+        "execution_brier": 0.29697896817623715
+      },
+      "random_search": {
+        "choice_brier": 0.26119330533376767,
+        "execution_brier": 0.29697896817623715
+      },
+      "matched_gradient": {
+        "choice_brier": 0.26119330533376767,
+        "execution_brier": 0.29697896817623715
+      }
+    }
+  }
+}

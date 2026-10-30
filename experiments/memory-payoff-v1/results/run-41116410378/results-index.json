@@ -1,0 +1,35 @@
+{
+  "replicates": [
+    "replicates/seed-0.json",
+    "replicates/seed-1.json",
+    "replicates/seed-2.json",
+    "replicates/seed-3.json",
+    "replicates/seed-4.json",
+    "replicates/seed-5.json",
+    "replicates/seed-6.json",
+    "replicates/seed-7.json"
+  ],
+  "final_weights": [
+    "final-weights/seed-0.json",
+    "final-weights/seed-1.json",
+    "final-weights/seed-2.json",
+    "final-weights/seed-3.json",
+    "final-weights/seed-4.json",
+    "final-weights/seed-5.json",
+    "final-weights/seed-6.json",
+    "final-weights/seed-7.json"
+  ],
+  "config_sha256": "7af3a8c05ce9c7057000bb91a4996a66e6ee0e05ccd6985e2aac2a0424137a79",
+  "source_hashes": {
+    "experiment.py": "1fb770e96f0b88e17e008087f240f86eaf8f0ff408d91bf88979898b545e64ca",
+    "models.py": "bf8c415cea45870be7a0915e59ca4c0433bf792225a3465f8cf66e9bc68a29ba",
+    "worlds.py": "35f22ac049bb39fd93832aaae9b9c802a9e2055e33802246b2cbe3caf698230c",
+    "external.py": "cd078b7f4f0a9421dca432acb34b8bed6e72205f83829ebf8bc93fe6a9366cb1",
+    "requirements.txt": "9a5f47d3fb24e9bdcb07e24835ab718036f6ef2a4a07a369bdd8e3d102bf583a",
+    "README.md": "a16c2c3e449900dbffe45de878f1ec021526c809cbefa5969146f3d30ee30728"
+  },
+  "study_run": 41116410378,
+  "source_commit": "795a6e7c3dfe5b973ed3674e1115467e88916d2e",
+  "launch_commit": "720bfc01c5976ad1ec9417c12d0cb03962d3f879",
+  "publication_status": "Results and final selected parameters published with explicit user authorization on 2026-10-30."
+}

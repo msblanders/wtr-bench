@@ -1,0 +1,8 @@
+{
+  "replicates": 8,
+  "independently_verified_contrasts_and_intervals": 240,
+  "parameter_files_verified_models": 48,
+  "parameters_each": 269,
+  "matched_training_and_validation": true,
+  "joint_primary_pass": false
+}

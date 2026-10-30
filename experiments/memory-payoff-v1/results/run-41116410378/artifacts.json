@@ -1,0 +1,192 @@
+[
+  {
+    "id": 13006521529,
+    "name": "memory-payoff-seed-0-41116410378",
+    "size_in_bytes": 95840,
+    "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13006521529",
+    "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13006521529/zip",
+    "expired": false,
+    "created_at": "2026-10-30T19:37:37Z",
+    "expires_at": "2027-01-28T19:34:54Z",
+    "updated_at": "2026-10-30T19:37:37Z",
+    "digest": "sha256:638547a81f88dbcdbdfd3a42412f7fb7dcdefbee14b2f3944beaafa46d74f195",
+    "workflow_run": {
+      "id": 41116410378,
+      "repository_id": 1356551292,
+      "head_repository_id": 1356551292,
+      "head_branch": "run/memory-payoff-v1-20261030",
+      "head_sha": "720bfc01c5976ad1ec9417c12d0cb03962d3f879"
+    }
+  },
+  {
+    "id": 13006441844,
+    "name": "memory-payoff-results-41116410378",
+    "size_in_bytes": 415682,
+    "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13006441844",
+    "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13006441844/zip",
+    "expired": false,
+    "created_at": "2026-10-30T19:39:42Z",
+    "expires_at": "2027-01-28T19:34:54Z",
+    "updated_at": "2026-10-30T19:39:42Z",
+    "digest": "sha256:14b3edf649b859fb61b96dcd10af9c2acc4909d88ef6e37ea99a3f6d6fae1411",
+    "workflow_run": {
+      "id": 41116410378,
+      "repository_id": 1356551292,
+      "head_repository_id": 1356551292,
+      "head_branch": "run/memory-payoff-v1-20261030",
+      "head_sha": "720bfc01c5976ad1ec9417c12d0cb03962d3f879"
+    }
+  },
+  {
+    "id": 13006217970,
+    "name": "memory-payoff-seed-2-41116410378",
+    "size_in_bytes": 93950,
+    "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13006217970",
+    "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13006217970/zip",
+    "expired": false,
+    "created_at": "2026-10-30T19:37:36Z",
+    "expires_at": "2027-01-28T19:34:54Z",
+    "updated_at": "2026-10-30T19:37:36Z",
+    "digest": "sha256:b404ece8ce7d3addfe54bebbb42726fdcfa3e021ff42163434ee645e0430c706",
+    "workflow_run": {
+      "id": 41116410378,
+      "repository_id": 1356551292,
+      "head_repository_id": 1356551292,
+      "head_branch": "run/memory-payoff-v1-20261030",
+      "head_sha": "720bfc01c5976ad1ec9417c12d0cb03962d3f879"
+    }
+  },
+  {
+    "id": 13005952707,
+    "name": "memory-payoff-seed-3-41116410378",
+    "size_in_bytes": 94157,
+    "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13005952707",
+    "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13005952707/zip",
+    "expired": false,
+    "created_at": "2026-10-30T19:37:02Z",
+    "expires_at": "2027-01-28T19:34:54Z",
+    "updated_at": "2026-10-30T19:37:02Z",
+    "digest": "sha256:3060c2f2811b7bf04f4229c1b0115f70b0007c718e2bfca8246ec3c5d322d9ad",
+    "workflow_run": {
+      "id": 41116410378,
+      "repository_id": 1356551292,
+      "head_repository_id": 1356551292,
+      "head_branch": "run/memory-payoff-v1-20261030",
+      "head_sha": "720bfc01c5976ad1ec9417c12d0cb03962d3f879"
+    }
+  },
+  {
+    "id": 13005923066,
+    "name": "memory-payoff-seed-4-41116410378",
+    "size_in_bytes": 95341,
+    "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13005923066",
+    "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13005923066/zip",
+    "expired": false,
+    "created_at": "2026-10-30T19:38:33Z",
+    "expires_at": "2027-01-28T19:34:54Z",
+    "updated_at": "2026-10-30T19:38:33Z",
+    "digest": "sha256:4856ba2b0cbc4e04dcf6dd272d9dd3d7893c555f59bd7756eabe904f1aa4d758",
+    "workflow_run": {
+      "id": 41116410378,
+      "repository_id": 1356551292,
+      "head_repository_id": 1356551292,
+      "head_branch": "run/memory-payoff-v1-20261030",
+      "head_sha": "720bfc01c5976ad1ec9417c12d0cb03962d3f879"
+    }
+  },
+  {
+    "id": 13005493562,
+    "name": "memory-payoff-seed-7-41116410378",
+    "size_in_bytes": 95675,
+    "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13005493562",
+    "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13005493562/zip",
+    "expired": false,
+    "created_at": "2026-10-30T19:38:28Z",
+    "expires_at": "2027-01-28T19:34:54Z",
+    "updated_at": "2026-10-30T19:38:28Z",
+    "digest": "sha256:5bf0eaf106f3cc5bac9ee80f4848119cf3d203ce28c744f23152466bc5417c3f",
+    "workflow_run": {
+      "id": 41116410378,
+      "repository_id": 1356551292,
+      "head_repository_id": 1356551292,
+      "head_branch": "run/memory-payoff-v1-20261030",
+      "head_sha": "720bfc01c5976ad1ec9417c12d0cb03962d3f879"
+    }
+  },
+  {
+    "id": 13005264120,
+    "name": "memory-payoff-seed-6-41116410378",
+    "size_in_bytes": 95394,
+    "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13005264120",
+    "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13005264120/zip",
+    "expired": false,
+    "created_at": "2026-10-30T19:39:05Z",
+    "expires_at": "2027-01-28T19:34:54Z",
+    "updated_at": "2026-10-30T19:39:05Z",
+    "digest": "sha256:e604739a5d96d426410a044483d736829a5f1817596b185f090f1a5d95ee4433",
+    "workflow_run": {
+      "id": 41116410378,
+      "repository_id": 1356551292,
+      "head_repository_id": 1356551292,
+      "head_branch": "run/memory-payoff-v1-20261030",
+      "head_sha": "720bfc01c5976ad1ec9417c12d0cb03962d3f879"
+    }
+  },
+  {
+    "id": 13005183809,
+    "name": "memory-payoff-seed-1-41116410378",
+    "size_in_bytes": 95490,
+    "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13005183809",
+    "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13005183809/zip",
+    "expired": false,
+    "created_at": "2026-10-30T19:37:13Z",
+    "expires_at": "2027-01-28T19:34:54Z",
+    "updated_at": "2026-10-30T19:37:13Z",
+    "digest": "sha256:b7b81e40c1f3d79e7eb6cba869d0755c45814944b7475fee434bbd2f77a8731a",
+    "workflow_run": {
+      "id": 41116410378,
+      "repository_id": 1356551292,
+      "head_repository_id": 1356551292,
+      "head_branch": "run/memory-payoff-v1-20261030",
+      "head_sha": "720bfc01c5976ad1ec9417c12d0cb03962d3f879"
+    }
+  },
+  {
+    "id": 13004559635,
+    "name": "memory-payoff-protocol-41116410378",
+    "size_in_bytes": 41782,
+    "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13004559635",
+    "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13004559635/zip",
+    "expired": false,
+    "created_at": "2026-10-30T19:36:03Z",
+    "expires_at": "2027-01-28T19:34:54Z",
+    "updated_at": "2026-10-30T19:36:03Z",
+    "digest": "sha256:a3a78b6a145259782a7fdc0066a74c06ff5c85cc0da7761448341e37dd7534d1",
+    "workflow_run": {
+      "id": 41116410378,
+      "repository_id": 1356551292,
+      "head_repository_id": 1356551292,
+      "head_branch": "run/memory-payoff-v1-20261030",
+      "head_sha": "720bfc01c5976ad1ec9417c12d0cb03962d3f879"
+    }
+  },
+  {
+    "id": 13004429478,
+    "name": "memory-payoff-seed-5-41116410378",
+    "size_in_bytes": 95451,
+    "url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13004429478",
+    "archive_download_url": "https://api.github.com/repos/msblanders/wtr-bench/actions/artifacts/13004429478/zip",
+    "expired": false,
+    "created_at": "2026-10-30T19:38:25Z",
+    "expires_at": "2027-01-28T19:34:54Z",
+    "updated_at": "2026-10-30T19:38:25Z",
+    "digest": "sha256:5d00585411b8a02e89bc73193966a848f8d42d2776e6ba36dd942acfa8eccb21",
+    "workflow_run": {
+      "id": 41116410378,
+      "repository_id": 1356551292,
+      "head_repository_id": 1356551292,
+      "head_branch": "run/memory-payoff-v1-20261030",
+      "head_sha": "720bfc01c5976ad1ec9417c12d0cb03962d3f879"
+    }
+  }
+]
