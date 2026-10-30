@@ -1,0 +1,197 @@
+{
+  "version": "cue-transfer-v1.0",
+  "config": {
+    "replicates": 8,
+    "updates": 1024,
+    "batch_size": 64,
+    "max_history": 24,
+    "train_lengths": [
+      0,
+      2,
+      8,
+      24
+    ],
+    "test_lengths": [
+      2,
+      8,
+      24
+    ],
+    "checkpoints": [
+      0,
+      64,
+      256,
+      1024
+    ],
+    "evaluation_lifetimes": 1024,
+    "diagnostic_lifetimes": 512,
+    "learning_rate": 0.003,
+    "clip_norm": 1,
+    "criterion_excess": 0.002
+  },
+  "suites": {
+    "canonical": [
+      0.1,
+      0.9,
+      0.5
+    ],
+    "reversed": [
+      0.9,
+      0.1,
+      0.5
+    ],
+    "assigned_only": [
+      1,
+      1,
+      1
+    ],
+    "voluntary_only": [
+      0,
+      0,
+      0
+    ]
+  },
+  "source_hashes": {
+    "experiment.py": "25be55fc7c98b2842d3eb317a925b125afeb04575e6e97aee4b0a40f1abd8e46",
+    "protocol.md": "ea0d25c8c991e56ad6167d231f3c89d16d103f08826d0435bf28aeaef4e1487e",
+    "cue-spec.md": "980428d178673103ae3bae5198649db102bb277a43ba7d79c32719c6be7e4618",
+    "requirements.txt": "44b491d7cff080902d49f9674bb0b31aa4862f48d8fec84e83ed95a77ff6ce54"
+  },
+  "config_sha256": "4b2f70414864cace64da05e7fbeb0a03d95f859f5096916d9efef1ee4649cee3",
+  "torch": "2.5.1+cpu",
+  "numpy": "1.26.4",
+  "python": "3.11.17",
+  "github_sha": "984e5b07cedef02d59713b3dcb7ff35223ac0883",
+  "seed_plan": [
+    {
+      "replicate": 0,
+      "regime": "shared",
+      "initialization": 101000000,
+      "training": 102000000,
+      "evaluation": 104000000,
+      "diagnostics": 105000000
+    },
+    {
+      "replicate": 0,
+      "regime": "context_specific",
+      "initialization": 101000100,
+      "training": 102000100,
+      "evaluation": 104000100,
+      "diagnostics": 105000100
+    },
+    {
+      "replicate": 1,
+      "regime": "shared",
+      "initialization": 101001000,
+      "training": 102001000,
+      "evaluation": 104001000,
+      "diagnostics": 105001000
+    },
+    {
+      "replicate": 1,
+      "regime": "context_specific",
+      "initialization": 101001100,
+      "training": 102001100,
+      "evaluation": 104001100,
+      "diagnostics": 105001100
+    },
+    {
+      "replicate": 2,
+      "regime": "shared",
+      "initialization": 101002000,
+      "training": 102002000,
+      "evaluation": 104002000,
+      "diagnostics": 105002000
+    },
+    {
+      "replicate": 2,
+      "regime": "context_specific",
+      "initialization": 101002100,
+      "training": 102002100,
+      "evaluation": 104002100,
+      "diagnostics": 105002100
+    },
+    {
+      "replicate": 3,
+      "regime": "shared",
+      "initialization": 101003000,
+      "training": 102003000,
+      "evaluation": 104003000,
+      "diagnostics": 105003000
+    },
+    {
+      "replicate": 3,
+      "regime": "context_specific",
+      "initialization": 101003100,
+      "training": 102003100,
+      "evaluation": 104003100,
+      "diagnostics": 105003100
+    },
+    {
+      "replicate": 4,
+      "regime": "shared",
+      "initialization": 101004000,
+      "training": 102004000,
+      "evaluation": 104004000,
+      "diagnostics": 105004000
+    },
+    {
+      "replicate": 4,
+      "regime": "context_specific",
+      "initialization": 101004100,
+      "training": 102004100,
+      "evaluation": 104004100,
+      "diagnostics": 105004100
+    },
+    {
+      "replicate": 5,
+      "regime": "shared",
+      "initialization": 101005000,
+      "training": 102005000,
+      "evaluation": 104005000,
+      "diagnostics": 105005000
+    },
+    {
+      "replicate": 5,
+      "regime": "context_specific",
+      "initialization": 101005100,
+      "training": 102005100,
+      "evaluation": 104005100,
+      "diagnostics": 105005100
+    },
+    {
+      "replicate": 6,
+      "regime": "shared",
+      "initialization": 101006000,
+      "training": 102006000,
+      "evaluation": 104006000,
+      "diagnostics": 105006000
+    },
+    {
+      "replicate": 6,
+      "regime": "context_specific",
+      "initialization": 101006100,
+      "training": 102006100,
+      "evaluation": 104006100,
+      "diagnostics": 105006100
+    },
+    {
+      "replicate": 7,
+      "regime": "shared",
+      "initialization": 101007000,
+      "training": 102007000,
+      "evaluation": 104007000,
+      "diagnostics": 105007000
+    },
+    {
+      "replicate": 7,
+      "regime": "context_specific",
+      "initialization": 101007100,
+      "training": 102007100,
+      "evaluation": 104007100,
+      "diagnostics": 105007100
+    }
+  ],
+  "api_cost_usd": 0,
+  "status": "frozen before study training and evaluation",
+  "world_predecessor": "functional-learning-v1 at commit 5d42a38b37b315c528281aafb0018d9c8927a5ca; same choice/execution equations, modified sampling schedule"
+}
