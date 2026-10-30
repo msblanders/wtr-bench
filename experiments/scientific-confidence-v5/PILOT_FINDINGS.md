@@ -122,13 +122,10 @@ ambiguous authority, overlapping samples, model misspecification and real papers
 
 ## Reproducibility
 
-- Main run: https://github.com/msblanders/wtr-bench/actions/runs/41015765266
-- Frozen execution commit: `0c840c3bd1fde9d5f946c00595c713c2dd655060`.
+- Frozen source/configuration commit: `f16b4a2810c3ddf6371bdb4f2a5e96b32edd8b18`.
 - Source/configuration passed repository CI before launch; all 37 scientific-confidence tests passed.
-- Main artifact: `12960887347`, 1,697,471 bytes.
-- Original ZIP SHA256: `139cae0ef8a38f9b1c6e46334254c809dd9295b40f901f13880c9baaea2b883a`.
 - Two aggregate reports generated from the saved run were identical.
-- Exact integrity audit: https://github.com/msblanders/wtr-bench/actions/runs/41020914980
+- Exact integrity audit passed; aggregate audit results are in `results/integrity_audit.json`.
 
 The integrity audit uses the original Python 3.11 environment and verifies frozen hashes,
 fixture regeneration, unique complete call/record keys, matched first requests, every state
@@ -138,8 +135,9 @@ record fields were unchanged. The exact audit was therefore run under the origin
 without changing scores or tolerances and without any model calls.
 
 Source, protocol and aggregate findings are in draft PR #12. Raw requests, responses and
-case-level failure records are preserved in the complete experiment package, not committed
-publicly. The package also preserves the recovered original v4 archive.
+case-level failure records, original archive checksums and run references are preserved in
+the private complete experiment package. This public report contains aggregate findings.
+The private package also preserves the recovered original v4 archive.
 
 ## What this establishes and the next question
 
