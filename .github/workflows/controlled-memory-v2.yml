@@ -8,7 +8,7 @@ on:
       mode:
         description: Offline generation or gated paid collection (272 calls; $24.88 remaining guard)
         type: choice
-        options: [offline, collect]
+        options: [offline, diagnose, collect]
         default: offline
         required: true
 
@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   pilot:
-    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Run controlled-memory-v2.1 pilot once'
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Run controlled-memory-v2.1 pilot once' || github.event.head_commit.message == 'Diagnose controlled-memory-v2.1 request'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -33,6 +33,11 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_*learning.py' -v && python -m unittest discover -s tests -p test_controlled_memory.py -v
       - name: Freeze controlled-memory pilot
         run: python experiments/controlled-memory-v2/experiment.py generate --out runs/controlled-memory-v2 --seeds 8
+      - name: Diagnose schema with one output token
+        if: inputs.mode == 'diagnose' || github.event.head_commit.message == 'Diagnose controlled-memory-v2.1 request'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+        run: python experiments/controlled-memory-v2/check_request.py runs/controlled-memory-v2
       - name: Collect once with smoke gate
         if: inputs.mode == 'collect' || github.event.head_commit.message == 'Run controlled-memory-v2.1 pilot once'
         env:
