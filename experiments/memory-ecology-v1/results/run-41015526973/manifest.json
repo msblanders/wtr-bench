@@ -1,0 +1,428 @@
+{
+  "version": "memory-ecology-v1.0",
+  "config": {
+    "replicates": 8,
+    "updates": 1024,
+    "batch_size": 64,
+    "train_length": 32,
+    "evaluation_length": 64,
+    "evaluation_lifetimes": 1024,
+    "widths": [
+      2,
+      12
+    ],
+    "checkpoints": [
+      0,
+      64,
+      256,
+      1024
+    ],
+    "learning_rate": 0.003,
+    "hazard": 0.08,
+    "observation_error": 0.15,
+    "clip_norm": 1
+  },
+  "ecologies": {
+    "stable": 1,
+    "changing": 0,
+    "mixed": 0.5
+  },
+  "source_hashes": {
+    "experiment.py": "7603e5786563548227309ec2f0c14e53dda4de3b785fac291066ac896fd127b1",
+    "protocol.md": "2e9fe54223ace068c654cdd5ea073581afa6914a6ef1b5bce6cd65d14c31f2ab",
+    "requirements.txt": "44b491d7cff080902d49f9674bb0b31aa4862f48d8fec84e83ed95a77ff6ce54"
+  },
+  "config_sha256": "8ef8a88068ea4375d620568312bfe1b46aacc8a31f45ed1cf821ce970a3de0fa",
+  "torch": "2.5.1+cpu",
+  "numpy": "1.26.4",
+  "python": "3.11.17",
+  "github_sha": "060f2a8f0b608eb5a4edf158cbe34a43c1ece68d",
+  "api_cost_usd": 0,
+  "seed_plan": [
+    {
+      "replicate": 0,
+      "ecology": "stable",
+      "hidden": 2,
+      "initialization": 81000002,
+      "training": 82000000,
+      "evaluation": 84000000
+    },
+    {
+      "replicate": 0,
+      "ecology": "stable",
+      "hidden": 12,
+      "initialization": 81000012,
+      "training": 82000000,
+      "evaluation": 84000000
+    },
+    {
+      "replicate": 0,
+      "ecology": "changing",
+      "hidden": 2,
+      "initialization": 81000102,
+      "training": 82000100,
+      "evaluation": 84000100
+    },
+    {
+      "replicate": 0,
+      "ecology": "changing",
+      "hidden": 12,
+      "initialization": 81000112,
+      "training": 82000100,
+      "evaluation": 84000100
+    },
+    {
+      "replicate": 0,
+      "ecology": "mixed",
+      "hidden": 2,
+      "initialization": 81000202,
+      "training": 82000200,
+      "evaluation": 84000200
+    },
+    {
+      "replicate": 0,
+      "ecology": "mixed",
+      "hidden": 12,
+      "initialization": 81000212,
+      "training": 82000200,
+      "evaluation": 84000200
+    },
+    {
+      "replicate": 1,
+      "ecology": "stable",
+      "hidden": 2,
+      "initialization": 81001002,
+      "training": 82001000,
+      "evaluation": 84001000
+    },
+    {
+      "replicate": 1,
+      "ecology": "stable",
+      "hidden": 12,
+      "initialization": 81001012,
+      "training": 82001000,
+      "evaluation": 84001000
+    },
+    {
+      "replicate": 1,
+      "ecology": "changing",
+      "hidden": 2,
+      "initialization": 81001102,
+      "training": 82001100,
+      "evaluation": 84001100
+    },
+    {
+      "replicate": 1,
+      "ecology": "changing",
+      "hidden": 12,
+      "initialization": 81001112,
+      "training": 82001100,
+      "evaluation": 84001100
+    },
+    {
+      "replicate": 1,
+      "ecology": "mixed",
+      "hidden": 2,
+      "initialization": 81001202,
+      "training": 82001200,
+      "evaluation": 84001200
+    },
+    {
+      "replicate": 1,
+      "ecology": "mixed",
+      "hidden": 12,
+      "initialization": 81001212,
+      "training": 82001200,
+      "evaluation": 84001200
+    },
+    {
+      "replicate": 2,
+      "ecology": "stable",
+      "hidden": 2,
+      "initialization": 81002002,
+      "training": 82002000,
+      "evaluation": 84002000
+    },
+    {
+      "replicate": 2,
+      "ecology": "stable",
+      "hidden": 12,
+      "initialization": 81002012,
+      "training": 82002000,
+      "evaluation": 84002000
+    },
+    {
+      "replicate": 2,
+      "ecology": "changing",
+      "hidden": 2,
+      "initialization": 81002102,
+      "training": 82002100,
+      "evaluation": 84002100
+    },
+    {
+      "replicate": 2,
+      "ecology": "changing",
+      "hidden": 12,
+      "initialization": 81002112,
+      "training": 82002100,
+      "evaluation": 84002100
+    },
+    {
+      "replicate": 2,
+      "ecology": "mixed",
+      "hidden": 2,
+      "initialization": 81002202,
+      "training": 82002200,
+      "evaluation": 84002200
+    },
+    {
+      "replicate": 2,
+      "ecology": "mixed",
+      "hidden": 12,
+      "initialization": 81002212,
+      "training": 82002200,
+      "evaluation": 84002200
+    },
+    {
+      "replicate": 3,
+      "ecology": "stable",
+      "hidden": 2,
+      "initialization": 81003002,
+      "training": 82003000,
+      "evaluation": 84003000
+    },
+    {
+      "replicate": 3,
+      "ecology": "stable",
+      "hidden": 12,
+      "initialization": 81003012,
+      "training": 82003000,
+      "evaluation": 84003000
+    },
+    {
+      "replicate": 3,
+      "ecology": "changing",
+      "hidden": 2,
+      "initialization": 81003102,
+      "training": 82003100,
+      "evaluation": 84003100
+    },
+    {
+      "replicate": 3,
+      "ecology": "changing",
+      "hidden": 12,
+      "initialization": 81003112,
+      "training": 82003100,
+      "evaluation": 84003100
+    },
+    {
+      "replicate": 3,
+      "ecology": "mixed",
+      "hidden": 2,
+      "initialization": 81003202,
+      "training": 82003200,
+      "evaluation": 84003200
+    },
+    {
+      "replicate": 3,
+      "ecology": "mixed",
+      "hidden": 12,
+      "initialization": 81003212,
+      "training": 82003200,
+      "evaluation": 84003200
+    },
+    {
+      "replicate": 4,
+      "ecology": "stable",
+      "hidden": 2,
+      "initialization": 81004002,
+      "training": 82004000,
+      "evaluation": 84004000
+    },
+    {
+      "replicate": 4,
+      "ecology": "stable",
+      "hidden": 12,
+      "initialization": 81004012,
+      "training": 82004000,
+      "evaluation": 84004000
+    },
+    {
+      "replicate": 4,
+      "ecology": "changing",
+      "hidden": 2,
+      "initialization": 81004102,
+      "training": 82004100,
+      "evaluation": 84004100
+    },
+    {
+      "replicate": 4,
+      "ecology": "changing",
+      "hidden": 12,
+      "initialization": 81004112,
+      "training": 82004100,
+      "evaluation": 84004100
+    },
+    {
+      "replicate": 4,
+      "ecology": "mixed",
+      "hidden": 2,
+      "initialization": 81004202,
+      "training": 82004200,
+      "evaluation": 84004200
+    },
+    {
+      "replicate": 4,
+      "ecology": "mixed",
+      "hidden": 12,
+      "initialization": 81004212,
+      "training": 82004200,
+      "evaluation": 84004200
+    },
+    {
+      "replicate": 5,
+      "ecology": "stable",
+      "hidden": 2,
+      "initialization": 81005002,
+      "training": 82005000,
+      "evaluation": 84005000
+    },
+    {
+      "replicate": 5,
+      "ecology": "stable",
+      "hidden": 12,
+      "initialization": 81005012,
+      "training": 82005000,
+      "evaluation": 84005000
+    },
+    {
+      "replicate": 5,
+      "ecology": "changing",
+      "hidden": 2,
+      "initialization": 81005102,
+      "training": 82005100,
+      "evaluation": 84005100
+    },
+    {
+      "replicate": 5,
+      "ecology": "changing",
+      "hidden": 12,
+      "initialization": 81005112,
+      "training": 82005100,
+      "evaluation": 84005100
+    },
+    {
+      "replicate": 5,
+      "ecology": "mixed",
+      "hidden": 2,
+      "initialization": 81005202,
+      "training": 82005200,
+      "evaluation": 84005200
+    },
+    {
+      "replicate": 5,
+      "ecology": "mixed",
+      "hidden": 12,
+      "initialization": 81005212,
+      "training": 82005200,
+      "evaluation": 84005200
+    },
+    {
+      "replicate": 6,
+      "ecology": "stable",
+      "hidden": 2,
+      "initialization": 81006002,
+      "training": 82006000,
+      "evaluation": 84006000
+    },
+    {
+      "replicate": 6,
+      "ecology": "stable",
+      "hidden": 12,
+      "initialization": 81006012,
+      "training": 82006000,
+      "evaluation": 84006000
+    },
+    {
+      "replicate": 6,
+      "ecology": "changing",
+      "hidden": 2,
+      "initialization": 81006102,
+      "training": 82006100,
+      "evaluation": 84006100
+    },
+    {
+      "replicate": 6,
+      "ecology": "changing",
+      "hidden": 12,
+      "initialization": 81006112,
+      "training": 82006100,
+      "evaluation": 84006100
+    },
+    {
+      "replicate": 6,
+      "ecology": "mixed",
+      "hidden": 2,
+      "initialization": 81006202,
+      "training": 82006200,
+      "evaluation": 84006200
+    },
+    {
+      "replicate": 6,
+      "ecology": "mixed",
+      "hidden": 12,
+      "initialization": 81006212,
+      "training": 82006200,
+      "evaluation": 84006200
+    },
+    {
+      "replicate": 7,
+      "ecology": "stable",
+      "hidden": 2,
+      "initialization": 81007002,
+      "training": 82007000,
+      "evaluation": 84007000
+    },
+    {
+      "replicate": 7,
+      "ecology": "stable",
+      "hidden": 12,
+      "initialization": 81007012,
+      "training": 82007000,
+      "evaluation": 84007000
+    },
+    {
+      "replicate": 7,
+      "ecology": "changing",
+      "hidden": 2,
+      "initialization": 81007102,
+      "training": 82007100,
+      "evaluation": 84007100
+    },
+    {
+      "replicate": 7,
+      "ecology": "changing",
+      "hidden": 12,
+      "initialization": 81007112,
+      "training": 82007100,
+      "evaluation": 84007100
+    },
+    {
+      "replicate": 7,
+      "ecology": "mixed",
+      "hidden": 2,
+      "initialization": 81007202,
+      "training": 82007200,
+      "evaluation": 84007200
+    },
+    {
+      "replicate": 7,
+      "ecology": "mixed",
+      "hidden": 12,
+      "initialization": 81007212,
+      "training": 82007200,
+      "evaluation": 84007200
+    }
+  ],
+  "status": "prospectively frozen before study training/evaluation"
+}
