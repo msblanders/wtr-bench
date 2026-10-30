@@ -1,5 +1,9 @@
 # Scientific confidence v3: fresh confirmation and sequential evidence updates
 
+**Completed:** 1,360 calls, $23.62, no truncation. The one-call finding replicated on 64 fresh cases.
+Both state-maintaining procedures were accurate throughout the sequential test; added ledger
+instructions showed no meaningful benefit. See [findings](PILOT_FINDINGS.md).
+
 Protocol written before API collection. Two separate experiments, one model/configuration,
 no weight training, no case selection or score-dependent prompt tuning. The code is AI-assisted.
 This extends the [v2 findings](../scientific-confidence-v2/PILOT_FINDINGS.md).
