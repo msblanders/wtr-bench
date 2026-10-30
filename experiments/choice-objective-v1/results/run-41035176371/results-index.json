@@ -1,0 +1,32 @@
+{
+  "replicates": [
+    "replicates/seed-0.json",
+    "replicates/seed-1.json",
+    "replicates/seed-2.json",
+    "replicates/seed-3.json",
+    "replicates/seed-4.json",
+    "replicates/seed-5.json",
+    "replicates/seed-6.json",
+    "replicates/seed-7.json"
+  ],
+  "config_sha256": "cbe2f65903fcb6c9dbbd29b46603be44da3c7b7443116374f613dfcd40ecfe89",
+  "source_hashes": {
+    "experiment.py": "a15aaff5b8957d4c25dd4d01503c63db554a4774e79f3c1a7666405c3baf6e67",
+    "models.py": "028bbc4c8809fb557c01c1a7395e40a44edfff6295a68bd85444c1b59a79d735",
+    "worlds.py": "35f22ac049bb39fd93832aaae9b9c802a9e2055e33802246b2cbe3caf698230c",
+    "external.py": "cd078b7f4f0a9421dca432acb34b8bed6e72205f83829ebf8bc93fe6a9366cb1",
+    "requirements.txt": "9a5f47d3fb24e9bdcb07e24835ab718036f6ef2a4a07a369bdd8e3d102bf583a",
+    "README.md": "70113caa4fc7d8839e370e04a5a0a341af1876c007660d5abebe952ee7d04c82"
+  },
+  "final_weights": [
+    "final-weights/seed-0.json",
+    "final-weights/seed-1.json",
+    "final-weights/seed-2.json",
+    "final-weights/seed-3.json",
+    "final-weights/seed-4.json",
+    "final-weights/seed-5.json",
+    "final-weights/seed-6.json",
+    "final-weights/seed-7.json"
+  ],
+  "publication_status": "Results and final selected parameters published with explicit user authorization on 2026-10-30."
+}

@@ -1,0 +1,6 @@
+{
+  "independent_paired_contrasts_and_intervals_verified": 96,
+  "replicates": 8,
+  "matched_training_and_validation_streams": true,
+  "primary_pass": false
+}

@@ -1,0 +1,157 @@
+{
+  "version": "choice-objective-v1.0",
+  "config": {
+    "replicates": 8,
+    "generations": 512,
+    "population": 32,
+    "elites": 8,
+    "batch_size": 64,
+    "max_history": 24,
+    "validation_lifetimes": 256,
+    "evaluation_lifetimes": 512,
+    "diagnostic_lifetimes": 256,
+    "test_lengths": [
+      4,
+      12,
+      24,
+      48
+    ],
+    "primary_lengths": [
+      4,
+      12,
+      24
+    ],
+    "checkpoints": [
+      0,
+      128,
+      512
+    ],
+    "initial_sd": 0.5,
+    "mean_rate": 0.3,
+    "sd_rate": 0.15,
+    "min_sd": 0.05,
+    "max_sd": 2,
+    "adam_lr": 0.003,
+    "gradient_clip": 1
+  },
+  "config_sha256": "cbe2f65903fcb6c9dbbd29b46603be44da3c7b7443116374f613dfcd40ecfe89",
+  "source_hashes": {
+    "experiment.py": "a15aaff5b8957d4c25dd4d01503c63db554a4774e79f3c1a7666405c3baf6e67",
+    "models.py": "028bbc4c8809fb557c01c1a7395e40a44edfff6295a68bd85444c1b59a79d735",
+    "worlds.py": "35f22ac049bb39fd93832aaae9b9c802a9e2055e33802246b2cbe3caf698230c",
+    "external.py": "cd078b7f4f0a9421dca432acb34b8bed6e72205f83829ebf8bc93fe6a9366cb1",
+    "requirements.txt": "9a5f47d3fb24e9bdcb07e24835ab718036f6ef2a4a07a369bdd8e3d102bf583a",
+    "README.md": "70113caa4fc7d8839e370e04a5a0a341af1876c007660d5abebe952ee7d04c82"
+  },
+  "objectives": [
+    "joint",
+    "choice_only"
+  ],
+  "suites": [
+    "canonical_seen",
+    "canonical_heldout",
+    "shifted",
+    "external_games"
+  ],
+  "predecessor": "edce7347c69beca326c0be2120b026caa57b9e61",
+  "unchanged_predecessor_sources": {
+    "models.py": "028bbc4c8809fb557c01c1a7395e40a44edfff6295a68bd85444c1b59a79d735",
+    "worlds.py": "35f22ac049bb39fd93832aaae9b9c802a9e2055e33802246b2cbe3caf698230c",
+    "external.py": "cd078b7f4f0a9421dca432acb34b8bed6e72205f83829ebf8bc93fe6a9366cb1",
+    "requirements.txt": "9a5f47d3fb24e9bdcb07e24835ab718036f6ef2a4a07a369bdd8e3d102bf583a"
+  },
+  "external_commit": "8d7f9946b3cc4ff1d7fae7a1a7a149499c35dede",
+  "external_sha256": {
+    "games.py": "1fcb6e25de7bfea5fa44ddfbeced6a482b75ffeaee97947241c62a58476ca653",
+    "agents.py": "2b387b6a407177566a8783da2875f0243be4cfed9c51c21e9e3b0ec87fa63833",
+    "utils.py": "8c52b713a428c15a0ce1fb9fd46e0ee5451633ad7a3eddc5dbafb91ebbfec0fa"
+  },
+  "python": "3.11.17",
+  "numpy": "1.26.4",
+  "torch": "2.5.1+cpu",
+  "github_sha": "0526d1ae00afc7e63eb6fb180dd8ac603734b650",
+  "api_cost_usd": 0,
+  "status": "frozen before study selection and holdout evaluation",
+  "seed_plan": [
+    {
+      "initialization": 141000000,
+      "training": 142000000,
+      "validation": 143000000,
+      "evolution": 144000000,
+      "random_search": 145000000,
+      "evaluation": 146000000,
+      "diagnostics": 147000000,
+      "donors": 149000000
+    },
+    {
+      "initialization": 141000001,
+      "training": 142000001,
+      "validation": 143000001,
+      "evolution": 144000001,
+      "random_search": 145000001,
+      "evaluation": 146001000,
+      "diagnostics": 147000001,
+      "donors": 149001000
+    },
+    {
+      "initialization": 141000002,
+      "training": 142000002,
+      "validation": 143000002,
+      "evolution": 144000002,
+      "random_search": 145000002,
+      "evaluation": 146002000,
+      "diagnostics": 147000002,
+      "donors": 149002000
+    },
+    {
+      "initialization": 141000003,
+      "training": 142000003,
+      "validation": 143000003,
+      "evolution": 144000003,
+      "random_search": 145000003,
+      "evaluation": 146003000,
+      "diagnostics": 147000003,
+      "donors": 149003000
+    },
+    {
+      "initialization": 141000004,
+      "training": 142000004,
+      "validation": 143000004,
+      "evolution": 144000004,
+      "random_search": 145000004,
+      "evaluation": 146004000,
+      "diagnostics": 147000004,
+      "donors": 149004000
+    },
+    {
+      "initialization": 141000005,
+      "training": 142000005,
+      "validation": 143000005,
+      "evolution": 144000005,
+      "random_search": 145000005,
+      "evaluation": 146005000,
+      "diagnostics": 147000005,
+      "donors": 149005000
+    },
+    {
+      "initialization": 141000006,
+      "training": 142000006,
+      "validation": 143000006,
+      "evolution": 144000006,
+      "random_search": 145000006,
+      "evaluation": 146006000,
+      "diagnostics": 147000006,
+      "donors": 149006000
+    },
+    {
+      "initialization": 141000007,
+      "training": 142000007,
+      "validation": 143000007,
+      "evolution": 144000007,
+      "random_search": 145000007,
+      "evaluation": 146007000,
+      "diagnostics": 147000007,
+      "donors": 149007000
+    }
+  ]
+}
