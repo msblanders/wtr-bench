@@ -7,10 +7,10 @@ Uses NumPy; PyTorch files are inspected as raw ZIP tensor storage, not unpickled
 import hashlib
 import importlib.util
 import json
-from pathlib import Path
 import sys
 import tempfile
 import zipfile
+from pathlib import Path
 
 import numpy as np
 
@@ -89,7 +89,7 @@ primary = {k: recomputed[k]['paired_bootstrap_95ci'][0] > threshold
            for k, threshold in summary['joint_primary_criteria'].items()}
 assert all(primary.values()) == summary['joint_primary_pass']
 assert sum(primary.values()) == 4
-for label, record in summary['secondary_original_architecture_checks'].items():
+for record in summary['secondary_original_architecture_checks'].values():
     assert all(recomputed[k]['paired_bootstrap_95ci'][0] > t
                for k, t in record['criteria'].items()) == record['pass']
 
@@ -213,7 +213,7 @@ raw_checks = {}
 for readout in ('interaction', 'wide_control'):
     for method in ('evolved', 'matched_gradient'):
         for metric in ('choice_brier', 'execution_brier'):
-            def raw(row, budget, kind):
+            def raw(row, budget, kind, readout=readout, method=method, metric=metric):
                 return row['models'][readout][method]['budgets'][str(budget)]['raw_last'][kind][metric]
             raw_checks[f'{readout}/{method}/{metric}/low_minus_high'] = estimate([
                 raw(r, 512, 'intact') - raw(r, 2048, 'intact') for r in rows])
@@ -227,7 +227,7 @@ for length in (4, 12, 24, 48):
     values = []
     for row in rows:
         m = row['models']['interaction']['evolved']['budgets']
-        def gain(b):
+        def gain(b, m=m, length=length):
             return (m[b]['donor_history']['canonical_seen'][str(length)]['choice_brier']
                     - m[b]['intact']['canonical_seen'][str(length)]['choice_brier'])
         values.append(gain('2048') - gain('512'))
