@@ -1,5 +1,9 @@
 # Scientific confidence v4: changing evidence provenance
 
+**Completed:** 1,224 calls, $28.17, no truncation. Full-history conditions avoided eight new
+reinstatement failures seen in the active baseline. The large average probability advantage
+was dominated by one trajectory and is not a confirmed general gain. See [findings](PILOT_FINDINGS.md).
+
 Prospective protocol, frozen before API collection. This follows the v3 ceiling result:
 a simple structured record and calculator handled clean repeated updates, and extra ledger
 instructions added no meaningful benefit. V4 changes identity, revision, withdrawal, and

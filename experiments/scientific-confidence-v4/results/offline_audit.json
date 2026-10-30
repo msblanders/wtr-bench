@@ -1,0 +1,78 @@
+{
+  "arms": {
+    "active_checklist": {
+      "max_note_words": 68,
+      "max_retained_rows": 4,
+      "mean_retained_rows": 3.4140625,
+      "notes_over_120_words": 0,
+      "records": 384,
+      "records_containing_inactive_rows": 1,
+      "trajectories_with_mean_loss_above_1e_8": 4,
+      "unfaithful_but_within_half_percentage_point": 19,
+      "valid_checkpoints_with_diagnostic_error": 0
+    },
+    "versioned_checklist": {
+      "max_note_words": 78,
+      "max_retained_rows": 8,
+      "mean_retained_rows": 5.583333333333333,
+      "notes_over_120_words": 0,
+      "records": 384,
+      "records_containing_inactive_rows": 320,
+      "trajectories_with_mean_loss_above_1e_8": 3,
+      "unfaithful_but_within_half_percentage_point": 3,
+      "valid_checkpoints_with_diagnostic_error": 0
+    },
+    "versioned_operator": {
+      "max_note_words": 61,
+      "max_retained_rows": 8,
+      "mean_retained_rows": 5.583333333333333,
+      "notes_over_120_words": 0,
+      "records": 384,
+      "records_containing_inactive_rows": 320,
+      "trajectories_with_mean_loss_above_1e_8": 2,
+      "unfaithful_but_within_half_percentage_point": 5,
+      "valid_checkpoints_with_diagnostic_error": 0
+    }
+  },
+  "calls": 1224,
+  "frozen_file_hashes_verified": true,
+  "no_model_calls_in_audit": true,
+  "planned_calls": 1224,
+  "posthoc_lineage": {
+    "active_checklist": {
+      "faithful_before_reinstatement_then_unfaithful": 8,
+      "first_unfaithful_checkpoint_counts": {
+        "0": 3,
+        "10": 8
+      },
+      "unfaithful_before_reinstatement_then_faithful": 0
+    },
+    "both_initially_faithful": {
+      "mean_paired_loss_difference": -0.000018286466125632125,
+      "n": 29
+    },
+    "posthoc_selection_caution": "Initial correctness is post-treatment. These are descriptive diagnostics, not causal subgroup effects.",
+    "share_absolute_paired_difference_in_initially_unfaithful_trajectories": 0.9979962540063816,
+    "versioned_checklist": {
+      "faithful_before_reinstatement_then_unfaithful": 0,
+      "first_unfaithful_checkpoint_counts": {
+        "0": 3
+      },
+      "unfaithful_before_reinstatement_then_faithful": 0
+    },
+    "versioned_operator": {
+      "faithful_before_reinstatement_then_unfaithful": 0,
+      "first_unfaithful_checkpoint_counts": {
+        "0": 2
+      },
+      "unfaithful_before_reinstatement_then_faithful": 0
+    }
+  },
+  "primary_case_directions_descriptive": {
+    "baseline_better_by_more_than_1e_8": 1,
+    "largest_absolute_delta_share": 0.9973108644630445,
+    "negligible_difference": 29,
+    "operator_better_by_more_than_1e_8": 2
+  },
+  "unique_call_and_record_keys_verified": true
+}
