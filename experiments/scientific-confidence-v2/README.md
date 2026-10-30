@@ -1,5 +1,9 @@
 # Scientific confidence v2: representation and arithmetic
 
+**Completed:** 252 calls, $5.17 recorded cost, no truncation. The ledger+calculator path recovered
+near-exact probabilities in all 32 main cases; its advantage over checklist+calculator was driven
+by three evidence-mapping failures. See [findings](PILOT_FINDINGS.md) for the limits and next test.
+
 This follow-up addresses the output cutoff and two observed v1 errors: wrong associations
 between hypotheses and predicted study effects, and incorrect normalization of evidence weights.
 The protocol is frozen before any v2 API collection. The code is AI-assisted. It uses the same

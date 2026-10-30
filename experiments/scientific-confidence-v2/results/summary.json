@@ -1,0 +1,156 @@
+{
+  "version": "scientific-confidence-v2",
+  "main_cases": 32,
+  "conditions": {
+    "checklist_verbal": {
+      "n": 32,
+      "valid": 32,
+      "invalid_or_missing": 0,
+      "mean_posterior_loss": 0.0434468268515718,
+      "mean_future_loss": 0.0032642082443416734,
+      "valid_only_posterior_regret": 0.0434468268515718,
+      "source_faithful": null
+    },
+    "audit_verbal": {
+      "n": 32,
+      "valid": 31,
+      "invalid_or_missing": 1,
+      "mean_posterior_loss": 0.06335945420475383,
+      "mean_future_loss": 0.03125473131267455,
+      "valid_only_posterior_regret": 0.0008871785339394393,
+      "source_faithful": null
+    },
+    "checklist_manual": {
+      "n": 32,
+      "valid": 32,
+      "invalid_or_missing": 0,
+      "mean_posterior_loss": 0.04345064180488147,
+      "mean_future_loss": 0.0032621977116958616,
+      "valid_only_posterior_regret": 0.04345064180488147,
+      "source_faithful": 29
+    },
+    "checklist_calculated": {
+      "n": 32,
+      "valid": 32,
+      "invalid_or_missing": 0,
+      "mean_posterior_loss": 0.041469558358113646,
+      "mean_future_loss": 0.0032262064350123245,
+      "valid_only_posterior_regret": 0.041469558358113646,
+      "source_faithful": 29
+    },
+    "ledger_manual": {
+      "n": 32,
+      "valid": 32,
+      "invalid_or_missing": 0,
+      "mean_posterior_loss": 0.06676444782275194,
+      "mean_future_loss": 0.013106150113481575,
+      "valid_only_posterior_regret": 0.06676444782275194,
+      "source_faithful": 32
+    },
+    "ledger_calculated": {
+      "n": 32,
+      "valid": 32,
+      "invalid_or_missing": 0,
+      "mean_posterior_loss": 2.644894696437128e-13,
+      "mean_future_loss": 6.07311606367555e-14,
+      "valid_only_posterior_regret": 2.644894696437128e-13,
+      "source_faithful": 32
+    }
+  },
+  "comparisons": {
+    "primary_representation": {
+      "first": "ledger_calculated",
+      "second": "checklist_calculated",
+      "n_paired_cases": 32,
+      "mean_delta": -0.04146955835784916,
+      "bootstrap_95_percentile_interval": [
+        -0.11070406163779113,
+        -4.0548144616410024e-14
+      ],
+      "valid_pairs": 32,
+      "valid_only_mean_delta": -0.04146955835784916
+    },
+    "bundle_vs_verbal": {
+      "first": "ledger_calculated",
+      "second": "checklist_verbal",
+      "n_paired_cases": 32,
+      "mean_delta": -0.04344682685130731,
+      "bootstrap_95_percentile_interval": [
+        -0.11634945370356108,
+        -0.00013277962256835055
+      ],
+      "valid_pairs": 32,
+      "valid_only_mean_delta": -0.04344682685130731
+    },
+    "audit_with_more_room": {
+      "first": "audit_verbal",
+      "second": "checklist_verbal",
+      "n_paired_cases": 32,
+      "mean_delta": 0.01991262735318203,
+      "bootstrap_95_percentile_interval": [
+        -0.09825796517363382,
+        0.1740417847199917
+      ],
+      "valid_pairs": 31,
+      "valid_only_mean_delta": -0.04396114728453444
+    },
+    "arithmetic_checklist": {
+      "first": "checklist_calculated",
+      "second": "checklist_manual",
+      "n_paired_cases": 32,
+      "mean_delta": -0.001981083446767826,
+      "bootstrap_95_percentile_interval": [
+        -0.005773152151271379,
+        -1.2181046127064153e-05
+      ],
+      "valid_pairs": 32,
+      "valid_only_mean_delta": -0.001981083446767826
+    },
+    "arithmetic_ledger": {
+      "first": "ledger_calculated",
+      "second": "ledger_manual",
+      "n_paired_cases": 32,
+      "mean_delta": -0.06676444782248746,
+      "bootstrap_95_percentile_interval": [
+        -0.1076875154393804,
+        -0.03211115845459078
+      ],
+      "valid_pairs": 32,
+      "valid_only_mean_delta": -0.06676444782248746
+    },
+    "worksheet_output": {
+      "first": "checklist_manual",
+      "second": "checklist_verbal",
+      "n_paired_cases": 32,
+      "mean_delta": 3.814953309672674e-06,
+      "bootstrap_95_percentile_interval": [
+        -1.532075529461924e-08,
+        8.849241450422552e-06
+      ],
+      "valid_pairs": 32,
+      "valid_only_mean_delta": 3.814953309672674e-06
+    }
+  },
+  "calls": 252,
+  "planned_calls": 252,
+  "recorded_cost_usd": 5.170983000000001,
+  "unknown_cost_calls": 0,
+  "main_record_count": 128,
+  "main_expected_records": 128,
+  "truncation_by_phase_stage": {
+    "development": {
+      "prepare": 0,
+      "verbal": 0,
+      "worksheet": 0
+    },
+    "main": {
+      "prepare": 0,
+      "verbal": 0,
+      "worksheet": 0
+    }
+  },
+  "cost_by_phase_usd": {
+    "development": 0.5861040000000001,
+    "main": 4.584879000000001
+  }
+}
