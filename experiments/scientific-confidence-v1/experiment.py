@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import concurrent.futures
 import hashlib
+import http.client
 import json
 import math
 import os
@@ -284,7 +285,7 @@ class Collector:
                 self.committed += cost - reserve
                 if cost > reserve:
                     self.stop = True
-        except Exception as exc:
+        except (OSError, ValueError, KeyError, TypeError, http.client.HTTPException) as exc:
             # Provider messages and request headers may contain sensitive data: never log them.
             error = type(exc).__name__
             record["error"] = error
@@ -319,7 +320,7 @@ class Collector:
                 payload = final_payload(case, note=note)
             response = self.call(cid, arm, "final", payload)
             result.update(parse_assessment(response), valid=True)
-        except Exception as exc:
+        except (RuntimeError, ValueError, KeyError, TypeError) as exc:
             result["error"] = type(exc).__name__
         with self.lock:
             with (self.out / "responses.jsonl").open("a") as stream:
@@ -425,8 +426,8 @@ def report(out):
     write_json(out / "scores.json", scores)
     write_json(out / "summary.json", summary)
     lines = ["# Scientific confidence v1: exploratory pilot", "",
-             f"Recorded API cost: ${summary['recorded_cost_usd']:.4f}. "
-             f"Calls: {len(calls)}/{manifest['planned_calls']}.", "",
+             (f"Recorded API cost: ${summary['recorded_cost_usd']:.4f}. "
+              f"Calls: {len(calls)}/{manifest['planned_calls']}."), "",
              "Lower regret is better. Oracle readout is an answer-supplied diagnostic.", "",
              "| Arm | Valid | Invalid / missing | Posterior regret | Future regret |",
              "|---|---:|---:|---:|---:|"]
@@ -437,11 +438,11 @@ def report(out):
                      + " | ".join(vals) + " |")
     lines.extend(["", "Primary paired comparison (audit minus checklist; negative favors audit):",
                   "", "```json", json.dumps(summary["primary_paired_comparison"], indent=2),
-                  "```", "", "Exploratory, one model/configuration, 32 simulated cases by default. "
+                  "```", "", ("Exploratory, one model/configuration, 32 simulated cases by default. "
                   "Matched call/token ceilings, not equal actual compute. No weights were trained. "
                   "The supplied models are exhaustive and correctly specified; real science is not. "
                   "This measures probabilistic model comparison, not general scientific reasoning. "
-                  "Do not select or tune a procedure on this pilot and call its result confirmation."])
+                  "Do not select or tune a procedure on this pilot and call its result confirmation.")])
     (out / "RESULTS.md").write_text("\n".join(lines) + "\n")
     print(json.dumps(summary, indent=2), flush=True)
 

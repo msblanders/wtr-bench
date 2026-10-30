@@ -135,9 +135,9 @@ class ScientificConfidenceTests(unittest.TestCase):
         ):
             collector = e.Collector(Path(directory), 1)
             payload = e.prepare_payload(e.make_cases(1)[0][0], "generic_review")
-            with patch.object(e.urllib.request, "urlopen", side_effect=TimeoutError("secret")):
-                with self.assertRaises(RuntimeError):
-                    collector.call("case", "arm", "prepare", payload)
+            with (patch.object(e.urllib.request, "urlopen", side_effect=TimeoutError("secret")),
+                  self.assertRaises(RuntimeError)):
+                collector.call("case", "arm", "prepare", payload)
             self.assertTrue(collector.stop)
             self.assertGreater(collector.committed, 0)
             self.assertEqual(collector.actual, 0)
