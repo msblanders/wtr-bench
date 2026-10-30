@@ -1,12 +1,12 @@
-name: controlled-memory-v2
+name: controlled-memory-v2.1
 
 on:
   push:
-    branches: [run/controlled-memory-v2-20261029]
+    branches: [run/controlled-memory-v2-1-20261029]
   workflow_dispatch:
     inputs:
       mode:
-        description: Offline generation or gated paid collection (264 calls; $25 local guard)
+        description: Offline generation or gated paid collection (272 calls; $24.88 remaining guard)
         type: choice
         options: [offline, collect]
         default: offline
@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   pilot:
-    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Run controlled-memory-v2 pilot once'
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Run controlled-memory-v2.1 pilot once'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -34,7 +34,7 @@ jobs:
       - name: Freeze controlled-memory pilot
         run: python experiments/controlled-memory-v2/experiment.py generate --out runs/controlled-memory-v2 --seeds 8
       - name: Collect once with smoke gate
-        if: inputs.mode == 'collect' || github.event.head_commit.message == 'Run controlled-memory-v2 pilot once'
+        if: inputs.mode == 'collect' || github.event.head_commit.message == 'Run controlled-memory-v2.1 pilot once'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -46,7 +46,7 @@ jobs:
             echo 'API secret missing; no calls made.'
             exit 1
           fi
-          python runs/controlled-memory-v2/experiment.py collect --out runs/controlled-memory-v2 --budget-usd 25
+          python runs/controlled-memory-v2/experiment.py collect --out runs/controlled-memory-v2 --budget-usd 24.88
       - name: Score available responses
         if: always()
         run: |

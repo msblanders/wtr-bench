@@ -21,12 +21,12 @@ assert spec is not None and spec.loader is not None
 v1 = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(v1)
 
-VERSION = "controlled-memory-v2.0"
+VERSION = "controlled-memory-v2.1"
 ARMS = ("functional", "local", "adaptive", "wrong_routing")
 BUDGETS = v1.BUDGETS
 REGIMES = ("shared", "context_specific")
 MODEL = "claude-sonnet-4-6"
-MAX_BUDGET = 25.0
+MAX_BUDGET = 24.88  # Leaves room for the $0.114906 spent on the stopped v2.0 smoke run.
 SEED_START = 1000
 MEMORY_TOLERANCE = 0.02
 DECISION_AGREEMENT_GATE = 0.90
@@ -116,14 +116,15 @@ def expected_from_memory(memory, queries, decisions):
     lookup = {(r["partner"], r["setting"]): r for r in memory}
     probs = {q["id"]: lookup[q["partner"], q["setting"]][
         "p_choose" if q["kind"] == "choice" else "p_success_if_attempt"] for q in queries}
-    choices, margins = {}, {}
+    choices, margins, calculations = {}, {}, {}
     for d in decisions:
         m = lookup[d["partner"], d["setting"]]
-        gain = d["benefit"] * event_probability(d["kind"], m["p_choose"],
-                                               m["p_success_if_attempt"]) - d["fee"]
+        probability = event_probability(d["kind"], m["p_choose"], m["p_success_if_attempt"])
+        gain = d["benefit"] * probability - d["fee"]
+        calculations[d["id"]] = {"event_probability": probability, "expected_net_value": gain}
         choices[d["id"]] = gain > 0
         margins[d["id"]] = abs(gain)
-    return {"predictions": probs, "decisions": choices}, margins
+    return {"predictions": probs, "calculations": calculations, "decisions": choices}, margins
 
 
 def object_schema(properties):
@@ -140,6 +141,10 @@ def make_request(seed, regime, budget, arm, phase="pilot"):
     schema = object_schema({
         "predictions": object_schema({q["id"]: {"type": "number",
              "description": "Finite probability between 0 and 1 inclusive."} for q in queries}),
+        "calculations": object_schema({d["id"]: object_schema({
+            "event_probability": {"type": "number", "description": "Probability of receiving the benefit, between 0 and 1."},
+            "expected_net_value": {"type": "number", "description": "Benefit times event_probability minus upfront fee; can be negative."},
+        }) for d in decisions}),
         "decisions": object_schema({d["id"]: {"type": "boolean"} for d in decisions})})
     descriptions = {
         "voluntary_delivery": "Commission a voluntary delivery. Receive benefit only if the partner chooses an attempt AND succeeds.",
@@ -166,10 +171,16 @@ def make_request(seed, regime, budget, arm, phase="pilot"):
         + "\n".join(questions) + "\n\nDecisions:\n"
         "Return true to pay the fee, false to decline. Paying always incurs the fee; "
         "declining gives zero. Maximize expected benefit minus fee using the memory. "
-        "On an exact tie, decline.\n" + "\n".join(actions)
-        + "\n\nReturn only the requested JSON probabilities and Boolean decisions. No explanation."
+        "For every decision, first report event_probability and expected_net_value. "
+        "Use these formulas, with w=p_choose and a=p_success_if_attempt: "
+        "voluntary delivery: w*a; assigned delivery: a; backup: 1-w*a; participation: w. "
+        "Expected_net_value = benefit * event_probability - upfront fee. "
+        "After completing the calculations, set each Boolean decision to true exactly "
+        "when that decision's expected_net_value is positive. On an exact tie, decline.\n"
+        + "\n".join(actions)
+        + "\n\nReturn only the requested JSON predictions, calculations, and Boolean decisions. No explanation."
     )
-    body = {"model": MODEL, "max_tokens": 1536, "temperature": 0,
+    body = {"model": MODEL, "max_tokens": 2048, "temperature": 0,
             "thinking": {"type": "disabled"}, "messages": [{"role": "user", "content": prompt}],
             "output_config": {"format": {"type": "json_schema", "schema": schema}}}
     correct_memory, _ = memory_for(world, budget, "functional")
@@ -191,9 +202,9 @@ def parse_response(text, request):
             out[key] = value
         return out
     obj = json.loads(text, object_pairs_hook=unique)
-    if not isinstance(obj, dict) or set(obj) != {"predictions", "decisions"}:
+    if not isinstance(obj, dict) or set(obj) != {"predictions", "calculations", "decisions"}:
         raise ValueError("Incorrect response keys")
-    for group in ("predictions", "decisions"):
+    for group in ("predictions", "calculations", "decisions"):
         if not isinstance(obj[group], dict) or set(obj[group]) != set(request["expected_output"][group]):
             raise ValueError("IDs do not match")
     for p in obj["predictions"].values():
@@ -201,6 +212,13 @@ def parse_response(text, request):
             raise ValueError("Invalid probability")
     if any(type(x) is not bool for x in obj["decisions"].values()):
         raise ValueError("Decision must be Boolean")
+    for calculation in obj["calculations"].values():
+        if not isinstance(calculation, dict) or set(calculation) != {"event_probability", "expected_net_value"}:
+            raise ValueError("Incorrect calculation schema")
+        if any(type(x) not in (int, float) or not math.isfinite(x) for x in calculation.values()):
+            raise ValueError("Invalid calculation value")
+        if not 0 <= calculation["event_probability"] <= 1:
+            raise ValueError("Invalid event probability")
     return obj
 
 
@@ -212,6 +230,12 @@ def metrics(request, output):
     scores["memory_mse"] = statistics.mean(x*x for x in differences)
     scores["decision_agreement"] = statistics.mean(output["decisions"][k] == x
                                                    for k, x in expected["decisions"].items())
+    scores["calculation_max_probability_error"] = max(
+        abs(output["calculations"][k]["event_probability"] - c["event_probability"])
+        for k, c in expected["calculations"].items())
+    scores["calculation_max_value_error"] = max(
+        abs(output["calculations"][k]["expected_net_value"] - c["expected_net_value"])
+        for k, c in expected["calculations"].items())
     scores["decision_regret"] = statistics.mean(
         max(0, d["truth_gain"]) - (d["truth_gain"] if output["decisions"][d["id"]] else 0)
         for d in request["decision_key"])
@@ -229,7 +253,8 @@ def generate(out, seeds=8):
         (out / name).write_bytes(data)
     # Smoke fixtures are disjoint from pilot worlds. Only fidelity, never empirical ranking, gates collection.
     smoke = [make_request(seed, regime, 24, arm, "smoke")
-             for seed, regime in ((9000, "shared"), (9001, "context_specific")) for arm in ARMS]
+             for seed, regime in ((9000, "shared"), (9001, "context_specific"),
+                                  (9002, "shared"), (9003, "context_specific")) for arm in ARMS]
     pilot = [make_request(seed, regime, budget, arm)
              for seed in range(SEED_START, SEED_START + seeds) for regime in REGIMES
              for budget in BUDGETS for arm in ARMS]
@@ -290,7 +315,7 @@ def smoke_gate(requests, records):
 def collect(out, budget=MAX_BUDGET, sender=v1.send):
     m, requests = check_manifest(out)
     if not math.isfinite(budget) or not 0 < budget <= MAX_BUDGET:
-        raise ValueError("Budget must be positive and no greater than $25")
+        raise ValueError(f"Budget must be positive and no greater than ${MAX_BUDGET}")
     if sender is v1.send and not os.environ.get("ANTHROPIC_API_KEY"):
         raise RuntimeError("ANTHROPIC_API_KEY missing; no API calls made")
     with (out / "collection-started.json").open("x") as f:

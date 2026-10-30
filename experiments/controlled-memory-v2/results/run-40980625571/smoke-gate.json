@@ -1,0 +1,125 @@
+{
+  "passed": false,
+  "details": [
+    {
+      "id": "smoke-s9000-shared-n24-functional",
+      "passed": false,
+      "metrics": {
+        "all": 0.007550861527811285,
+        "transfer_choice": 0.0066097879957876925,
+        "seen_choice": 0.0066097879957876925,
+        "execution": 0.008491935059834877,
+        "memory_max_abs_error": 0.0,
+        "memory_mse": 0.0,
+        "decision_agreement": 0.8125,
+        "decision_regret": 0.2526134073121185,
+        "distance_to_correct_pool": 0.0
+      }
+    },
+    {
+      "id": "smoke-s9000-shared-n24-local",
+      "passed": true,
+      "metrics": {
+        "all": 0.02012033358969197,
+        "transfer_choice": 0.05667541909450659,
+        "seen_choice": 0.019285388632070296,
+        "execution": 0.008491935059834877,
+        "memory_max_abs_error": 0.0,
+        "memory_mse": 0.0,
+        "decision_agreement": 1,
+        "decision_regret": 0.03877367825126529,
+        "distance_to_correct_pool": 0.014097032312958335
+      }
+    },
+    {
+      "id": "smoke-s9000-shared-n24-adaptive",
+      "passed": false,
+      "metrics": {
+        "all": 0.010207398536347393,
+        "transfer_choice": 0.0168792099130967,
+        "seen_choice": 0.009444688062741511,
+        "execution": 0.008491935059834877,
+        "memory_max_abs_error": 0.0,
+        "memory_mse": 0.0,
+        "decision_agreement": 0.75,
+        "decision_regret": 0.642979708369834,
+        "distance_to_correct_pool": 0.003407569227375001
+      }
+    },
+    {
+      "id": "smoke-s9000-shared-n24-wrong_routing",
+      "passed": false,
+      "metrics": {
+        "all": 0.15662757883139347,
+        "transfer_choice": 0.134742202101384,
+        "seen_choice": 0.134742202101384,
+        "execution": 0.17851295556140295,
+        "memory_max_abs_error": 0.0,
+        "memory_mse": 0.0,
+        "decision_agreement": 0.875,
+        "decision_regret": 0.33933681725984655,
+        "distance_to_correct_pool": 0.17244049263300001
+      }
+    },
+    {
+      "id": "smoke-s9001-context_specific-n24-functional",
+      "passed": false,
+      "metrics": {
+        "all": 0.0394658433269858,
+        "transfer_choice": 0.10413725917522004,
+        "seen_choice": 0.045093947772689436,
+        "execution": 0.01415663508043863,
+        "memory_max_abs_error": 0.0,
+        "memory_mse": 0.0,
+        "decision_agreement": 0.8125,
+        "decision_regret": 0.6246860161047194,
+        "distance_to_correct_pool": 0.0
+      }
+    },
+    {
+      "id": "smoke-s9001-context_specific-n24-local",
+      "passed": false,
+      "metrics": {
+        "all": 0.017610477391915125,
+        "transfer_choice": 0.056666216895172206,
+        "seen_choice": 0.0032633711075013235,
+        "execution": 0.01415663508043863,
+        "memory_max_abs_error": 0.0,
+        "memory_mse": 0.0,
+        "decision_agreement": 0.8125,
+        "decision_regret": 0.3925063057602738,
+        "distance_to_correct_pool": 0.021577380952416667
+      }
+    },
+    {
+      "id": "smoke-s9001-context_specific-n24-adaptive",
+      "passed": false,
+      "metrics": {
+        "all": 0.017627117063288743,
+        "transfer_choice": 0.05655765940861092,
+        "seen_choice": 0.0033675688649028278,
+        "execution": 0.01415663508043863,
+        "memory_max_abs_error": 0.0,
+        "memory_mse": 0.0,
+        "decision_agreement": 0.8125,
+        "decision_regret": 0.3925063057602738,
+        "distance_to_correct_pool": 0.02063551485229167
+      }
+    },
+    {
+      "id": "smoke-s9001-context_specific-n24-wrong_routing",
+      "passed": true,
+      "metrics": {
+        "all": 0.14681500469550204,
+        "transfer_choice": 0.042289993107668025,
+        "seen_choice": 0.16795951268938278,
+        "execution": 0.16756033656219288,
+        "memory_max_abs_error": 0.0,
+        "memory_mse": 0.0,
+        "decision_agreement": 1,
+        "decision_regret": 0.6685764281286541,
+        "distance_to_correct_pool": 0.11895182412149999
+      }
+    }
+  ]
+}

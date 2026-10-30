@@ -1,5 +1,7 @@
 # Controlled external memory: can we impose distinct update rules?
 
+Current protocol: **v2.1**, amended after the v2.0 smoke check; original run preserved below.
+
 Exploratory follow-up to the [first pilot](../functional-learning-v1/results/run-40969709564/README.md). The first pilot's wrong-rule prompt often elicited correct updating, and prose broke its strict parser. This run makes the memory manipulation executable and validates the downstream reader before comparing performance.
 
 ## Scope and question
@@ -10,7 +12,7 @@ This is a system integration and manipulation-validation experiment. Learning oc
 
 ## Common world, different memories
 
-Reuse the first pilot's world generator unchanged, with new seeds **1000–1007**. Eight paired independent worlds, two regimes, checkpoints of **0, 2, 8, 24** episodes per partner, four arms: **256 pilot requests**. Smoke fixtures use separate seeds 9000 and 9001, for **8 additional requests**. No selection of pilot seeds based on performance.
+Reuse the first pilot's world generator unchanged, with new seeds **1000–1007**. Eight paired independent worlds, two regimes, checkpoints of **0, 2, 8, 24** episodes per partner, four arms: **256 pilot requests**. Smoke fixtures use seeds 9000 and 9001 as development cases and new, unobserved seeds 9002 and 9003 as additional checks, for **16 additional requests**. The pilot worlds remain unobserved. No selection of pilot seeds based on performance.
 
 There are four partners and three settings, of which two appear in the histories. Voluntary attempts/declines inform inclination; success/failure among actual attempts informs execution. Assigned attempts give no choice evidence, and declines give no execution evidence. The shared world shares both quantities across settings. In the context-specific world only inclination varies by setting. Independent uniform priors are used for all distinct latent rates. Inclination is a voluntary-attempt probability, not a numerical WTR.
 
@@ -29,7 +31,7 @@ All memories have the same table shape and semantic labels, rounded to six decim
 
 ## Reader and decisions
 
-Use `claude-sonnet-4-6`, temperature 0, thinking disabled, maximum 1536 output tokens. Use the Messages API's [JSON schema output format](https://platform.claude.com/docs/en/build-with-claude/structured-outputs), with required numeric probability fields and Boolean decision fields. Numeric bounds, completeness, model identity, duplicate keys, and normal termination remain checked locally. No reasoning field, prose extraction, output repair, or retry.
+Use `claude-sonnet-4-6`, temperature 0, thinking disabled, maximum 2048 output tokens. Use the Messages API's [JSON schema output format](https://platform.claude.com/docs/en/build-with-claude/structured-outputs), with required numeric probability fields and Boolean decision fields. Numeric bounds, completeness, model identity, duplicate keys, and normal termination remain checked locally. The output reports numerical event-probability and expected-payoff calculations before the Boolean decisions. No prose extraction, output repair, or retry.
 
 Every fresh reader context receives the table and returns:
 
@@ -42,7 +44,7 @@ Swapping w and a leaves their product unchanged. Therefore the voluntary-deliver
 
 ## Frozen validation and analysis
 
-**Smoke gate:** collect all eight disjoint smoke requests first. Every response must parse strictly. For each request, every probability must be within **0.02** of its assigned table value, and at least **90%** of decisions must agree with the deterministic memory-based policy. For each wrong-routing fixture, prediction MSE to its assigned memory must be smaller than distance to correct pooled memory. Otherwise stop before any pilot request. This gate checks fidelity only; no comparative accuracy result selects whether to proceed.
+**Smoke gate:** collect all sixteen smoke requests first. The first eight repeat the development fixtures; the other eight use previously unobserved worlds, disjoint from the pilot. Every response must parse strictly. For each request, every probability must be within **0.02** of its assigned table value, and at least **90%** of decisions must agree with the deterministic memory-based policy. For each wrong-routing fixture, prediction MSE to its assigned memory must be smaller than distance to correct pooled memory. Otherwise stop before any pilot request. This gate checks fidelity only; no comparative accuracy result selects whether to proceed.
 
 **Primary pilot validation:** all 256 responses must be collected and valid. In each arm, at least 95% of requests must have every probability within 0.02 of its assigned memory, and mean decision agreement must be at least 90%. At least 95% of nonzero-budget wrong-rule requests with distinct correct/wrong references (reference MSE separation > 1e−8) must be closer to the assigned wrong memory. Report exact counts, maximum errors, and agreement, not just pass/fail. A failed manipulation blocks a claim that the study compared the implemented procedures successfully.
 
@@ -57,14 +59,20 @@ This is a prospective frozen exploratory protocol, not an external preregistrati
 ```bash
 python3 -m unittest discover -s tests -p test_controlled_memory.py -v
 python3 experiments/controlled-memory-v2/experiment.py generate --out runs/controlled-memory-v2 --seeds 8
-python3 runs/controlled-memory-v2/experiment.py collect --out runs/controlled-memory-v2 --budget-usd 25
+python3 runs/controlled-memory-v2/experiment.py collect --out runs/controlled-memory-v2 --budget-usd 24.88
 python3 runs/controlled-memory-v2/experiment.py report --out runs/controlled-memory-v2
 ```
 
 Generation freezes source, unchanged world generator, protocol, exact request bodies, hashes, and deterministic reference results. It makes no API calls. Collect/report use the frozen source. Credentials come from GitHub secret `WTR_BENCH` (fallback `ANTHROPIC_API_KEY`), exposed only as the process environment variable `ANTHROPIC_API_KEY`.
 
-The collector has a **$25 local spending guard for all 264 requests together**, using a conservative byte-based input allowance plus the full output limit. Prices checked October 29, 2026: [$3 input / $15 output per million tokens](https://platform.claude.com/docs/en/about-claude/pricing). The exact allowance is printed in the manifest before collection; it is not a provider billing cap. Usage and raw responses are saved. Unexpected cache usage, incomplete output, schema failure, model mismatch, transport failure or missing usage stops further requests. No automatic retries. An exclusive ledger blocks reruns of the same directory; generating a new directory does not reset spending.
+The collector has a **$24.88 remaining local spending guard for all 272 requests together** (the stopped v2.0 run used $0.114906, keeping the combined allowance below $25), using a conservative byte-based input allowance plus the full output limit. Prices checked October 29, 2026: [$3 input / $15 output per million tokens](https://platform.claude.com/docs/en/about-claude/pricing). The exact allowance is printed in the manifest before collection; it is not a provider billing cap. Usage and raw responses are saved. Unexpected cache usage, incomplete output, schema failure, model mismatch, transport failure or missing usage stops further requests. No automatic retries. An exclusive ledger blocks reruns of the same directory; generating a new directory does not reset spending.
 
-The dedicated branch `run/controlled-memory-v2-20261029` launches only with the exact commit message `Run controlled-memory-v2 pilot once`. The workflow refuses GitHub run attempts beyond the first and preserves artifacts even on failure. Ordinary pushes and pull requests do not spend credits. Never repeat the launch message to restart a partial run without inspecting its artifact.
+The dedicated branch `run/controlled-memory-v2-1-20261029` launches only with the exact commit message `Run controlled-memory-v2.1 pilot once`. The workflow refuses GitHub run attempts beyond the first and preserves artifacts even on failure. Ordinary pushes and pull requests do not spend credits. Never repeat the launch message to restart a partial run without inspecting its artifact.
 
-No API observations have been collected at this protocol's creation. Deterministic tests and reference outputs must not be described as empirical model results.
+No pilot-world API observations have been collected. The v2.0 smoke observations informed the following explicit amendment. Deterministic tests and reference outputs must not be described as empirical model results.
+
+## v2.0 smoke result and prospective v2.1 amendment
+
+[Run 40980625571](https://github.com/msblanders/wtr-bench/actions/runs/40980625571) stopped after eight requests, costing $0.114906. All 192 probability outputs exactly matched their assigned memories, including the swapped memories. Only 110/128 decisions agreed with the specified expected-value policy; six of eight requests failed the 90% decision-agreement requirement. All 18 errors declined a positive-value option. An independent recomputation confirmed the reference policy. No pilot requests were sent. The raw artifact, original frozen protocol, and failed gate remain in that run; the gate summary is preserved in this repository.
+
+The v2.1 amendment requires numerical event probability and expected net value before Boolean decisions, and writes the four decision formulas explicitly in the common prompt. The memory manipulation, worlds, comparison arms and acceptance thresholds are unchanged. The output allowance increases from 1536 to 2048 tokens to accommodate those calculations. Add eight checks on previously unseen smoke worlds, without choosing seeds for favorable results. Retesting the original fixtures is development evidence, not an independent replication. The unchanged pilot worlds remain unobserved. Calculation errors are reported diagnostically; the original probability-fidelity and decision-agreement gates remain binding. This amendment tests a calculation-supported reader, not the original bare-decision reader.
