@@ -1,0 +1,30 @@
+name: scientific-confidence-v5-offline-audit
+on:
+  push:
+    branches: [audit/scientific-confidence-v5-20261030]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    if: github.event.head_commit.message == 'Audit scientific-confidence-v5 records offline'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: scientific-confidence-v5-41015765266-1
+          run-id: 41015765266
+          github-token: ${{ github.token }}
+          path: source-run
+      - name: Verify exact initial requests, state handoffs and report replay
+        run: python experiments/scientific-confidence-v5/audit_saved_run.py --out source-run
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scientific-confidence-v5-integrity-audit-${{ github.run_id }}
+          path: source-run/integrity_audit.json
+          retention-days: 90
