@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: Offline generation or gated paid collection (272 calls; $24.88 remaining guard)
+        description: Offline generation or gated paid collection (272 calls; $24.70 remaining guard)
         type: choice
         options: [offline, diagnose, collect]
         default: offline
@@ -51,7 +51,7 @@ jobs:
             echo 'API secret missing; no calls made.'
             exit 1
           fi
-          python runs/controlled-memory-v2/experiment.py collect --out runs/controlled-memory-v2 --budget-usd 24.88
+          python runs/controlled-memory-v2/experiment.py collect --out runs/controlled-memory-v2 --budget-usd 24.70
       - name: Score available responses
         if: always()
         run: |

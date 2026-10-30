@@ -1,6 +1,6 @@
 # Controlled external memory: can we impose distinct update rules?
 
-Current protocol: **v2.1**, amended after the v2.0 smoke check; original run preserved below.
+Current protocol: **v2.1.1**, amended after the v2.0 smoke check; original run preserved below.
 
 Exploratory follow-up to the [first pilot](../functional-learning-v1/results/run-40969709564/README.md). The first pilot's wrong-rule prompt often elicited correct updating, and prose broke its strict parser. This run makes the memory manipulation executable and validates the downstream reader before comparing performance.
 
@@ -59,13 +59,13 @@ This is a prospective frozen exploratory protocol, not an external preregistrati
 ```bash
 python3 -m unittest discover -s tests -p test_controlled_memory.py -v
 python3 experiments/controlled-memory-v2/experiment.py generate --out runs/controlled-memory-v2 --seeds 8
-python3 runs/controlled-memory-v2/experiment.py collect --out runs/controlled-memory-v2 --budget-usd 24.88
+python3 runs/controlled-memory-v2/experiment.py collect --out runs/controlled-memory-v2 --budget-usd 24.70
 python3 runs/controlled-memory-v2/experiment.py report --out runs/controlled-memory-v2
 ```
 
 Generation freezes source, unchanged world generator, protocol, exact request bodies, hashes, and deterministic reference results. It makes no API calls. Collect/report use the frozen source. Credentials come from GitHub secret `WTR_BENCH` (fallback `ANTHROPIC_API_KEY`), exposed only as the process environment variable `ANTHROPIC_API_KEY`.
 
-The collector has a **$24.88 remaining local spending guard for all 272 requests together** (the stopped v2.0 run used $0.114906, keeping the combined allowance below $25), using a conservative byte-based input allowance plus the full output limit. Prices checked October 29, 2026: [$3 input / $15 output per million tokens](https://platform.claude.com/docs/en/about-claude/pricing). The exact allowance is printed in the manifest before collection; it is not a provider billing cap. Usage and raw responses are saved. Unexpected cache usage, incomplete output, schema failure, model mismatch, transport failure or missing usage stops further requests. No automatic retries. An exclusive ledger blocks reruns of the same directory; generating a new directory does not reset spending.
+The collector has a **$24.70 remaining local spending guard for all 272 requests together** (the stopped v2.0 run used $0.114906; additional allowance is reserved for the rejected request and bounded diagnostics, keeping the combined planning allowance below $25), using a conservative byte-based input allowance plus the full output limit. Prices checked October 29, 2026: [$3 input / $15 output per million tokens](https://platform.claude.com/docs/en/about-claude/pricing). The exact allowance is printed in the manifest before collection; it is not a provider billing cap. Usage and raw responses are saved. Unexpected cache usage, incomplete output, schema failure, model mismatch, transport failure or missing usage stops further requests. No automatic retries. An exclusive ledger blocks reruns of the same directory; generating a new directory does not reset spending.
 
 The dedicated branch `run/controlled-memory-v2-1-20261029` launches only with the exact commit message `Run controlled-memory-v2.1 pilot once`. The workflow refuses GitHub run attempts beyond the first and preserves artifacts even on failure. Ordinary pushes and pull requests do not spend credits. Never repeat the launch message to restart a partial run without inspecting its artifact.
 
@@ -76,3 +76,8 @@ No pilot-world API observations have been collected. The v2.0 smoke observations
 [Run 40980625571](https://github.com/msblanders/wtr-bench/actions/runs/40980625571) stopped after eight requests, costing $0.114906. All 192 probability outputs exactly matched their assigned memories, including the swapped memories. Only 110/128 decisions agreed with the specified expected-value policy; six of eight requests failed the 90% decision-agreement requirement. All 18 errors declined a positive-value option. An independent recomputation confirmed the reference policy. No pilot requests were sent. The raw artifact, original frozen protocol, and failed gate remain in that run; the gate summary is preserved in this repository.
 
 The v2.1 amendment requires numerical event probability and expected net value before Boolean decisions, and writes the four decision formulas explicitly in the common prompt. The memory manipulation, worlds, comparison arms and acceptance thresholds are unchanged. The output allowance increases from 1536 to 2048 tokens to accommodate those calculations. Add eight checks on previously unseen smoke worlds, without choosing seeds for favorable results. Retesting the original fixtures is development evidence, not an independent replication. The unchanged pilot worlds remain unobserved. Calculation errors are reported diagnostically; the original probability-fidelity and decision-agreement gates remain binding. This amendment tests a calculation-supported reader, not the original bare-decision reader.
+
+
+### API schema correction (v2.1.1)
+
+The initial v2.1 request was rejected before returning a completion in [run 40981946912](https://github.com/msblanders/wtr-bench/actions/runs/40981946912). A bounded one-output-token diagnostic [run 40982251742](https://github.com/msblanders/wtr-bench/actions/runs/40982251742) established HTTP 400: the compiled grammar was too large. No completion or token usage was returned in either run. The nested per-decision calculation schema is replaced by one reusable array-item schema, with an explicit decision ID in each item. Local validation still requires exactly one finite calculation per requested decision, rejects duplicates and unknown IDs, and enforces probability bounds. Parsing deterministically indexes the array by ID; it does not repair or change values. The experimental content and gates are unchanged. The collector now retains sanitized HTTP status/error messages while stopping without retry.

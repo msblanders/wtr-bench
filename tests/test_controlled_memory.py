@@ -5,7 +5,9 @@ import io
 import json
 import tempfile
 import unittest
+import urllib.error
 from pathlib import Path
+from unittest.mock import patch
 
 MODULE = Path(__file__).resolve().parents[1] / "experiments/controlled-memory-v2/experiment.py"
 spec = importlib.util.spec_from_file_location("controlled_memory", MODULE)
@@ -14,10 +16,17 @@ e = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(e)
 
 
+def wire_output(output):
+    result = json.loads(json.dumps(output))
+    if isinstance(result.get("calculations"), dict):
+        result["calculations"] = [{"id": k, **v} for k, v in result["calculations"].items()]
+    return json.dumps(result)
+
+
 def raw_response(body, output):
     return {"model": body["model"], "stop_reason": "end_turn",
             "usage": {"input_tokens": 100, "output_tokens": 100},
-            "content": [{"type": "text", "text": json.dumps(output)}]}
+            "content": [{"type": "text", "text": wire_output(output)}]}
 
 
 class ControlledMemoryTests(unittest.TestCase):
@@ -80,24 +89,47 @@ class ControlledMemoryTests(unittest.TestCase):
     def test_strict_schema_failure_cases(self):
         r = e.make_request(1000, "shared", 8, "functional")
         output = json.loads(json.dumps(r["expected_output"]))
-        self.assertEqual(e.parse_response(json.dumps(output), r), output)
+        self.assertEqual(e.parse_response(wire_output(output), r), output)
         with self.assertRaises(ValueError):
-            e.parse_response("An explanation. " + json.dumps(output), r)
+            e.parse_response("An explanation. " + wire_output(output), r)
         output["predictions"]["q01"] = True
         with self.assertRaises(ValueError):
-            e.parse_response(json.dumps(output), r)
+            e.parse_response(wire_output(output), r)
         output = json.loads(json.dumps(r["expected_output"]))
         output["decisions"]["d01"] = 1
         with self.assertRaises(ValueError):
-            e.parse_response(json.dumps(output), r)
-        duplicate = json.dumps(r["expected_output"]).replace('"q01":', '"q01": 0.5, "q01":')
+            e.parse_response(wire_output(output), r)
+        duplicate = wire_output(r["expected_output"]).replace('"q01":', '"q01": 0.5, "q01":')
         with self.assertRaises(ValueError):
             e.parse_response(duplicate, r)
         for field, invalid in (("event_probability", 1.1), ("expected_net_value", float("nan"))):
             output = json.loads(json.dumps(r["expected_output"]))
             output["calculations"]["d01"][field] = invalid
             with self.assertRaises(ValueError):
-                e.parse_response(json.dumps(output), r)
+                e.parse_response(wire_output(output), r)
+        output = json.loads(wire_output(r["expected_output"]))
+        output["calculations"].append(output["calculations"][0])
+        with self.assertRaises(ValueError):
+            e.parse_response(json.dumps(output), r)
+
+    def test_http_error_diagnostics_are_redacted_and_not_retried(self):
+        with tempfile.TemporaryDirectory() as root, contextlib.redirect_stdout(io.StringIO()):
+            out = Path(root) / "run"
+            e.generate(out, 1)
+            calls = []
+            def reject(body):
+                calls.append(body)
+                payload = json.dumps({"error": {"type": "invalid_request_error",
+                    "message": "Example error test-secret-value"}}).encode()
+                raise urllib.error.HTTPError("https://api.anthropic.com/v1/messages", 400,
+                                             "Bad Request", {}, io.BytesIO(payload))
+            with patch.dict(e.os.environ, {"ANTHROPIC_API_KEY": "test-secret-value"}), self.assertRaises(RuntimeError):
+                e.collect(out, e.MAX_BUDGET, reject)
+            self.assertEqual(len(calls), 1)
+            status = json.loads((out / "collection-status.json").read_text())
+            self.assertEqual(status["http_status"], 400)
+            self.assertNotIn("test-secret-value", status["message"])
+            self.assertIn("[REDACTED]", status["message"])
 
     def test_smoke_gate_detects_reconstructed_correct_rule(self):
         requests = [e.make_request(9000, "shared", 24, arm, "smoke") for arm in e.ARMS]
