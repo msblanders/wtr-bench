@@ -1,0 +1,11 @@
+{
+  "frozen_hashes_match": true,
+  "fixtures_regenerated_identically": true,
+  "unique_complete_call_and_record_keys": true,
+  "matched_initial_request_groups": 100,
+  "conditions_per_group": 3,
+  "requests_and_state_handoffs_verified": 3900,
+  "response_record_pairs_verified": 3900,
+  "aggregate_report_identical_on_replay": true,
+  "no_model_calls_in_audit": true
+}

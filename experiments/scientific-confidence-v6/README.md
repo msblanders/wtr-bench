@@ -1,5 +1,7 @@
 # Scientific confidence v6: compact retention of inactive identities
 
+**Completed 2026-10-30:** all 3,900 calls and the exact integrity audit succeeded. The compact policy passed the three prospective record-accuracy/cost criteria, but severe probability errors remain. See [PILOT_FINDINGS.md](PILOT_FINDINGS.md) and [aggregate results](results/summary.json). The protocol below was frozen before collection.
+
 Prospective protocol, frozen before any paid calls. V5 found that full revision history
 prevented ten additional reinstatement failures on 64 cases with identical verified starts,
 but cost 42.5% more than active-only records. V6 tests whether a smaller representation can
