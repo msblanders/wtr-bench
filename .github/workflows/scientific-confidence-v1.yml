@@ -1,0 +1,49 @@
+name: scientific-confidence-v1
+on:
+  push:
+    branches: [run/scientific-confidence-v1-20261030]
+permissions:
+  contents: read
+concurrency:
+  group: scientific-confidence-v1
+  cancel-in-progress: false
+jobs:
+  pilot:
+    if: github.event.head_commit.message == 'Run scientific-confidence-v1 pilot once'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate independent oracle and boundaries
+        run: python -m unittest discover -s tests -p test_scientific_confidence.py -v
+      - name: Freeze inputs, protocol, and runner
+        run: python experiments/scientific-confidence-v1/experiment.py generate --out runs/scientific-confidence-v1
+      - name: Collect bounded pilot once
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "$GITHUB_RUN_ATTEMPT" != "1" ]; then
+            echo 'Refusing automatic repeated paid collection.'
+            exit 1
+          fi
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo 'Configured API secret is unavailable.'
+            exit 1
+          fi
+          python runs/scientific-confidence-v1/experiment.py collect --out runs/scientific-confidence-v1 --budget-usd 25
+      - name: Score available responses
+        if: always()
+        run: |
+          if [ -f runs/scientific-confidence-v1/manifest.json ]; then
+            python runs/scientific-confidence-v1/experiment.py report --out runs/scientific-confidence-v1
+            cat runs/scientific-confidence-v1/RESULTS.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scientific-confidence-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/scientific-confidence-v1/
+          retention-days: 90

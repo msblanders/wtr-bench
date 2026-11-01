@@ -1,0 +1,1136 @@
+[
+  {
+    "case_id": "SC016",
+    "arm": "oracle_readout",
+    "stratum": "replications",
+    "posterior_regret": 0.0,
+    "future_regret": 1.5527886646296418e-10,
+    "realized_hypothesis_brier": 7.618483462230486e-11,
+    "realized_future_brier": 0.004462239999999996
+  },
+  {
+    "case_id": "SC009",
+    "arm": "oracle_readout",
+    "stratum": "design_contrast",
+    "posterior_regret": 0.0,
+    "future_regret": 3.7666314843067336e-12,
+    "realized_hypothesis_brier": 7.528205259854569e-06,
+    "realized_future_brier": 0.0006051599999999978
+  },
+  {
+    "case_id": "SC004",
+    "arm": "oracle_readout",
+    "stratum": "replications",
+    "posterior_regret": 0.0,
+    "future_regret": 8.278095852167418e-10,
+    "realized_hypothesis_brier": 0.6919190955606767,
+    "realized_future_brier": 0.029515239999999984
+  },
+  {
+    "case_id": "SC006",
+    "arm": "oracle_readout",
+    "stratum": "unequal_precision",
+    "posterior_regret": 5.081460247034168e-28,
+    "future_regret": 1.6269371274730102e-09,
+    "realized_hypothesis_brier": 0.2315400885083132,
+    "realized_future_brier": 0.15280281
+  },
+  {
+    "case_id": "SC004",
+    "arm": "calibration_checklist",
+    "stratum": "replications",
+    "posterior_regret": 1.8379476256985265e-08,
+    "future_regret": 8.278095852167418e-10,
+    "realized_hypothesis_brier": 0.6916939799999999,
+    "realized_future_brier": 0.029515239999999984
+  },
+  {
+    "case_id": "SC009",
+    "arm": "calibration_checklist",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.9985260617302735e-10,
+    "future_regret": 3.7666314843067336e-12,
+    "realized_hypothesis_brier": 7.488600000000205e-06,
+    "realized_future_brier": 0.0006051599999999978
+  },
+  {
+    "case_id": "SC020",
+    "arm": "oracle_readout",
+    "stratum": "replications",
+    "posterior_regret": 2.742906259297579e-13,
+    "future_regret": 1.8263374292515106e-09,
+    "realized_hypothesis_brier": 6.909041909040469e-07,
+    "realized_future_brier": 0.025312809999999998
+  },
+  {
+    "case_id": "SC022",
+    "arm": "contrastive_audit",
+    "stratum": "unequal_precision",
+    "posterior_regret": 4.323461725284222e-08,
+    "future_regret": 3.9532357612356303e-11,
+    "realized_hypothesis_brier": 0.516128,
+    "realized_future_brier": 0.0011971599999999998
+  },
+  {
+    "case_id": "SC010",
+    "arm": "oracle_readout",
+    "stratum": "unequal_precision",
+    "posterior_regret": 4.9923800494734086e-21,
+    "future_regret": 5.596767552831724e-11,
+    "realized_hypothesis_brier": 2.0865809494810978e-13,
+    "realized_future_brier": 0.004462239999999996
+  },
+  {
+    "case_id": "SC026",
+    "arm": "oracle_readout",
+    "stratum": "unequal_precision",
+    "posterior_regret": 3.0448627809330246e-26,
+    "future_regret": 2.623377247094892e-10,
+    "realized_hypothesis_brier": 6.328225804033387e-05,
+    "realized_future_brier": 0.0045819361
+  },
+  {
+    "case_id": "SC014",
+    "arm": "calibration_checklist",
+    "stratum": "unequal_precision",
+    "posterior_regret": 2.3769686758686028e-15,
+    "future_regret": 2.463343443964609e-09,
+    "realized_hypothesis_brier": 1.4367799910999466e-13,
+    "realized_future_brier": 0.000519840000000002
+  },
+  {
+    "case_id": "SC010",
+    "arm": "calibration_checklist",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.79612548680181e-07,
+    "future_regret": 8.556727486026632e-08,
+    "realized_hypothesis_brier": 1.7999999999998017e-07,
+    "realized_future_brier": 0.004502410000000006
+  },
+  {
+    "case_id": "SC021",
+    "arm": "oracle_readout",
+    "stratum": "design_contrast",
+    "posterior_regret": 4.93040416751834e-32,
+    "future_regret": 3.120339439593106e-10,
+    "realized_hypothesis_brier": 1.2019970189578396e-05,
+    "realized_future_brier": 0.004658062500000001
+  },
+  {
+    "case_id": "SC022",
+    "arm": "generic_review",
+    "stratum": "unequal_precision",
+    "posterior_regret": 4.323461725284222e-08,
+    "future_regret": 1.6506951335876384e-07,
+    "realized_hypothesis_brier": 0.516128,
+    "realized_future_brier": 0.0012250000000000002
+  },
+  {
+    "case_id": "SC027",
+    "arm": "calibration_checklist",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 5.773119365199009e-09,
+    "future_regret": 1.8605195384384623e-06,
+    "realized_hypothesis_brier": 0.6193005,
+    "realized_future_brier": 0.398161
+  },
+  {
+    "case_id": "SC001",
+    "arm": "oracle_readout",
+    "stratum": "design_contrast",
+    "posterior_regret": 0.0,
+    "future_regret": 4.810491845849983e-11,
+    "realized_hypothesis_brier": 0.6437031438368159,
+    "realized_future_brier": 0.20070399999999997
+  },
+  {
+    "case_id": "SC002",
+    "arm": "oracle_readout",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.1794159746943796e-27,
+    "future_regret": 5.727713744307725e-13,
+    "realized_hypothesis_brier": 1.0566809712479062,
+    "realized_future_brier": 3.8887696e-05
+  },
+  {
+    "case_id": "SC004",
+    "arm": "contrastive_audit",
+    "stratum": "replications",
+    "posterior_regret": 5.293706924321007e-07,
+    "future_regret": 0.004286481737694995,
+    "realized_hypothesis_brier": 0.6908539999999999,
+    "realized_future_brier": 0.05631128999999998
+  },
+  {
+    "case_id": "SC029",
+    "arm": "contrastive_audit",
+    "stratum": "design_contrast",
+    "posterior_regret": 0.0004339852437910471,
+    "future_regret": 0.00011231519571709302,
+    "realized_hypothesis_brier": 0.0017420000000000018,
+    "realized_future_brier": 0.032041000000000014
+  },
+  {
+    "case_id": "SC001",
+    "arm": "contrastive_audit",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.8620851204375105e-06,
+    "future_regret": 1.1947894088621168e-06,
+    "realized_hypothesis_brier": 0.64218266,
+    "realized_future_brier": 0.19971960999999996
+  },
+  {
+    "case_id": "SC020",
+    "arm": "contrastive_audit",
+    "stratum": "replications",
+    "posterior_regret": 2.855568236352824e-10,
+    "future_regret": 2.0373471286290497e-08,
+    "realized_hypothesis_brier": 7.200000000000539e-07,
+    "realized_future_brier": 0.02534464
+  },
+  {
+    "case_id": "SC012",
+    "arm": "oracle_readout",
+    "stratum": "replications",
+    "posterior_regret": 4.930385653482315e-32,
+    "future_regret": 5.600836479699281e-11,
+    "realized_hypothesis_brier": 2.4820626134185505e-06,
+    "realized_future_brier": 0.0005253263999999999
+  },
+  {
+    "case_id": "SC000",
+    "arm": "contrastive_audit",
+    "stratum": "replications",
+    "posterior_regret": 3.8073866566425415e-08,
+    "future_regret": 1.9283528117719286e-05,
+    "realized_hypothesis_brier": 0.0007394600000000004,
+    "realized_future_brier": 0.02579235999999999
+  },
+  {
+    "case_id": "SC011",
+    "arm": "calibration_checklist",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 5.306288910932418e-07,
+    "future_regret": 0.0002164688887774677,
+    "realized_hypothesis_brier": 1.2153979482563693,
+    "realized_future_brier": 0.49942489
+  },
+  {
+    "case_id": "SC000",
+    "arm": "generic_review",
+    "stratum": "replications",
+    "posterior_regret": 0.0003330283399851431,
+    "future_regret": 1.9283528117719286e-05,
+    "realized_hypothesis_brier": 0.00017615779999999932,
+    "realized_future_brier": 0.02579235999999999
+  },
+  {
+    "case_id": "SC011",
+    "arm": "generic_review",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 1.4672293928687312e-07,
+    "future_regret": 0.00021353631243162775,
+    "realized_hypothesis_brier": 1.214826,
+    "realized_future_brier": 0.49928356
+  },
+  {
+    "case_id": "SC022",
+    "arm": "calibration_checklist",
+    "stratum": "unequal_precision",
+    "posterior_regret": 4.322764804571372e-08,
+    "future_regret": 3.9532357612356303e-11,
+    "realized_hypothesis_brier": 0.5161279837455165,
+    "realized_future_brier": 0.0011971599999999998
+  },
+  {
+    "case_id": "SC005",
+    "arm": "contrastive_audit",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.8060107986750943e-11,
+    "future_regret": 8.388306761437273e-10,
+    "realized_hypothesis_brier": 1.9711914711908305e-06,
+    "realized_future_brier": 0.004489000000000001
+  },
+  {
+    "case_id": "SC014",
+    "arm": "oracle_readout",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.2325951644081112e-32,
+    "future_regret": 2.463343443964609e-09,
+    "realized_hypothesis_brier": 1.22235042332815e-13,
+    "realized_future_brier": 0.000519840000000002
+  },
+  {
+    "case_id": "SC013",
+    "arm": "generic_review",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.903165475857394e-05,
+    "future_regret": 1.0743209379089523e-07,
+    "realized_hypothesis_brier": 7.813999999999966e-05,
+    "realized_future_brier": 0.02528100000000001
+  },
+  {
+    "case_id": "SC021",
+    "arm": "contrastive_audit",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.572107619807749e-10,
+    "future_regret": 1.7751179310436807e-06,
+    "realized_hypothesis_brier": 1.2080000000000138e-05,
+    "realized_future_brier": 0.0044756100000000005
+  },
+  {
+    "case_id": "SC029",
+    "arm": "oracle_readout",
+    "stratum": "design_contrast",
+    "posterior_regret": 0.0,
+    "future_regret": 9.581743331356513e-09,
+    "realized_hypothesis_brier": 0.003914934867648271,
+    "realized_future_brier": 0.03591025
+  },
+  {
+    "case_id": "SC016",
+    "arm": "contrastive_audit",
+    "stratum": "replications",
+    "posterior_regret": 5.875881607996717e-11,
+    "future_regret": 1.5527886646296418e-10,
+    "realized_hypothesis_brier": 1.259999999946664e-12,
+    "realized_future_brier": 0.004462239999999996
+  },
+  {
+    "case_id": "SC009",
+    "arm": "contrastive_audit",
+    "stratum": "design_contrast",
+    "posterior_regret": 3.2207725326094928e-09,
+    "future_regret": 2.56621426632126e-06,
+    "realized_hypothesis_brier": 7.220000000000049e-06,
+    "realized_future_brier": 0.0005290000000000009
+  },
+  {
+    "case_id": "SC000",
+    "arm": "oracle_readout",
+    "stratum": "replications",
+    "posterior_regret": 1.8840638114648412e-13,
+    "future_regret": 7.566538033335334e-11,
+    "realized_hypothesis_brier": 0.0007500285260000013,
+    "realized_future_brier": 0.027225000000000013
+  },
+  {
+    "case_id": "SC025",
+    "arm": "contrastive_audit",
+    "stratum": "design_contrast",
+    "posterior_regret": 3.549063929863748e-07,
+    "future_regret": 4.3285956477731465e-07,
+    "realized_hypothesis_brier": 2.4583697987708936e-05,
+    "realized_future_brier": 0.02624400000000001
+  },
+  {
+    "case_id": "SC025",
+    "arm": "calibration_checklist",
+    "stratum": "design_contrast",
+    "posterior_regret": 2.205797475773424e-09,
+    "future_regret": 1.770672778539403e-09,
+    "realized_hypothesis_brier": 3.0326688000000115e-05,
+    "realized_future_brier": 0.02601769
+  },
+  {
+    "case_id": "SC002",
+    "arm": "generic_review",
+    "stratum": "unequal_precision",
+    "posterior_regret": 5.262690173454972e-05,
+    "future_regret": 5.6053790209192375e-08,
+    "realized_hypothesis_brier": 1.071648,
+    "realized_future_brier": 3.6e-05
+  },
+  {
+    "case_id": "SC019",
+    "arm": "calibration_checklist",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 4.389517474982823e-09,
+    "future_regret": 0.0022504118953142406,
+    "realized_hypothesis_brier": 0.6698290400000001,
+    "realized_future_brier": 0.24472808999999998
+  },
+  {
+    "case_id": "SC025",
+    "arm": "oracle_readout",
+    "stratum": "design_contrast",
+    "posterior_regret": 4.549665313622715e-15,
+    "future_regret": 3.35480020692821e-09,
+    "realized_hypothesis_brier": 3.084680473999935e-05,
+    "realized_future_brier": 0.026049959999999997
+  },
+  {
+    "case_id": "SC029",
+    "arm": "generic_review",
+    "stratum": "design_contrast",
+    "posterior_regret": 2.987589345674511e-08,
+    "future_regret": 4.467390759916728e-12,
+    "realized_hypothesis_brier": 0.0038933645999999988,
+    "realized_future_brier": 0.03594816
+  },
+  {
+    "case_id": "SC017",
+    "arm": "oracle_readout",
+    "stratum": "design_contrast",
+    "posterior_regret": 4.954477858274277e-21,
+    "future_regret": 1.1287300792257026e-06,
+    "realized_hypothesis_brier": 5.583630393760386e-05,
+    "realized_future_brier": 0.70358544
+  },
+  {
+    "case_id": "SC031",
+    "arm": "generic_review",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 4.38645000928261e-09,
+    "future_regret": 2.021851413418519e-05,
+    "realized_hypothesis_brier": 0.16998200000000002,
+    "realized_future_brier": 0.0005290000000000009
+  },
+  {
+    "case_id": "SC003",
+    "arm": "generic_review",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 2.2492084793207153e-09,
+    "future_regret": 2.00692912814377e-08,
+    "realized_hypothesis_brier": 0.019365120000000006,
+    "realized_future_brier": 0.051076
+  },
+  {
+    "case_id": "SC026",
+    "arm": "contrastive_audit",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.2544841819292123e-09,
+    "future_regret": 1.1277769473283927e-08,
+    "realized_hypothesis_brier": 6.272000000000055e-05,
+    "realized_future_brier": 0.004569759999999999
+  },
+  {
+    "case_id": "SC008",
+    "arm": "oracle_readout",
+    "stratum": "replications",
+    "posterior_regret": 0.0,
+    "future_regret": 4.912518804152575e-09,
+    "realized_hypothesis_brier": 0.31201569293288833,
+    "realized_future_brier": 0.22005481000000002
+  },
+  {
+    "case_id": "SC005",
+    "arm": "calibration_checklist",
+    "stratum": "design_contrast",
+    "posterior_regret": 0.00015905233460318727,
+    "future_regret": 2.7980140439022783e-07,
+    "realized_hypothesis_brier": 0.0001965550379999991,
+    "realized_future_brier": 0.00455625
+  },
+  {
+    "case_id": "SC014",
+    "arm": "generic_review",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.5461482859913222e-17,
+    "future_regret": 2.463343443964609e-09,
+    "realized_hypothesis_brier": 1.2500000201587323e-13,
+    "realized_future_brier": 0.000519840000000002
+  },
+  {
+    "case_id": "SC017",
+    "arm": "calibration_checklist",
+    "stratum": "design_contrast",
+    "posterior_regret": 9.835309094271263e-10,
+    "future_regret": 6.88627306311602e-08,
+    "realized_hypothesis_brier": 5.554417821065395e-05,
+    "realized_future_brier": 0.702244
+  },
+  {
+    "case_id": "SC008",
+    "arm": "calibration_checklist",
+    "stratum": "replications",
+    "posterior_regret": 2.8034710882454786e-08,
+    "future_regret": 4.912518804152575e-09,
+    "realized_hypothesis_brier": 0.31183358,
+    "realized_future_brier": 0.22005481000000002
+  },
+  {
+    "case_id": "SC016",
+    "arm": "generic_review",
+    "stratum": "replications",
+    "posterior_regret": 7.052692773382343e-07,
+    "future_regret": 3.517084122173747e-08,
+    "realized_hypothesis_brier": 7.200000000000539e-07,
+    "realized_future_brier": 0.004488999999999993
+  },
+  {
+    "case_id": "SC027",
+    "arm": "generic_review",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 0.1495275481578753,
+    "future_regret": 0.02227138112065455,
+    "realized_hypothesis_brier": 1.0208602400000002,
+    "realized_future_brier": 0.61089856
+  },
+  {
+    "case_id": "SC010",
+    "arm": "generic_review",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.0626082637654497e-15,
+    "future_regret": 5.596767552831724e-11,
+    "realized_hypothesis_brier": 1.7999999997186934e-13,
+    "realized_future_brier": 0.004462239999999996
+  },
+  {
+    "case_id": "SC019",
+    "arm": "oracle_readout",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 4.389517474982823e-09,
+    "future_regret": 1.9184039925332376e-08,
+    "realized_hypothesis_brier": 0.6698290400000001,
+    "realized_future_brier": 0.20016676000000003
+  },
+  {
+    "case_id": "SC021",
+    "arm": "generic_review",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.572107619807749e-10,
+    "future_regret": 1.0455856883935856e-09,
+    "realized_hypothesis_brier": 1.2080000000000138e-05,
+    "realized_future_brier": 0.004651239999999999
+  },
+  {
+    "case_id": "SC000",
+    "arm": "calibration_checklist",
+    "stratum": "replications",
+    "posterior_regret": 2.1420213812654002e-07,
+    "future_regret": 1.0184404721626272e-05,
+    "realized_hypothesis_brier": 0.0007270200000000014,
+    "realized_future_brier": 0.026179240000000017
+  },
+  {
+    "case_id": "SC027",
+    "arm": "oracle_readout",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 0.0,
+    "future_regret": 4.097104513821117e-09,
+    "realized_hypothesis_brier": 0.6193868939467062,
+    "realized_future_brier": 0.39980329
+  },
+  {
+    "case_id": "SC022",
+    "arm": "oracle_readout",
+    "stratum": "unequal_precision",
+    "posterior_regret": 9.948594461664588e-14,
+    "future_regret": 1.3782832583631997e-11,
+    "realized_hypothesis_brier": 0.5158293551721943,
+    "realized_future_brier": 0.0011964681000000003
+  },
+  {
+    "case_id": "SC018",
+    "arm": "contrastive_audit",
+    "stratum": "unequal_precision",
+    "posterior_regret": 3.0889968676031914e-06,
+    "future_regret": 3.7807451584606724e-05,
+    "realized_hypothesis_brier": 0.0026064200000000017,
+    "realized_future_brier": 0.03168400000000002
+  },
+  {
+    "case_id": "SC030",
+    "arm": "calibration_checklist",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.2824045808542278e-07,
+    "future_regret": 0.0015078724003277488,
+    "realized_hypothesis_brier": 0.316014,
+    "realized_future_brier": 0.25
+  },
+  {
+    "case_id": "SC015",
+    "arm": "oracle_readout",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 0.0,
+    "future_regret": 2.433233667505907e-10,
+    "realized_hypothesis_brier": 0.4697522874209672,
+    "realized_future_brier": 0.25765776000000007
+  },
+  {
+    "case_id": "SC019",
+    "arm": "generic_review",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 1.8495351574520714e-07,
+    "future_regret": 6.837887058648161e-08,
+    "realized_hypothesis_brier": 0.670586,
+    "realized_future_brier": 0.19980900000000001
+  },
+  {
+    "case_id": "SC015",
+    "arm": "calibration_checklist",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 2.3576203056711402e-07,
+    "future_regret": 7.123558204108501e-09,
+    "realized_hypothesis_brier": 0.46960199999999996,
+    "realized_future_brier": 0.25755625000000004
+  },
+  {
+    "case_id": "SC003",
+    "arm": "oracle_readout",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 3.2869302755331126e-34,
+    "future_regret": 0.0003664033820827131,
+    "realized_hypothesis_brier": 0.01937647369928079,
+    "realized_future_brier": 0.060024999999999995
+  },
+  {
+    "case_id": "SC026",
+    "arm": "generic_review",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.2544841819292123e-09,
+    "future_regret": 1.1277769473283927e-08,
+    "realized_hypothesis_brier": 6.272000000000055e-05,
+    "realized_future_brier": 0.004569759999999999
+  },
+  {
+    "case_id": "SC006",
+    "arm": "calibration_checklist",
+    "stratum": "unequal_precision",
+    "posterior_regret": 5.005363918977888e-09,
+    "future_regret": 3.559875388590531e-09,
+    "realized_hypothesis_brier": 0.23160818000000002,
+    "realized_future_brier": 0.15288100000000002
+  },
+  {
+    "case_id": "SC023",
+    "arm": "oracle_readout",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 9.914808985172885e-10,
+    "future_regret": 1.4900233306115043e-08,
+    "realized_hypothesis_brier": 0.9853522996865397,
+    "realized_future_brier": 0.36264483999999997
+  },
+  {
+    "case_id": "SC004",
+    "arm": "generic_review",
+    "stratum": "replications",
+    "posterior_regret": 4.780250024978615e-08,
+    "future_regret": 1.6582145638023967e-08,
+    "realized_hypothesis_brier": 0.6915556619520531,
+    "realized_future_brier": 0.02948088999999999
+  },
+  {
+    "case_id": "SC006",
+    "arm": "generic_review",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.2497318903201892e-07,
+    "future_regret": 3.559875388590531e-09,
+    "realized_hypothesis_brier": 0.23120000000000002,
+    "realized_future_brier": 0.15288100000000002
+  },
+  {
+    "case_id": "SC023",
+    "arm": "contrastive_audit",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 3.521771531597801e-05,
+    "future_regret": 0.0023157332853673274,
+    "realized_hypothesis_brier": 0.98635202,
+    "realized_future_brier": 0.42276004
+  },
+  {
+    "case_id": "SC013",
+    "arm": "oracle_readout",
+    "stratum": "design_contrast",
+    "posterior_regret": 6.784577756614576e-21,
+    "future_regret": 7.71081475988272e-10,
+    "realized_hypothesis_brier": 2.004693604087103e-05,
+    "realized_future_brier": 0.025185689999999986
+  },
+  {
+    "case_id": "SC028",
+    "arm": "generic_review",
+    "stratum": "replications",
+    "posterior_regret": 7.70947319865967e-08,
+    "future_regret": 1.3008923767037325e-07,
+    "realized_hypothesis_brier": 1.020026,
+    "realized_future_brier": 0.579121
+  },
+  {
+    "case_id": "SC009",
+    "arm": "generic_review",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.6151667975748125e-08,
+    "future_regret": 3.7666314843067336e-12,
+    "realized_hypothesis_brier": 7.892599999999903e-06,
+    "realized_future_brier": 0.0006051599999999978
+  },
+  {
+    "case_id": "SC030",
+    "arm": "contrastive_audit",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.2824045808542278e-07,
+    "future_regret": 2.8448653443142545e-08,
+    "realized_hypothesis_brier": 0.316014,
+    "realized_future_brier": 0.29052100000000003
+  },
+  {
+    "case_id": "SC008",
+    "arm": "generic_review",
+    "stratum": "replications",
+    "posterior_regret": 5.865742670334643e-06,
+    "future_regret": 1.0607159202291358e-06,
+    "realized_hypothesis_brier": 0.30985956498840667,
+    "realized_future_brier": 0.21902400000000002
+  },
+  {
+    "case_id": "SC023",
+    "arm": "generic_review",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 0.015119844619720033,
+    "future_regret": 0.0009046820829198205,
+    "realized_hypothesis_brier": 0.756392,
+    "realized_future_brier": 0.3271839999999999
+  },
+  {
+    "case_id": "SC025",
+    "arm": "generic_review",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.6992896692040037e-09,
+    "future_regret": 1.801177016209382e-06,
+    "realized_hypothesis_brier": 3.0420000000000112e-05,
+    "realized_future_brier": 0.02560000000000001
+  },
+  {
+    "case_id": "SC017",
+    "arm": "contrastive_audit",
+    "stratum": "design_contrast",
+    "posterior_regret": 5.272807873420636e-10,
+    "future_regret": 4.0651196346236996e-07,
+    "realized_hypothesis_brier": 5.6179999999999696e-05,
+    "realized_future_brier": 0.70073641
+  },
+  {
+    "case_id": "SC020",
+    "arm": "calibration_checklist",
+    "stratum": "replications",
+    "posterior_regret": 1.7464227965202394e-08,
+    "future_regret": 1.8263374292515106e-09,
+    "realized_hypothesis_brier": 6.199999999999208e-07,
+    "realized_future_brier": 0.025312809999999998
+  },
+  {
+    "case_id": "SC011",
+    "arm": "oracle_readout",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 0.0,
+    "future_regret": 1.6593894721641277e-10,
+    "realized_hypothesis_brier": 1.2149543185263625,
+    "realized_future_brier": 0.47886399999999996
+  },
+  {
+    "case_id": "SC003",
+    "arm": "contrastive_audit",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 3.901705113593651e-08,
+    "future_regret": 0.00022077008550857233,
+    "realized_hypothesis_brier": 0.019424220000000006,
+    "realized_future_brier": 0.044521
+  },
+  {
+    "case_id": "SC012",
+    "arm": "contrastive_audit",
+    "stratum": "replications",
+    "posterior_regret": 5.673076675148174e-11,
+    "future_regret": 6.201308512575276e-07,
+    "realized_hypothesis_brier": 2.479999999999949e-06,
+    "realized_future_brier": 0.00056169
+  },
+  {
+    "case_id": "SC012",
+    "arm": "calibration_checklist",
+    "stratum": "replications",
+    "posterior_regret": 5.673076675148174e-11,
+    "future_regret": 1.566534188294997e-10,
+    "realized_hypothesis_brier": 2.479999999999949e-06,
+    "realized_future_brier": 0.00052441
+  },
+  {
+    "case_id": "SC024",
+    "arm": "generic_review",
+    "stratum": "replications",
+    "posterior_regret": 1.4794533747218818e-08,
+    "future_regret": 3.9826586764804645e-07,
+    "realized_hypothesis_brier": 2.738000000000027e-05,
+    "realized_future_brier": 0.02592100000000001
+  },
+  {
+    "case_id": "SC010",
+    "arm": "contrastive_audit",
+    "stratum": "unequal_precision",
+    "posterior_regret": 4.723254280032162e-14,
+    "future_regret": 3.7063505798648094e-08,
+    "realized_hypothesis_brier": 4.1999999995886667e-13,
+    "realized_future_brier": 0.004488999999999993
+  },
+  {
+    "case_id": "SC014",
+    "arm": "contrastive_audit",
+    "stratum": "unequal_precision",
+    "posterior_regret": 7.980354462558862e-08,
+    "future_regret": 6.231617576164414e-08,
+    "realized_hypothesis_brier": 8.000119953801226e-08,
+    "realized_future_brier": 0.0005290000000000009
+  },
+  {
+    "case_id": "SC028",
+    "arm": "oracle_readout",
+    "stratum": "replications",
+    "posterior_regret": 0.0,
+    "future_regret": 1.5461523104250393e-09,
+    "realized_hypothesis_brier": 1.0203870185099815,
+    "realized_future_brier": 0.57851236
+  },
+  {
+    "case_id": "SC017",
+    "arm": "generic_review",
+    "stratum": "design_contrast",
+    "posterior_regret": 4.6805328277628564e-07,
+    "future_regret": 6.88627306311602e-08,
+    "realized_hypothesis_brier": 4.608000000000025e-05,
+    "realized_future_brier": 0.702244
+  },
+  {
+    "case_id": "SC013",
+    "arm": "calibration_checklist",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.1959453235509478e-09,
+    "future_regret": 5.187842301926604e-08,
+    "realized_hypothesis_brier": 2.0352799999999877e-05,
+    "realized_future_brier": 0.02524921000000001
+  },
+  {
+    "case_id": "SC013",
+    "arm": "contrastive_audit",
+    "stratum": "design_contrast",
+    "posterior_regret": 3.2515654318597054e-09,
+    "future_regret": 7.71081475988272e-10,
+    "realized_hypothesis_brier": 2.047999999999988e-05,
+    "realized_future_brier": 0.025185689999999986
+  },
+  {
+    "case_id": "SC030",
+    "arm": "generic_review",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.2824045808542278e-07,
+    "future_regret": 2.8448653443142545e-08,
+    "realized_hypothesis_brier": 0.316014,
+    "realized_future_brier": 0.29052100000000003
+  },
+  {
+    "case_id": "SC028",
+    "arm": "calibration_checklist",
+    "stratum": "replications",
+    "posterior_regret": 2.243245389451807e-08,
+    "future_regret": 1.3008923767037325e-07,
+    "realized_hypothesis_brier": 1.02051698,
+    "realized_future_brier": 0.579121
+  },
+  {
+    "case_id": "SC031",
+    "arm": "oracle_readout",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 0.0,
+    "future_regret": 1.2248533425497912e-11,
+    "realized_hypothesis_brier": 0.17002868541697597,
+    "realized_future_brier": 0.0007562499999999982
+  },
+  {
+    "case_id": "SC030",
+    "arm": "oracle_readout",
+    "stratum": "unequal_precision",
+    "posterior_regret": 0.0,
+    "future_regret": 9.817389523934172e-10,
+    "realized_hypothesis_brier": 0.31593012402466025,
+    "realized_future_brier": 0.2903054399999999
+  },
+  {
+    "case_id": "SC031",
+    "arm": "contrastive_audit",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 4.38645000928261e-09,
+    "future_regret": 2.205711421799173e-05,
+    "realized_hypothesis_brier": 0.16998200000000002,
+    "realized_future_brier": 0.000519840000000002
+  },
+  {
+    "case_id": "SC011",
+    "arm": "contrastive_audit",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 1.1716769357899658e-08,
+    "future_regret": 0.022503864684699355,
+    "realized_hypothesis_brier": 1.21503264,
+    "realized_future_brier": 0.7089639999999999
+  },
+  {
+    "case_id": "SC021",
+    "arm": "calibration_checklist",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.572107619807749e-10,
+    "future_regret": 1.7751179310436807e-06,
+    "realized_hypothesis_brier": 1.2080000000000138e-05,
+    "realized_future_brier": 0.0044756100000000005
+  },
+  {
+    "case_id": "SC005",
+    "arm": "oracle_readout",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.8934119968597865e-16,
+    "future_regret": 8.388306761437273e-10,
+    "realized_hypothesis_brier": 1.9831185168809773e-06,
+    "realized_future_brier": 0.004489000000000001
+  },
+  {
+    "case_id": "SC024",
+    "arm": "contrastive_audit",
+    "stratum": "replications",
+    "posterior_regret": 7.527177411915155e-12,
+    "future_regret": 5.339939491022524e-08,
+    "realized_hypothesis_brier": 2.620910322980741e-05,
+    "realized_future_brier": 0.026049959999999997
+  },
+  {
+    "case_id": "SC029",
+    "arm": "calibration_checklist",
+    "stratum": "design_contrast",
+    "posterior_regret": 2.987589345674511e-08,
+    "future_regret": 9.581743331356513e-09,
+    "realized_hypothesis_brier": 0.0038933645999999988,
+    "realized_future_brier": 0.03591025
+  },
+  {
+    "case_id": "SC018",
+    "arm": "generic_review",
+    "stratum": "unequal_precision",
+    "posterior_regret": 2.3499421873621278e-07,
+    "future_regret": 0.10814312724356723,
+    "realized_hypothesis_brier": 0.002738000000000002,
+    "realized_future_brier": 0.263169
+  },
+  {
+    "case_id": "SC026",
+    "arm": "calibration_checklist",
+    "stratum": "unequal_precision",
+    "posterior_regret": 1.2544841819292123e-09,
+    "future_regret": 3.8400863756981134e-11,
+    "realized_hypothesis_brier": 6.272000000000055e-05,
+    "realized_future_brier": 0.004583289999999999
+  },
+  {
+    "case_id": "SC002",
+    "arm": "contrastive_audit",
+    "stratum": "unequal_precision",
+    "posterior_regret": 0.00036610360595901105,
+    "future_regret": 5.6053790209192375e-08,
+    "realized_hypothesis_brier": 1.0963843199999999,
+    "realized_future_brier": 3.6e-05
+  },
+  {
+    "case_id": "SC007",
+    "arm": "calibration_checklist",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 0.00022510498377682317,
+    "future_regret": 1.28981410550568e-06,
+    "realized_hypothesis_brier": 0.00026955724806423736,
+    "realized_future_brier": 0.00061009
+  },
+  {
+    "case_id": "SC018",
+    "arm": "oracle_readout",
+    "stratum": "unequal_precision",
+    "posterior_regret": 3.6600024472308195e-09,
+    "future_regret": 2.2868568160841335e-08,
+    "realized_hypothesis_brier": 0.0027825799999999998,
+    "realized_future_brier": 0.03396649000000001
+  },
+  {
+    "case_id": "SC008",
+    "arm": "contrastive_audit",
+    "stratum": "replications",
+    "posterior_regret": 2.8034710882454786e-08,
+    "future_regret": 8.946462064283265e-10,
+    "realized_hypothesis_brier": 0.31183358,
+    "realized_future_brier": 0.21996099999999996
+  },
+  {
+    "case_id": "SC001",
+    "arm": "generic_review",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.1055500750793567e-06,
+    "future_regret": 6.289508714228137e-07,
+    "realized_hypothesis_brier": 0.6425374260894078,
+    "realized_future_brier": 0.19998784000000003
+  },
+  {
+    "case_id": "SC024",
+    "arm": "oracle_readout",
+    "stratum": "replications",
+    "posterior_regret": 4.546408984412743e-14,
+    "future_regret": 1.0961601309468715e-07,
+    "realized_hypothesis_brier": 2.623304599999944e-05,
+    "realized_future_brier": 0.02601769
+  },
+  {
+    "case_id": "SC031",
+    "arm": "calibration_checklist",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 4.38645000928261e-09,
+    "future_regret": 2.4651245805028504e-07,
+    "realized_hypothesis_brier": 0.16998200000000002,
+    "realized_future_brier": 0.0007290000000000013
+  },
+  {
+    "case_id": "SC027",
+    "arm": "contrastive_audit",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 5.435247179402984e-09,
+    "future_regret": 1.2953788273067137e-09,
+    "realized_hypothesis_brier": 0.6195024199999999,
+    "realized_future_brier": 0.3999297600000001
+  },
+  {
+    "case_id": "SC018",
+    "arm": "calibration_checklist",
+    "stratum": "unequal_precision",
+    "posterior_regret": 2.3499421873621278e-07,
+    "future_regret": 2.2134426086842174e-08,
+    "realized_hypothesis_brier": 0.002738000000000002,
+    "realized_future_brier": 0.03385600000000002
+  },
+  {
+    "case_id": "SC003",
+    "arm": "calibration_checklist",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 3.378523497556331e-08,
+    "future_regret": 2.00692912814377e-08,
+    "realized_hypothesis_brier": 0.01932578000000001,
+    "realized_future_brier": 0.051076
+  },
+  {
+    "case_id": "SC005",
+    "arm": "generic_review",
+    "stratum": "design_contrast",
+    "posterior_regret": 1.542648551644638e-11,
+    "future_regret": 8.388306761437273e-10,
+    "realized_hypothesis_brier": 1.994077999999895e-06,
+    "realized_future_brier": 0.004489000000000001
+  },
+  {
+    "case_id": "SC020",
+    "arm": "generic_review",
+    "stratum": "replications",
+    "posterior_regret": 2.503740173623379e-08,
+    "future_regret": 2.0909066814408088e-07,
+    "realized_hypothesis_brier": 9.800000000000474e-07,
+    "realized_future_brier": 0.025153959999999996
+  },
+  {
+    "case_id": "SC007",
+    "arm": "generic_review",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 4.284932572613284e-10,
+    "future_regret": 1.841444405842138e-08,
+    "realized_hypothesis_brier": 2.000000000000002e-06,
+    "realized_future_brier": 0.00056169
+  },
+  {
+    "case_id": "SC007",
+    "arm": "oracle_readout",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 0.0,
+    "future_regret": 2.088474528168301e-09,
+    "realized_hypothesis_brier": 2.0013752510726544e-06,
+    "realized_future_brier": 0.0005574321
+  },
+  {
+    "case_id": "SC015",
+    "arm": "generic_review",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 2.7356887856028433e-07,
+    "future_regret": 8.088402787884268e-08,
+    "realized_hypothesis_brier": 0.4704648892699378,
+    "realized_future_brier": 0.25735328999999996
+  },
+  {
+    "case_id": "SC006",
+    "arm": "contrastive_audit",
+    "stratum": "unequal_precision",
+    "posterior_regret": 0.06177614384912272,
+    "future_regret": 0.014414323085788728,
+    "realized_hypothesis_brier": 0.532512,
+    "realized_future_brier": 0.261121
+  },
+  {
+    "case_id": "SC001",
+    "arm": "calibration_checklist",
+    "stratum": "design_contrast",
+    "posterior_regret": 4.029762298250876e-07,
+    "future_regret": 0.00013209052537341954,
+    "realized_hypothesis_brier": 0.6427008599999999,
+    "realized_future_brier": 0.19053225
+  },
+  {
+    "case_id": "SC016",
+    "arm": "calibration_checklist",
+    "stratum": "replications",
+    "posterior_regret": 5.4761883913944e-07,
+    "future_regret": 1.5527886646296418e-10,
+    "realized_hypothesis_brier": 5.599999999999207e-07,
+    "realized_future_brier": 0.004462239999999996
+  },
+  {
+    "case_id": "SC002",
+    "arm": "calibration_checklist",
+    "stratum": "unequal_precision",
+    "posterior_regret": 5.262690173454972e-05,
+    "future_regret": 1.8702426888083007e-08,
+    "realized_hypothesis_brier": 1.071648,
+    "realized_future_brier": 3.7210000000000005e-05
+  },
+  {
+    "case_id": "SC012",
+    "arm": "generic_review",
+    "stratum": "replications",
+    "posterior_regret": 5.673076675148174e-11,
+    "future_regret": 1.566534188294997e-10,
+    "realized_hypothesis_brier": 2.479999999999949e-06,
+    "realized_future_brier": 0.00052441
+  },
+  {
+    "case_id": "SC023",
+    "arm": "calibration_checklist",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 5.913866695103962e-09,
+    "future_regret": 1.4900233306115043e-08,
+    "realized_hypothesis_brier": 0.9852722600000001,
+    "realized_future_brier": 0.36264483999999997
+  },
+  {
+    "case_id": "SC024",
+    "arm": "calibration_checklist",
+    "stratum": "replications",
+    "posterior_regret": 3.467024824897974e-09,
+    "future_regret": 4.749540356813071e-09,
+    "realized_hypothesis_brier": 2.563520000000034e-05,
+    "realized_future_brier": 0.026146889999999985
+  },
+  {
+    "case_id": "SC007",
+    "arm": "contrastive_audit",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 4.284932572613284e-10,
+    "future_regret": 0.0018693257398524354,
+    "realized_hypothesis_brier": 2.000000000000002e-06,
+    "realized_future_brier": 0.00446224
+  },
+  {
+    "case_id": "SC019",
+    "arm": "contrastive_audit",
+    "stratum": "duplicate_reports",
+    "posterior_regret": 1.8495351574520714e-07,
+    "future_regret": 0.013395401877978838,
+    "realized_hypothesis_brier": 0.670586,
+    "realized_future_brier": 0.31696899999999995
+  }
+]
