@@ -1,0 +1,33 @@
+{
+  "protocol": "recipient-specific-v1",
+  "status": "design_snapshot_not_collection_freeze",
+  "prepared_utc_date": "2026-10-14",
+  "baseline_commit": "fa7db88a75fe48ebcf192b1973711524b0e7a712",
+  "n_requests": 1760,
+  "n_scenarios": 24,
+  "kind_counts": {
+    "primary": 1536,
+    "control": 128,
+    "repeat": 96
+  },
+  "n_distinct_request_bodies": 1664,
+  "items_jsonl_sha256": "feb19cca0e24daa83156bdcc4befc4a373a44f771025d2ab553497717a497180",
+  "request_bodies_jsonl_sha256": "a30b3eb9a3a59fbdeae34e75627b2646ad09ea5701aa4e232260744f46159b69",
+  "source_sha256": {
+    "docs/recipient-specific-v1.md": "7fe048339b7df6eefa6b6d2761788967d5b7333e3ba9d5ca66fd263f9a2e882f",
+    "protocols/recipient-specific-v1-scenarios.json": "0c33ef8d4b9a862e57ddd3bf595501b1ccc6fc42e832c5e37cc838f58f08e0e9",
+    "docs/recipient-specific-v1-samples.md": "828193bbe79a1b9baa988db34ce7298dbbf3f15fc1476aa1f273387c89d7c4f9",
+    "src/wtrbench/paired/recipient_design.py": "ca55b806af10734da27c238b575d38813a9fa9e9210a453a06317593a2f01046",
+    "src/wtrbench/paired/natural.py": "c553b8385cadee14076b444a7b49a4425c4155d7a6a7cd6e65deae6888d432e4",
+    "tests/test_recipient_design.py": "54b3d7c476ddb5782fbe58c5ec2322171885b0382d98ff31a78f04f405e0c99d"
+  },
+  "collection_implemented": false,
+  "design_budget_usd": 25,
+  "planning_input_tokens_per_request": 2000,
+  "max_output_tokens_per_request": 256,
+  "standard_price_usd_per_million": {
+    "input": 3,
+    "output": 15
+  },
+  "conditional_planning_ceiling_usd": 17.3184
+}
