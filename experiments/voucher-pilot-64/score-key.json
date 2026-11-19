@@ -1,0 +1,962 @@
+{
+  "bcfd1a0a4f0c363d4e5a": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "911e32f480342504c1bc": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "d1ee68238c07e4ae282a": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "cf92c28b6bcd5e3215d5": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "d104e040d82717d960db": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "00beb0006e27a21fecf3": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "029ec0faffb2393dfc24": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "8691d23c65411be337ff": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "a74ec330913d0b8f7838": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "b6582574bffa127f929e": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "80cdfbe5061622d8ffc6": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "176e44213c79040e7a75": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "bcda6a2d4746daa4fb9f": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "cd08d1106a212d7d9390": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "4bedf714c70668a2b03f": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "255832d61789a3eef65e": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "0941caa0e8eb82095740": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "75ebcfcebb9ef3063b99": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "c86019360f50baecfa24": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "ee85f14c49b1f792f68a": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "f047b286c0579e04222c": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "af05af5199eb367d209d": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "606934666fcc55be68a6": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "d3267bdf8affe7a561d1": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "953ef0526014c1b549a8": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "6cf7b21a12dd4adf5d80": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "66d239ef6ac44a8f067b": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "c5207b2cd477ad9af8c6": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "873598a9ee07aad43da9": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "f291e11c0e221b4a8470": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "ee7403094f15f1616068": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "29dd3d2c9565f623d2db": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "38479995dcd9aacf8e9c": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "66cd50356d8caabddaac": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "9eefbce21de575d0ac97": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "70cb86e31ddc659dc862": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "ddfd24039a99ddbb55fa": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "065b66ca1f26e014854e": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "def39e8c386ec46c76ab": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "b639e021f17006f0c7bb": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "5d00dd964becd82f7bb8": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "14622c770a4b958d7d1a": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "4eed4157b8a6400c958e": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "17c76af94c0bb08ca8eb": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "dae4c81cb717ae2ff529": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "b6afabf0de0bce1a7cfa": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "2e4d20ce32911382ab95": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "96b165493efd0c7d6b17": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "30d3e097cc24408fdbd2": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "b52bc93c2aaf9f31a437": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "94fd43f929afe0ca9879": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "261db04ea78dd9633416": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "58d7541402014e957764": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "0b86ae9485eae0e9e002": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "e5454657fef317bb9731": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "2d8b51780fd79f66e01d": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "a0470b14dedb50b5a8ed": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "2c888d5c628bf17bb719": {
+    "probe": "actual_delivery",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "30785e7c7250e031c3fc": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "8c5906b348688e7ec119": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan."
+    ]
+  },
+  "0b4e9e14a4c11526ea99": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Jordan. The clerk delivered Sam's voucher to Alex.",
+      "Priya selected Alex. The clerk delivered Priya's voucher to Jordan."
+    ]
+  },
+  "f70d10725f3f27f4e1eb": {
+    "probe": "actual_delivery",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Priya",
+    "delivered_to_target": "Sam",
+    "target": "Jordan",
+    "history": [
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan.",
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex."
+    ]
+  },
+  "2bca8ddf657ad7613094": {
+    "probe": "future_choice",
+    "delivery": "aligned",
+    "option_names": [
+      "Priya",
+      "Sam"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Sam",
+    "target": "Alex",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Jordan.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Alex."
+    ]
+  },
+  "6b9e493e523076831e81": {
+    "probe": "future_choice",
+    "delivery": "swapped",
+    "option_names": [
+      "Sam",
+      "Priya"
+    ],
+    "chose_target": "Sam",
+    "delivered_to_target": "Priya",
+    "target": "Alex",
+    "history": [
+      "Priya selected Jordan. The clerk delivered Priya's voucher to Alex.",
+      "Sam selected Alex. The clerk delivered Sam's voucher to Jordan."
+    ]
+  }
+}
