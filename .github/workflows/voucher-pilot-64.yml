@@ -1,0 +1,43 @@
+name: Voucher choice and delivery pilot
+on:
+  push:
+    branches: [experiment/voucher-pilot-64]
+    paths: [.github/workflows/voucher-pilot-64.yml]
+permissions:
+  contents: read
+concurrency:
+  group: voucher-pilot-64
+  cancel-in-progress: false
+jobs:
+  collect:
+    if: github.event.before == 'bacaf04e6522dd786962eb26d1e2f1e355624f79' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    defaults:
+      run:
+        working-directory: experiments/voucher-pilot-64
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify the frozen files and run offline tests
+        run: |
+          sha256sum -c SHA256SUMS
+          python3 pilot.py check
+          python3 -m unittest -v test_pilot
+      - name: Collect the 64 fixed prompts under the one-dollar guard
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+        run: python3 pilot.py collect
+      - name: Score all available responses
+        if: always() && hashFiles('experiments/voucher-pilot-64/pilot-records.sqlite3') != ''
+        run: python3 pilot.py report
+      - name: Preserve the response ledger and scores
+        uses: actions/upload-artifact@v4
+        if: always() && hashFiles('experiments/voucher-pilot-64/pilot-records.sqlite3') != ''
+        with:
+          name: voucher-pilot-results-${{ github.run_id }}
+          path: |
+            experiments/voucher-pilot-64/pilot-records.sqlite3
+            experiments/voucher-pilot-64/report.json
+          retention-days: 90
