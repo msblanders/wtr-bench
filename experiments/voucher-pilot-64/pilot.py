@@ -1,14 +1,15 @@
 """Run or score the frozen 64-prompt pilot. Python 3.10+, standard library."""
+
 import argparse
 import hashlib
 import http.client
 import json
 import os
 import re
-from pathlib import Path
 import sqlite3
+import time
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 MODEL = "claude-sonnet-4-5-20250929"
@@ -144,9 +145,13 @@ def decode(raw):
         if block["type"] != "text":
             return "invalid"
         value = json.loads(block["text"], object_pairs_hook=unique_fields)
-        if list(value) == ["brief_basis", "answer"] and isinstance(value["brief_basis"], str) and value["brief_basis"].strip():
-            if value["answer"] in ("A", "B", "C", "D"):
-                return value["answer"]
+        if (
+            list(value) == ["brief_basis", "answer"]
+            and isinstance(value["brief_basis"], str)
+            and value["brief_basis"].strip()
+            and value["answer"] in ("A", "B", "C", "D")
+        ):
+            return value["answer"]
     except (KeyError, TypeError, ValueError):
         pass
     return "invalid"
@@ -191,7 +196,7 @@ def score(rows, records):
         event_orders[(k["probe"], tuple(sorted(h)), opts, k["target"])].append(result)
         prompt = r["body"]["messages"][0]["content"]
         for field, (left, right) in (("helpers", ("Sam", "Priya")), ("recipients", ("Alex", "Jordan"))):
-            flipped = re.sub(rf"\b({left}|{right})\b", lambda m: right if m[0] == left else left, prompt)
+            flipped = re.sub(rf"\b({left}|{right})\b", lambda m, a=left, b=right: b if m[0] == a else a, prompt)
             name_swaps[field][min(prompt, flipped)].append(result)
         item_rows.append(dict(id=ident, answer=answer, category=result, **k))
     valid = {"both", "chosen_only", "delivered_only", "neither", "actual_donor", "other_donor",
@@ -229,7 +234,7 @@ def main():
     if args.mode == "collect":
         if not os.environ.get("ANTHROPIC_API_KEY"):
             raise SystemExit("Collection requires ANTHROPIC_API_KEY in the execution environment.")
-        if datetime.now(timezone.utc).date().isoformat() >= "2026-11-30":
+        if time.strftime("%Y-%m-%d", time.gmtime()) >= "2026-11-30":
             raise SystemExit("The planned retirement date has arrived. No model substitution is configured.")
         import fcntl
         lock = (ROOT / "collection.lock").open("a")

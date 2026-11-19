@@ -1,6 +1,6 @@
 """Offline fixtures use synthetic answers only. No keys or network required."""
+
 import json
-import sqlite3
 import tempfile
 import unittest
 from pathlib import Path
