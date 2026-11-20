@@ -1,0 +1,11 @@
+0b9ca1971c1b13cb30bbc176ffe159696f5dc3967ed7d361b64c6b98f94901ec  README.md
+dcff70324e32ef4719b64be2777b0e580363bb1e4aa047c61fe209dc193b4164  order_study.py
+367e3593653af8c0403a2c6c70fd5add7e8b957fc63973d9c4ff9b5771913892  test_order.py
+289eb151cdf47131006a0d2a5a26498b0aabe383a42a56ba0c4272613e932932  freeze.json
+912e0537a6e4d717fd6a402ffaebe247ad88466d059698d39e041fa39e824b9f  ../sealed-choice-v1/sealed_materials.py
+84235907d00407f65e9cc7fab15a773437791457b4a0d164bc1dc66aa012f2f9  ../sealed-choice-v1/run_study.py
+7044c152af4a7ad40d2bf59ea7b484b6dcecca108c599fef44fccc6eed6f2c0f  ../sealed-choice-v1/test_sealed.py
+84f23179310552dc119428df650ecac6d64cfd98f477d710fbba279906141475  ../indirect-benefit-v1/study.py
+b713ffdf8416706c08c4291da8712dd8f57d0eb0e4218d5a29ae0e813c4897fa  ../indirect-benefit-v1/materials.py
+58f3e93855dd68214d659a8e3949d5d455d18a07c73eb57d7f718cd72d0c72f9  ../voucher-pilot-64/pilot.py
+c553b8385cadee14076b444a7b49a4425c4155d7a6a7cd6e65deae6888d432e4  ../../src/wtrbench/paired/natural.py
