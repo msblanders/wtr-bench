@@ -16,7 +16,7 @@ from materials import STORIES, items
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 sys.path.insert(0, str(REPO / "src"))
-from wtrbench.paired.natural import request_body  # noqa: E402
+from wtrbench.paired.natural import request_body
 
 
 def wire(x):
