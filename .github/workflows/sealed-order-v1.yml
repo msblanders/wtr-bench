@@ -1,0 +1,44 @@
+name: Recipient order and helper assignment
+on:
+  push:
+    branches: [experiment/sealed-order-v1]
+    paths: [.github/workflows/sealed-order-v1.yml]
+permissions:
+  contents: read
+concurrency:
+  group: sealed-order-v1
+  cancel-in-progress: false
+jobs:
+  collect:
+    if: github.event.before == 'ada6751241af0221253404298f8ad1ebc07ce08e' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    defaults:
+      run:
+        working-directory: experiments/sealed-order-v1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify the frozen files and run offline tests
+        run: |
+          sha256sum -c SHA256SUMS
+          python3 order_study.py check
+          python3 -m unittest -v test_order
+      - name: Collect the 96 fixed trials under the one-dollar guard
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+        run: python3 order_study.py collect
+      - name: Score all available responses
+        if: always() && hashFiles('experiments/sealed-order-v1/run/records.sqlite3') != ''
+        run: python3 order_study.py report
+      - name: Preserve the response ledger and scores
+        uses: actions/upload-artifact@v4
+        if: always() && hashFiles('experiments/sealed-order-v1/run/records.sqlite3') != ''
+        with:
+          name: sealed-order-results-${{ github.run_id }}
+          path: |
+            experiments/sealed-order-v1/run/records.sqlite3
+            experiments/sealed-order-v1/run/report.json
+            experiments/sealed-order-v1/run/requests.jsonl
+          retention-days: 90
