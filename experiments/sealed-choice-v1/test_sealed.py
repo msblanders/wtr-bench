@@ -30,7 +30,7 @@ class Design(unittest.TestCase):
 
     def test_independent_scenarios_and_exact_repeats(self):
         self.assertEqual(len(self.rows), 72)
-        self.assertEqual(len(set(r["id"] for r in self.rows)), 72)
+        self.assertEqual(len({r["id"] for r in self.rows}), 72)
         self.assertEqual(Counter(Counter(wire(r["body"]) for r in self.rows).values()), {2: 24, 1: 24})
         pairs = defaultdict(dict)
         balance = defaultdict(Counter)
