@@ -1,0 +1,44 @@
+name: Sealed decision and later coin toss
+on:
+  push:
+    branches: [experiment/sealed-choice-v1]
+    paths: [.github/workflows/sealed-choice-v1.yml]
+permissions:
+  contents: read
+concurrency:
+  group: sealed-choice-v1
+  cancel-in-progress: false
+jobs:
+  collect:
+    if: github.event.before == 'f7c41aae2d32aa2701fa54b1abe7f96686e8b045' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    defaults:
+      run:
+        working-directory: experiments/sealed-choice-v1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify the frozen files and run offline tests
+        run: |
+          sha256sum -c SHA256SUMS
+          python3 run_study.py check
+          python3 -m unittest -v test_sealed
+      - name: Collect the 72 fixed trials under the one-dollar guard
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.WTR_BENCH || secrets.ANTHROPIC_API_KEY }}
+        run: python3 run_study.py collect
+      - name: Score all available responses
+        if: always() && hashFiles('experiments/sealed-choice-v1/run/records.sqlite3') != ''
+        run: python3 run_study.py report
+      - name: Preserve the response ledger and scores
+        uses: actions/upload-artifact@v4
+        if: always() && hashFiles('experiments/sealed-choice-v1/run/records.sqlite3') != ''
+        with:
+          name: sealed-choice-results-${{ github.run_id }}
+          path: |
+            experiments/sealed-choice-v1/run/records.sqlite3
+            experiments/sealed-choice-v1/run/report.json
+            experiments/sealed-choice-v1/run/requests.jsonl
+          retention-days: 90
